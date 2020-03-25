@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>hexo中markdown文档自动编号</title>
+    <link href="/2020/03/26/normal/md%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/"/>
+    <url>/2020/03/26/normal/md%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/</url>
+    
+    <content type="html"><![CDATA[<h1 id="hexo中markdown文档自动编号"><a href="#hexo中markdown文档自动编号" class="headerlink" title="hexo中markdown文档自动编号"></a>hexo中markdown文档自动编号</h1><h2 id="css实现原理"><a href="#css实现原理" class="headerlink" title="css实现原理"></a>css实现原理</h2><p>有时候我们需要对文章进行编号，例如：</p><pre><code>1 标题11.1 标题1.11.1.1 标题1.1.11.2 标题1.2</code></pre><p>但是这在<code>hexo</code>是不支持的，需要自己开发，查阅了资料，发现可以利用css的计数器(counter)来实现此功能。</p><p>在css里，我们可以声明一个计数器，假设其名称为counter_xxx，那么我们可以使用counter()函数获得它当前的值。</p><pre><code>counter(counter_xxx);</code></pre><p>与此同时，我们可以使用counter-reset属性指定需要重置的计数器，使用counter-increment属性指定计数加一的计数器。</p><pre><code>h1 {    counter-increment: counter_h1;    counter-reset: counter_h2;}</code></pre><p>如上代码所示，每有一个h1出现时，计数器counter_h1的值就会加一，而counter_h2的值就会重置为0。我们刚好可以利用这个，配合伪类选择器:before来实现标题的自动编号。</p><h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><p><strong>代码详情：</strong></p><pre><code class="css">h2 {    counter-increment: counter_h2;    counter-reset: counter_h3;}h2 .headerlink:before {    content: counter(counter_h2)&quot;　&quot;;}h3 {    counter-increment: counter_h3;    counter-reset: counter_h4;}h3 .headerlink:before {    content: counter(counter_h2)&quot;.&quot;counter(counter_h3)&quot;　&quot;;}h4 {    counter-increment: counter_h4;    counter-reset: counter_h5;}h4 .headerlink:before {    content: counter(counter_h2)&quot;.&quot;counter(counter_h3)&quot;.&quot;counter(counter_h4)&quot;　&quot;;}</code></pre><p><strong>注意：</strong></p><ul><li><p><code>h4 .headerlink:before</code>这个是具体展现的<code>css</code>，你可根据自生情况来说。</p></li><li><p>这里我是从<code>h2</code>开始编号的，如果需要，你也可以从<code>h1</code>开始编号。</p></li></ul><p><strong>展现效果：</strong></p><h2 id="h2标题"><a href="#h2标题" class="headerlink" title="h2标题"></a>h2标题</h2><h3 id="h3标题"><a href="#h3标题" class="headerlink" title="h3标题"></a>h3标题</h3><h4 id="h4标题"><a href="#h4标题" class="headerlink" title="h4标题"></a>h4标题</h4><h4 id="h4标题-1"><a href="#h4标题-1" class="headerlink" title="h4标题"></a>h4标题</h4><h4 id="h4标题-2"><a href="#h4标题-2" class="headerlink" title="h4标题"></a>h4标题</h4><h3 id="h3标题-1"><a href="#h3标题-1" class="headerlink" title="h3标题"></a>h3标题</h3><h4 id="h4标题-3"><a href="#h4标题-3" class="headerlink" title="h4标题"></a>h4标题</h4><h4 id="h4标题-4"><a href="#h4标题-4" class="headerlink" title="h4标题"></a>h4标题</h4><h2 id="h2标题-1"><a href="#h2标题-1" class="headerlink" title="h2标题"></a>h2标题</h2><h3 id="h3标题-2"><a href="#h3标题-2" class="headerlink" title="h3标题"></a>h3标题</h3><h4 id="h4标题-5"><a href="#h4标题-5" class="headerlink" title="h4标题"></a>h4标题</h4>]]></content>
+    
+    
+    <categories>
+      
+      <category>随笔</category>
+      
+    </categories>
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>java合并图片</title>
     <link href="/2020/03/25/Java/tools/java%E5%90%88%E5%B9%B6%E5%9B%BE%E7%89%87/"/>
     <url>/2020/03/25/Java/tools/java%E5%90%88%E5%B9%B6%E5%9B%BE%E7%89%87/</url>
