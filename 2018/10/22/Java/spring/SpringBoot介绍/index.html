@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>SpringBoot2.0整合Activiti6.0问题梳理 - 硒恩园</title>
+  <title>SpringBoot介绍 - 硒恩园</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -140,7 +140,7 @@
               
                 <p class="mt-3 post-meta">
                   <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期四, 五月 23日 2019, 9:49 上午
+                  星期一, 十月 22日 2018, 10:40 晚上
                 </p>
               
 
@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    1.2k 字
+                    976 字
                   </span>
                 
 
@@ -157,7 +157,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      6 分钟
+                      3 分钟
                   </span>
                 
 
@@ -189,80 +189,50 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h1 id="SpringBoot2-0整合Activiti6-0问题梳理"><a href="#SpringBoot2-0整合Activiti6-0问题梳理" class="headerlink" title="SpringBoot2.0整合Activiti6.0问题梳理"></a>SpringBoot2.0整合Activiti6.0问题梳理</h1><p>SpringBoot整合Activiti很简单，我们可以通过springboot的starter来快速整合，只需要在pom文件中引入一下内容即可：</p>
-<pre><code>&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;version&gt;6.0.0&lt;/version&gt;
-&lt;/dependency&gt;</code></pre><p>详细源码请见:<a href="https://github.com/jiangliuhong/springcloud-stu/tree/master/scs-act" target="_blank" rel="noopener">https://github.com/jiangliuhong/springcloud-stu/tree/master/scs-act</a></p>
-<p>在Activiti6.0发布的时候，SpringBoot2.0还未发布，所以直接启动，会出现如下错误:</p>
-<pre><code>org.springframework.beans.factory.BeanCreationException: Error creating bean with name &#39;requestMappingHandlerMapping&#39; defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Invocation of init method failed; nested exception is java.lang.ArrayStoreException: sun.reflect.annotation.TypeNotPresentExceptionProxy
-    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1706) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:579) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:501) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:317) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:315) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:760) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:869) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550) ~[spring-context-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-    at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:759) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-    at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:395) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-    at org.springframework.boot.SpringApplication.run(SpringApplication.java:327) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1255) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-    at org.springframework.boot.SpringApplication.run(SpringApplication.java:1243) [spring-boot-2.0.2.RELEASE.jar:2.0.2.RELEASE]
-    at pers.jarome.scs.act.ActApplication.main(ActApplication.java:17) [classes/:na]
-Caused by: java.lang.ArrayStoreException: sun.reflect.annotation.TypeNotPresentExceptionProxy
-    at sun.reflect.annotation.AnnotationParser.parseClassArray(AnnotationParser.java:724) ~[na:1.8.0_181]
-    at sun.reflect.annotation.AnnotationParser.parseArray(AnnotationParser.java:531) ~[na:1.8.0_181]
-    at sun.reflect.annotation.AnnotationParser.parseMemberValue(AnnotationParser.java:355) ~[na:1.8.0_181]
-    at sun.reflect.annotation.AnnotationParser.parseAnnotation2(AnnotationParser.java:286) ~[na:1.8.0_181]
-    at sun.reflect.annotation.AnnotationParser.parseAnnotations2(AnnotationParser.java:120) ~[na:1.8.0_181]
-    at sun.reflect.annotation.AnnotationParser.parseAnnotations(AnnotationParser.java:72) ~[na:1.8.0_181]
-    at java.lang.Class.createAnnotationData(Class.java:3521) ~[na:1.8.0_181]
-    at java.lang.Class.annotationData(Class.java:3510) ~[na:1.8.0_181]
-    at java.lang.Class.createAnnotationData(Class.java:3526) ~[na:1.8.0_181]
-    at java.lang.Class.annotationData(Class.java:3510) ~[na:1.8.0_181]
-    at java.lang.Class.getAnnotation(Class.java:3415) ~[na:1.8.0_181]
-    at java.lang.reflect.AnnotatedElement.isAnnotationPresent(AnnotatedElement.java:258) ~[na:1.8.0_181]
-    at java.lang.Class.isAnnotationPresent(Class.java:3425) ~[na:1.8.0_181]
-    at org.springframework.core.annotation.AnnotatedElementUtils.hasAnnotation(AnnotatedElementUtils.java:573) ~[spring-core-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.isHandler(RequestMappingHandlerMapping.java:177) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.initHandlerMethods(AbstractHandlerMethodMapping.java:217) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.web.servlet.handler.AbstractHandlerMethodMapping.afterPropertiesSet(AbstractHandlerMethodMapping.java:188) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping.afterPropertiesSet(RequestMappingHandlerMapping.java:129) ~[spring-webmvc-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1765) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1702) ~[spring-beans-5.0.6.RELEASE.jar:5.0.6.RELEASE]
-    ... 16 common frames omitted</code></pre><p>查阅网上资料得知是因为，Activiti6.0发布时，SpringBoot2.0 并没有发布，所以Activiti6.0仅支持1.2.6以上，2.0.0以下版本的SpringBoot。</p>
-<p>通过调试（调试方式可以参照这一篇博客：<a href="http://hengyunabc.github.io/spring-boot-ArrayStoreException/" target="_blank" rel="noopener">深入Spring Boot：怎样排查 java.lang.ArrayStoreException</a>）查看源码很容易发现<code>SecurityAutoConfiguration</code>源码因为SpringBoot内部结构的变化，从而引起该类出现编译错误。</p>
-<p>针对这一类情况有三种解决办法，分别如下：</p>
+              <h1 id="SpringBoot介绍"><a href="#SpringBoot介绍" class="headerlink" title="SpringBoot介绍"></a>SpringBoot介绍</h1><blockquote>
+<p>Spring框架为我们提供了多种解决方案，但在使用它的时候总免不了进行导包、配置等操作。于是在2012年10月，有人提出了新需求，要求在Spring框架中支持无容器Web应用程序体系结构，即无不需要将项目打包后放置在中间件中，直接通过main方法引导的Spring容器内配置Web容器服务。 于是，2014年4月,SpringBoot正式发布。</p>
+</blockquote>
+<h2 id="SpringBoot四大特性"><a href="#SpringBoot四大特性" class="headerlink" title="SpringBoot四大特性"></a>SpringBoot四大特性</h2><p>在Spring官网这样说到：</p>
+<p>SpringBoot可以轻松创建一个独立的、基于昌平级别的Spring应用程序，我们可以不依赖服务器中间件，直接运行程序。我们的目标是：</p>
 <ul>
-<li>将springboot2.0换成1.X版本</li>
-<li>在springboot启动类上排除<code>SecurityAutoConfiguration</code>类</li>
-<li>修改SecurityAutoConfiguration源码，使其支持SpringBoot2.0</li>
+<li>为所有Spring开发提供一个从根本上更快，且随处可得的入门体验。</li>
+<li>开箱即用，但通过不采用默认设置可以快速摆脱这种方式。</li>
+<li>提供一系列大型项目常用的非功能性特征，比如：内嵌服务器，安全，指标，健康检测，外部化配置。</li>
+<li>绝对没有代码生成，也不需要XML配置。</li>
 </ul>
-<p>对于上诉的三种方法，第一种最为简单，直接切换版本即可，但这样就不能使用SpringBoot2.0的特性，所以并不推荐；对于第三种方法，我认为难度较大，且具备极大的风险，并且Activiti的更高版本肯定也会修复，所以也不推荐该方法。</p>
-<p>所以，最优的方法当属第二种，其具体操作如下：</p>
-<pre><code>@SpringBootApplication(exclude = org.activiti.spring.boot.SecurityAutoConfiguration.class)
-public class ActApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ActApplication.class);
-    }
-}
-public class ActApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ActApplication.class);
-    }
-}</code></pre><p>但是，如果你的启动类中加入了<code>@EnableAutoConfiguration</code>注解，上面的方法就失效了，此时应该使用下面的方式：</p>
-<pre><code>@SpringBootApplication
-@EnableAutoConfiguration(exclude =   org.activiti.spring.boot.SecurityAutoConfiguration.class)
-public class ActApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ActApplication.class);
-    }
-}</code></pre><p>详细源码请见:<a href="https://github.com/jiangliuhong/springcloud-stu/tree/master/scs-act" target="_blank" rel="noopener">https://github.com/jiangliuhong/springcloud-stu/tree/master/scs-act</a></p>
+<p>在我看来SpringBoot其实并不是一个新的框架，它更像是一个总指挥，能够按照我的需求去引入框架，比如，我需要使用SpringMVC，对于SpringBoot而言，我只需要引入一个spring-boot-starter-web，它就会默认去帮我把SpringMVC，tomcat等等都引入到我的工程里。</p>
+<p>SpringBoot主要提供了四个特性，也正是这四个特性才能改变开发Spring引用程序的方式：</p>
+<ul>
+<li>SpringBoot Starter：它将常用的依赖分组进行了整合，将其合并到一个依赖中，这样可以一次性添加所有的依赖到项目中，注意，这里一般指的是Maven或Gradle。</li>
+<li>自动配置：SpringBoot的自动配置特性利用了Spring4对条件华配置的支持，合理地推测应用所需的Bean并自动化配置他们。</li>
+<li>命令行接口（Command-line interface,即<code>CLI</code>）：SpringBoot的CLI发挥了Groovy编程语言的优势，并结合自动配置进一步简化Spring应用的开发。</li>
+<li>Actuator：它为SprigBoot应用添加了一定的管理特性。</li>
+</ul>
+<h2 id="SpringBoot优缺点"><a href="#SpringBoot优缺点" class="headerlink" title="SpringBoot优缺点"></a>SpringBoot优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>SpringBoot的优点其实可以看做是基于上文四点衍生出来的。</p>
+<ul>
+<li>简化依赖，避免了我们手动去配置Maven/Gradle依赖，仅一个starter就能够搞定。</li>
+<li>利用starter可以达到自动化配置的效果。</li>
+<li>去除了大量的XML配置文件，采用全注解的方式。</li>
+<li>舍弃外部的服务器中间件，可以利用其内嵌的tomcat/jetty直接运行。</li>
+<li>使用CLI可以快速构建SpringBoot程序</li>
+<li>拥有SpringCloud微服务解决方案</li>
+</ul>
+<p>在SpringBoot1.0正式发布之后，2014年年底，Spring团队基于SpringBoot推出SpringCloud，提供一套完整的微服务解决方案。</p>
+<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
+<li>升级难，不能友好的兼容老版本的SpringFramework项目。对于某些项目可能会存在升级的情况，即将老的框架升级为新框架，但如果你想升级使用SpringBoot，我想这应该是一个非常困难的过程。</li>
+<li>配置服务器服务麻烦。</li>
+<li>增量更新文件麻烦，因为是jar，如果遇见需要更新包类的一个js、html等文件，则需要先解压后再替换，最后再压缩。</li>
+</ul>
+<h2 id="SpringBoot2-0"><a href="#SpringBoot2-0" class="headerlink" title="SpringBoot2.0"></a>SpringBoot2.0</h2><p>SpringBoot2.0是2018年3月发布的版本，该版本基于Spring Framework5.0，与SpringFramework5.0对应的是，SpringBoot2.0同样支持的最低版本为Java8，同时也支持Java9。</p>
+<p><strong>SpringBoot2.0新特性：</strong></p>
+<ul>
+<li>修改默认数据库连接池，从tomcat改为HikariCP。</li>
+<li>优化NOSQL（Redis等）集成方式。</li>
+<li>升级内嵌容器（Tomcat、Jetty）。</li>
+<li>适配Spring5.0的WebFlux。</li>
+<li>增加Quartz自动配置，增加Starter。</li>
+</ul>
+<p>当然，对于Spring2.0的新特性远不止于此。本文主要列举了几个较为明显且常见的。</p>
 
             </div>
             <hr>
@@ -281,7 +251,9 @@ public class ActApplication {
                   <span>
                 <i class="iconfont icon-tag"></i>
                     
-                      <a class="hover-with-bg" href="/tags/tools/">tools</a>
+                      <a class="hover-with-bg" href="/tags/spring/">spring</a>
+                    
+                      <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
                     
                   </span>
                 
@@ -294,9 +266,9 @@ public class ActApplication {
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/">
+                      <a href="/2018/12/22/server/nginx%E9%85%8D%E7%BD%AE/">
                         <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">java8新特性</span>
+                        <span class="hidden-mobile">nginx配置</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -304,8 +276,8 @@ public class ActApplication {
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
-                        <span class="hidden-mobile">JavaScript基础学习</span>
+                      <a href="/2018/10/18/Java/spring/Srping%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/">
+                        <span class="hidden-mobile">Spring核心原理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -517,7 +489,7 @@ public class ActApplication {
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "SpringBoot2.0整合Activiti6.0问题梳理&nbsp;",
+        "SpringBoot介绍&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

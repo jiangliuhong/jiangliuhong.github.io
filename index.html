@@ -38,10 +38,6 @@
 
 <!-- 自定义样式保持在最底部 -->
 
-  
-<link rel="stylesheet" href="/css/my.css">
-
-
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -131,7 +127,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -325,46 +321,48 @@ Windows Registry Editor Version 5.00
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" target="_self">
-          <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="JavaScript基础学习"
+        <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/" target="_self">
+          <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="java8新特性"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
-        <p class="h4 index-header">JavaScript基础学习</p>
+      <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/">
+        <p class="h4 index-header">java8新特性</p>
       </a>
 
-      <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+      <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">JavaScript基础学习
-JavaScript，简称JS，是一种高级的、解释执行的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式语言，它支持面向对象编程，以及函数式编程。它被世界上的绝大多数网站使用，也被世界主流浏览器支持。
-
-作用域在JavaScript中，对象和函数同样也是变量。
-在JavaScript中，作用域可访问变量，对象，函数的集合。
-对于变量而言，在JavaScript中有两个范围：全局和局部。在函数定义之外的声明的变量属全局变量，它在整个应用程序（也就是整个页面的js）都可以访问；反之，函数定义之内的声明的变量属局部变量，每当函数执行时，会创建变</div>
+          <div class="index-text mb-1">Java8新特性接口默认方法与静态方法接口默认方法实现方式：
+public interface UserInterface {
+    default void addUser(){
+        System.out.println(&quot;add user&quot;);
+    }
+}
+在接口定义中使用default关键字即可定义一个自带方法内容的接口方法，子类可以不实现该方法。
+接口冲突接口是允许实现多个接口的，试想如果有两个接口，分别为UserInterface1、UserInterface2，他们均定义了一名名为addUser的默认方法，此时，如果有一个子类同时实现了这两个接</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-23&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+            <a href="/categories/Java/">Java</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+            <a href="/tags/tools/">tools</a>&nbsp;
           
         
       </div>
@@ -415,6 +413,56 @@ JavaScript，简称JS，是一种高级的、解释执行的编程语言。JavaS
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/tools/">tools</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" target="_self">
+          <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="JavaScript基础学习"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+        <p class="h4 index-header">JavaScript基础学习</p>
+      </a>
+
+      <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JavaScript基础学习
+JavaScript，简称JS，是一种高级的、解释执行的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式语言，它支持面向对象编程，以及函数式编程。它被世界上的绝大多数网站使用，也被世界主流浏览器支持。
+
+作用域在JavaScript中，对象和函数同样也是变量。
+在JavaScript中，作用域可访问变量，对象，函数的集合。
+对于变量而言，在JavaScript中有两个范围：全局和局部。在函数定义之外的声明的变量属全局变量，它在整个应用程序（也就是整个页面的js）都可以访问；反之，函数定义之内的声明的变量属局部变量，每当函数执行时，会创建变</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
           
         
       </div>
@@ -576,6 +624,59 @@ Sleuth
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/" target="_self">
+          <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="SpringBoot介绍"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/">
+        <p class="h4 index-header">SpringBoot介绍</p>
+      </a>
+
+      <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringBoot介绍
+Spring框架为我们提供了多种解决方案，但在使用它的时候总免不了进行导包、配置等操作。于是在2012年10月，有人提出了新需求，要求在Spring框架中支持无容器Web应用程序体系结构，即无不需要将项目打包后放置在中间件中，直接通过main方法引导的Spring容器内配置Web容器服务。 于是，2014年4月,SpringBoot正式发布。
+
+SpringBoot四大特性在Spring官网这样说到：
+SpringBoot可以轻松创建一个独立的、基于昌平级别的Spring应用程序，我们可以不依赖服务器中间件，直接运行程序。我们的目标是：
+
+为所有Spring开发提供一</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/spring/">spring</a>&nbsp;
+          
+            <a href="/tags/springboot/">springboot</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2018/10/18/Java/spring/Srping%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/" target="_self">
           <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="Spring核心原理"
                class="index-img img-fluid rounded index-thumbnails">
@@ -620,110 +721,6 @@ Spring框架设计理念
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/Spring/">Spring</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/10/18/Java/spring/SpringApplicationContext%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B/" target="_self">
-          <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="SpringApplicationContext初始化过程"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/10/18/Java/spring/SpringApplicationContext%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B/">
-        <p class="h4 index-header">SpringApplicationContext初始化过程</p>
-      </a>
-
-      <a href="/2018/10/18/Java/spring/SpringApplicationContext%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">SpringApplicationContext初始化过程ContextLoaderListener在SpringBoot面世之前。在一般的WEB项目中，项目的启动都是从web.xml开始的，如果我们想在项目中使用Spring，只需在web.xml文件中指定以下内容即可：
-&lt;context-param&gt;
-        &lt;param-name&gt;contextConfigLocation&lt;/param-name&gt;
-        &lt;param-value&gt;classpath:applicationContext.xml&lt;/param-valu</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-18&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/Java/">Java</a>&nbsp;
-          
-            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Spring/">Spring</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" target="_self">
-          <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="面向对象设计与设计原则"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
-        <p class="h4 index-header">面向对象设计与设计原则</p>
-      </a>
-
-      <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">面向对象设计与设计原则面向对象基本概念
-面向对象程序设计(Object-oriented programming即OOP)是种具有对象概念的程序编程典范，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。
-
-面向对象编程的两个重要概念是类和对象。
-类：类是变量与作用这些变量的方法集合，事物都具有其自身的属性和方法，通过这些属性和方法可以将不同的物质区分开来。
-对象：对象是类进行实例化后的产物，是一个实体。
-面向对象基本特征封装封装是面向对象的特征之一，是对象和类概念的主要特性。
-封装，也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java/">Java</a>&nbsp;
-          
-            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
           
         
       </div>
