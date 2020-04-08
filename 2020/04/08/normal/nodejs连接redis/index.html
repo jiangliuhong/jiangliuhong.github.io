@@ -149,7 +149,7 @@
                   
                   <span class="post-meta">
                     <i class="far fa-chart-bar"></i>
-                    166 字
+                    444 字
                   </span>
                 
 
@@ -157,7 +157,7 @@
                   
                   <span class="post-meta">
                       <i class="far fa-clock"></i>
-                      1 分钟
+                      2 分钟
                   </span>
                 
 
@@ -189,7 +189,7 @@
           <div class="post-content mx-auto" id="post">
             
             <div class="markdown-body">
-              <h2 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h2><pre><code>npm install redis --save</code></pre><h2 id="编写redisUtil"><a href="#编写redisUtil" class="headerlink" title="编写redisUtil"></a>编写redisUtil</h2><pre><code class="javascript">import redis from &#39;redis&#39;;
+              <h2 id="引入依赖包"><a href="#引入依赖包" class="headerlink" title="引入依赖包"></a>引入依赖包</h2><pre><code>npm install redis --save</code></pre><h2 id="工具类模式redisUtil"><a href="#工具类模式redisUtil" class="headerlink" title="工具类模式redisUtil"></a>工具类模式redisUtil</h2><pre><code class="javascript">import redis from &#39;redis&#39;;
 const redisUtil = {
     config: {
         url: &#39;localhost&#39;,
@@ -244,6 +244,113 @@ const redisUtil = {
     }
 }
 export default redisUtil;</code></pre>
+<h2 id="对象模式"><a href="#对象模式" class="headerlink" title="对象模式"></a>对象模式</h2><blockquote>
+<p>es6语法</p>
+</blockquote>
+<h3 id="定义一个RedisClient对象"><a href="#定义一个RedisClient对象" class="headerlink" title="定义一个RedisClient对象"></a>定义一个RedisClient对象</h3><pre><code class="javascript">import redis from &#39;redis&#39;;
+class RedisClient {
+    /**
+     * 构造函数
+     * @param {Object} config 
+     */
+    constructor(config) {
+        this.config = config;
+        this.client = null;
+    }
+
+    /**
+     * 创建连接
+     * @param {Object} conf 配置信息
+     */
+    createClient(conf) {
+        this.client = redis.createClient(conf.port, conf.url, {});
+        this.client.auth(conf.password, function (res) {
+            console.log(res);
+        });
+        const _this = this;
+        this.client.on(&#39;connect&#39;, function () {
+            _this.client.set(&#39;author&#39;, &#39;Wilson&#39;, redis.print);
+            _this.client.get(&#39;author&#39;, redis.print);
+            console.log(&#39;connect&#39;);
+        });
+        this.client.on(&#39;ready&#39;, function () {
+            console.log(&#39;ready&#39;);
+        });
+    }
+
+    /**
+     * 获取链接
+     */
+    getClient() {
+        if (this.client == null) {
+            this.createClient(this.config);
+        }
+        return this.client;
+    }
+
+    /**
+     * 设置值
+     * @param {String} key 
+     * @param {Object} value 
+     */
+    setKey(key, value) {
+        const client = this.getClient();
+        return new Promise((resolve, reject) =&gt; {
+            client.set(key, value, (err, replay) =&gt; {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(replay);
+                }
+            })
+        })
+    }
+
+    /**
+     * 获取值
+     * @param {String}} key 
+     */
+    getKey(key) {
+        const client = this.getClient();
+        return new Promise((resolve, reject) =&gt; {
+            client.get(key, (err, replay) =&gt; {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(replay);
+                }
+            })
+        })
+    }
+
+    /**
+     * 查询key
+     * @param {String}} pattern 
+     */
+    keys(pattern) {
+        const client = this.getClient();
+        return new Promise((resolve, reject) =&gt; {
+            client.keys(pattern, (err, replay) =&gt; {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(replay);
+                }
+            });
+        });
+    }
+}
+export default RedisClient;</code></pre>
+<h3 id="对象的使用方法"><a href="#对象的使用方法" class="headerlink" title="对象的使用方法"></a>对象的使用方法</h3><pre><code class="javascript">import RedisClient from &quot;./js/app/RedisClient&quot;;
+const config = {
+    url: &quot;localhost&quot;,
+    port: &quot;6379&quot;,
+    password: &quot;123456&quot;
+};
+const rc = new RedisClient(config);
+rc.getKey(&quot;test2&quot;).then(function(res) {
+    console.log(res);
+});</code></pre>
 
             </div>
             <hr>
