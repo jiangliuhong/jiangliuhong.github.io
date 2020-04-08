@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>rocketmq安装 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">爪哇</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期日, 七月 14日 2019, 7:52 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.1k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      4 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>1.下载rocketmq</p>
+<pre><code># wget http://mirror.bit.edu.cn/apache/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip</code></pre><p>2.解压并从命名为rocketmq</p>
+<pre><code># tar -zvxf rocketmq-all-4.3.2-bin-release.zip
+# mv rocketmq-all-4.3.2-bin-release rocketmq</code></pre><p>3.新建日志与存储目录</p>
+<pre><code># cd /usr/local/rocketmq
+# mkdir logs
+# mkdir store
+# mkdir store/commitlog  
+# mkdir store/consumequeue  
+# mkdir store/index 
+# mkdir store/checkpoint  
+# mkdir store/abort</code></pre><p>4.修改rocketmq日志文件地址</p>
+<pre><code># cd /usr/local/rocketmq
+# sed -i &#39;s#${user.home}#/usr/local/rocketmq#g&#39; *.xml</code></pre><p>5.配置文件</p>
+<pre><code>#所属集群名字
+brokerClusterName=DefaultCluster
+#broker 名字
+brokerName=broker-a
+#broker Id
+brokerId=0
+#nameServer 地址，如果有多个地址用分号分割
+namesrvAddr=192.168.152.133:9876
+#在发送消息时，自动创建服务器不存在的 topic，默认创建的队列数
+defaultTopicQueueNums=4
+#是否允许 Broker 自动创建 Topic，建议线下开启，线上关闭
+autoCreateTopicEnable=true
+#是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭
+autoCreateSubscriptionGroup=true
+#Broker 对外服务的监听端口
+listenPort=10911
+#删除文件时间点，默认凌晨 4 点
+deleteWhen=04
+#文件保留时间，默认 48 小时
+fileReservedTime=120
+#commitLog 每个文件的大小默认 1G
+mapedFileSizeCommitLog=1073741824
+#ConsumeQueue 每个文件默认存 30W 条，根据业务情况调整
+mapedFileSizeConsumeQueue=300000
+#destroyMapedFileIntervalForcibly=120000
+#redeleteHangedFileInterval=120000
+#检测物理文件磁盘空间
+diskMaxUsedSpaceRatio=88
+#存储路径
+storePathRootDir=/usr/local/rocketmq/store
+#commitLog 存储路径
+storePathCommitLog=/usr/local/rocketmq/store/commitlog
+#消费队列存储路径存储路径
+storePathConsumeQueue=/usr/local/rocketmq/store/consumequeue
+#消息索引存储路径
+storePathIndex=/usr/local/rocketmq/store/index
+#checkpoint 文件存储路径
+storeCheckpoint=/usr/local/rocketmq/store/checkpoint
+#abort 文件存储路径
+abortFile=/usr/local/rocketmq/store/abort
+#限制的消息大小
+maxMessageSize=65536
+#Broker 的角色
+#- ASYNC_MASTER 异步复制 Master
+#- SYNC_MASTER 同步双写 Master
+#- SLAVE
+brokerRole=ASYNC_MASTER
+#刷盘方式
+#- ASYNC_FLUSH 异步刷盘
+#- SYNC_FLUSH 同步刷盘
+flushDiskType=ASYNC_FLUSH
+# 检测事务
+checkTransactionMessageEnable=false
+#发消息线程池数量
+sendMessageThreadPoolNums=128
+#拉消息线程池数量
+pullMessageThreadPoolNums=128</code></pre><p>6.修改启动参数</p>
+<pre><code># cd /usr/local/rocketmq/bin</code></pre><p>在<code>bin</code>目录中</p>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>1.启动nameserver</p>
+<pre><code># nohup sh mqnamesrv &gt;/dev/null 2&gt;&amp;1 &amp;</code></pre><p>namesrc默认端口为9876，如果需要修改端口，创建一个配置文件，然后启动时指定该配置文件即可。</p>
+<p>配置文件内容：</p>
+<pre><code># listenPort=9877</code></pre><pre><code># nohup sh mqnamesrv -c ../conf/namesrv.properties &gt;/dev/null 2&gt;&amp;1 &amp;</code></pre><p>2.启动broker</p>
+<pre><code># nohup sh mqbroker -c ../conf/2m-2s-async/broker-a.properties &gt;/dev/null 2&gt;&amp;1 &amp;</code></pre><h2 id="配置文件详解"><a href="#配置文件详解" class="headerlink" title="配置文件详解"></a>配置文件详解</h2><table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>brokerClusterName</td>
+<td>所属集群名字</td>
+<td></td>
+</tr>
+<tr>
+<td>brokerName</td>
+<td>broker 名字</td>
+<td>不同的主节点应配置不同的名称</td>
+</tr>
+<tr>
+<td>brokerId</td>
+<td>broker Id</td>
+<td>0 表示 Master，&gt;0 表示 Slave</td>
+</tr>
+<tr>
+<td>namesrvAddr</td>
+<td>namesrvAddr地址</td>
+<td>多个地址用分号分隔</td>
+</tr>
+<tr>
+<td>defaultTopicQueueNums</td>
+<td>默认主题队列数，默认4</td>
+<td>在发送消息时，自动创建服务器不存在的 topic，默认创建的队列数</td>
+</tr>
+<tr>
+<td>autoCreateTopicEnable</td>
+<td>自动创建主题状态，默认false</td>
+<td>是否允许 Broker 自动创建 Topic，建议线下开启，线上关闭</td>
+</tr>
+<tr>
+<td>autoCreateSubscriptionGroup</td>
+<td>自动创建订阅组状态，默认false</td>
+<td>是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</td>
+</tr>
+<tr>
+<td>listenPort</td>
+<td>监听端口</td>
+<td>Broker 对外服务的监听端口</td>
+</tr>
+<tr>
+<td>deleteWhen</td>
+<td>删除文件时间点，默认凌晨 4 点（04）</td>
+<td>与清理机制有关</td>
+</tr>
+<tr>
+<td>fileReservedTime</td>
+<td>文件保留时间，默认48小时</td>
+<td>与清理机制有关</td>
+</tr>
+<tr>
+<td>mapedFileSizeCommitLog</td>
+<td>commitLog 每个文件的大小默认 1G</td>
+<td>文件超过该值后，会新建一个文件</td>
+</tr>
+<tr>
+<td>mapedFileSizeConsumeQueue</td>
+<td>ConsumeQueue 每个文件存储个数，默认存 30W 条</td>
+<td></td>
+</tr>
+<tr>
+<td>destroyMapedFileIntervalForcibly</td>
+<td>文件拒绝删除后存活的最大时间，毫秒</td>
+<td>第一次拒绝删除之后能保留的最大时间</td>
+</tr>
+<tr>
+<td>deletePhysicFilesInterval</td>
+<td>删除物理文件间隔，毫秒</td>
+<td>因为在一次清除过程中，可能需要删除的文件不止一个，该值指定两次删除文件的间隔时间。</td>
+</tr>
+<tr>
+<td>diskMaxUsedSpaceRatio</td>
+<td>检测物理文件磁盘空间，默认75</td>
+<td></td>
+</tr>
+<tr>
+<td>diskSpaceWarningLevelRatio</td>
+<td>磁盘空间警戒大小</td>
+<td>磁盘空间警戒大小，超过，则停止接收新消息（出于保护自身目的）默认是90</td>
+</tr>
+<tr>
+<td>diskSpaceCleanForciblyRatio</td>
+<td>磁盘空间强制删除文件大小。默认是85</td>
+<td></td>
+</tr>
+<tr>
+<td>storePathRootDir</td>
+<td>文件存储路径</td>
+<td></td>
+</tr>
+<tr>
+<td>storePathCommitLog</td>
+<td>commitLog 存储路径</td>
+<td>存储消息</td>
+</tr>
+<tr>
+<td>storePathConsumeQueue</td>
+<td>消费队列存储路径存储路径</td>
+<td></td>
+</tr>
+<tr>
+<td>storePathIndex</td>
+<td>消息索引存储路径</td>
+<td></td>
+</tr>
+<tr>
+<td>storeCheckpoint</td>
+<td>checkpoint 文件存储路径</td>
+<td>异常恢复时根据checkpoint点来恢复消息</td>
+</tr>
+<tr>
+<td>abortFile</td>
+<td>abort 文件存储路径</td>
+<td>临时文件，主要记录是否正常关闭</td>
+</tr>
+<tr>
+<td>maxMessageSize</td>
+<td>消息最大大小</td>
+<td></td>
+</tr>
+<tr>
+<td>brokerRole</td>
+<td>Broker 的角色</td>
+<td>ASYNC_MASTER 异步复制主节点 ；SYNC_MASTER 同步双写主节点； SLAVE 从节点</td>
+</tr>
+<tr>
+<td>flushDiskType</td>
+<td>刷盘方式</td>
+<td>ASYNC_FLUSH 异步刷盘;SYNC_FLUSH 同步刷盘</td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      &nbsp;
+                    
+                      <a class="hover-with-bg" href="/categories/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">消息中间件</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/rocketmq/">rocketmq</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%9F%BA%E7%A1%80%E5%AE%9E%E8%B7%B5/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">rocketmq基础实践</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
+                        <span class="hidden-mobile">jekyllcn在windows下安装</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "rocketmq安装&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Java调试体系总结 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">爪哇</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期日, 四月 5日 2020, 9:33 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.9k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      7 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>本文为<code>JPDA</code>、<code>本地调试</code>、<code>远程调试</code>的总结内容</p>
+</blockquote>
+<h2 id="JPDA"><a href="#JPDA" class="headerlink" title="JPDA"></a>JPDA</h2><blockquote>
+<p><code>JPDA</code>是<code>Java SE</code>1.2.2版本推出的Java凭条调试体系结构工具集，而从<code>JDK1.3.x</code>开始，JavaSDK就提供了对Java平台调试体系结构的直接支持。这个体系为开发人员提供了一整套用于调试 Java 程序的 API，是一套用于开发 Java 调试工具的接口和协议。</p>
+</blockquote>
+<h3 id="JADA组成模块"><a href="#JADA组成模块" class="headerlink" title="JADA组成模块"></a>JADA组成模块</h3><p><code>JPDA</code>定义了一个完整独立的体系，它主要分为三个独立的层次，分别为：Java虚拟机工具接口(<code>JVMTI</code>)、Java调试线协议(<code>JDWP</code>)以及Java调试接口(<code>JDI</code>)。其中，我们可以把<code>JVMTI</code>理解为调试者(<code>debugger</code>)，把<code>JDI</code>理解为被调试者<code>debuggee</code>，对用的层次见下图：</p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/java/JPDA%E6%A8%A1%E5%9D%97%E5%B1%82%E6%AC%A1.jpg" srcset="/img/loading.gif" alt="JPDA模块层次"></p>
+<p>通过该图，我们不难看出，<code>JDWP</code>是调试者与被调试者之间的桥梁，两者之间的交互都是通过<code>JDWP</code>进行传输。</p>
+<h3 id="Java-虚拟机工具接口（JVMTI）"><a href="#Java-虚拟机工具接口（JVMTI）" class="headerlink" title="Java 虚拟机工具接口（JVMTI）"></a>Java 虚拟机工具接口（JVMTI）</h3><p>JDWP（Java Debug Wire Protocol）是一个为 Java 调试而设计的一个通讯交互协议，它定义了调试器和被调试程序之间传递的信息的格式。</p>
+<p>它是一套由Java虚拟机直接提供的<code>native</code>接口，它处于整个<code>JPDA</code>体系的最底层，所有调试功能本质上都需要通过<code>JVMTI</code>来提供。同时我们开发人员还可以查看它们运行的状态，设置回调函数，控制某些环境变量，从而优化程序性能。</p>
+<h3 id="Java-调试线协议（JDWP）"><a href="#Java-调试线协议（JDWP）" class="headerlink" title="Java 调试线协议（JDWP）"></a>Java 调试线协议（JDWP）</h3><p>JDWP（Java Debug Wire Protocol）是一个为 Java 调试而设计的一个通讯交互协议，它定义了调试器和被调试程序之间传递的信息的格式。在 JPDA 体系中，作为前端（front-end）的调试者（debugger）进程和后端（back-end）的被调试程序（debuggee）进程之间的交互数据的格式就是由 JDWP 来描述的，它详细完整地定义了请求命令、回应数据和错误代码，保证了前端和后端的 JVMTI 和 JDI 的通信通畅。</p>
+<h3 id="Java-调试接口（JDI）"><a href="#Java-调试接口（JDI）" class="headerlink" title="Java 调试接口（JDI）"></a>Java 调试接口（JDI）</h3><p>JDI（Java Debug Interface）是三个模块中最高层的接口，在多数的 JDK 中，它是由 Java 语言实现的。</p>
+<p>JDI 由针对前端定义的接口组成，通过它，调试工具开发人员就能通过前端虚拟机上的调试器来远程操控后端虚拟机上被调试程序的运行，JDI 不仅能帮助开发人员格式化 JDWP 数据，而且还能为 JDWP 数据传输提供队列、缓存等优化服务。从理论上说，开发人员只需使用 JDWP 和 JVMTI 即可支持跨平台的远程调试，但是直接编写 JDWP 程序费时费力，而且效率不高。因此基于 Java 的 JDI 层的引入，简化了操作，提高了开发人员开发调试程序的效率。</p>
+<h2 id="本地、远程调试"><a href="#本地、远程调试" class="headerlink" title="本地、远程调试"></a>本地、远程调试</h2><h3 id="使用JDB进行调试"><a href="#使用JDB进行调试" class="headerlink" title="使用JDB进行调试"></a>使用<code>JDB</code>进行调试</h3><h4 id="本地调试"><a href="#本地调试" class="headerlink" title="本地调试"></a>本地调试</h4><p>在使用<code>JDB</code>进行远程调试之前，我们应该先试验一下，使用<code>JDB</code>进行本地调试。</p>
+<p>首先编写一个测试类<code>TestJdb.java</code></p>
+<pre><code class="java">public class TestJdb {
+    public static void main(String[] args) {
+        int a = 1;
+        int b = 2;
+        int c = a + b;
+        int d = c + b;
+        int e = a + d;
+        System.out.println(&quot;a=&quot; + a + &quot;,b=&quot; + b + &quot;,c=&quot; + c + &quot;,d=&quot; + d + &quot;,e=&quot; + e);
+    }
+}</code></pre>
+<p>使用javac编译得到<code>TestJdb.class</code>,使用命令<code>jdb TestJdb</code>即可进入调试模式,使用<code>stop</code>命令可设置断点,使用<code>run</code>命令即可运行程序</p>
+<pre><code>&gt;jdb TestJdb
+正在初始化jdb...
+&gt; stop at TestJdb:5
+正在延迟断点TestJdb:5。
+将在加载类后设置。
+&gt; run
+运行TestJdb
+设置未捕获的java.lang.Throwable
+设置延迟的未捕获的java.lang.Throwable
+&gt;
+VM 已启动: 设置延迟的断点TestJdb:5
+
+断点命中: &quot;线程=main&quot;, TestJdb.main(), 行=5 bci=4
+5            int c = a + b;</code></pre><p><strong>jdb命令：</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>help or ?</td>
+<td>最重要的<strong>JDB</strong>命令; 它会显示一个包含简要说明的已识别命令列表。</td>
+</tr>
+<tr>
+<td>run</td>
+<td>启动<strong>JDB</strong>并设置必要的断点后，可以使用此命令开始执行并调试应用程序。</td>
+</tr>
+<tr>
+<td>cont</td>
+<td>在断点，异常或步骤之后继续执行已调试的应用程序。</td>
+</tr>
+<tr>
+<td>print</td>
+<td>显示Java对象和原始值。</td>
+</tr>
+<tr>
+<td>dump</td>
+<td>对于原始值，此命令与print相同。 对于对象，它会打印对象中定义的每个字段的当前值。 包括静态和实例字段。</td>
+</tr>
+<tr>
+<td>threads</td>
+<td>列出当前正在运行的线程。</td>
+</tr>
+<tr>
+<td>thread</td>
+<td>选择一个线程作为当前线程。</td>
+</tr>
+<tr>
+<td>where</td>
+<td>转储当前线程的堆栈。</td>
+</tr>
+</tbody></table>
+<p><strong>如何设置断点</strong></p>
+<pre><code>stop at &lt;class&gt;:&lt;line_number&gt; 或
+     stop in &lt;class&gt;.&lt;method_name&gt;[(argument_type,...)]</code></pre><p><strong>如何打印参数</strong></p>
+<p>通过 <code>print</code> 或 <code>dump</code> 命令查看此时指定变量的值，<code>print</code> 用于查看简单类型，<code>dump</code> 用于查看对象类型</p>
+<pre><code>main[1] print a
+ a = 1
+main[1] print this
+com.sun.tools.example.debug.expr.ParseException: No &#39;this&#39;.  In native or static method
+ this = 空值
+main[1] dump this
+com.sun.tools.example.debug.expr.ParseException: No &#39;this&#39;.  In native or static method
+ this = 空值
+main[1]</code></pre><p><strong>如何执行方法</strong></p>
+<p>通过 <code>step</code>、<code>next</code> 或 <code>cont</code> 命令继续执行程序：</p>
+<ul>
+<li><code>step</code> 命令相当于 eclipse 当中的 F5，如果当前语句是另一个方法调用时，会进入那个方法当中</li>
+<li><code>next</code> 命令相当于 F6，只会逐行执行，不会进入被调用的其它方法</li>
+<li><code>cont</code> 命令相当于 F8，从当前行一直执行到下一个断点，如果没有就一直执行到程序结束</li>
+</ul>
+<h4 id="远程调试"><a href="#远程调试" class="headerlink" title="远程调试"></a>远程调试</h4><p>使用<code>jdb</code>的<code>attach</code>命令，可以链接到已经处于运行状态的目标JVM。具体命令为</p>
+<pre><code>java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=&lt;PORT&gt; &lt;主类的全路径名&gt;</code></pre><p>其中 <code>address</code> 参数可选，如果不指定的话会随机分配一个可用端口。</p>
+<p>如果是使用<code>tomcat</code>部署的<code>war</code>包工程，则需要在tomcat的启动脚本（<code>catalina.sh</code>）里添加下面的参数：</p>
+<pre><code>JAVA_OPTS=&quot;$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005&quot;</code></pre><p>同时需要关闭服务器防火墙，或者开发调试端口。</p>
+<p><strong>一个连接示例：</strong></p>
+<p>首先使用下面的命令启动服务：</p>
+<pre><code class="sh">java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n -jar helloworld-1.0.0-SNAPSHOT.jar</code></pre>
+<p>启动成功后，日志中会打印出提供给 jdb 连接的端口，因为我们之前未指定，所以这里随机分配了一个</p>
+<pre><code class="sh">dereck-mbp:target Dereck$ java -agentlib:jdwp=transport=dt_socket,server=y,suspend=n -jar helloworld-1.0.0-SNAPSHOT.jar 
+Listening for transport dt_socket at address: 51750</code></pre>
+<p>通过 <code>jdb</code> 命令连接到正在运行的 JVM</p>
+<pre><code class="sh">dereck-mbp:~ Dereck$ jdb -connect com.sun.jdi.SocketAttach:port=51750
+设置未捕获的java.lang.Throwable
+设置延迟的未捕获的java.lang.Throwable
+正在初始化jdb...
+&gt; </code></pre>
+<p>后续调试方式与<code>本地调试</code>方法一致。</p>
+<h3 id="使用开发工具进行调试"><a href="#使用开发工具进行调试" class="headerlink" title="使用开发工具进行调试"></a>使用开发工具进行调试</h3><p>常见的开发工具有<code>eclipse</code>、<code>myeclipse</code>、<code>idea</code>，对于开发工具的本地调试，因为可视化话操作比较简单，顾本文不再赘述。这里主要说明一下如果使用可视化工具进行远程调试，下面以<code>idea</code>为例。</p>
+<p>在进行调试之前，同意需要在启动服务的时候添加调试相关的参数，详细见<code>jdb</code>远程调试部分，示例为：</p>
+<pre><code>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005</code></pre><p>打开idea中的run/debug configurations, 选择remote类型，地址配置为服务器地址，端口配置为上述配置参数中的address，配置如图：</p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/tools/idea%E8%B0%83%E8%AF%95%E6%88%AA%E5%9B%BE.png" srcset="/img/loading.gif" alt="idea调试截图"></p>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/tools/">tools</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/06/database/elastic/elasticsearch%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B%E5%8F%8A%E5%BC%82%E5%B8%B8%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">elasticsearch安装教程及异常解决方法</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/03/26/normal/md%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/">
+                        <span class="hidden-mobile">hexo中markdown文档自动编号</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "Java调试体系总结&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

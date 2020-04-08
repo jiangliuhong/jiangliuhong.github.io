@@ -38,10 +38,6 @@
 
 <!-- 自定义样式保持在最底部 -->
 
-  
-<link rel="stylesheet" href="/css/my.css">
-
-
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -131,7 +127,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -197,7 +193,7 @@
 <p>在Spring中拥有许多的组件，但核心部分主要为：Beans、Core、Context、Expression，其中最为主要的为Core、与Beans，它们提供了最为核心的IOC和依赖注入功能。下文主要从这两个着手进行说明。</p>
 </blockquote>
 <h2 id="设计思想"><a href="#设计思想" class="headerlink" title="设计思想"></a>设计思想</h2><p>Spring5架构图：</p>
-<p><img src="https://img-blog.csdn.net/20181018212051213?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2psaDkxMjAwODU0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="Spring5架构图"></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring5.png" srcset="/img/loading.gif" alt="spring5"></p>
 <p>Spring框架设计理念</p>
 <p>在Spring框架中，其最核心组件应属Beans，Spring-Beans模块是所有应用都必须使用的，它包含了访问配置文件、创建和管理Bean以及进行控制反转(<code>IOC</code>，Inversion of Control)、依赖注入(<code>DI</code>,Dependency Injection)操作相关的所有类。</p>
 <p>在IBM developerWorks一文中(<a href="https://www.ibm.com/developerworks/cn/java/j-lo-spring-principle/index.html" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-spring-principle/index.html</a>)这样说道：Spring就是面向Bean编程（BOP,Bean Oriented Programming），Bean 在 Spring 中才是真正的主角。</p>
@@ -311,7 +307,7 @@
     }</code></pre>
 <p>在上述代码中清晰可见的说明了BeanFactory的创建过程，首先判断当前容器是否存在BeanFactory，如果有则销毁后在进行创建。通过try/catch中代码可见，BeanFactory的是DefaultListableBeanFactory的实例对象。</p>
 <p>通过Idea查看DefaultListableBeanFactory的类图如下：</p>
-<p><img src="https://img-blog.csdn.net/20181018212106877?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2psaDkxMjAwODU0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/DefaultListableBeanFactory.png" srcset="/img/loading.gif" alt="DefaultListableBeanFactory.png"></p>
 <p>从这个图中发现除了 BeanFactory 相关的类外，还发现了与 Bean 的 register 相关。这在 refreshBeanFactory 方法中有一行 loadBeanDefinitions(beanFactory) 将找到答案，这个方法将开始加载、解析 Bean 的定义，也就是把用户定义的数据结构转化为 Ioc 容器中的特定数据结构。 </p>
 <p>对于WEB应用而言，其调用的是XmlWebApplicationContext#loadBeanDefinitions方法。</p>
 <p>在BeanFactory创建成功后，Spring将创建的对象交于第三步，即prepareBeanFactory方法为其添加一些 Spring 本身需要的一些工具类。</p>
@@ -331,7 +327,7 @@
 <li>在singleton的bean初始化完了之后调用SmartInitializingSingleton的afterSingletonsInstantiated方法。</li>
 </ul>
 <p>通过跟进Bean实例化代码可以发现getBean方法最后指向的是AbstractBeanFactory类的抽象方法createBean，其实现类为AbstractAutowireCapableBeanFactory。在该方法中有一个步骤会去查找Bean的依赖关系，并对其进行依赖注入操作。这里画一个时序图来作说明。</p>
-<p><img src="https://img-blog.csdn.net/20181018212125722?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2psaDkxMjAwODU0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="在这里插入图片描述"></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/%E5%AE%9E%E4%BE%8B%E5%8C%96Bean%E6%97%B6%E5%BA%8F%E5%9B%BE.png" srcset="/img/loading.gif" alt="实例化Bean时序图"></p>
 <p>需要注意的是，在resolveValueIfNecessary方法中，不仅有调用resolveReference，同样的还有resolveInnerBean，即解析内部的Bean引用。</p>
 <h3 id="触发被监听的事件"><a href="#触发被监听的事件" class="headerlink" title="触发被监听的事件"></a>触发被监听的事件</h3><p>在经历第11步后，上下文的创建就已经基本完成了，这时Spring会执行finishRefresh方法，完成此上下文的刷新。其中包括LifecycleProcessor的onRefresh方法，并执行ContextRefreshedEvent事件。例如：执行SpringMVC的事件。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在Bean声明周期中曾讲到，Spring在初始化Bean的时候先后对调用BeanPostProcessor接口的postProcessBeforeInitialization、postProcessAfterInitialization方法。利用这一特性我们可以在Bean中实现BeanPostProcessor接口，然后再方法体中加入自己的逻辑。</p>
@@ -371,9 +367,9 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2018/12/22/server/nginx%E9%85%8D%E7%BD%AE/">
+                      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">
                         <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">nginx配置</span>
+                        <span class="hidden-mobile">SpringBoot本地化配置</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -381,8 +377,8 @@
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2018/10/18/Java/spring/SpringApplicationContext%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B/">
-                        <span class="hidden-mobile">SpringApplicationContext初始化过程</span>
+                      <a href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/">
+                        <span class="hidden-mobile">SpringAOP原理</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -392,39 +388,6 @@
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
-  <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-  <script type="text/javascript">
-    var notify = 'true' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
-    window.onload = function () {
-      new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
-        app_id: "F4qWyr7CFCwDTYe0YjrVIjNO-gzGzoHsz",
-        app_key: "uitILtaQARG5HpBldONcjVrJ",
-        placeholder: "说点什么",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
-        pageSize: "10",
-      });
-      oldLoad && oldLoad();
-    };
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
-
-
-                </div>
               
           </div>
         </div>

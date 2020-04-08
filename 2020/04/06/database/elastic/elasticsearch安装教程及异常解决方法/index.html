@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>elasticsearch安装教程及异常解决方法 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">爪哇</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期一, 四月 6日 2020, 12:05 凌晨
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    807 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      3 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <blockquote>
+<p>安装elasticsearch之前请确认操作系统中具备jdk1.8环境</p>
+<p>本文基于centos6.5环境</p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>首先前往elastic官网下载，下载地址：<a href="https://www.elastic.co/downloads/elasticsearch" target="_blank" rel="noopener">https://www.elastic.co/downloads/elasticsearch</a></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/other/elasticsearchdownload.png" srcset="/img/loading.gif" alt="elasticsearchdownload"></p>
+<p>你可以根据自己操作系统选择对应的安装包。</p>
+<p><strong>linux步骤：</strong></p>
+<pre><code>#weget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.6.0.tar.gz
+#tar -zvxf elasticsearch-6.6.0.tar.gz
+#useradd elasticsearch
+#chmod +R 777 elasticsearch
+#su elasticsearch
+#cd elasticsearch-6.6.0
+#./bin/elasticsearch</code></pre><p>由于elasticsearch不允许使用root账号启动，如果使用root用户执行脚本，则会报如下错误，所以需要新建一个<code>elasticsearch</code>用户启动程序。</p>
+<p><strong>root用户启动异常:</strong></p>
+<pre><code>Exception in thread &quot;main&quot; java.nio.file.AccessDeniedException: /usr/local/jarome/elasticsearch-6.6.0/config/jvm.options
+        at sun.nio.fs.UnixException.translateToIOException(UnixException.java:84)
+        at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:102)
+        at sun.nio.fs.UnixException.rethrowAsIOException(UnixException.java:107)
+        at sun.nio.fs.UnixFileSystemProvider.newByteChannel(UnixFileSystemProvider.java:214)
+        at java.nio.file.Files.newByteChannel(Files.java:361)
+        at java.nio.file.Files.newByteChannel(Files.java:407)
+        at java.nio.file.spi.FileSystemProvider.newInputStream(FileSystemProvider.java:384)
+        at java.nio.file.Files.newInputStream(Files.java:152)
+        at org.elasticsearch.tools.launchers.JvmOptionsParser.main(JvmOptionsParser.java:60)</code></pre><h2 id="启动异常"><a href="#启动异常" class="headerlink" title="启动异常"></a>启动异常</h2><p>1.当操作系统vm.max_map_count配置过低（即：sysctl.conf文件配置过低）时，启动<code>elasticsearch</code>会报如下错误：</p>
+<pre><code>max virtual memory areas vm.max_map_count [65530] is too low, increase to at least [262144]</code></pre><p>解决办法：</p>
+<p>临时修改（该方法重启系统会失效）：</p>
+<pre><code># sysctl -w vm.max_map_count=262144</code></pre><p>永久修改：</p>
+<pre><code># vim /etc/sysctl.conf</code></pre><p>在该文件中增加如下内容:</p>
+<pre><code># elasticsearch config start
+vm.max_map_count=262144
+# elasticsearch config end</code></pre><p>然后使用<code>sysctl -p</code>命令使修改生效。</p>
+<p>2.操作系统安全检车检测配置限制过低（即：limits.conf文件置过低）时，启动<code>elasticsearch</code>会报如下错误：</p>
+<pre><code>max file descriptors [4096] for elasticsearch process is too low, increase to at least [65536]</code></pre><p>解决办法：</p>
+<pre><code># vim /etc/security/limits.conf</code></pre><p>追加如下内容：</p>
+<pre><code># elasticsearch config start
+* soft nofile 65536
+* hard nofile 131072
+* soft nproc 2048
+* hard nproc 4096
+# elasticsearch config end</code></pre><p>3.启动节点异常</p>
+<p>错误日志如下：</p>
+<pre><code>maybe these locations are not writable or multiple nodes were started without increasing [node.max_local_storage_nodes] (was [1])</code></pre><p>解决方法：</p>
+<p>增加<code>node.max_local_storage_nodes</code>的值，如：</p>
+<pre><code>node.max_local_storage_nodes: 2</code></pre><p>出现该异常的原因我不是特别清楚，如果你清知道，请留言告诉我一下</p>
+<h2 id="配置局域网访问"><a href="#配置局域网访问" class="headerlink" title="配置局域网访问"></a>配置局域网访问</h2><p>默认环境下，elasticsearch仅允许<code>localhost</code>访问其服务，如果需要在局域网中访问，需要修改其配置文件<code>elasticsearch.yml</code>中的<code>network.host</code>配置项，例如：</p>
+<pre><code>network.host: 您的ip</code></pre><p>当然，你也可以将<code>network.host</code>设置为<code>0.0.0.0</code></p>
+<h2 id="开启跨域访问支持"><a href="#开启跨域访问支持" class="headerlink" title="开启跨域访问支持"></a>开启跨域访问支持</h2><p>开启跨域访问支持只需要在配置文件中加入以下配置即可：</p>
+<pre><code>#开启跨域访问支持，默认为false
+http.cors.enabled: true
+#跨域访问允许的域名地址，(允许所有域名)以上使用正则
+http.cors.allow-origin: /.*/ </code></pre><h2 id="elasticsearch-head使用"><a href="#elasticsearch-head使用" class="headerlink" title="elasticsearch-head使用"></a>elasticsearch-head使用</h2><p>在github上有一个测试elasticsearch的开源工具：<code>elasticsearch-head</code>,<code>github</code>地址为：<a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">https://github.com/mobz/elasticsearch-head</a></p>
+<p>使用该工具之前，你应该确保你的操作系统具有<code>npm</code>环境。</p>
+<p>启动教程：</p>
+<pre><code>git clone git://github.com/mobz/elasticsearch-head.git
+cd elasticsearch-head
+npm install
+npm run start
+open http://localhost:9100/</code></pre><p>该工具默认访问链接为<code>localhost:9200的</code>elasticsearch服务，当然你也可以在界面上输入其他ip地址，前提是你输入的<code>elasticsearch</code>服务开启了跨域访问支持。</p>
+<p>elasticsearch-head截图如下：</p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/other/elasticsearch-head.png" srcset="/img/loading.gif" alt="elasticsearch-head"></p>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                      &nbsp;
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/elastic/">elastic</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/elasticsearch/">elasticsearch</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/08/normal/centos7%E6%8A%8Ahome%E7%9B%AE%E5%BD%95%E7%A9%BA%E9%97%B4%E8%BD%AC%E7%A7%BB%E5%88%B0%E5%85%B6%E4%BB%96%E7%9B%AE%E5%BD%95/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">centos7把home目录空间转移到其他目录</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/05/Java/tools/Java%E8%B0%83%E8%AF%95%E4%BD%93%E7%B3%BB%E6%80%BB%E7%BB%93/">
+                        <span class="hidden-mobile">Java调试体系总结</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "elasticsearch安装教程及异常解决方法&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

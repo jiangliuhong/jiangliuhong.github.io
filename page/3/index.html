@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">爪哇</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/12/22/server/nginx%E9%85%8D%E7%BD%AE/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="nginx配置"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/12/22/server/nginx%E9%85%8D%E7%BD%AE/">
+        <p class="h4 index-header">nginx配置</p>
+      </a>
+
+      <a href="/2018/12/22/server/nginx%E9%85%8D%E7%BD%AE/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">nginx配置nginx常用编译参数对于nginx，如果使用源码安装，在进行./configure编译的时候，需要为其指定一些参数。
+
+–prefix=PATH ： 指定nginx的安装目录。默认 /usr/local/nginx
+
+–conf-path=PATH ： 设置nginx.conf配置文件的路径。nginx允许使用不同的配置文件启动，通过命令行中的-c选项。默认为prefix/conf/nginx.conf
+
+–user=name： 设置nginx工作进程的用户。安装完成后，可以随时在nginx.conf配置文件更改user指令。默认的用户名是nobody。–group=name类</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-12-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/">服务器</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E7%BD%91%E5%85%B3/">网关</a>&nbsp;
+          
+            <a href="/tags/nginx/">nginx</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springboot.jpg" srcset="/img/loading.gif" alt="SpringBoot介绍"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/">
+        <p class="h4 index-header">SpringBoot介绍</p>
+      </a>
+
+      <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringBoot介绍
+Spring框架为我们提供了多种解决方案，但在使用它的时候总免不了进行导包、配置等操作。于是在2012年10月，有人提出了新需求，要求在Spring框架中支持无容器Web应用程序体系结构，即无不需要将项目打包后放置在中间件中，直接通过main方法引导的Spring容器内配置Web容器服务。 于是，2014年4月,SpringBoot正式发布。
+
+SpringBoot四大特性在Spring官网这样说到：
+SpringBoot可以轻松创建一个独立的、基于昌平级别的Spring应用程序，我们可以不依赖服务器中间件，直接运行程序。我们的目标是：
+
+为所有Spring开发提供一</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/spring/">spring</a>&nbsp;
+          
+            <a href="/tags/springboot/">springboot</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/22/Java/spring/SpringBoot%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springboot.jpg" srcset="/img/loading.gif" alt="SpringBoot加载配置文件"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/22/Java/spring/SpringBoot%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+        <p class="h4 index-header">SpringBoot加载配置文件</p>
+      </a>
+
+      <a href="/2018/10/22/Java/spring/SpringBoot%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringBoot加载配置文件
+读过SpringBoot源码的同学应该都知道它会在启动过程中根据spring.factories加载监听器，而其中有一个名叫ConfigFileApplicationListener的监听器，它的作用为加载配置信息，即application.xml、application.yml。
+
+常量值说明在ConfigFileApplicationListener定义了一批常量，他们主要为加载配置文件服务，现在就总体地看看这些常量吧。
+
+
+
+名称
+类型
+默认值
+说明
+
+
+
+DEFAULT_SEARCH_LOCATIONS
+String
+classpath:/,class</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/spring/">spring</a>&nbsp;
+          
+            <a href="/tags/springboot/">springboot</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/22/Java/spring/SpringBoot%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springboot.jpg" srcset="/img/loading.gif" alt="SpringBoot启动过程源码分析"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/22/Java/spring/SpringBoot%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+        <p class="h4 index-header">SpringBoot启动过程源码分析</p>
+      </a>
+
+      <a href="/2018/10/22/Java/spring/SpringBoot%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringBoot启动过程源码分析
+随着SpringBoot的热度越来越高，现在企业中对SpringBoot的使用也越来越频繁，而SpringBoot也没让我们失望，它极大的提高了编程的快捷性，今天就SpringBoot(1.5.8.RELEASE)启动源码来看看SpringBoot是如何避繁就简的吧。
+
+启动入口SpringBoot为我们提供了一个简单快捷的启动方式，当我们需要更多功能时，只需要通过在DemoApplication类上增加相应的注解即可：
+import org.springframework.boot.SpringApplication;
+import org.spring</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/spring/">spring</a>&nbsp;
+          
+            <a href="/tags/springboot/">springboot</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springboot.jpg" srcset="/img/loading.gif" alt="SpringBoot本地化配置"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">
+        <p class="h4 index-header">SpringBoot本地化配置</p>
+      </a>
+
+      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringBoot本地化配置前提概要相信做过Spring项目的同学应该对下面一行代码比较熟悉：
+&lt;bean class=&quot;org.springframework.beans.factory.config.PropertyPlaceholderConfigurer&quot;&gt;
+        &lt;property name=&quot;systemPropertiesModeName&quot; value=&quot;SYSTEM_PROPERTIES_MODE_OVERRIDE&quot;/&gt;
+        &lt;property name=&quot</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/spring/">spring</a>&nbsp;
+          
+            <a href="/tags/springboot/">springboot</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/18/Java/spring/Srping%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="Spring核心原理"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/18/Java/spring/Srping%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/">
+        <p class="h4 index-header">Spring核心原理</p>
+      </a>
+
+      <a href="/2018/10/18/Java/spring/Srping%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Spring核心原理
+在Spring中拥有许多的组件，但核心部分主要为：Beans、Core、Context、Expression，其中最为主要的为Core、与Beans，它们提供了最为核心的IOC和依赖注入功能。下文主要从这两个着手进行说明。
+
+设计思想Spring5架构图：
+
+Spring框架设计理念
+在Spring框架中，其最核心组件应属Beans，Spring-Beans模块是所有应用都必须使用的，它包含了访问配置文件、创建和管理Bean以及进行控制反转(IOC，Inversion of Control)、依赖注入(DI,Dependency Injection)操作相关的所有类。
+在</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring/">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="SpringAOP原理"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/">
+        <p class="h4 index-header">SpringAOP原理</p>
+      </a>
+
+      <a href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringAOP原理代理在熟悉AOP之前我们应该了解一个概念：代理。
+代理又分静态代理与动态代理。顾名思义，静态代理的代理关系在编译时就确定了 ，而动态代理的代理关系是在编译期确定的。 
+动态代理是Java语言中非常经典的一种设计模式，也是所有设计模式中最难理解的一种。
+常见的动态代理为JDK原生动态代理和CGLIB动态代理。 
+静态代理
+ 静态代理实现很简单，但此类代理仅适用于代理类较少的情况。
+
+首先定义个接口Hello.
+public interface Hello{
+    void say(String name);
+}
+public class HelloImpl impleme</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring/">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/18/Java/spring/SpringFramework%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="SpringFramework历史版本"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/18/Java/spring/SpringFramework%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/">
+        <p class="h4 index-header">SpringFramework历史版本</p>
+      </a>
+
+      <a href="/2018/10/18/Java/spring/SpringFramework%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringFramework历史版本
+对于Spring而言，迄今已有14年历史了，版本也到达了5.0，作为JavaWEB开发领域的常青树，现在Spirng已不再简单是一个框架了，在Spring的项目中主要有：SpringFramework(也就是我们常说的Spring，主要有IOC、AOP等)、SpringBoot、SpringCloud、SpringData、SpringIO等等。详情请见官网：spring.io/projects
+本文主要描述SpringFrameworkd、SpringBoot、SpringCloud版本历史
+SpringFramework，一下简称Spring
+Spr</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring/">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/18/Java/spring/Spring%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="Spring中的设计模式"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/18/Java/spring/Spring%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+        <p class="h4 index-header">Spring中的设计模式</p>
+      </a>
+
+      <a href="/2018/10/18/Java/spring/Spring%E4%B8%AD%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Spring中的设计模式
+首先应该明确什么是设计模式，设计模式是由软件的先辈们总结出的一套可以反复使用的经验，它可以提高代码的可重用性，增强系统的可维护性，以及解决一系列的复杂问题。
+设计模式在程序开发中扮演着极其重要的角色，良好、正确的设计模式的使用能够让我们程序员在扩展、维护、理解等方面有着更为优越的性能。
+在Spring的开发中，用到了许多的设计模式，比如工厂模式、单例模式、模板模式、代理模式等
+
+</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring/">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/18/Java/spring/springmvc%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%A3%E6%9E%90%E5%99%A8/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="SpringMvc自定义参数解析与返回值处理"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/18/Java/spring/springmvc%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%A3%E6%9E%90%E5%99%A8/">
+        <p class="h4 index-header">SpringMvc自定义参数解析与返回值处理</p>
+      </a>
+
+      <a href="/2018/10/18/Java/spring/springmvc%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%A3%E6%9E%90%E5%99%A8/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringMvc自定义参数解析与返回值处理
+近日在做项目的时候，需要解析客户端传来的经过AES加密处理的实体信息，同时也需要向客户端返回经过AES加密的实体信息，在项目初期，都是在Controller方法中去调用某个工具类进行decode、encode操作比较繁琐，于是去寻求解决办法，在翻阅了SpringMvc解析参数的源码后，仿照@RequestBody的进行以下实现。本文基于SpringBoot 2.0即SpringMvc 5.0.6。
+
+SpringMvc 参数绑定原理ArgumentResolver与ReturnValueHandler通过在maven在项目中引入SpringMvc依</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring/">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+
+
+  <nav aria-label="index posts navigation">
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/2/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fas fa-angle-double-right"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "平凡的脚步也可以走出伟大的行程&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>SpringBoot加载配置文件 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">爪哇</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期一, 十月 22日 2018, 10:40 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    1.8k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      8 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="SpringBoot加载配置文件"><a href="#SpringBoot加载配置文件" class="headerlink" title="SpringBoot加载配置文件"></a>SpringBoot加载配置文件</h1><blockquote>
+<p>读过SpringBoot源码的同学应该都知道它会在启动过程中根据spring.factories加载监听器，而其中有一个名叫<code>ConfigFileApplicationListener</code>的监听器，它的作用为加载配置信息，即application.xml、application.yml。</p>
+</blockquote>
+<h2 id="常量值说明"><a href="#常量值说明" class="headerlink" title="常量值说明"></a>常量值说明</h2><p>在<code>ConfigFileApplicationListener</code>定义了一批常量，他们主要为加载配置文件服务，现在就总体地看看这些常量吧。</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>默认值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DEFAULT_SEARCH_LOCATIONS</td>
+<td>String</td>
+<td>classpath:/,classpath:/config/,file:./,file:./config/</td>
+<td>配置文件加载顺序</td>
+</tr>
+<tr>
+<td>DEFAULT_NAMES</td>
+<td>String</td>
+<td>application</td>
+<td>默认配置文件名称</td>
+</tr>
+<tr>
+<td>ACTIVE_PROFILES_PROPERTY</td>
+<td>String</td>
+<td>spring.profiles.active</td>
+<td>“活动配置文件”属性名称</td>
+</tr>
+<tr>
+<td>INCLUDE_PROFILES_PROPERTY</td>
+<td>String</td>
+<td>spring.profiles.include</td>
+<td>“包含配置文件”属性名称。</td>
+</tr>
+<tr>
+<td>CONFIG_NAME_PROPERTY</td>
+<td>String</td>
+<td>spring.config.name</td>
+<td>“配置名称”属性名称。</td>
+</tr>
+<tr>
+<td>CONFIG_LOCATION_PROPERTY</td>
+<td>String</td>
+<td>spring.config.location</td>
+<td>“配置位置”属性名称。</td>
+</tr>
+<tr>
+<td>DEFAULT_ORDER</td>
+<td>int</td>
+<td>Integer.MIN_VALUE+10</td>
+<td>处理器的默认顺序。</td>
+</tr>
+</tbody></table>
+<h2 id="配置文件加载"><a href="#配置文件加载" class="headerlink" title="配置文件加载"></a>配置文件加载</h2><h3 id="监听器入口"><a href="#监听器入口" class="headerlink" title="监听器入口"></a>监听器入口</h3><p>阅读SpringBoot启动源码时，我们都知道监听器真实生效的方法是<code>onApplicationEvent</code>，<code>ConfigFileApplicationListener</code>中的<code>onApplicationEvent</code>的源码如下：</p>
+<pre><code class="java">public void onApplicationEvent(ApplicationEvent event) {
+        if (event instanceof ApplicationEnvironmentPreparedEvent) {
+            onApplicationEnvironmentPreparedEvent(
+                    (ApplicationEnvironmentPreparedEvent) event);
+        }
+        if (event instanceof ApplicationPreparedEvent) {
+            onApplicationPreparedEvent(event);
+        }
+    }</code></pre>
+<p>通过<code>onApplicationEnvironmentPreparedEvent</code>=&gt;<code>postProcessEnvironment</code>方法</p>
+<pre><code class="java">public void postProcessEnvironment(ConfigurableEnvironment environment,
+            SpringApplication application) {
+        //将配置文件属性源添加到指定的环境
+        addPropertySources(environment, application.getResourceLoader());
+        //设置spring.beaninfo.ignore变量
+        configureIgnoreBeanInfo(environment);
+        //把环境绑定到SpringApplication。
+        bindToSpringApplication(environment, application);
+    }</code></pre>
+<p>addPropertySources源码如下：</p>
+<pre><code class="java">protected void addPropertySources(ConfigurableEnvironment environment,
+            ResourceLoader resourceLoader) {
+        RandomValuePropertySource.addToEnvironment(environment);
+        new Loader(environment, resourceLoader).load();
+    }</code></pre>
+<p>通过上述代码，可以看出配置文件的接在就在<code>load</code>方法中。</p>
+<h3 id="文件加载"><a href="#文件加载" class="headerlink" title="文件加载"></a>文件加载</h3><p>load方法源码：</p>
+<pre><code class="java">public void load() {
+            this.propertiesLoader = new PropertySourcesLoader();
+            this.activatedProfiles = false;
+            this.profiles = Collections.asLifoQueue(new LinkedList&lt;Profile&gt;());
+            this.processedProfiles = new LinkedList&lt;Profile&gt;();
+
+            // Pre-existing active profiles set via Environment.setActiveProfiles()
+            // are additional profiles and config files are allowed to add more if
+            // they want to, so don&#39;t call addActiveProfiles() here.
+            Set&lt;Profile&gt; initialActiveProfiles = initializeActiveProfiles();
+            this.profiles.addAll(getUnprocessedActiveProfiles(initialActiveProfiles));
+            if (this.profiles.isEmpty()) {
+                for (String defaultProfileName : this.environment.getDefaultProfiles()) {
+                    Profile defaultProfile = new Profile(defaultProfileName, true);
+                    if (!this.profiles.contains(defaultProfile)) {
+                        this.profiles.add(defaultProfile);
+                    }
+                }
+            }
+
+            // The default profile for these purposes is represented as null. We add it
+            // last so that it is first out of the queue (active profiles will then
+            // override any settings in the defaults when the list is reversed later).
+            //翻译：下面一行代码的目的是将默认配置文件被表示为null。将null添加到最后，以便它首先从队列中取出（主动概要文件将在稍后颠倒列表时覆盖缺省情况下的任何设置）。
+            this.profiles.add(null);
+
+            while (!this.profiles.isEmpty()) {
+                Profile profile = this.profiles.poll();
+                 //查找配置文件
+                for (String location : getSearchLocations()) {
+                    if (!location.endsWith(&quot;/&quot;)) {
+                        // location is a filename already, so don&#39;t search for more
+                        // filenames
+                        load(location, null, profile);
+                    }
+                    else {
+                        for (String name : getSearchNames()) {
+                            load(location, name, profile);
+                        }
+                    }
+                }
+                this.processedProfiles.add(profile);
+            }
+
+            addConfigurationProperties(this.propertiesLoader.getPropertySources());
+        }</code></pre>
+<h4 id="查找配置文件路径"><a href="#查找配置文件路径" class="headerlink" title="查找配置文件路径"></a>查找配置文件路径</h4><p>值得注意的是<code>getSearchLocations</code>方法，其源码如下：</p>
+<pre><code>private Set&lt;String&gt; getSearchLocations() {
+            Set&lt;String&gt; locations = new LinkedHashSet&lt;String&gt;();
+            // User-configured settings take precedence, so we do them first
+            // 判断当前环境中是否有spring.config.location属性，如果有的话，则加载spring.config.location指定的配置文件
+            if (this.environment.containsProperty(CONFIG_LOCATION_PROPERTY)) {
+                for (String path : asResolvedSet(
+                        this.environment.getProperty(CONFIG_LOCATION_PROPERTY), null)) {
+                    if (!path.contains(&quot;$&quot;)) {
+                        path = StringUtils.cleanPath(path);
+                        if (!ResourceUtils.isUrl(path)) {
+                            path = ResourceUtils.FILE_URL_PREFIX + path;
+                        }
+                    }
+                    locations.add(path);
+                }
+            }
+            //添加默认的配置文件，按照类中定义的顺序加载文件：
+            //其顺序为：classpath:/,classpath:/config/,file:./,file:./config/
+            locations.addAll(
+                    asResolvedSet(ConfigFileApplicationListener.this.searchLocations,
+                            DEFAULT_SEARCH_LOCATIONS));
+            return locations;
+        }</code></pre><p>DEFAULT_SEARCH_LOCATIONS为文件默认加载顺序，其值为classpath:/,classpath:/config/,file:./,file:./config/，然后springboot会按照这几个位置的由后到前的顺序去加载。</p>
+<p>通过查看<code>asResolvedSet</code>的源码：</p>
+<pre><code class="java">private Set&lt;String&gt; asResolvedSet(String value, String fallback) {
+            List&lt;String&gt; list = Arrays.asList(StringUtils.trimArrayElements(
+                    StringUtils.commaDelimitedListToStringArray(value != null
+                            ? this.environment.resolvePlaceholders(value) : fallback)));
+            Collections.reverse(list);
+            return new LinkedHashSet&lt;String&gt;(list);
+        }</code></pre>
+<p>不难看出，这里对list进行了<code>Collections.reverse</code>(反转处理)。</p>
+<p>即配置文件真正的加载顺序为：</p>
+<ul>
+<li>file:./config/</li>
+<li>file:./</li>
+<li>classpath:/config/</li>
+<li>classpath:/</li>
+<li>spring.config.location</li>
+</ul>
+<h4 id="正式加载配置文件"><a href="#正式加载配置文件" class="headerlink" title="正式加载配置文件"></a>正式加载配置文件</h4><p><code>load(String location, String name, Profile profile)</code>方法源码：</p>
+<pre><code class="java">private void load(String location, String name, Profile profile) {
+            String group = &quot;profile=&quot; + (profile == null ? &quot;&quot; : profile);
+            if (!StringUtils.hasText(name)) {
+                // Try to load directly from the location
+                loadIntoGroup(group, location, profile);
+            }
+            else {
+                // Search for a file with the given name
+                for (String ext : this.propertiesLoader.getAllFileExtensions()) {
+                    if (profile != null) {
+                        // Try the profile-specific file
+                        loadIntoGroup(group, location + name + &quot;-&quot; + profile + &quot;.&quot; + ext,
+                                null);
+                        for (Profile processedProfile : this.processedProfiles) {
+                            if (processedProfile != null) {
+                                loadIntoGroup(group, location + name + &quot;-&quot;
+                                        + processedProfile + &quot;.&quot; + ext, profile);
+                            }
+                        }
+                        // Sometimes people put &quot;spring.profiles: dev&quot; in
+                        // application-dev.yml (gh-340). Arguably we should try and error
+                        // out on that, but we can be kind and load it anyway.
+                        loadIntoGroup(group, location + name + &quot;-&quot; + profile + &quot;.&quot; + ext,
+                                profile);
+                    }
+                    // Also try the profile-specific section (if any) of the normal file
+                    loadIntoGroup(group, location + name + &quot;.&quot; + ext, profile);
+                }
+            }
+        }
+</code></pre>
+<p>在Load方法中，首先会通过<code>getAllFileExtensions</code>方法去组装所有可加载文件的扩展名，然后在通过<code>loadIntoGroup</code>方法加载配置文件，而我们跟读到<code>loadIntoGroup</code>中会发现其只执行了 <code>doLoadIntoGroup</code>方法， <code>doLoadIntoGroup</code>源码如下：</p>
+<pre><code class="java">private PropertySource&lt;?&gt; doLoadIntoGroup(String identifier, String location,
+                Profile profile) throws IOException {
+            Resource resource = this.resourceLoader.getResource(location);
+            PropertySource&lt;?&gt; propertySource = null;
+            StringBuilder msg = new StringBuilder();
+            if (resource != null &amp;&amp; resource.exists()) {
+                String name = &quot;applicationConfig: [&quot; + location + &quot;]&quot;;
+                String group = &quot;applicationConfig: [&quot; + identifier + &quot;]&quot;;
+                propertySource = this.propertiesLoader.load(resource, group, name,
+                        (profile == null ? null : profile.getName()));
+                if (propertySource != null) {
+                    msg.append(&quot;Loaded &quot;);
+                    handleProfileProperties(propertySource);
+                }
+                else {
+                    msg.append(&quot;Skipped (empty) &quot;);
+                }
+            }
+            else {
+                msg.append(&quot;Skipped &quot;);
+            }
+            msg.append(&quot;config file &quot;);
+            msg.append(getResourceDescription(location, resource));
+            if (profile != null) {
+                msg.append(&quot; for profile &quot;).append(profile);
+            }
+            if (resource == null || !resource.exists()) {
+                msg.append(&quot; resource not found&quot;);
+                this.logger.trace(msg);
+            }
+            else {
+                this.logger.debug(msg);
+            }
+            return propertySource;
+        }</code></pre>
+<p>上诉源码中有一段核心的方法</p>
+<pre><code class="java">propertySource = this.propertiesLoader.load(resource, group, name,
+                        (profile == null ? null : profile.getName()));
+                if (propertySource != null) {
+                    msg.append(&quot;Loaded &quot;);
+                    handleProfileProperties(propertySource);
+                }</code></pre>
+<p>如果propertySource存在，则调用handleProfileProperties方法。</p>
+<p>handleProfileProperties源码：</p>
+<pre><code class="java">private void handleProfileProperties(PropertySource&lt;?&gt; propertySource) {
+            SpringProfiles springProfiles = bindSpringProfiles(propertySource);
+            maybeActivateProfiles(springProfiles.getActiveProfiles());
+            addProfiles(springProfiles.getIncludeProfiles());
+        }</code></pre>
+<p>bindSpringProfiles源码：</p>
+<pre><code class="java">private SpringProfiles bindSpringProfiles(PropertySource&lt;?&gt; propertySource) {
+            MutablePropertySources propertySources = new MutablePropertySources();
+            propertySources.addFirst(propertySource);
+            return bindSpringProfiles(propertySources);
+        }</code></pre>
+<p>bindSpringProfiles源码：</p>
+<pre><code class="java">private SpringProfiles bindSpringProfiles(PropertySources propertySources) {
+            SpringProfiles springProfiles = new SpringProfiles();
+            RelaxedDataBinder dataBinder = new RelaxedDataBinder(springProfiles,
+                    &quot;spring.profiles&quot;);
+            dataBinder.bind(new PropertySourcesPropertyValues(propertySources, false));
+            springProfiles.setActive(resolvePlaceholders(springProfiles.getActive()));
+            springProfiles.setInclude(resolvePlaceholders(springProfiles.getInclude()));
+            return springProfiles;
+        }</code></pre>
+<p>通过这样一步一步的跟读，我们能发现配置文件的装载主要是通过<code>new PropertySourcesPropertyValues</code>来完成。</p>
+<p>查看<code>PropertySourcesPropertyValues</code>的构造方法可以发现，它在装载值时调用了这样一个方法：</p>
+<pre><code class="java">private void processPropertySource(PropertySource&lt;?&gt; source,
+            PropertySourcesPropertyResolver resolver) {
+        if (source instanceof CompositePropertySource) {
+            //加载复杂的属性
+            processCompositePropertySource((CompositePropertySource) source, resolver);
+        }
+        else if (source instanceof EnumerablePropertySource) {
+            //加载枚举类型
+            processEnumerablePropertySource((EnumerablePropertySource&lt;?&gt;) source,
+                    resolver, this.includes);
+        }
+        else {
+            //加载非枚举类型，即简单类型
+            processNonEnumerablePropertySource(source, resolver);
+        }
+    }</code></pre>
+<h4 id="配置文件键值对加载方法"><a href="#配置文件键值对加载方法" class="headerlink" title="配置文件键值对加载方法"></a>配置文件键值对加载方法</h4><blockquote>
+<p>此处以<code>yml</code>文件加载为例</p>
+</blockquote>
+<p>配置文件键值对加载方法，org.springframework.beans.factory.config.YamlProcessor#process(MatchCallback callback, Yaml yaml, Resource resource) </p>
+<p>在该方法中通过<code>yaml.loadAll(reader)</code>去加载文件的属性，然后在下方<code>process(asMap(object), callback)</code>通过<code>callback</code>进行键值对组装。</p>
+<p>关键代码如下：</p>
+<pre><code class="java">try {
+    for (Object object : yaml.loadAll(reader)) {
+        if (object != null &amp;&amp; process(asMap(object), callback)) {
+            count++;
+            if (this.resolutionMethod == ResolutionMethod.FIRST_FOUND) {
+                break;
+            }
+        }
+    }
+    if (logger.isDebugEnabled()) {
+        logger.debug(&quot;Loaded &quot; + count + &quot; document&quot; + (count &gt; 1 ? &quot;s&quot; : &quot;&quot;) +
+                     &quot; from YAML resource: &quot; + resource);
+    }
+}
+finally {
+    reader.close();
+}</code></pre>
+<p>该代码中的callback为org.springframework.boot.env.YamlPropertySourceLoader#process()中new的一个，源码如下：</p>
+<pre><code class="java">public Map&lt;String, Object&gt; process() {
+            final Map&lt;String, Object&gt; result = new LinkedHashMap&lt;String, Object&gt;();
+            process(new MatchCallback() {
+                @Override
+                public void process(Properties properties, Map&lt;String, Object&gt; map) {
+                    result.putAll(getFlattenedMap(map));
+                }
+            });
+            return result;
+        }</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>配置文件的加载主要分为两个步骤：</p>
+<ol>
+<li>查找配置文件</li>
+<li>加载配置文件中的值</li>
+</ol>
+<p>其中查找配置文件加载顺序为：</p>
+<ul>
+<li>file:./config/</li>
+<li>file:./</li>
+<li>classpath:/config/</li>
+<li>classpath:/</li>
+<li>spring.config.location</li>
+</ul>
+<p>spring.config.location为在启动SpringBoot时，为其指定的配置文件路径，</p>
+<p>设置方式为：</p>
+<pre><code>java -jar demo.jar --Dspring.config.location=application.yml</code></pre>
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/spring/">spring</a>
+                    
+                      <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">SpringBoot介绍</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/10/22/Java/spring/SpringBoot%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
+                        <span class="hidden-mobile">SpringBoot启动过程源码分析</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "SpringBoot加载配置文件&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

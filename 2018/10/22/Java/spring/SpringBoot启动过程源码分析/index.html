@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>SpringBoot启动过程源码分析 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">爪哇</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期一, 十月 22日 2018, 10:40 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    2.5k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      11 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="SpringBoot启动过程源码分析"><a href="#SpringBoot启动过程源码分析" class="headerlink" title="SpringBoot启动过程源码分析"></a>SpringBoot启动过程源码分析</h1><blockquote>
+<p>随着SpringBoot的热度越来越高，现在企业中对SpringBoot的使用也越来越频繁，而SpringBoot也没让我们失望，它极大的提高了编程的快捷性，今天就SpringBoot(1.5.8.RELEASE)启动源码来看看SpringBoot是如何避繁就简的吧。</p>
+</blockquote>
+<h2 id="启动入口"><a href="#启动入口" class="headerlink" title="启动入口"></a>启动入口</h2><p>SpringBoot为我们提供了一个简单快捷的启动方式，当我们需要更多功能时，只需要通过在<code>DemoApplication</code>类上增加相应的注解即可：</p>
+<pre><code class="java">import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+@SpringBootApplication
+public class DemoApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(DemoApplication.class, args);
+    }
+}</code></pre>
+<p>此处简单描述一下<code>@SpringBootApplication</code>注解：</p>
+<p>此注解注解在Spring Boot的XXXApplication类（有main函数，程序启动的入口）上，其结合了三个注解: @Configuration, @EnableAutoConfiguration 和 @ComponentScan。 </p>
+<p><strong>@Configuration</strong>：</p>
+<p> <code>@Configuration</code> 中所有带 <code>@Bean</code> 注解的方法都会被动态代理，因此调用该方法返回的都是同一个实例。 </p>
+<p><strong>@EnableAutoConfiguration</strong>：</p>
+<p>使用该注解后，Spring Boot将尝试根据项目引入的依赖来配置程序 。</p>
+<p><strong>@ComponentScan</strong>：</p>
+<p>指定要扫描的包，以及扫描的条件，默认扫描@ComponentScan注解所在类的同级类和同级目录下的所有类。</p>
+<p>另外官方具有很详细的说明，请查阅：<a href="https://docs.spring.io/spring-framework/docs/4.3.5.RELEASE/javadoc-api/org/springframework/context/annotation/" target="_blank" rel="noopener">https://docs.spring.io/spring-framework/docs/4.3.5.RELEASE/javadoc-api/org/springframework/context/annotation/</a></p>
+<h2 id="SpringApplication-run方法"><a href="#SpringApplication-run方法" class="headerlink" title="SpringApplication.run方法"></a>SpringApplication.run方法</h2><p>通过跟读代码发现，SpringApplication.run方法主要分为两个步骤，<code>new SpringApplication(sources)</code>,<code>run</code>：</p>
+<pre><code class="java">/**
+     * Static helper that can be used to run a {@link SpringApplication} from the
+     * specified sources using default settings and user supplied arguments.
+     * @param sources the sources to load
+     * @param args the application arguments (usually passed from a Java main method)
+     * @return the running {@link ApplicationContext}
+     */
+    public static ConfigurableApplicationContext run(Object[] sources, String[] args) {
+        return new SpringApplication(sources).run(args);
+    }</code></pre>
+<h3 id="new-SpringApplication-sources"><a href="#new-SpringApplication-sources" class="headerlink" title="new SpringApplication(sources)"></a>new SpringApplication(sources)</h3><p>首先看看<code>new SpringApplication(sources)</code>方法</p>
+<p>通过调试发现，该方法的核心就是<code>initialize</code>，其源码如下：</p>
+<pre><code class="java">private void initialize(Object[] sources) {
+        if (sources != null &amp;&amp; sources.length &gt; 0) {
+            this.sources.addAll(Arrays.asList(sources));
+        }
+        //推论当前是否为Web运行环境
+        this.webEnvironment = deduceWebEnvironment();
+        setInitializers((Collection) getSpringFactoriesInstances(
+                ApplicationContextInitializer.class));
+        //初始化监听器
+        setListeners((Collection) getSpringFactoriesInstances(ApplicationListener.class));
+        this.mainApplicationClass = deduceMainApplicationClass();
+    }</code></pre>
+<p>其中比较疑惑的是<code>deduceWebEnvironment</code>方法，因为<code>WEB_ENVIRONMENT_CLASSES</code>的值是不变的，所以该方法返回值恒为<code>true</code>。</p>
+<p><code>setListeners</code>方法主要是将<code>getSpringFactoriesInstances</code>返回的实例加入到<code>listeners</code>集合中。</p>
+<p><code>getSpringFactoriesInstances</code>源码如下：</p>
+<pre><code class="java">private &lt;T&gt; Collection&lt;? extends T&gt; getSpringFactoriesInstances(Class&lt;T&gt; type,
+            Class&lt;?&gt;[] parameterTypes, Object... args) {
+        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+        // Use names and ensure unique to protect against duplicates
+        //加载出需要实例化的类
+        Set&lt;String&gt; names = new LinkedHashSet&lt;String&gt;(
+                SpringFactoriesLoader.loadFactoryNames(type, classLoader));
+        //创建相应的实例
+        List&lt;T&gt; instances = createSpringFactoriesInstances(type, parameterTypes,
+                classLoader, args, names);
+        AnnotationAwareOrderComparator.sort(instances);
+        return instances;
+    }</code></pre>
+<p><code>SpringFactoriesLoader.loadFactoryNames</code>源码如下：</p>
+<pre><code class="java">public static List&lt;String&gt; loadFactoryNames(Class&lt;?&gt; factoryClass, ClassLoader classLoader) {
+        String factoryClassName = factoryClass.getName();
+        try {
+            //获取jar包中的资源，其中FACTORIES_RESOURCE_LOCATION的值为META-INF/spring.factories
+            Enumeration&lt;URL&gt; urls = (classLoader != null ? classLoader.getResources(FACTORIES_RESOURCE_LOCATION) :                    ClassLoader.getSystemResources(FACTORIES_RESOURCE_LOCATION));
+            List&lt;String&gt; result = new ArrayList&lt;String&gt;();
+            while (urls.hasMoreElements()) {
+                URL url = urls.nextElement();
+                Properties properties = PropertiesLoaderUtils.loadProperties(new UrlResource(url));
+                String factoryClassNames = properties.getProperty(factoryClassName);
+                result.addAll(Arrays.asList(StringUtils.commaDelimitedListToStringArray(factoryClassNames)));
+            }
+            return result;
+        }
+        catch (IOException ex) {
+            throw new IllegalArgumentException(&quot;Unable to load [&quot; + factoryClass.getName() +
+                    &quot;] factories from location [&quot; + FACTORIES_RESOURCE_LOCATION + &quot;]&quot;, ex);
+        }
+    }</code></pre>
+<p>通过上诉代码中的<code>classLoader.getResources(FACTORIES_RESOURCE_LOCATION)</code>代码，我们可以看出SpringBoot去加载了jar包中META-INF/spring.factories文件，那么这个文件又具有怎样的作用呢？</p>
+<p>官方给出的说明是：</p>
+<p>使用给定的类加载器从META-INF / spring.factories加载给定类型的工厂实现的完全限定类名。 </p>
+<p>翻阅了<code>spring-test-4.3.12.RELEASE</code>下的<code>spring.factories</code>文件，其源码如下：</p>
+<pre><code class="xml"># Default TestExecutionListeners for the Spring TestContext Framework
+#
+org.springframework.test.context.TestExecutionListener = \
+    org.springframework.test.context.web.ServletTestExecutionListener,\
+    org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener,\
+    org.springframework.test.context.support.DependencyInjectionTestExecutionListener,\
+    org.springframework.test.context.support.DirtiesContextTestExecutionListener,\
+    org.springframework.test.context.transaction.TransactionalTestExecutionListener,\
+    org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener
+
+# Default ContextCustomizerFactory implementations for the Spring TestContext Framework
+#
+org.springframework.test.context.ContextCustomizerFactory = \
+    org.springframework.test.context.web.socket.MockServerContainerContextCustomizerFactory</code></pre>
+<p>不难发现，<code>spring.factories</code>中配置的这些类，主要作用是告诉Spring Boot这个stareter所需要加载的那些xxxAutoConfiguration类，也就是你真正的要自动注册的那些bean或功能。然后，我们实现一个spring.factories指定的类，标上@Configuration注解，一个starter就定义完了。</p>
+<p>如果想看一下SpringBoot启动过程中都加载了那些spring.factories文件，可以写这样一个测试类：</p>
+<pre><code class="java">@SpringBootTest
+public class SpringTest {
+
+    public static String FACTORIES_RESOURCE_LOCATION = &quot;META-INF/spring.factories&quot;;
+
+    @Test
+    public void test1(){
+        try {
+            //EurekaServerApp 应用程序入口
+            EurekaServerApp app = new EurekaServerApp();
+            Enumeration&lt;URL&gt; urls =app.getClass().getClassLoader().getResources(FACTORIES_RESOURCE_LOCATION);
+            while(urls.hasMoreElements()){
+                URL url = urls.nextElement();
+                System.out.println(url.toString());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+<p>其打印结果如下：</p>
+<pre><code>jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/cloud/spring-cloud-starter-eureka-server/1.4.0.RELEASE/spring-cloud-starter-eureka-server-1.4.0.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/cloud/spring-cloud-context/1.3.0.RELEASE/spring-cloud-context-1.3.0.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/cloud/spring-cloud-commons/1.3.0.RELEASE/spring-cloud-commons-1.3.0.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/cloud/spring-cloud-netflix-eureka-server/1.4.0.RELEASE/spring-cloud-netflix-eureka-server-1.4.0.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/boot/spring-boot-actuator/1.5.8.RELEASE/spring-boot-actuator-1.5.8.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/cloud/spring-cloud-netflix-core/1.4.0.RELEASE/spring-cloud-netflix-core-1.4.0.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/cloud/spring-cloud-netflix-eureka-client/1.4.0.RELEASE/spring-cloud-netflix-eureka-client-1.4.0.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/boot/spring-boot-test/1.5.8.RELEASE/spring-boot-test-1.5.8.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/boot/spring-boot/1.5.8.RELEASE/spring-boot-1.5.8.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/spring-beans/4.3.12.RELEASE/spring-beans-4.3.12.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/boot/spring-boot-test-autoconfigure/1.5.8.RELEASE/spring-boot-test-autoconfigure-1.5.8.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/boot/spring-boot-autoconfigure/1.5.8.RELEASE/spring-boot-autoconfigure-1.5.8.RELEASE.jar!/META-INF/spring.factories
+jar:file:/D:/develop/soft/maven/repo/repositories/org/springframework/spring-test/4.3.12.RELEASE/spring-test-4.3.12.RELEASE.jar!/META-INF/spring.factories</code></pre><h3 id="run"><a href="#run" class="headerlink" title="run"></a>run</h3><p>在run方法中，首先定义了一个<code>StopWatch</code>来标记启动时间。</p>
+<p>源码如下：</p>
+<pre><code class="java">public ConfigurableApplicationContext run(String... args) {
+        //初始化一个计时器
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
+        ConfigurableApplicationContext context = null;
+        FailureAnalyzers analyzers = null;
+        //设置java.awt.headless系统属性为true。
+        configureHeadlessProperty();
+        //获取SpringApplicationRunListeners
+        SpringApplicationRunListeners listeners = getRunListeners(args);
+        //开始执行监听器
+        listeners.starting();
+        try {
+            ApplicationArguments applicationArguments = new DefaultApplicationArguments(
+                    args);
+             //在上下文创建之前准备环境
+            ConfigurableEnvironment environment = prepareEnvironment(listeners,
+                    applicationArguments);
+             //准备Banner打印器
+            Banner printedBanner = printBanner(environment);
+             //创建上下文
+            context = createApplicationContext();
+            analyzers = new FailureAnalyzers(context);
+            //上下文前置处理
+             prepareContext(context, environment, listeners, applicationArguments,
+                    printedBanner);
+             //刷新上下文
+            refreshContext(context);
+             //上下文后置处理
+            afterRefresh(context, applicationArguments);
+             //发出结束执行的事件
+            listeners.finished(context, null);
+             //停止计时器
+            stopWatch.stop();
+            if (this.logStartupInfo) {
+                new StartupInfoLogger(this.mainApplicationClass)
+                        .logStarted(getApplicationLog(), stopWatch);
+            }
+            return context;
+        }
+        catch (Throwable ex) {
+            handleRunFailure(context, listeners, analyzers, ex);
+            throw new IllegalStateException(ex);
+        }
+    }</code></pre>
+<h4 id="configureHeadlessProperty"><a href="#configureHeadlessProperty" class="headerlink" title="configureHeadlessProperty"></a>configureHeadlessProperty</h4><p>查询该方法源码，发现其是将<code>java.awt.headless</code>的值设置为<code>true</code>，查阅资料发现<code>Headless</code>模式是在缺少显示屏、键盘或者鼠标是的系统配置，因为服务器（如提供Web服务的主机）往往可能缺少前述设备，但又需要使用他们提供的功能，生成相应的数据，以提供给客户端（如浏览器所在的配有相关的显示设备)、键盘和鼠标)的主机），所以需要依靠系统的计算能力模拟出这些特性来，即设置其值为<code>true</code>。</p>
+<h4 id="getRunListeners"><a href="#getRunListeners" class="headerlink" title="getRunListeners"></a>getRunListeners</h4><p>获取SpringApplicationRunListeners，这里的实现方式与上文中的<code>SpringFactoriesLoader.loadFactoryNames</code>类似。</p>
+<h4 id="listeners-starting"><a href="#listeners-starting" class="headerlink" title="listeners.starting"></a>listeners.starting</h4><blockquote>
+<p>该方法其实是遍历在最初加入进去的监听器，然后分别执行各监听器对应的<code>staring</code>方法</p>
+</blockquote>
+<p>通过下面这个类图，我们不难发现<code>listeners.starting</code>最后执行的是<code>multicastEvent</code>方法。</p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/EventPublishingRunListener.png" srcset="/img/loading.gif" alt="EventPublishingRunListener"></p>
+<p> <code>multicastEvent</code>方法源码如下：</p>
+<pre><code class="java">public void multicastEvent(final ApplicationEvent event, ResolvableType eventType) {
+        ResolvableType type = (eventType != null ? eventType : resolveDefaultEventType(event));
+        for (final ApplicationListener&lt;?&gt; listener : getApplicationListeners(event, type)) {
+            Executor executor = getTaskExecutor();
+            if (executor != null) {
+                executor.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        invokeListener(listener, event);
+                    }
+                });
+            }
+            else {
+                invokeListener(listener, event);
+            }
+        }
+    }</code></pre>
+<p>通过上述源码继续我们依次往下跟读，其方法顺序如下<code>invokeListener</code>=&gt;<code>doInvokeListener</code>=&gt;<code>onApplicationEvent</code>，<code>onApplicationEvent</code>方法则是每个监听器真实是生效的方法。</p>
+<h4 id="prepareEnvironment"><a href="#prepareEnvironment" class="headerlink" title="prepareEnvironment"></a>prepareEnvironment</h4><p>该方法会根据上文中获取的<code>SpringApplicationRunListeners</code>以及springboot启动时传入的参数来构建启动环境。</p>
+<p>prepareEnvironment源码如下：</p>
+<pre><code class="java">private ConfigurableEnvironment prepareEnvironment(
+            SpringApplicationRunListeners listeners,
+            ApplicationArguments applicationArguments) {
+        // Create and configure the environment
+        ConfigurableEnvironment environment = getOrCreateEnvironment();
+        configureEnvironment(environment, applicationArguments.getSourceArgs());
+        //在上下文创建之前准备环境
+        listeners.environmentPrepared(environment);
+        if (!this.webEnvironment) {
+            environment = new EnvironmentConverter(getClassLoader())
+                    .convertToStandardEnvironmentIfNecessary(environment);
+        }
+        return environment;
+    }</code></pre>
+<p><strong>configureEnvironment</strong></p>
+<p>查看该方法不难发现该方法主要是通过<code>configurePropertySources</code>配置Property Sources，通过<code>configureProfiles</code>配置Profiles。</p>
+<h4 id="createApplicationContext"><a href="#createApplicationContext" class="headerlink" title="createApplicationContext"></a>createApplicationContext</h4><blockquote>
+<p>创建Spring上下文</p>
+</blockquote>
+<p>这个方法有点的源码很简单，就实例化了一个<code>org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext</code>。但是如果想要看懂创建上下的实现逻辑，需要去研究spring的源码，这里就不做描述了。</p>
+<p>我在idea中查看了一下这个<code>AnnotationConfigEmbeddedWebApplicationContext</code>类的继承关系，现将该图放置在下方。后面有时间再去研究吧。</p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/AnnotationConfigEmbeddedWebApplicationContext.png" srcset="/img/loading.gif" alt="AnnotationConfigEmbeddedWebApplicationContext"></p>
+<h4 id="prepareContext上下文前置处理"><a href="#prepareContext上下文前置处理" class="headerlink" title="prepareContext上下文前置处理"></a>prepareContext上下文前置处理</h4><p>源码如下：</p>
+<pre><code class="java">private void prepareContext(ConfigurableApplicationContext context,
+            ConfigurableEnvironment environment, SpringApplicationRunListeners listeners,
+            ApplicationArguments applicationArguments, Banner printedBanner) {
+        //将上下文与环境关联上
+        context.setEnvironment(environment);
+        //申请任何相关的后期处理ApplicationContext
+        //将一些生成器加入到spring上下文中
+        postProcessApplicationContext(context);
+        //初始化，ApplicationContextInitializer在刷新之前将任何应用于上下文。
+        applyInitializers(context);
+        listeners.contextPrepared(context);
+        if (this.logStartupInfo) {
+             //记录启动信息
+            logStartupInfo(context.getParent() == null);
+             //记录活动的配置文件信息
+            logStartupProfileInfo(context);
+        }
+
+        // Add boot specific singleton beans
+        context.getBeanFactory().registerSingleton(&quot;springApplicationArguments&quot;,
+                applicationArguments);
+        if (printedBanner != null) {
+            context.getBeanFactory().registerSingleton(&quot;springBootBanner&quot;, printedBanner);
+        }
+
+        // Load the sources
+        Set&lt;Object&gt; sources = getSources();
+        Assert.notEmpty(sources, &quot;Sources must not be empty&quot;);
+        load(context, sources.toArray(new Object[sources.size()]));
+        listeners.contextLoaded(context);
+    }</code></pre>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>SpringBoot启动主要分为两个步骤：</p>
+<ol>
+<li>SpringApplication实例的构建过程：其中最为主要的是通过META-INF/spring.factories加载监听器。</li>
+<li>SpringApplication实例run方法的执行过程：其中主要有一个SpringApplicationRunListeners的概念，它作为Spring Boot容器初始化时各阶段事件的中转器，将事件派发给感兴趣的Listeners(在SpringApplication实例的构建过程中得到的)。这些阶段性事件将容器的初始化过程给构造起来，提供了比较强大的可扩展性。 </li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/spring/">spring</a>
+                    
+                      <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/10/22/Java/spring/SpringBoot%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">SpringBoot加载配置文件</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">
+                        <span class="hidden-mobile">SpringBoot本地化配置</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "SpringBoot启动过程源码分析&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

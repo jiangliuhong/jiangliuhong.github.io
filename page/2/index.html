@@ -38,10 +38,6 @@
 
 <!-- 自定义样式保持在最底部 -->
 
-  
-<link rel="stylesheet" href="/css/my.css">
-
-
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -131,7 +127,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -169,56 +165,591 @@
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/" target="_self">
-          <img src="/img/article/default.jpg" srcset="/img/loading.gif" alt="设计模式-总览"
+        <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/java/java8-logo.jpeg" srcset="/img/loading.gif" alt="java8新特性"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/">
-        <p class="h4 index-header">设计模式-总览</p>
+      <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/">
+        <p class="h4 index-header">java8新特性</p>
       </a>
 
-      <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/">
+      <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">设计模式-总览
-设计模式（Design pattern）是一种被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。即：在某些场景下，针对某类问题的某种通用的解决办法
-
-设计模式分类
-创建型模式：对象实例化的模式，创建型模式用于解耦对象的实例化过程
-
-结构型模式： 把类或对象结合在一起形成一个更大的结构
-
-行为型模式 ：类和对象如何交互，及划分责任和算法
-
-
-
-创建型设计模式
-创建型模式(Creational Pattern)对类的实例化过程进行了抽象，能够将软件模块中对象的创建和对象的使用分离。为了使软件的结构更加清晰，外界对于这些对象只需要知道它们共同的接口，而不清楚其具体的实现细</div>
+          <div class="index-text mb-1">Java8新特性接口默认方法与静态方法接口默认方法实现方式：
+public interface UserInterface {
+    default void addUser(){
+        System.out.println(&quot;add user&quot;);
+    }
+}
+在接口定义中使用default关键字即可定义一个自带方法内容的接口方法，子类可以不实现该方法。
+接口冲突接口是允许实现多个接口的，试想如果有两个接口，分别为UserInterface1、UserInterface2，他们均定义了一名名为addUser的默认方法，此时，如果有一个子类同时实现了这两个接</div>
         </div>
       </a>
 
       <div class="index-btm">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-14&nbsp;&nbsp;
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-08-25&nbsp;&nbsp;
         
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+            <a href="/categories/Java/">Java</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/Java/">Java</a>&nbsp;
+            <a href="/tags/tools/">tools</a>&nbsp;
           
-            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%9F%BA%E7%A1%80%E5%AE%9E%E8%B7%B5/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/mq/%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" alt="rocketmq基础实践"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%9F%BA%E7%A1%80%E5%AE%9E%E8%B7%B5/">
+        <p class="h4 index-header">rocketmq基础实践</p>
+      </a>
+
+      <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%9F%BA%E7%A1%80%E5%AE%9E%E8%B7%B5/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Rocketmq基础实践为什么使用RocketMQ
+https://rocketmq.apache.org/docs/motivation/
+https://rocketmq.apache.org/rocketmq/how-to-support-more-queues-in-rocketmq/
+
+消息队列的优点：
+
+解耦
+异步
+削峰
+
+消息队列缺点：
+
+系统可用性降低
+系统复杂度提高
+存在一致性问题
+
+常见MQ对比
+
+
+
+MQ
+单机吞吐量
+时效性
+可用性
+备注
+
+
+
+ActiveMQ
+万级
+ms
+高
+社区不活跃
+
+
+RabbitMQ
+万级
+μs
+高
+并发性能很强，性能较好，延时低
+
+
+Rock</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">消息中间件</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/rocketmq/">rocketmq</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="rocketmq安装"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">rocketmq安装</p>
+      </a>
+
+      <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%AE%89%E8%A3%85/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">安装1.下载rocketmq
+# wget http://mirror.bit.edu.cn/apache/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip2.解压并从命名为rocketmq
+# tar -zvxf rocketmq-all-4.3.2-bin-release.zip
+# mv rocketmq-all-4.3.2-bin-release rocketmq3.新建日志与存储目录
+# cd /usr/local/rocketmq
+# mkdir logs
+# mkdir store
+# mkdir store/commitlog </div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-07-14&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">消息中间件</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/rocketmq/">rocketmq</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="jekyllcn在windows下安装"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">jekyllcn在windows下安装</p>
+      </a>
+
+      <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">首先安装Chocolatey
+关于Chocolatey的安装可以查看其官网 https://chocolatey.org/install
+
+cmd命令(管理员运行)
+@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolate</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/githubpage/">githubpage</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SpringBoot2.0整合Activiti6.0问题梳理"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/">
+        <p class="h4 index-header">SpringBoot2.0整合Activiti6.0问题梳理</p>
+      </a>
+
+      <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringBoot2.0整合Activiti6.0问题梳理SpringBoot整合Activiti很简单，我们可以通过springboot的starter来快速整合，只需要在pom文件中引入一下内容即可：
+&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;version&gt;6.0.0&lt;/version&gt;
+&lt;/depend</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/tools/">tools</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="JavaScript基础学习"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+        <p class="h4 index-header">JavaScript基础学习</p>
+      </a>
+
+      <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">JavaScript基础学习
+JavaScript，简称JS，是一种高级的、解释执行的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式语言，它支持面向对象编程，以及函数式编程。它被世界上的绝大多数网站使用，也被世界主流浏览器支持。
+
+作用域在JavaScript中，对象和函数同样也是变量。
+在JavaScript中，作用域可访问变量，对象，函数的集合。
+对于变量而言，在JavaScript中有两个范围：全局和局部。在函数定义之外的声明的变量属全局变量，它在整个应用程序（也就是整个页面的js）都可以访问；反之，函数定义之内的声明的变量属局部变量，每当函数执行时，会创建变</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-23&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/JavaScript/">JavaScript</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/05/22/Java/spring/SpringCloud%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springcloud.jpg" srcset="/img/loading.gif" alt="SpringCloud快速构建"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/05/22/Java/spring/SpringCloud%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA/">
+        <p class="h4 index-header">SpringCloud快速构建</p>
+      </a>
+
+      <a href="/2019/05/22/Java/spring/SpringCloud%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringCloud快速构建
+SpringCloud是2014年底Spring团队基于SpringBoot开发的，推出的Java领域微服务架构完整解决方案。主要包括服务注册于发现、配置中心、全链路监控、API网关、熔断器等选型中立的开源组件。
+
+基础组件列表如下：
+
+
+
+名称
+功能
+简介
+
+
+
+Eureka
+注册中心
+保证一致性与高可用
+
+
+Consul
+注册中心
+保证强一致性
+
+
+Zuul
+网关
+第一代网关
+
+
+Gateway
+网关
+第二代网关
+
+
+Ribbon
+负载均衡
+进程内负载均衡
+
+
+Hystrix
+熔断器
+延迟、容错
+
+
+Fegin
+声明式HTTP客户端
+
+
+
+Sleuth
+链路</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-22&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/SpringCloud/">SpringCloud</a>&nbsp;
+          
+            <a href="/tags/%E7%BD%91%E5%85%B3/">网关</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/03/26/normal/gitlabci%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="gitlabci项目集成"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/03/26/normal/gitlabci%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
+        <p class="h4 index-header">gitlabci项目集成</p>
+      </a>
+
+      <a href="/2019/03/26/normal/gitlabci%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">gitlabci项目集成Running with gitlab-runner 11.3.1 (0aa5179e)
+  on docker-ci 0f9fe2c4
+Using Docker executor with image node:latest ...
+ERROR: Preparation failed: Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? (executor_docker.go:1150:0s)sudo docker run -</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/gitlab/">gitlab</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="GitLab CI/CD 介绍和使用"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/">
+        <p class="h4 index-header">GitLab CI/CD 介绍和使用</p>
+      </a>
+
+      <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">GitLab CI/CD 介绍和使用一、持续集成介绍
+持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试)来验证，从而尽快地发现集成错误。许多团队发现这个过程可以大大减少集成的问题，让团队能够更快的开发内聚的软件。—— Martin Fowler
+
+1 概念
+持续集成(Continuous Integration)：频繁地(一天多次)将代码集成到主干。让产品可以快速迭代，同时还能保持高质量。它的核心措施是，代码集成到主干之前，必须通过自动化测试。只要有一个测试用例失</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/gitlab/">gitlab</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="GitLab持续集成环境搭建"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">
+        <p class="h4 index-header">GitLab持续集成环境搭建</p>
+      </a>
+
+      <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">GitLab持续集成环境搭建
+随着微服务的兴起，部署服务越来越繁琐，当然业内也有对应的持续集成方案，目前在企业中使用较为广泛的持续集成方案应是gitlab持续集成、持续部署（gitlab CI/CD）
+
+安装GitLab与GitLab-Runner
+为了简化安装，本文使用docker进行操作
+
+GitLab安装：
+首先拉去镜像：
+$ docker pull gitlab/gitlab-ce
+拉取成功后使用如下命令启动容器：
+docker run -itd -p 8443:443 -p 8081:8081 -p 2222:22 \
+--name gitlab --restart always \</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-03-26&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/gitlab/">gitlab</a>&nbsp;
           
         
       </div>
@@ -229,7 +760,7 @@
 
   <nav aria-label="index posts navigation">
     <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fas fa-angle-double-right"></i></a>
     </span>
   </nav>
   

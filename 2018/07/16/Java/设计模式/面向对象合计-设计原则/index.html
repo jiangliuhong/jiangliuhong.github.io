@@ -38,10 +38,6 @@
 
 <!-- 自定义样式保持在最底部 -->
 
-  
-<link rel="stylesheet" href="/css/my.css">
-
-
 
 <meta name="generator" content="Hexo 4.2.0"></head>
 
@@ -131,7 +127,7 @@
 </nav>
 
     <div class="view intro-2" id="background" parallax=true
-         style="background: url('/img/default.png') no-repeat center center;
+         style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask rgba-black-light flex-center">
@@ -222,9 +218,9 @@
 </blockquote>
 <h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>软件中的对象（类、模块、函数等）应该对于扩展是开放的，但是对于修改是封闭的。</p>
 <h4 id="实例分析"><a href="#实例分析" class="headerlink" title="实例分析"></a>实例分析</h4><p>我们假设当前有一个书籍销售的功能模块，程序原本的类图如下：</p>
-<p><img src="https://img-blog.csdn.net/20180716105056528?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2psaDkxMjAwODU0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="面向对象开闭原则1"></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%991.png" srcset="/img/loading.gif" alt="面向对象开闭原则1"></p>
 <p>此时，因为书店打折活动，书籍价格会产生变化，我们需要修改程序的getPrice()方法，我们可以修改接口<code>IBook</code>，也可以修改其实现类<code>NovelBook</code>，但是这样的话都会在类中产生两个读取价格的方法，顾这两种方法都不是最优的解决办法。如下图所示，我们新建一个<code>OffNovelBook</code>，让其继承<code>NovelBook</code>并重写<code>getPrice</code>方法，新建高层类，通过复写来改变业务逻辑，减少底层代码的修改，减少代码风险。</p>
-<p><img src="https://img-blog.csdn.net/20180716105120767?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2psaDkxMjAwODU0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="面向对象开闭原则2"></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/java/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%992.png" srcset="/img/loading.gif" alt="面向对象开闭原则2"></p>
 <p>我们可以把变化归类为两种类型：</p>
 <ul>
 <li>逻辑变化：只变化了一个逻辑，而不涉及到其他模块的变化，可以直接修改原有类中的方法来实现，但这有一个前提条件是所有依赖或关联都按照相同的逻辑处理。</li>
@@ -377,7 +373,7 @@ public interface AdminUserService extends UserService {
 </ul>
 <p>任何一个对象，如果满足上面的条件之一，就是当前对象的“朋友”，否则就是“陌生人”。在应用迪米特法则时，一个对象只能与直接朋友发生交互，不要与“陌生人”发生直接交互，这样做可以降低系统的耦合度，一个对象的改变不会给太多其他对象带来影响 。</p>
 <h4 id="实例分析-5"><a href="#实例分析-5" class="headerlink" title="实例分析"></a>实例分析</h4><p>例如：现在用户像好友发送消息，用户可以对单个好友发送消息，也可以发送群消息。</p>
-<p><img src="https://img-blog.csdn.net/20180716105157897?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2psaDkxMjAwODU0OA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" srcset="/img/loading.gif" alt="迪米特恩法则"></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/java/%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%81%A9%E6%B3%95%E5%88%99.png" srcset="/img/loading.gif" alt="迪米特恩法则"></p>
 <p>从上图不难看出，我们专门引入了一个<code>MessageService</code>用与控制消息转发，同时降低<code>UserService</code>与各系统之间的耦合度。当需要新增功能时，只需修改<code>MessageSerice</code>即可。</p>
 <h4 id="总结-5"><a href="#总结-5" class="headerlink" title="总结"></a>总结</h4><p>迪米特法则要求我们在设计系统时，<strong>应该尽量减少对象之间的交互，如果两个对象之间不必彼此直接通信，那么这两个对象就不应当发生任何直接的相互作用，如果其中的一个对象需要调用另一个对象的某一个方法的话，可以通过第三者转发这个调用</strong>。简言之，就是<strong>通过引入一个合理的第三者来降低现有对象之间的耦合度</strong>。 </p>
 <p>在运用迪米特恩法则时应注意以下几点：</p>
@@ -450,9 +446,9 @@ public interface AdminUserService extends UserService {
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2018/10/18/Java/spring/SpringApplicationContext%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B/">
+                      <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
                         <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">SpringApplicationContext初始化过程</span>
+                        <span class="hidden-mobile">数据库基础</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -460,8 +456,8 @@ public interface AdminUserService extends UserService {
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/">
-                        <span class="hidden-mobile">设计模式-总览</span>
+                      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">
+                        <span class="hidden-mobile">SQL CRUD语句</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="fa fa-chevron-right"></i>
                       </a>
@@ -471,39 +467,6 @@ public interface AdminUserService extends UserService {
               
             </div>
 
-              
-                <!-- Comments -->
-                <div class="comments" id="comments">
-                  
-                  
-  <div id="vcomments"></div>
-  <script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
-
-  <script type="text/javascript">
-    var notify = 'true' === 'true';
-    var verify = 'false' === 'true';
-    var oldLoad = window.onload;
-    window.onload = function () {
-      new Valine({
-        el: '#vcomments',
-        notify: notify,
-        verify: verify,
-        app_id: "F4qWyr7CFCwDTYe0YjrVIjNO-gzGzoHsz",
-        app_key: "uitILtaQARG5HpBldONcjVrJ",
-        placeholder: "说点什么",
-        avatar: "/retro",
-        meta: ['nick', 'mail', 'link'],
-        pageSize: "10",
-      });
-      oldLoad && oldLoad();
-    };
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
-      powered by Valine.</a></noscript>
-
-
-                </div>
               
           </div>
         </div>

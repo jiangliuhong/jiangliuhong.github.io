@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>rocketmq基础实践 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+
+  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+<!-- 自定义样式保持在最底部 -->
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">首页</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">归档</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">爪哇</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">分类</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">标签</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">关于</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期日, 七月 14日 2019, 8:52 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    4.1k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      18 分钟
+                  </span>
+                
+
+                
+              </p>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h1 id="Rocketmq基础实践"><a href="#Rocketmq基础实践" class="headerlink" title="Rocketmq基础实践"></a>Rocketmq基础实践</h1><h2 id="为什么使用RocketMQ"><a href="#为什么使用RocketMQ" class="headerlink" title="为什么使用RocketMQ"></a>为什么使用RocketMQ</h2><blockquote>
+<p><a href="https://rocketmq.apache.org/docs/motivation/" target="_blank" rel="noopener">https://rocketmq.apache.org/docs/motivation/</a></p>
+<p><a href="https://rocketmq.apache.org/rocketmq/how-to-support-more-queues-in-rocketmq/" target="_blank" rel="noopener">https://rocketmq.apache.org/rocketmq/how-to-support-more-queues-in-rocketmq/</a></p>
+</blockquote>
+<p><strong>消息队列的优点：</strong></p>
+<ul>
+<li>解耦</li>
+<li>异步</li>
+<li>削峰</li>
+</ul>
+<p><strong>消息队列缺点：</strong></p>
+<ul>
+<li>系统可用性降低</li>
+<li>系统复杂度提高</li>
+<li>存在一致性问题</li>
+</ul>
+<p><strong>常见MQ对比</strong></p>
+<table>
+<thead>
+<tr>
+<th>MQ</th>
+<th>单机吞吐量</th>
+<th>时效性</th>
+<th>可用性</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ActiveMQ</td>
+<td>万级</td>
+<td>ms</td>
+<td>高</td>
+<td>社区不活跃</td>
+</tr>
+<tr>
+<td>RabbitMQ</td>
+<td>万级</td>
+<td>μs</td>
+<td>高</td>
+<td>并发性能很强，性能较好，延时低</td>
+</tr>
+<tr>
+<td>RocketMQ</td>
+<td>10万级</td>
+<td>ms</td>
+<td>非常高</td>
+<td>分布式系统，适用于topic较多（几百、几千）的场景</td>
+</tr>
+<tr>
+<td>Kafaka</td>
+<td>100万级</td>
+<td>ms</td>
+<td>非常高</td>
+<td>一般配合大数据类的系统来进行实时数据计算、日志采集等场景(ELK+Kafka)，不适用topic较多的场景</td>
+</tr>
+</tbody></table>
+<h2 id="RocketMQ-特点"><a href="#RocketMQ-特点" class="headerlink" title="RocketMQ 特点"></a>RocketMQ 特点</h2><blockquote>
+<p>RocketMQ 是阿里巴巴在2012年开源的分布式消息中间件，目前已经捐赠给 Apache 软件基金会，并于2017年9月25日成为 Apache 的顶级项目。作为经历过多次阿里巴巴双十一这种“超级工程”的洗礼并有稳定出色表现的国产中间件，以其高性能、低延时和高可靠等特性近年来已经也被越来越多的国内企业使用。</p>
+<p>目前RocketMQ在阿里集团被广泛应用在订单，交易，充值，流计算，消息推送，日志流式处理，binglog分发等场景。</p>
+</blockquote>
+<ul>
+<li>灵活可扩展性</li>
+<li>海量消息堆积能力</li>
+<li>支持顺序消息</li>
+<li>支持多种消息过滤方式</li>
+<li>支持事务消息</li>
+<li>支持回溯消费</li>
+</ul>
+<h2 id="RocketMQ物理结构"><a href="#RocketMQ物理结构" class="headerlink" title="RocketMQ物理结构"></a>RocketMQ物理结构</h2><p> <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/mq/%E7%89%A9%E7%90%86%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" alt="物理结构图"></p>
+<p><strong>NameServer：</strong></p>
+<ul>
+<li><p>NameServer是RocketMQ的寻址服务，存储Broker的路由信息以及配置信息，用户端（生成者消费者）依靠NameServer去选择对于的Broker服务</p>
+</li>
+<li><p>NameServer集群成员之间互补通信</p>
+</li>
+<li><p>NameServer本身不存储数据，其数据均来自Broker与用户端</p>
+</li>
+</ul>
+<p><strong>Broker：</strong></p>
+<p>Broker负责存储生产者发送的消息，并为消费者提供消费支撑。</p>
+<ul>
+<li>Broker以group分开，每个group只允许存在一个master</li>
+<li>Master、Slave之间数据同步可选择同步、异步复制，同理Master与Master之间也存在同步</li>
+<li>Broker向所有NameServer节点简历长连接，注册Topic信息</li>
+</ul>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><blockquote>
+<p>服务器：CentOS7 64位</p>
+<p>JDK：1.8</p>
+<p>内存：官方建议8G内存</p>
+</blockquote>
+<h3 id="下载软件包"><a href="#下载软件包" class="headerlink" title="下载软件包"></a>下载软件包</h3><pre><code class="shell"># cd /usr/local/
+# wget http://mirror.bit.edu.cn/apache/rocketmq/4.3.2/rocketmq-all-4.3.2-bin-release.zip
+# unzip rocketmq-all-4.3.2-bin-release.zip
+# mv rocketmq-all-4.3.2-bin-release rocketmq</code></pre>
+<h3 id="修改日志目录"><a href="#修改日志目录" class="headerlink" title="修改日志目录"></a>修改日志目录</h3><p>在<code>rocketmq/conf</code>目录下的<code>logback*.log</code>文件中配置了日志目录为<code>${user.home}/logs/....</code>，如果想要改变目录只需将<code>${user.home}</code>改为指定目录即可。</p>
+<p>可以使用send命令替换所有logback配置文件中的${usr.home}</p>
+<pre><code class="shell"># cd /usr/local/rocketmq/conf/
+# sed -i &#39;s#${user.home}#/usr/local/rocketmq#g&#39; *.xml</code></pre>
+<p>修改启动内存</p>
+<p>rocketmq官方预设的NameServer内存为4G，Broker内存为8G。而在开发测试的往往服务器资源较低，建议降低内存大小。</p>
+<p>切换到rocketmq的bin目录下（<code>cd /usr/local/rocketmq/bin</code>），分别修改<code>runbroker.sh</code>与<code>runserver.sh</code>脚本中的<code>JAVA_OPT</code>参数</p>
+<p>runserver.sh</p>
+<pre><code class="sh">JAVA_OPT=&quot;${JAVA_OPT} -server -Xms4g -Xmx4g -Xmn2g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m&quot;</code></pre>
+<p>runbroker.sh</p>
+<pre><code class="sh">JAVA_OPT=&quot;${JAVA_OPT} -server -Xms8g -Xmx8g -Xmn4g&quot;</code></pre>
+<h3 id="启动RocketMQ"><a href="#启动RocketMQ" class="headerlink" title="启动RocketMQ"></a>启动RocketMQ</h3><blockquote>
+<p>对于NameServer与Broker的启动，均可以在启动命令中增加参数，比如使用<code>-c</code>指定配置文件，</p>
+</blockquote>
+<p>因为Broker要依赖NameServer，所以应先启动NameServer再启动Broker</p>
+<p><strong>启动NameServer</strong></p>
+<pre><code class="shell"># cd /usr/local/rocketmq/conf/bin
+# nohup sh mqnamesrv &gt;/dev/null 2&gt;&amp;1 &amp;
+# 也可以使用-c为其指定配置文件
+# nohup sh mqnamesrv -c namesrv.conf &gt;/dev/null 2&gt;&amp;1 &amp;</code></pre>
+<p><strong>启动Broker</strong></p>
+<p>启动Broker之前先为其指定一个配置文件(<code>broker.conf</code>)，内容如下：</p>
+<pre><code class="properties">namesrvAddr=192.168.152.134:9876
+brokerName = broker-a
+brokerId = 0
+deleteWhen = 04
+fileReservedTime = 48
+storePathRootDir=/usr/local/rocketmq/store
+brokerRole = ASYNC_MASTER
+flushDiskType = ASYNC_FLUSH</code></pre>
+<p>启动Broker同时通过-c指定该配置文件</p>
+<pre><code class="shell"># nohup sh mqbroker -c ../conf/broker.conf &gt;/dev/null 2&gt;&amp;1 &amp;</code></pre>
+<p><strong>检测服务是否启动</strong></p>
+<p>使用<code>jps</code>命令查看当前java进程，也可以使用<code>ps</code>命令</p>
+<pre><code class="shell">[root@rocketmq-nameserver2 bin]# jps
+3104 Jps
+2689 NamesrvStartup
+2979 BrokerStartup
+[root@rocketmq-nameserver2 bin]# ps -ef|grep mqnamesrv
+root       2683   2303  0 03:57 pts/0    00:00:00 sh mqnamesrv
+root       3120   2303  0 04:08 pts/0    00:00:00 grep --color=auto mqnamesrv
+[root@rocketmq-nameserver2 bin]# ps -ef|grep mqbroker
+root       2972   2303  0 04:06 pts/0    00:00:00 sh mqbroker -c ../conf/broker.conf
+root       3122   2303  0 04:08 pts/0    00:00:00 grep --color=auto mqbroker</code></pre>
+<h3 id="控制台安装"><a href="#控制台安装" class="headerlink" title="控制台安装"></a>控制台安装</h3><blockquote>
+<p>apache/rocketmq-externals： <a href="https://github.com/apache/rocketmq-externals" target="_blank" rel="noopener">https://github.com/apache/rocketmq-externals</a></p>
+<p>rocketmq-externals中的rocketmq-console目录为控制台源码，下载源码，使用<code>mvn spring-boot:run</code>命令启动项目，访问地址：<a href="http://127.0.0.1:8080" target="_blank" rel="noopener">http://127.0.0.1:8080</a></p>
+</blockquote>
+<ol>
+<li>目前官方版本pom文件存在问题，如果直接启动会导致控制台报如下错误：</li>
+</ol>
+<pre><code>[ERROR] Failed to execute goal on project rocketmq-console-ng: Could not resolve dependencies for project org.apache:rocketmq-console-ng:jar:1.0.0: Failed to collect dependencies for [org.springframework.boot:spring-boot-starter-web:jar:1.4.3.RELEASE (compile), org.springframework.boot:spring-boot-starter-actuator:jar:1.4.3.RELEASE (compile), org.springframework.boot:spring-boot-starter-test:jar:1.4.3.RELEASE (test), commons-collections:commons-collections:jar:3.2.2 (compile), org.apache.rocketmq:rocketmq-tools:jar:4.4.0-SNAPSHOT (compile), org.apache.rocketmq:rocketmq-namesrv:jar:4.4.0-SNAPSHOT (compile), org.apache.rocketmq:rocketmq-broker:jar:4.4.0-SNAPSHOT (compile), com.google.guava:guava:jar:16.0.1 (compile), org.aspectj:aspectjrt:jar:1.6.11 (compile), org.aspectj:aspectjweaver:jar:1.6.11 (compile), cglib:cglib:jar:2.2.2 (compile), org.jooq:joor:jar:0.9.6 (compile)]: Failed to read artifact descriptor for org.apache.rocketmq:rocketmq-tools:jar:4.4.0-SNAPSHOT: Could not transfer artifact org.apache.rocketmq:rocketmq-tools:pom:4.4.0-SNAPSHOT from/to nexus (http://repo.thunisoft.com/maven2/content/groups/public-snapshots/)</code></pre><p>官方issues说是因为pom文件中rocketmq版本问题，将其改为4.4.0即可，原文地址：<a href="https://github.com/apache/rocketmq-externals/issues/208" target="_blank" rel="noopener">https://github.com/apache/rocketmq-externals/issues/208</a></p>
+<ol start="2">
+<li>在<code>rocketmq-console\src\main\resources\application.properties</code>文件中指定配置</li>
+</ol>
+<pre><code class="properties">server.contextPath=
+server.port=8080
+#spring.application.index=true
+spring.application.name=rocketmq-console
+spring.http.encoding.charset=UTF-8
+spring.http.encoding.enabled=true
+spring.http.encoding.force=true
+logging.config=classpath:logback.xml
+#if this value is empty,use env value rocketmq.config.namesrvAddr  NAMESRV_ADDR | now, you can set it in ops page.default localhost:9876
+rocketmq.config.namesrvAddr=192.168.152.134:9876
+#if you use rocketmq version &lt; 3.5.8, rocketmq.config.isVIPChannel should be false.default true
+rocketmq.config.isVIPChannel=
+#rocketmq-console&#39;s data path:dashboard/monitor
+rocketmq.config.dataPath=/tmp/rocketmq-console/data
+#set it false if you don&#39;t want use dashboard.default true
+rocketmq.config.enableDashBoardCollect=true
+#set the message track trace topic if you don&#39;t want use the default one
+rocketmq.config.msgTrackTopicName=</code></pre>
+<ol start="3">
+<li>RocketMQ-Console中的消息状态，对于源码包中的<code>org.apache.rocketmq.tools.admin.api.TrackType</code><ol>
+<li>CONSUMED 代表该消息已经被消费</li>
+<li>NOT_CONSUME_YET 还没被消费</li>
+<li>UNKNOW_EXCEPTION 消费出现异常</li>
+<li>NOT_ONLINE 消费者离线</li>
+</ol>
+</li>
+</ol>
+<h3 id="NameServer配置项"><a href="#NameServer配置项" class="headerlink" title="NameServer配置项"></a>NameServer配置项</h3><table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>listenPort</td>
+<td>监昕端口，值默认9876</td>
+<td></td>
+</tr>
+<tr>
+<td>serverWorkerThreads</td>
+<td>Netty 业务线程池线程个数，默认值为8</td>
+<td></td>
+</tr>
+<tr>
+<td>serverCallbackExecutorThreads</td>
+<td>Netty public 任务线程池线程个数</td>
+<td>Netty网络设计，根据业务类型会创建不同的线程池，比如处理消息发送、消息消费、心跳检测等</td>
+</tr>
+<tr>
+<td>serverSelectorThreads</td>
+<td>IO 线程池线程个数，默认为3，主要是 NameServer Broker 端解析请求、返回相应的线程个数</td>
+<td>这类线程主要是处理网络请求的，解析请求包， 然后转发到各个业务线程池完成具体的业务操作，然后将结果再返回调用方</td>
+</tr>
+<tr>
+<td>serverOnewaySemaphoreValue</td>
+<td>单次消息最大并发度，默认256</td>
+<td>消息请求并发度</td>
+</tr>
+<tr>
+<td>serverAsyncSemaphoreValue</td>
+<td>异步消息最大并发度，默认64</td>
+<td></td>
+</tr>
+<tr>
+<td>serverChannelMaxIdleTimeSeconds</td>
+<td>网络最大空闲时间，默认120秒</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="Broker配置项"><a href="#Broker配置项" class="headerlink" title="Broker配置项"></a>Broker配置项</h3><table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>名称</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>brokerClusterName</td>
+<td>所属集群名字</td>
+<td>默认值DefaultCluster</td>
+</tr>
+<tr>
+<td>brokerName</td>
+<td>broker 名字</td>
+<td>不同的主节点应配置不同的名称</td>
+</tr>
+<tr>
+<td>brokerId</td>
+<td>broker Id</td>
+<td>0 表示 Master，&gt;0 表示 Slave</td>
+</tr>
+<tr>
+<td>namesrvAddr</td>
+<td>namesrvAddr地址</td>
+<td>多个地址用分号分隔</td>
+</tr>
+<tr>
+<td>defaultTopicQueueNums</td>
+<td>默认主题队列数，默认4</td>
+<td>在发送消息时，自动创建服务器不存在的 topic，默认创建的队列数</td>
+</tr>
+<tr>
+<td>autoCreateTopicEnable</td>
+<td>自动创建主题状态，默认false</td>
+<td>是否允许 Broker 自动创建 Topic，建议线下开启，线上关闭</td>
+</tr>
+<tr>
+<td>autoCreateSubscriptionGroup</td>
+<td>自动创建订阅组状态，默认false</td>
+<td>是否允许 Broker 自动创建订阅组，建议线下开启，线上关闭</td>
+</tr>
+<tr>
+<td>listenPort</td>
+<td>监听端口</td>
+<td>Broker 对外服务的监听端口</td>
+</tr>
+<tr>
+<td>deleteWhen</td>
+<td>删除文件时间点，默认凌晨 4 点（04）</td>
+<td>与清理机制有关</td>
+</tr>
+<tr>
+<td>fileReservedTime</td>
+<td>文件保留时间，默认48小时</td>
+<td>与清理机制有关</td>
+</tr>
+<tr>
+<td>mapedFileSizeCommitLog</td>
+<td>commitLog 每个文件的大小默认 1G</td>
+<td>文件超过该值后，会新建一个文件</td>
+</tr>
+<tr>
+<td>mapedFileSizeConsumeQueue</td>
+<td>ConsumeQueue 每个文件存储个数，默认存 30W 条</td>
+<td></td>
+</tr>
+<tr>
+<td>destroyMapedFileIntervalForcibly</td>
+<td>文件拒绝删除后存活的最大时间，毫秒</td>
+<td>第一次拒绝删除之后能保留的最大时间</td>
+</tr>
+<tr>
+<td>deletePhysicFilesInterval</td>
+<td>删除物理文件间隔，毫秒</td>
+<td>因为在一次清除过程中，可能需要删除的文件不止一个，该值指定两次删除文件的间隔时间。</td>
+</tr>
+<tr>
+<td>diskMaxUsedSpaceRatio</td>
+<td>检测物理文件磁盘空间，默认75</td>
+<td></td>
+</tr>
+<tr>
+<td>diskSpaceWarningLevelRatio</td>
+<td>磁盘空间警戒大小</td>
+<td>磁盘空间警戒大小，超过，则停止接收新消息（出于保护自身目的）默认是90</td>
+</tr>
+<tr>
+<td>diskSpaceCleanForciblyRatio</td>
+<td>磁盘空间强制删除文件大小。默认是85</td>
+<td></td>
+</tr>
+<tr>
+<td>storePathRootDir</td>
+<td>文件存储路径</td>
+<td></td>
+</tr>
+<tr>
+<td>storePathCommitLog</td>
+<td>commitLog 存储路径</td>
+<td>存储消息</td>
+</tr>
+<tr>
+<td>storePathConsumeQueue</td>
+<td>消费队列存储路径存储路径</td>
+<td></td>
+</tr>
+<tr>
+<td>storePathIndex</td>
+<td>消息索引存储路径</td>
+<td></td>
+</tr>
+<tr>
+<td>storeCheckpoint</td>
+<td>checkpoint 文件存储路径</td>
+<td>异常恢复时根据checkpoint点来恢复消息</td>
+</tr>
+<tr>
+<td>abortFile</td>
+<td>abort 文件存储路径</td>
+<td>临时文件，主要记录是否正常关闭</td>
+</tr>
+<tr>
+<td>maxMessageSize</td>
+<td>消息最大大小</td>
+<td></td>
+</tr>
+<tr>
+<td>brokerRole</td>
+<td>Broker 的角色</td>
+<td>ASYNC_MASTER 异步复制主节点 ；SYNC_MASTER 同步双写主节点； SLAVE 从节点</td>
+</tr>
+<tr>
+<td>flushDiskType</td>
+<td>刷盘方式</td>
+<td>ASYNC_FLUSH 异步刷盘;SYNC_FLUSH 同步刷盘</td>
+</tr>
+</tbody></table>
+<h3 id="Broker高可用"><a href="#Broker高可用" class="headerlink" title="Broker高可用"></a>Broker高可用</h3><p><strong>主从同步方式：</strong></p>
+<ul>
+<li><p>同步双写：Master节点收到消息后，同步消息到Slave节点，主备都写成功，再向返回成功</p>
+</li>
+<li><p>异步复制：Master节点收到消息后，先返回成功，再同步到Slave节点</p>
+</li>
+</ul>
+<p><strong>刷盘方式：</strong></p>
+<ul>
+<li><p>同步刷盘：节点收到消息后，将数据持久化到硬盘后，再返回成功</p>
+</li>
+<li><p>异步刷盘：节点收到消息后，将消息存储在内存中，先返回成功，再持久化到硬盘中</p>
+</li>
+</ul>
+<p><strong>官方提供的配置：</strong></p>
+<p>在<code>rocketmq/conf</code>目录下存在3个配置文件示例，分别为：</p>
+<ul>
+<li>2m-2s-async 异步复制、异步刷盘</li>
+<li>2m-2s-sync 同步双写，异步刷盘</li>
+<li>2m-noslave 多主节点、异步刷盘</li>
+</ul>
+<p><strong>推荐使用：</strong>同步双写，异步刷盘</p>
+<p><strong>最稳妥的方式：</strong>同步双写、同步刷盘</p>
+<h2 id="消息存储"><a href="#消息存储" class="headerlink" title="消息存储"></a>消息存储</h2><h3 id="消息存储结构"><a href="#消息存储结构" class="headerlink" title="消息存储结构"></a>消息存储结构</h3><p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/mq/%E6%B6%88%E6%81%AF%E7%BB%93%E6%9E%84%E5%9B%BE.png" srcset="/img/loading.gif" alt="消息结构图"></p>
+<h3 id="偏移量（Offset）"><a href="#偏移量（Offset）" class="headerlink" title="偏移量（Offset）"></a>偏移量（<code>Offset</code>）</h3><ul>
+<li>Offset是消费进度的核心</li>
+<li>Offset的存储实现分为远程存储于本地存储两种</li>
+<li>对于PushConsumer（集群），Offset存储在Broker端；对于PullComsumer，Offset需要消费者自己维护，将其存在在消费者端</li>
+<li>集群消费模式，Offset存储在Broker端；广播消费模式，Offset春常在消费者端</li>
+<li>Consumer Offset用于标记Consumer Group在一条Consumer Queue上的消费进度</li>
+</ul>
+<h2 id="生成者"><a href="#生成者" class="headerlink" title="生成者"></a>生成者</h2><h3 id="核心参数"><a href="#核心参数" class="headerlink" title="核心参数"></a>核心参数</h3><ul>
+<li>producerGroup：组名唯一</li>
+<li>createTopicKey：创建主题时需要的密钥</li>
+<li>defaultTopicQueueNums：在发送消息时，自动创建服务器不存在的 topic，默认创建的队列数，默认4</li>
+<li>sendMsgTimeout：发送消息超时时间</li>
+<li>compressMsgBodyOverHowmuch：消息压缩字节，默认4096字节，超过该值，rocketmq就会对消息进行压缩</li>
+<li>retryTimesWhenSendFailed：重发策略，同理存在异步的（retryTimesWhenSendAsyncFailed）</li>
+<li>retryAnotherBrokerWhenNotStoreOk:默认false</li>
+<li>maxMessagerSize：消息最大容量，默认128k</li>
+</ul>
+<h3 id="发送消息"><a href="#发送消息" class="headerlink" title="发送消息"></a>发送消息</h3><p>同步发送消息：DefaultMQProducerImpl.producer.send(msg);</p>
+<p>异步发送消息：producer.send(Message msg,SendCallback sendCallback);</p>
+<h2 id="消费者"><a href="#消费者" class="headerlink" title="消费者"></a>消费者</h2><h3 id="消费模式"><a href="#消费模式" class="headerlink" title="消费模式"></a>消费模式</h3><p><strong>集群模式：</strong></p>
+<ul>
+<li>RocketMQ默认采用集群消费模式</li>
+<li>同一ComsumerGroup中的消费者只消费一次</li>
+</ul>
+<p><strong>广播模式：</strong></p>
+<ul>
+<li>广播模式下，每个Consumer都会对消息进行消费</li>
+</ul>
+<h3 id="消息类型"><a href="#消息类型" class="headerlink" title="消息类型"></a>消息类型</h3><blockquote>
+<p>首先先定义一个MessageListenerConcurrently</p>
+</blockquote>
+<pre><code class="java">public class MyMessageListenerConcurrently implements MessageListenerConcurrently {
+    @Override
+    public ConsumeConcurrentlyStatus consumeMessage(List&lt;MessageExt&gt; list,
+        ConsumeConcurrentlyContext consumeConcurrentlyContext) {
+        try {
+            MessageExt messageExt = list.get(0);
+            String body = new String(messageExt.getBody(), RemotingHelper.DEFAULT_CHARSET);
+            System.out.printf(&quot;QueueId:%s;Book:%s%n&quot;, messageExt.getQueueId(), body);
+            return ConsumeConcurrentlyStatus.CONSUME_SUCCESS;
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+            return ConsumeConcurrentlyStatus.RECONSUME_LATER;
+        }
+    }
+}</code></pre>
+<h4 id="定时消息"><a href="#定时消息" class="headerlink" title="定时消息"></a>定时消息</h4><blockquote>
+<p>定时消息是指消息发到 Broker 后，不能立刻被 Consumer 消费，要到特定的时间点或者等待特定的时间后才能被消费</p>
+</blockquote>
+<p>目前Rocket只支持固定精度的定时消息，官方解释为：</p>
+<blockquote>
+<p>如果要支持任意的时间精度，在 Broker 层面，必须要做消息排序，如果再涉及到持久化，那么消息排序要不可避免的产生巨大性能开销</p>
+</blockquote>
+<p>其精度如下：</p>
+<table>
+<thead>
+<tr>
+<th>延迟级别</th>
+<th>时间</th>
+<th>延迟级别</th>
+<th>时间</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1s</td>
+<td>2</td>
+<td>5s</td>
+</tr>
+<tr>
+<td>3</td>
+<td>10s</td>
+<td>4</td>
+<td>30s</td>
+</tr>
+<tr>
+<td>5</td>
+<td>1m</td>
+<td>6</td>
+<td>2m</td>
+</tr>
+<tr>
+<td>7</td>
+<td>3m</td>
+<td>8</td>
+<td>4m</td>
+</tr>
+<tr>
+<td>9</td>
+<td>5m</td>
+<td>10</td>
+<td>6m</td>
+</tr>
+<tr>
+<td>11</td>
+<td>7m</td>
+<td>12</td>
+<td>8m</td>
+</tr>
+<tr>
+<td>13</td>
+<td>9m</td>
+<td>14</td>
+<td>10m</td>
+</tr>
+<tr>
+<td>15</td>
+<td>20m</td>
+<td>16</td>
+<td>30m</td>
+</tr>
+<tr>
+<td>17</td>
+<td>1h</td>
+<td>18</td>
+<td>2h</td>
+</tr>
+</tbody></table>
+<p><strong>producer代码：</strong></p>
+<pre><code class="java">public class Producer {
+    public static void main(String[] args) throws Exception {
+        DefaultMQProducer producer = new DefaultMQProducer(&quot;test_producer_group&quot;);
+        producer.setNamesrvAddr(MessageConstants.NAMESRV_ADDR);
+        producer.start();
+        int totalMessagesToSend = 100;
+        for (int i = 0; i &lt; totalMessagesToSend; i++) {
+            Message message = new Message(&quot;schedule_message_test_topic&quot;, (&quot;Hello scheduled message &quot; + i).getBytes());
+            //设置级别为3，延迟10s
+            message.setDelayTimeLevel(3);
+            producer.send(message);
+        }
+        producer.shutdown();
+    }
+}</code></pre>
+<p><strong>consumer代码：</strong></p>
+<pre><code class="java">public class Consumer {
+    public static void main(String[] args) throws MQClientException {
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(&quot;test_consumer_group&quot;);
+        consumer.setNamesrvAddr(MessageConstants.NAMESRV_ADDR);
+        consumer.subscribe(&quot;test_scheduled&quot;, &quot;*&quot;);
+        consumer.registerMessageListener(new MyMessageListenerConcurrently());
+        consumer.start();
+        System.out.printf(&quot;Consumer Started.%n&quot;);
+    }
+}</code></pre>
+<h4 id="顺序消息"><a href="#顺序消息" class="headerlink" title="顺序消息"></a>顺序消息</h4><ul>
+<li>顺序消息：指的是消息的消费顺序与生存顺序相同</li>
+<li>全局顺序：在某个topic下，所有消息都要保证顺序，设置一个队列</li>
+<li>局部顺序：只要保证每一组消息被顺序消费即可，根据消息特性，投放到指定队列</li>
+</ul>
+<p><strong>producer代码：</strong></p>
+<pre><code class="java">public class Producer {
+    public static void main(String[] args) throws MQClientException, InterruptedException {
+        DefaultMQProducer producer = new DefaultMQProducer(&quot;test_producer_group&quot;);
+        producer.setNamesrvAddr(MessageConstants.NAMESRV_ADDR);
+        producer.start();
+        Map&lt;Integer, Book&gt; bookMap = new HashMap&lt;&gt;();
+        bookMap.put(1, new Book(1, &quot;语文&quot;));
+        bookMap.put(2, new Book(2, &quot;数学&quot;));
+        bookMap.put(3, new Book(3, &quot;英语&quot;));
+        bookMap.put(4, new Book(4, &quot;物理&quot;));
+        for (int i = 1; i &lt;= 8; i++) {
+            try {
+                int bookId = i % 4;
+                if (bookId == 0) {
+                    bookId = 4;
+                }
+                Book book = bookMap.get(bookId);
+                Message msg = new Message(&quot;test_book&quot;, &quot;TagA&quot;,
+                    JSON.toJSONString(book).getBytes(RemotingHelper.DEFAULT_CHARSET));
+                msg.setKeys(&quot;book_id_&quot; + book.getId());
+                SendResult sendResult = producer.send(msg, new MessageQueueSelector() {
+                    @Override
+                    public MessageQueue select(List&lt;MessageQueue&gt; list, Message message, Object o) {
+                        Integer id = (Integer)o;
+                        int index = id % list.size();
+                        return list.get(index);
+                    }
+                }, book.getId());
+                System.out.printf(&quot;%s%n&quot;, sendResult);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Thread.sleep(1000);
+            }
+        }
+        producer.shutdown();
+    }
+}
+class Book {
+    private int id;
+    private String name;
+    public Book(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public int getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+}</code></pre>
+<p><strong>consumer代码：</strong></p>
+<pre><code class="java">public class Consumer {
+    public static void main(String[] args) throws MQClientException {
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(&quot;test_consumer_group&quot;);
+        consumer.setNamesrvAddr(MessageConstants.NAMESRV_ADDR);
+        consumer.subscribe(&quot;test_book&quot;, &quot;TagA&quot;);
+        consumer.registerMessageListener(new MyMessageListenerConcurrently());
+        consumer.start();
+        System.out.printf(&quot;Consumer Started.%n&quot;);
+    }
+}</code></pre>
+<h4 id="事务消息"><a href="#事务消息" class="headerlink" title="事务消息"></a>事务消息</h4><p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/mq/%E4%BA%8B%E5%8A%A1%E6%B6%88%E6%81%AF.png" srcset="/img/loading.gif" alt="事务消息"></p>
+<p><strong>MyTransactionListener代码：</strong></p>
+<pre><code class="java">public class MyTransactionListener implements TransactionListener {
+    @Override
+    public LocalTransactionState executeLocalTransaction(Message message, Object o) {
+        System.out.printf(&quot;executeLocalTransaction，Obejct:%s%n&quot;, JSON.toJSONString(o));
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        // 该方法主要是设置本地事务状态，与业务方代码在一个事务中，只要本地事务提交成功，该方法也会提交成功
+        return LocalTransactionState.COMMIT_MESSAGE;
+    }
+    @Override
+    public LocalTransactionState checkLocalTransaction(MessageExt messageExt) {
+        // 告知RocketMQ是提交还是回滚
+        // 新版本将该方法与executeLocalTransaction进行合并
+        return null;
+    }
+}</code></pre>
+<p><strong>producer代码：</strong></p>
+<pre><code class="java">public class Producer {
+    public static void main(String[] args) throws MQClientException {
+        TransactionMQProducer producer = new TransactionMQProducer(&quot;test_trans_group&quot;);
+        producer.setNamesrvAddr(MessageConstants.NAMESRV_ADDR);
+        ExecutorService executorService = new ThreadPoolExecutor(2, 5, 100, TimeUnit.SECONDS,
+            new ArrayBlockingQueue&lt;Runnable&gt;(2000), new ThreadFactory() {
+                @Override
+                public Thread newThread(Runnable r) {
+                    Thread thread = new Thread(r);
+                    thread.setName(&quot;TransactionMQProducer-CheckThread&quot;);
+                    return thread;
+                }
+            });
+        producer.setExecutorService(executorService);
+        producer.setTransactionListener(new MyTransactionListener());
+        producer.start();
+        ArgBean arg = new ArgBean();
+        arg.setA(&quot;testa&quot;);
+        arg.setB(&quot;testb&quot;);
+        Message message
+            = new Message(&quot;test_trans&quot;, &quot;TagA&quot;, (&quot;test trans messsage!!obj:&quot; + JSON.toJSONString(arg)).getBytes());
+        producer.sendMessageInTransaction(message, arg);
+    }
+}
+class ArgBean {
+    private String a;
+    private String b;
+    public String getA() {
+        return a;
+    }
+    public void setA(String a) {
+        this.a = a;
+    }
+    public String getB() {
+        return b;
+    }
+    public void setB(String b) {
+        this.b = b;
+    }
+}</code></pre>
+<p><strong>consumer代码：</strong></p>
+<pre><code class="java">public class Consumer {
+    public static void main(String[] args) throws MQClientException {
+        DefaultMQPushConsumer consumer = new DefaultMQPushConsumer(&quot;test_consumer_group&quot;);
+        consumer.setNamesrvAddr(MessageConstants.NAMESRV_ADDR);
+        consumer.subscribe(&quot;test_trans&quot;, &quot;TagA&quot;);
+        consumer.registerMessageListener(new MyMessageListenerConcurrently());
+        consumer.start();
+        System.out.printf(&quot;Consumer Started.%n&quot;);
+    }
+}</code></pre>
+<h3 id="消费总览"><a href="#消费总览" class="headerlink" title="消费总览"></a>消费总览</h3><p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/mq/rocketmq%E6%B6%88%E8%B4%B9%E8%80%85%E6%B6%88%E8%B4%B9%E6%B6%88%E6%81%AF%E6%B5%81%E7%A8%8B.png" srcset="/img/loading.gif" alt="rocketmq消费者消费消息流程"></p>
+<p>几个重要的变量：</p>
+<ul>
+<li>PullMessageService.pullRequestQueue 记录要发送到broker的请求</li>
+<li>PullRequest.processQueue 流量控制，控制ConsumeRequest的并发访问</li>
+<li>PullRequestHoldService.pullRequestTable 保存正在进行长轮询的请求信息</li>
+<li>ManyPullRequest.pullRequestList 记录正在进行长轮询的PullRequest</li>
+</ul>
+<h3 id="Rebalance介绍"><a href="#Rebalance介绍" class="headerlink" title="Rebalance介绍"></a>Rebalance介绍</h3><h4 id="Consumer与ConsumerQueue"><a href="#Consumer与ConsumerQueue" class="headerlink" title="Consumer与ConsumerQueue"></a>Consumer与ConsumerQueue</h4><p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/mq/%E6%B6%88%E8%B4%B9%E8%80%85%E4%B8%8E%E9%98%9F%E5%88%97%E7%9A%84%E5%85%B3%E7%B3%BB.png" srcset="/img/loading.gif" alt="消费者与队列的关系"></p>
+<h4 id="平衡算法"><a href="#平衡算法" class="headerlink" title="平衡算法"></a>平衡算法</h4><p>核心代码<code>RebalanceImpl#rebalanceByTopic</code>:</p>
+<pre><code class="java">allocateResult = strategy.allocate(
+                            this.consumerGroup,
+                            this.mQClientFactory.getClientId(),
+                            mqAll,
+                            cidAll);</code></pre>
+<p>平衡算法<code>AllocateMessageQueueStrategy</code>的实现类</p>
+<h2 id="消息队列同步实践"><a href="#消息队列同步实践" class="headerlink" title="消息队列同步实践"></a>消息队列同步实践</h2><p><strong>涉及知识点：</strong></p>
+<ul>
+<li>利用观察者模式，收集数据的变化，触发SpringEvent事件，从而进行消息发送</li>
+<li>利用SpringEvent负责收集消息进行发送；消费消息时分责分发到不同的处理方法</li>
+</ul>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/mq/%E7%9B%91%E7%8B%B1%E4%B8%80%E7%AB%99%E5%BC%8F%E7%BD%AA%E7%8A%AF%E4%BF%A1%E6%81%AF%E5%90%8C%E6%AD%A5%E5%8E%9F%E7%90%86.png" srcset="/img/loading.gif" alt="同步实践"></p>
+<h2 id="钉钉社区"><a href="#钉钉社区" class="headerlink" title="钉钉社区"></a>钉钉社区</h2><ul>
+<li>阿里中间件Aliware开发者中心 21711817</li>
+<li>Apache RocketMQ 中国开发者钉钉群 21791227</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      &nbsp;
+                    
+                      <a class="hover-with-bg" href="/categories/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/">消息中间件</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/rocketmq/">rocketmq</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2019/08/25/Java/tools/java8%E6%96%B0%E7%89%B9%E6%80%A7/">
+                        <i class="fa fa-chevron-left"></i>
+                        <span class="hidden-mobile">java8新特性</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%AE%89%E8%A3%85/">
+                        <span class="hidden-mobile">rocketmq安装</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "rocketmq基础实践&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
