@@ -165,6 +165,56 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/10/18/Java/spring/springmvc%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%A3%E6%9E%90%E5%99%A8/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="SpringMvc自定义参数解析与返回值处理"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/10/18/Java/spring/springmvc%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%A3%E6%9E%90%E5%99%A8/">
+        <p class="h4 index-header">SpringMvc自定义参数解析与返回值处理</p>
+      </a>
+
+      <a href="/2018/10/18/Java/spring/springmvc%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%A3%E6%9E%90%E5%99%A8/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">SpringMvc自定义参数解析与返回值处理
+近日在做项目的时候，需要解析客户端传来的经过AES加密处理的实体信息，同时也需要向客户端返回经过AES加密的实体信息，在项目初期，都是在Controller方法中去调用某个工具类进行decode、encode操作比较繁琐，于是去寻求解决办法，在翻阅了SpringMvc解析参数的源码后，仿照@RequestBody的进行以下实现。本文基于SpringBoot 2.0即SpringMvc 5.0.6。
+
+SpringMvc 参数绑定原理ArgumentResolver与ReturnValueHandler通过在maven在项目中引入SpringMvc依</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-10-18&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          
+            <a href="/categories/Java/Spring/">Spring</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Spring/">Spring</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2018/10/18/Java/spring/SpringApplicationContext%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B/" target="_self">
           <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="SpringApplicationContext初始化过程"
                class="index-img img-fluid rounded index-thumbnails">
@@ -490,31 +540,33 @@ mysqldump -u username -p dbname &gt; dbname.sql
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL安装"
+        <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SQL CRUD语句"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/">
-        <p class="h4 index-header">MySQL安装</p>
+      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">
+        <p class="h4 index-header">SQL CRUD语句</p>
       </a>
 
-      <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/">
+      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">MySQL安装Linux下安装MySQL使用yum方式安装
-yum方式安装方式摘自菜鸟教程(http://www.runoob.com/mysql/mysql-install.html)
+          <div class="index-text mb-1">SQL CRUD语句
+下文以MySQL为例进行说明。CRUD即增加(Create)、查询(Retrieve)、更新(Update)、删除(Delete)四个单词的首字母缩写。
 
-Linux平台上推荐使用RPM包来安装Mysql,MySQL AB提供了以下RPM包的下载地址： 
-
-MySQL - MySQL服务器。你需要该选项，除非你只想连接运行在另一台机器上的MySQL服务器。
-MySQL-client - MySQL 客户端程序，用于连接并操作Mysql服务器。
-MySQL-devel - 库和包含文件，如果你想要编译其它MySQL客户端，例如Perl模块，则需要安装该RPM包。</div>
+准备首先准备在MySQL数据库中创建两张表：学生表（student）、班级表(class)，建表语句如下：
+create table class(
+id varchar(32) not null,
+name varchar(45) not null comment &#39;班级名称&#39;,
+ PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE </div>
         </div>
       </a>
 
@@ -526,10 +578,13 @@ MySQL-devel - 库和包含文件，如果你想要编译其它MySQL客户端，�
           <i class="iconfont icon-inbox"></i>
           
             <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>&nbsp;
           &nbsp;
         
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/SQL/">SQL</a>&nbsp;
+          
         
       </div>
     </div>
@@ -628,60 +683,6 @@ ACIDACID即数据库的四大特性：
             <a href="/tags/Java/">Java</a>&nbsp;
           
             <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SQL CRUD语句"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">
-        <p class="h4 index-header">SQL CRUD语句</p>
-      </a>
-
-      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">SQL CRUD语句
-下文以MySQL为例进行说明。CRUD即增加(Create)、查询(Retrieve)、更新(Update)、删除(Delete)四个单词的首字母缩写。
-
-准备首先准备在MySQL数据库中创建两张表：学生表（student）、班级表(class)，建表语句如下：
-create table class(
-id varchar(32) not null,
-name varchar(45) not null comment &#39;班级名称&#39;,
- PRIMARY KEY (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-CREATE </div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/SQL/">SQL</a>&nbsp;
           
         
       </div>
