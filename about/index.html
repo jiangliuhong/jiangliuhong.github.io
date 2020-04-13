@@ -88,6 +88,14 @@
           
           
           <li class="nav-item">
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">2020目标</a>
+          </li>
+        
+          
+          
+          
+          
+          <li class="nav-item">
             <a class="nav-link" href="/categories/">分类</a>
           </li>
         
@@ -195,6 +203,7 @@
 <li>职业：编程3年半的个人编程员</li>
 <li>邮箱：<a href="mailto:ja_rome@163.com">ja_rome@163.com</a></li>
 <li>微信：jack950523</li>
+<li>留言：<a href="./#给我留言">给我留言</a></li>
 </ul>
 <h2 id="技术标签"><a href="#技术标签" class="headerlink" title="技术标签"></a>技术标签</h2><ul>
 <li>Java</li>
@@ -206,10 +215,44 @@
 <li>Python</li>
 </ul>
 <h2 id="座右铭"><a href="#座右铭" class="headerlink" title="座右铭"></a>座右铭</h2><p>平凡的脚步也可以走出伟大的行程</p>
+<h2 id="我的轨迹"><a href="#我的轨迹" class="headerlink" title="我的轨迹"></a>我的轨迹</h2>
+<!-- 时间轴 -->
+<link href="./index.css" rel="stylesheet" />
+<div class="timeline">
+  <div class="cards" id="mytimelineCards">
+  </div>
+</div>
+<script src="./index.js"></script>
+<!-- 时间轴 -->
 
 
-   
+<h2 id="给我留言"><a href="#给我留言" class="headerlink" title="给我留言"></a>给我留言</h2>
+<!-- 关于页评论 -->
+<div id="vcomments"></div>
+<script defer src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script defer src="//unpkg.com/valine/dist/Valine.min.js"></script>
 
+<script type="text/javascript">
+  var notify = '<%= theme.valine.notify %>' === 'true';
+  var verify = '<%= theme.valine.verify %>' === 'true';
+  var oldLoad = window.onload;
+  window.onload = function () {
+    new Valine({
+      el: '#vcomments',
+      notify: notify,
+      verify: verify,
+      app_id: "F4qWyr7CFCwDTYe0YjrVIjNO-gzGzoHsz",
+      app_key: "uitILtaQARG5HpBldONcjVrJ",
+      placeholder: "说点什么",
+      avatar: "",
+      meta: ['nick', 'mail', 'link'],
+      pageSize: "10",
+    });
+    oldLoad && oldLoad();
+  };
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://valine.js.org" target="_blank" rel="nofollow noopener noopener">comments
+    powered by Valine.</a></noscript>
 
 </div>
 
