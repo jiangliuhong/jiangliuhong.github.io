@@ -173,6 +173,55 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL安装"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">MySQL安装</p>
+      </a>
+
+      <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">MySQL安装Linux下安装MySQL使用yum方式安装
+yum方式安装方式摘自菜鸟教程(http://www.runoob.com/mysql/mysql-install.html)
+
+Linux平台上推荐使用RPM包来安装Mysql,MySQL AB提供了以下RPM包的下载地址： 
+
+MySQL - MySQL服务器。你需要该选项，除非你只想连接运行在另一台机器上的MySQL服务器。
+MySQL-client - MySQL 客户端程序，用于连接并操作Mysql服务器。
+MySQL-devel - 库和包含文件，如果你想要编译其它MySQL客户端，例如Perl模块，则需要安装该RPM包。</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
+          
+            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>&nbsp;
+          &nbsp;
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" target="_self">
           <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SQL CRUD语句"
                class="index-img img-fluid rounded index-thumbnails">
@@ -326,36 +375,25 @@ ACIDACID即数据库的四大特性：
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL备份与还原"
+        <a href="/2018/07/16/database/MySQL/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL性能优化"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">
-        <p class="h4 index-header">MySQL备份与还原</p>
+      <a href="/2018/07/16/database/MySQL/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
+        <p class="h4 index-header">MySQL性能优化</p>
       </a>
 
-      <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">
+      <a href="/2018/07/16/database/MySQL/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">MySQL备份与还原逻辑备份
-逻辑备份为通过对数据库的操作导出数据文件，常用的逻辑备份有两种，一种是将数据转换为全量的INSERT语句，另一种是将数据以特定的分隔符进行隔后记录在文本文件中。
-
-全量INSERT语句备份在MySQL数据库中，一般通过MySQL数据库自带的工具mysqldump来生成INSERT语句的逻辑备份文件。
-mysqldump常用的集中方法为：
-
-导出整个数据库与所有数据
-
-mysqldump -u username -p dbname &gt; dbname.sql    
-
-导出数据库结构
-
- mysqldump -u username -p -d dbname &g</div>
+          <div class="index-text mb-1">MySQL性能优化日志优化不论是MySQL数据库还是其它数据库，特别是支持事务的数据库而言，其日志需要记录数据服务器中的CURD操作，从而会消耗IO资源，从而影响到数据库性能，特别是操作频繁且数据量大的数据表。对于MySQL而言，其日志主要为二进制日志（BinLog）、错误日志（Error Log）、慢查询日志（Slow Query Log），下面将分别对MySQL的日志优化作出说明。
+BinLog优化在实际生产环境中，为保护数据库数据的安全性，我们一般都将会打开BinLog日志进行增量备份。对于MySQL的BinLog日志备份，有三种模式，分别为：行模式、语句模式、混合模式。下面对三种模式分</div>
         </div>
       </a>
 

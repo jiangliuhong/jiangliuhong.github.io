@@ -173,6 +173,67 @@
     
     
       <div class="col-12 col-md-4 m-auto">
+        <a href="/2020/03/25/Java/tools/java%E5%90%88%E5%B9%B6%E5%9B%BE%E7%89%87/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="java合并图片"
+               class="index-img img-fluid rounded index-thumbnails">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a href="/2020/03/25/Java/tools/java%E5%90%88%E5%B9%B6%E5%9B%BE%E7%89%87/">
+        <p class="h4 index-header">java合并图片</p>
+      </a>
+
+      <a href="/2020/03/25/Java/tools/java%E5%90%88%E5%B9%B6%E5%9B%BE%E7%89%87/">
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">使用java合并图片编写Bimg类
+省略get、set方法
+
+import java.awt.image.BufferedImage;
+
+public class Bimg {
+    private BufferedImage image;
+    private int w;
+    private int y;
+}
+
+编写测试类
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputSt</div>
+        </div>
+      </a>
+
+      <div class="index-btm">
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2020-03-25&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/Java/">Java</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/tools/">tools</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto">
         <a href="/2020/03/24/normal/windows%E6%B7%BB%E5%8A%A0vscode%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" target="_self">
           <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/tools/wondows-10-keyboard.jpg" srcset="/img/loading.gif" alt="windows添加vscode右键菜单"
                class="index-img img-fluid rounded index-thumbnails">
@@ -221,26 +282,29 @@ Windows Registry Editor Version 5.00
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="Java多线程学习笔记"
+        <a href="/2019/08/26/Java/tools/Java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="Java线程安全"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-        <p class="h4 index-header">Java多线程学习笔记</p>
+      <a href="/2019/08/26/Java/tools/Java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
+        <p class="h4 index-header">Java线程安全</p>
       </a>
 
-      <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+      <a href="/2019/08/26/Java/tools/Java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">多线程学习笔记什么是线程线程是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务
-什么是线程安全和线程不安全线程安全是针对多线程来讲的，如果所使用的公用变量在多线程下没有被保护机制时，变量结果会和理论值不一致，这样就叫作线程不安全，相反公用变量在保护机制下工作，就不会出现“随机”变化，这时叫线程安全。线程安全:   在多线程中使用时,不用自已做同步处理.线程不安全:   在多线程中使用时,   必须做线程同步,不然会有未知后果.
-什么是自旋锁是指当一个线程在获取锁的时候</div>
+          <div class="index-text mb-1">线程安全
+一个方法或者一个实例可以在多线程环境中使用而不会出现问题
+
+线程安全实现方式悲观锁synchronized使用synchronized是通过互斥的方式保证同步的，它对于同一条线程来说是可重入的；其次它是阻塞的。synchronized会将线程阻塞，当获得锁时会唤醒线程，将线程从用户状态转为内核状态，该操作会消耗大量的资源，顾synchronized是一个重量级锁。
+ReentrantLockReentrantLock是一个可重入锁。它与synchronized的区别是，它需要显示的去调动lock与unlock方法，手动去加锁并释放锁，一般释放锁的方法写在finally语句块中。
+乐观</div>
         </div>
       </a>
 
@@ -323,29 +387,26 @@ public class NewRunnable implements Runnable {
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/08/26/Java/tools/Java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="Java线程安全"
+        <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="Java多线程学习笔记"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2019/08/26/Java/tools/Java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
-        <p class="h4 index-header">Java线程安全</p>
+      <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
+        <p class="h4 index-header">Java多线程学习笔记</p>
       </a>
 
-      <a href="/2019/08/26/Java/tools/Java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
+      <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">线程安全
-一个方法或者一个实例可以在多线程环境中使用而不会出现问题
-
-线程安全实现方式悲观锁synchronized使用synchronized是通过互斥的方式保证同步的，它对于同一条线程来说是可重入的；其次它是阻塞的。synchronized会将线程阻塞，当获得锁时会唤醒线程，将线程从用户状态转为内核状态，该操作会消耗大量的资源，顾synchronized是一个重量级锁。
-ReentrantLockReentrantLock是一个可重入锁。它与synchronized的区别是，它需要显示的去调动lock与unlock方法，手动去加锁并释放锁，一般释放锁的方法写在finally语句块中。
-乐观</div>
+          <div class="index-text mb-1">多线程学习笔记什么是线程线程是操作系统能够进行运算调度的最小单位。它被包含在进程之中，是进程中的实际运作单位。一条线程指的是进程中一个单一顺序的控制流，一个进程中可以并发多个线程，每条线程并行执行不同的任务
+什么是线程安全和线程不安全线程安全是针对多线程来讲的，如果所使用的公用变量在多线程下没有被保护机制时，变量结果会和理论值不一致，这样就叫作线程不安全，相反公用变量在保护机制下工作，就不会出现“随机”变化，这时叫线程安全。线程安全:   在多线程中使用时,不用自已做同步处理.线程不安全:   在多线程中使用时,   必须做线程同步,不然会有未知后果.
+什么是自旋锁是指当一个线程在获取锁的时候</div>
         </div>
       </a>
 
@@ -568,55 +629,6 @@ Rock</div>
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="jekyllcn在windows下安装"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
-        <p class="h4 index-header">jekyllcn在windows下安装</p>
-      </a>
-
-      <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">首先安装Chocolatey
-关于Chocolatey的安装可以查看其官网 https://chocolatey.org/install
-
-cmd命令(管理员运行)
-@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolate</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-05-23&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/githubpage/">githubpage</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
         <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" target="_self">
           <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="JavaScript基础学习"
                class="index-img img-fluid rounded index-thumbnails">
@@ -667,29 +679,28 @@ JavaScript，简称JS，是一种高级的、解释执行的编程语言。JavaS
     
     
       <div class="col-12 col-md-4 m-auto">
-        <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SpringBoot2.0整合Activiti6.0问题梳理"
+        <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="jekyllcn在windows下安装"
                class="index-img img-fluid rounded index-thumbnails">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/">
-        <p class="h4 index-header">SpringBoot2.0整合Activiti6.0问题梳理</p>
+      <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
+        <p class="h4 index-header">jekyllcn在windows下安装</p>
       </a>
 
-      <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/">
+      <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/">
         
         
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">SpringBoot2.0整合Activiti6.0问题梳理SpringBoot整合Activiti很简单，我们可以通过springboot的starter来快速整合，只需要在pom文件中引入一下内容即可：
-&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
-    &lt;version&gt;6.0.0&lt;/version&gt;
-&lt;/depend</div>
+          <div class="index-text mb-1">首先安装Chocolatey
+关于Chocolatey的安装可以查看其官网 https://chocolatey.org/install
+
+cmd命令(管理员运行)
+@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&#39;https://chocolate</div>
         </div>
       </a>
 
@@ -700,13 +711,13 @@ JavaScript，简称JS，是一种高级的、解释执行的编程语言。JavaS
         
           <i class="iconfont icon-inbox"></i>
           
-            <a href="/categories/Java/">Java</a>&nbsp;
+            <a href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>&nbsp;
           &nbsp;
         
         
           <i class="iconfont icon-tag"></i>
           
-            <a href="/tags/tools/">tools</a>&nbsp;
+            <a href="/tags/githubpage/">githubpage</a>&nbsp;
           
         
       </div>

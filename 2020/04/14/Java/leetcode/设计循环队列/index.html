@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>归档 - 硒恩园</title>
+  <title>设计循环队列 - 硒恩园</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
@@ -145,6 +145,33 @@
             </span>
 
             
+              
+                <p class="mt-3 post-meta">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+                  星期二, 四月 14日 2020, 11:18 晚上
+                </p>
+              
+
+              <p class="mt-1">
+                
+                  
+                  <span class="post-meta">
+                    <i class="far fa-chart-bar"></i>
+                    506 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta">
+                      <i class="far fa-clock"></i>
+                      2 分钟
+                  </span>
+                
+
+                
+              </p>
+            
           </div>
 
           
@@ -159,55 +186,173 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 46 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/05/23/normal/JavaScript%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">JavaScript基础学习</span>
-      <span style="float: right;">05-23</span>
-    </a>
-  
-    
-    <a href="/2019/05/23/normal/jekyllcn%E5%9C%A8windows%E4%B8%8B%E5%AE%89%E8%A3%85/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">jekyllcn在windows下安装</span>
-      <span style="float: right;">05-23</span>
-    </a>
-  
-    
-    <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">SpringBoot2.0整合Activiti6.0问题梳理</span>
-      <span style="float: right;">05-23</span>
-    </a>
-  
-    
-    <a href="/2019/05/22/Java/spring/SpringCloud%E5%BF%AB%E9%80%9F%E6%9E%84%E5%BB%BA/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">SpringCloud快速构建</span>
-      <span style="float: right;">05-22</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5 z-depth-3" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <div class="markdown-body">
+              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>地址<a href="https://leetcode-cn.com/problems/design-circular-queue/" target="_blank" rel="noopener">https://leetcode-cn.com/problems/design-circular-queue/</a></p>
+</blockquote>
+<p>设计你的循环队列实现。 循环队列是一种线性数据结构，其操作表现基于 FIFO（先进先出）原则并且队尾被连接在队首之后以形成一个循环。它也被称为“环形缓冲器”。</p>
+<p>循环队列的一个好处是我们可以利用这个队列之前用过的空间。在一个普通队列里，一旦一个队列满了，我们就不能插入下一个元素，即使在队列前面仍有空间。但是使用循环队列，我们能使用这些空间去存储新的值。</p>
+<p>你的实现应该支持如下操作：</p>
+<ul>
+<li>MyCircularQueue(k): 构造器，设置队列长度为 k 。</li>
+<li>Front: 从队首获取元素。如果队列为空，返回 -1 。</li>
+<li>Rear: 获取队尾元素。如果队列为空，返回 -1 。</li>
+<li>enQueue(value): 向循环队列插入一个元素。如果成功插入则返回真。</li>
+<li>deQueue(): 从循环队列中删除一个元素。如果成功删除则返回真。</li>
+<li>isEmpty(): 检查循环队列是否为空。</li>
+<li>isFull(): 检查循环队列是否已满。</li>
+</ul>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><blockquote>
+<p>使用一个一维数组实现</p>
+</blockquote>
+<pre><code class="java">package com.jarome.leetcode;
 
+public class MyCircularQueue {
 
-              </div>
+    private int[] queue;
+    private int head;
+    private int total;
+    private int size;
+
+    /** Initialize your data structure here. Set the size of the queue to be k. */
+    public MyCircularQueue(int k) {
+        this.queue = new int[k];
+        this.total = k;
+        this.head = 0;
+        this.size = 0;
+    }
+
+    /** Insert an element into the circular queue. Return true if the operation is successful. */
+    public boolean enQueue(int value) {
+        if (isFull()) {
+            return false;
+        }
+        this.size++;
+        int tail = getTail();
+        this.queue[tail] = value;
+        return true;
+    }
+
+    /** Delete an element from the circular queue. Return true if the operation is successful. */
+    public boolean deQueue() {
+        if (isEmpty()) {
+            return false;
+        }
+        this.size--;
+        this.head = (this.head + 1) % this.total;
+        return true;
+    }
+
+    /** Get the front item from the queue. */
+    public int Front() {
+        if (isEmpty()) {
+            return -1;
+        }
+        return this.queue[this.head];
+    }
+
+    /** Get the last item from the queue. */
+    public int Rear() {
+        if (isEmpty()) {
+            return -1;
+        }
+        int tail = getTail();
+        return this.queue[tail];
+    }
+
+    /** Checks whether the circular queue is empty or not. */
+    public boolean isEmpty() {
+        return this.size == 0;
+    }
+
+    /** Checks whether the circular queue is full or not. */
+    public boolean isFull() {
+        return this.total == this.size;
+    }
+
+    private int getTail() {
+        return (this.head + this.size - 1) % this.total;
+    }
+
+}
+</code></pre>
+
             </div>
+            <hr>
+            <div>
+              <p>
+                
+                  <span>
+                <i class="iconfont icon-inbox"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/leetcode/">leetcode</a>
+                      &nbsp;
+                    
+                  </span>&nbsp;&nbsp;
+                
+                
+                  <span>
+                <i class="iconfont icon-tag"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/study/">study</a>
+                    
+                  </span>
+                
+              </p>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/13/Java/leetcode/%E8%AE%A1%E7%AE%97%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/">
+                        <span class="hidden-mobile">计算两数之和</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="fa fa-chevron-right"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+              
           </div>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc-start"></div>
+<div id="toc">
+  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -272,6 +417,59 @@
 
 
 
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var navHeight = $('#navbar').height();
+      var toc = $('#toc');
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+      var tocLimMax = 2 * boardTop + boardCtn.height();
+
+      $(window).scroll(function () {
+        var tocLimMin = $('#toc-start').offset().top - navHeight;
+        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
+
+        if (tocLimMin <= scroH && scroH <= tocLimMax) {
+          toc.css({
+            'display': 'block',
+            'position': 'fixed',
+            'top': navHeight,
+          });
+        } else if (scroH <= tocLimMin) {
+          toc.css({
+            'position': '',
+            'top': '',
+          });
+        } else if (scroH > tocLimMax) {
+          toc.css('display', 'none');
+        }
+      });
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc > p').css('visibility', 'visible');
+      }
+      var offset = boardCtn.css('margin-right')
+      $('#toc-ctn').css({
+        'right': offset
+      })
+    });
+  </script>
+
+
+
 
 
   <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
@@ -303,7 +501,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "设计循环队列&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
