@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,24 +19,31 @@
   <meta name="keywords" content="">
   <title>硒恩园</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -62,65 +69,73 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/Java/">爪哇</a>
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/2020/04/12/study/2020_study/">2020目标</a>
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -138,7 +153,7 @@
          style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -149,7 +164,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -160,7 +175,7 @@
   <main>
     
       <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board"
+        <div class="py-5" id="board"
           >
           
           <div class="container">
@@ -172,46 +187,40 @@
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL安装"
-               class="index-img img-fluid rounded index-thumbnails">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="Redis安装">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/">
-        <p class="h4 index-header">MySQL安装</p>
+      <a class="index-header" href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/">Redis安装</a>
+
+      <a href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/" class="index-excerpt">
+        
+        
+          
+        
+        <div>Redis安装开始安装[root@localhost home]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.10.tar.gz
+[root@localhost home]# mv redis-4.0.10 &#x2F;usr&#x2F;local&#x2F;
+[root@localhost home]</div>
       </a>
 
-      <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/">
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
         
         
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">MySQL安装Linux下安装MySQL使用yum方式安装
-yum方式安装方式摘自菜鸟教程(http://www.runoob.com/mysql/mysql-install.html)
-
-Linux平台上推荐使用RPM包来安装Mysql,MySQL AB提供了以下RPM包的下载地址： 
-
-MySQL - MySQL服务器。你需要该选项，除非你只想连接运行在另一台机器上的MySQL服务器。
-MySQL-client - MySQL 客户端程序，用于连接并操作Mysql服务器。
-MySQL-devel - 库和包含文件，如果你想要编译其它MySQL客户端，例如Perl模块，则需要安装该RPM包。</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/">Redis</a>
+            
+          </div>
         
         
       </div>
@@ -221,52 +230,238 @@ MySQL-devel - 库和包含文件，如果你想要编译其它MySQL客户端，�
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SQL CRUD语句"
-               class="index-img img-fluid rounded index-thumbnails">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL备份与还原">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">
-        <p class="h4 index-header">SQL CRUD语句</p>
-      </a>
+      <a class="index-header" href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">MySQL备份与还原</a>
 
-      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">
+      <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">SQL CRUD语句
+        <div>MySQL备份与还原逻辑备份
+逻辑备份为通过对数据库的操作导出数据文件，常用的逻辑备份有两种，一种是将数据转换为全量的INSERT语句，另一种是将数据以特定的分隔符进行隔后记录在文本文件中。
+
+全量INSERT语句备份在MySQL数据库中，一般通过MySQL数据库自带的工具mysqldump来生成INSERT语句的逻辑备份文件。
+mysqldump常用的集中方法为：
+
+导出整个数据库与所有数据
+
+</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
+            
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="PostgreSQL安装">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/">PostgreSQL安装</a>
+
+      <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/" class="index-excerpt">
+        
+        
+          
+        
+        <div>PostgreSQL安装Linux(CentOs)安装方法使用yum安装安装存储库RPM： 
+yum install https:&#x2F;&#x2F;download.postgresql.org&#x2F;pub&#x2F;repos&#x2F;yum&#x2F;10&#x2F;redhat&#x2F;rhel-7-x86_64&#x2F;pgdg-centos10-10-2.noarch.</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/postgresql/">postgresql</a>
+            
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="数据库基础">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">数据库基础</a>
+
+      <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" class="index-excerpt">
+        
+        
+          
+        
+        <div>数据库基础ACID，NULL，MVCC，约束、概念模型、第三范式、连接
+ACIDACID即数据库的四大特性：
+
+原子性（Atomicity）：指事务是一个不可再分割的工作单位，事务中的操作要么都发生，要么都不发生。
+一致性（Consistency）：指在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。这是说数据库事务不能破坏关系数据的完整性以及业务逻辑上的一致性。
+隔离性（Isolati</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="面向对象设计与设计原则">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">面向对象设计与设计原则</a>
+
+      <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" class="index-excerpt">
+        
+        
+          
+        
+        <div>面向对象设计与设计原则面向对象基本概念
+面向对象程序设计(Object-oriented programming即OOP)是种具有对象概念的程序编程典范，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。
+
+面向对象编程的两个重要概念是类和对象。
+类：类是变量与作用这些变量的方法集合，事物都具有其自身的属性和方法，通过这些属性和方法可以将不同的物质区分开来。
+对象：对象是类进行实例</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SQL CRUD语句">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">SQL CRUD语句</a>
+
+      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" class="index-excerpt">
+        
+        
+          
+        
+        <div>SQL CRUD语句
 下文以MySQL为例进行说明。CRUD即增加(Create)、查询(Retrieve)、更新(Update)、删除(Delete)四个单词的首字母缩写。
 
 准备首先准备在MySQL数据库中创建两张表：学生表（student）、班级表(class)，建表语句如下：
 create table class(
 id varchar(32) not null,
-name varchar(45) not null comment &#39;班级名称&#39;,
- PRIMARY KEY (id)
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
-CREATE </div>
-        </div>
+name varchar</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/SQL/">SQL</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SQL/">SQL</a>
+            
+          </div>
         
       </div>
     </div>
@@ -275,167 +470,21 @@ CREATE </div>
   <div class="row mx-auto index-card">
     
     
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="数据库基础"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
-        <p class="h4 index-header">数据库基础</p>
-      </a>
-
-      <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">数据库基础ACID，NULL，MVCC，约束、概念模型、第三范式、连接
-ACIDACID即数据库的四大特性：
-
-原子性（Atomicity）：指事务是一个不可再分割的工作单位，事务中的操作要么都发生，要么都不发生。
-一致性（Consistency）：指在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。这是说数据库事务不能破坏关系数据的完整性以及业务逻辑上的一致性。
-隔离性（Isolation）：指的是在并发环境中，当不同的事务同时操纵相同的数据时，每个事务都有各自的完整数据空间。由并发事务所做的修改必须与任何其他并发事务所做的修改隔离。事务查看数据更新时，数据所处的状态要么是另一事务</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="面向对象设计与设计原则"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
-        <p class="h4 index-header">面向对象设计与设计原则</p>
-      </a>
-
-      <a href="/2018/07/16/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%90%88%E8%AE%A1-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">面向对象设计与设计原则面向对象基本概念
-面向对象程序设计(Object-oriented programming即OOP)是种具有对象概念的程序编程典范，同时也是一种程序开发的抽象方针。它可能包含数据、属性、代码与方法。
-
-面向对象编程的两个重要概念是类和对象。
-类：类是变量与作用这些变量的方法集合，事物都具有其自身的属性和方法，通过这些属性和方法可以将不同的物质区分开来。
-对象：对象是类进行实例化后的产物，是一个实体。
-面向对象基本特征封装封装是面向对象的特征之一，是对象和类概念的主要特性。
-封装，也就是把客观事物封装成抽象的类，并且类可以把自己的数据和方法只让可信的类或者对象操作，对不可信</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java/">Java</a>&nbsp;
-          
-            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
-        <a href="/2018/07/16/database/MySQL/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL性能优化"
-               class="index-img img-fluid rounded index-thumbnails">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/16/database/MySQL/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-        <p class="h4 index-header">MySQL性能优化</p>
-      </a>
-
-      <a href="/2018/07/16/database/MySQL/MySQL%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">
-        
-        
-          
-        
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">MySQL性能优化日志优化不论是MySQL数据库还是其它数据库，特别是支持事务的数据库而言，其日志需要记录数据服务器中的CURD操作，从而会消耗IO资源，从而影响到数据库性能，特别是操作频繁且数据量大的数据表。对于MySQL而言，其日志主要为二进制日志（BinLog）、错误日志（Error Log）、慢查询日志（Slow Query Log），下面将分别对MySQL的日志优化作出说明。
-BinLog优化在实际生产环境中，为保护数据库数据的安全性，我们一般都将会打开BinLog日志进行增量备份。对于MySQL的BinLog日志备份，有三种模式，分别为：行模式、语句模式、混合模式。下面对三种模式分</div>
-        </div>
-      </a>
-
-      <div class="index-btm">
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-16&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
-          
-            <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>&nbsp;
-          &nbsp;
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto">
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="设计模式-总览"
-               class="index-img img-fluid rounded index-thumbnails">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="设计模式-总览">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/">
-        <p class="h4 index-header">设计模式-总览</p>
-      </a>
+      <a class="index-header" href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/">设计模式-总览</a>
 
-      <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/">
+      <a href="/2018/07/14/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E6%80%BB%E8%A7%88/" class="index-excerpt">
         
         
           
         
-        <div class="index-excerpt" >
-          <div class="index-text mb-1">设计模式-总览
+        <div>设计模式-总览
 设计模式（Design pattern）是一种被反复使用、多数人知晓的、经过分类编目的、代码设计经验的总结。即：在某些场景下，针对某类问题的某种通用的解决办法
 
 设计模式分类
@@ -448,27 +497,32 @@ BinLog优化在实际生产环境中，为保护数据库数据的安全性，�
 
 
 创建型设计模式
-创建型模式(Creational Pattern)对类的实例化过程进行了抽象，能够将软件模块中对象的创建和对象的使用分离。为了使软件的结构更加清晰，外界对于这些对象只需要知道它们共同的接口，而不清楚其具体的实现细</div>
-        </div>
+创建型模式(</div>
       </a>
 
-      <div class="index-btm">
+      <div class="index-btm post-metas">
         
-          <i class="iconfont icon-riqi2"></i>&nbsp;2018-07-14&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
-          &nbsp;
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-14
+          </div>
         
         
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/Java/">Java</a>&nbsp;
-          
-            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>&nbsp;
-          
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">Java</a>
+            
+              <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+            
+          </div>
         
       </div>
     </div>
@@ -476,9 +530,9 @@ BinLog优化在实际生产环境中，为保护数据库数据的安全性，�
 
 
 
-  <nav aria-label="index posts navigation">
-    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
-      <a class="extend prev" rel="prev" href="/page/4/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/4/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
     </span>
   </nav>
   
@@ -499,8 +553,8 @@ BinLog优化在实际生产环境中，为保护数据库数据的安全性，�
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -535,9 +589,10 @@ BinLog优化在实际生产环境中，为保护数据库数据的安全性，�
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -549,9 +604,7 @@ BinLog优化在实际生产环境中，为保护数据库数据的安全性，�
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -569,19 +622,7 @@ BinLog优化在实际生产环境中，为保护数据库数据的安全性，�
 
 
 
-
-
 <!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -634,17 +675,11 @@ BinLog优化在实际生产环境中，为保护数据库数据的安全性，�
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
-  <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
-      function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
-        $(this).wrap(element);
-      }
-    );
-  </script>
+
+
+
+
+
 
 
 

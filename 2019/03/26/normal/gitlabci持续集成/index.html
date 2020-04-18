@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,24 +19,31 @@
   <meta name="keywords" content="">
   <title>GitLab持续集成环境搭建 - 硒恩园</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -62,65 +69,73 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/Java/">爪哇</a>
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/2020/04/12/study/2020_study/">2020目标</a>
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -138,7 +153,7 @@
          style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -146,37 +161,42 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期二, 三月 26日 2019, 12:17 凌晨
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-03-26 00:17">
+                    星期二, 三月 26日 2019, 12:17 凌晨
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    969 字
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    968 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      4 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    13
+                     分钟
                   </span>
                 
 
                 
-              </p>
+              </div>
             
           </div>
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -193,10 +213,10 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <h1 id="GitLab持续集成环境搭建"><a href="#GitLab持续集成环境搭建" class="headerlink" title="GitLab持续集成环境搭建"></a>GitLab持续集成环境搭建</h1><blockquote>
 <p>随着微服务的兴起，部署服务越来越繁琐，当然业内也有对应的持续集成方案，目前在企业中使用较为广泛的持续集成方案应是gitlab持续集成、持续部署（gitlab CI/CD）</p>
 </blockquote>
@@ -205,14 +225,16 @@
 </blockquote>
 <p><strong>GitLab安装：</strong></p>
 <p>首先拉去镜像：</p>
-<pre><code class="shell">$ docker pull gitlab/gitlab-ce</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker pull gitlab/gitlab-ce</span></code></pre>
+
 <p>拉取成功后使用如下命令启动容器：</p>
-<pre><code class="shell">docker run -itd -p 8443:443 -p 8081:8081 -p 2222:22 \
+<pre><code class="hljs shell">docker run -itd -p 8443:443 -p 8081:8081 -p 2222:22 \
 --name gitlab --restart always \
 --volume ~/develop/docker/gitlab/config:/etc/gitlab \
 --volume ~/develop/docker/gitlab/logs:/var/log/gitlab \
 --volume ~/develop/docker/gitlab/data:/var/opt/gitlab \
 gitlab/gitlab-ce:latest</code></pre>
+
 <p>需要注意的是：</p>
 <ul>
 <li>端口<code>8443</code> ,<code>8081</code>,<code>2222</code>可任意选择一个物理机上可用的端口。</li>
@@ -222,12 +244,14 @@ gitlab/gitlab-ce:latest</code></pre>
 </ul>
 <p><strong>GitLabRunner安装：</strong></p>
 <p>拉取镜像：</p>
-<pre><code class="shell">$ docker pull gitlab/gitlab-runner</code></pre>
+<pre><code class="hljs shell"><span class="hljs-meta">$</span><span class="bash"> docker pull gitlab/gitlab-runner</span></code></pre>
+
 <p>启动gitlab-runner容器：</p>
-<pre><code class="shell">docker run -d --name gitlab-runner --restart always \
+<pre><code class="hljs shell">docker run -d --name gitlab-runner --restart always \
   -v /srv/gitlab-runner/config:/etc/gitlab-runner \
   -v /var/run/docker.sock:/var/run/docker.sock \
   gitlab/gitlab-runner:latest</code></pre>
+
 <h2 id="注册Runner"><a href="#注册Runner" class="headerlink" title="注册Runner"></a>注册Runner</h2><h3 id="容器之间互联"><a href="#容器之间互联" class="headerlink" title="容器之间互联"></a>容器之间互联</h3><p>在注册Runner的时候需要输入gitlab的访问地址，而docker容器之间不能直接连接，所以需要进如下操作使得容器互联。</p>
 <p>容器之间的互联有三种方式：</p>
 <ul>
@@ -247,10 +271,10 @@ gitlab/gitlab-ce:latest</code></pre>
 <li>安装docker控制台工具，在控制工具中可直接查看容器的ip等信息，我使用的是<code>portainer</code>，镜像网易云链接：<a href="https://c.163yun.com/hub#/m/repository/?repoId=78662" target="_blank" rel="noopener">https://c.163yun.com/hub#/m/repository/?repoId=78662</a></li>
 </ul>
 <h3 id="注册"><a href="#注册" class="headerlink" title="注册"></a>注册</h3><p>首先进入容器，使用<code>gitlab-runner register</code>命令注册：</p>
-<pre><code class="shell">root@f3c47cad0bf8:/# gitlab-runner register
+<pre><code class="hljs shell">root@f3c47cad0bf8:/# gitlab-runner register
 Runtime platform                                    arch=amd64 os=linux pid=82 revision=6946bae7 version=12.0.0
 Running in system-mode.                            
-
+                                                   
 Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
 http://172.17.0.3:8081 #gitlab访问地址
 Please enter the gitlab-ci token for this runner:
@@ -264,38 +288,38 @@ Please enter the executor: docker-ssh+machine, kubernetes, docker, parallels, sh
 docker
 Please enter the default Docker image (e.g. ruby:2.6):
 alpine:latest
-Runner registered successfully. Feel free to start it, but if it&#39;s running already the config should be automatically reloaded! 
+Runner registered successfully. Feel free to start it, but if it's running already the config should be automatically reloaded! 
 root@f3c47cad0bf8:/# gitlab-runner start #启动容器
 Runtime platform                                    arch=amd64 os=linux pid=90 revision=6946bae7 version=12.0.0
-root@f3c47cad0bf8:/# </code></pre>
+root@f3c47cad0bf8:/#</code></pre>
+
 <p>gitlab仓库注册令牌获取方式如图：</p>
 <p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/gitlab/token.jpg" srcset="/img/loading.gif" alt="令牌获取方式"></p>
 <p>在完成注册后，在gitlab里可以查看到如下内容：</p>
 <p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/gitlab/runner-one-success.jpg" srcset="/img/loading.gif" alt="runner注册成功预览"></p>
 <h3 id="注册群组runner"><a href="#注册群组runner" class="headerlink" title="注册群组runner"></a>注册群组runner</h3><p>注册群主runner与单个方式相同，首先在gitlab上新建一个群组，然后在该群组的[设置-&gt;CI/CD-&gt;Runner]中查看Runner注册令牌，然后在注册runner的时候使用该令牌即可。</p>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/gitlab/">gitlab</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -304,9 +328,9 @@ root@f3c47cad0bf8:/# </code></pre>
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">GitLab CI/CD 介绍和使用</span>
+                      <a href="/2019/03/26/normal/gitlabci%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">gitlabci项目集成</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -314,10 +338,10 @@ root@f3c47cad0bf8:/# </code></pre>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2019/03/26/normal/gitlabci%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/">
-                        <span class="hidden-mobile">gitlabci项目集成</span>
+                      <a href="/2018/12/22/server/nginx%E9%85%8D%E7%BD%AE/">
+                        <span class="hidden-mobile">nginx配置</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -325,16 +349,15 @@ root@f3c47cad0bf8:/# </code></pre>
               
             </div>
 
-              
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -350,8 +373,8 @@ root@f3c47cad0bf8:/# </code></pre>
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -386,9 +409,10 @@ root@f3c47cad0bf8:/# </code></pre>
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -400,9 +424,7 @@ root@f3c47cad0bf8:/# </code></pre>
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -411,34 +433,12 @@ root@f3c47cad0bf8:/# </code></pre>
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -448,16 +448,13 @@ root@f3c47cad0bf8:/# </code></pre>
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -473,19 +470,7 @@ root@f3c47cad0bf8:/# </code></pre>
 
 
 
-
-
 <!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -538,17 +523,25 @@ root@f3c47cad0bf8:/# </code></pre>
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
+
+
+
+
 
 
 

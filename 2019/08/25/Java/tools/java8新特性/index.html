@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,24 +19,31 @@
   <meta name="keywords" content="">
   <title>java8新特性 - 硒恩园</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -62,65 +69,73 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/Java/">爪哇</a>
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/2020/04/12/study/2020_study/">2020目标</a>
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -138,7 +153,7 @@
          style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -146,37 +161,42 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期日, 八月 25日 2019, 8:44 晚上
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-08-25 20:44">
+                    星期日, 八月 25日 2019, 8:44 晚上
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     2k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      8 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    26
+                     分钟
                   </span>
                 
 
                 
-              </p>
+              </div>
             
           </div>
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -193,51 +213,55 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <h1 id="Java8新特性"><a href="#Java8新特性" class="headerlink" title="Java8新特性"></a>Java8新特性</h1><h2 id="接口默认方法与静态方法"><a href="#接口默认方法与静态方法" class="headerlink" title="接口默认方法与静态方法"></a>接口默认方法与静态方法</h2><h3 id="接口默认方法"><a href="#接口默认方法" class="headerlink" title="接口默认方法"></a>接口默认方法</h3><p>实现方式：</p>
-<pre><code class="java">public interface UserInterface {
-    default void addUser(){
-        System.out.println(&quot;add user&quot;);
-    }
-}</code></pre>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserInterface</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addUser</span><span class="hljs-params">()</span></span>&#123;
+        System.out.println(<span class="hljs-string">"add user"</span>);
+    &#125;
+&#125;</code></pre>
+
 <p>在接口定义中使用<code>default</code>关键字即可定义一个自带方法内容的接口方法，子类可以不实现该方法。</p>
 <h4 id="接口冲突"><a href="#接口冲突" class="headerlink" title="接口冲突"></a>接口冲突</h4><p>接口是允许实现多个接口的，试想如果有两个接口，分别为<code>UserInterface1</code>、<code>UserInterface2</code>，他们均定义了一名名为<code>addUser</code>的默认方法，此时，如果有一个子类同时实现了这两个接口，实现方调用<code>addUser</code>则产生冲突。</p>
 <h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>可以在不破坏代码的前提下扩展原有库的功能。它通过一个很优雅的方式使得接口变得更智能，同时还避免了代码冗余，并且扩展类库。</p>
 <h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>使得口作为协议，类作为具体实现的界限开始变得有点模糊。如果继承关系较多，可能增加一些开发成本。</p>
-<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><pre><code class="java">public interface UserInterface {
+<h3 id="静态方法"><a href="#静态方法" class="headerlink" title="静态方法"></a>静态方法</h3><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">UserInterface</span> </span>&#123;
 
-    static String getUser(){
-        System.out.println(&quot;this user&quot;);
-        return &quot;user&quot;;
-    }
+    <span class="hljs-function"><span class="hljs-keyword">static</span> String <span class="hljs-title">getUser</span><span class="hljs-params">()</span></span>&#123;
+        System.out.println(<span class="hljs-string">"this user"</span>);
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"user"</span>;
+    &#125;
 
-}</code></pre>
+&#125;</code></pre>
+
 <h2 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h2><p><code>Lambda</code>表达式（也称为闭包）是整个Java 8发行版中最受期待的在Java语言层面上的改变，Lambda允许把函数作为一个方法的参数（即：<strong>行为参数化</strong>，函数作为参数传递进方法中）。</p>
 <p>一个<code>Lambda</code>可以由用逗号分隔的参数列表、<code>–&gt;</code>符号与函数体三部分表示。</p>
 <p>遍历List的两种方式：</p>
-<pre><code class="java">@Test
-public void t1(){
-  List&lt;String&gt; list = new ArrayList&lt;&gt;();
-  list.add(&quot;A&quot;);
-  list.add(&quot;B&quot;);
-  list.add(&quot;C&quot;);
-  System.out.println(&quot;普通遍历：&quot;);
-  for(String str : list){
+<pre><code class="hljs java"><span class="hljs-meta">@Test</span>
+<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">t1</span><span class="hljs-params">()</span></span>&#123;
+  List&lt;String&gt; list = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+  list.add(<span class="hljs-string">"A"</span>);
+  list.add(<span class="hljs-string">"B"</span>);
+  list.add(<span class="hljs-string">"C"</span>);
+  System.out.println(<span class="hljs-string">"普通遍历："</span>);
+  <span class="hljs-keyword">for</span>(String str : list)&#123;
     System.out.println(str);
-  }
-  System.out.println(&quot;java8遍历：&quot;);
-  list.forEach(str-&gt;{
+  &#125;
+  System.out.println(<span class="hljs-string">"java8遍历："</span>);
+  list.forEach(str-&gt;&#123;
     System.out.println(str);
-  });
-}</code></pre>
+  &#125;);
+&#125;</code></pre>
+
 <h2 id="函数式接口"><a href="#函数式接口" class="headerlink" title="函数式接口"></a>函数式接口</h2><p>函数式接口是指一个抽象方法的接口，每一个该类型的Lambda表达式都会被匹配到这个抽象方法。</p>
 <p>一个<code>Lambda</code>表达式就是一个抽象方法的实现。</p>
 <p><code>@FunctionalInterface</code>定义的接口都可以使用在<code>Lambda</code>表达式上。</p>
 <h3 id="Java8自带的函数式接口"><a href="#Java8自带的函数式接口" class="headerlink" title="Java8自带的函数式接口"></a>Java8自带的函数式接口</h3><p><strong>Comparator (比较器接口)</strong></p>
-<pre><code class="java">Comparator&lt;Person&gt; comparator = (p1, p2) -&gt; p1.firstName.compareTo(p2.firstName);</code></pre>
+<pre><code class="hljs java">Comparator&lt;Person&gt; comparator = (p1, p2) -&gt; p1.firstName.compareTo(p2.firstName);</code></pre>
+
 <p><strong>Consumer (消费型接口)</strong></p>
 <p><code>Consumer</code>接口表示执行在单个参数上的操作。 </p>
 <p>扩展：</p>
@@ -286,82 +310,83 @@ public void t1(){
 <li>BinaryOperator</li>
 </ul>
 <p><strong>示例代码</strong></p>
-<pre><code class="java">public class User {
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;
 
-    private Work work;
+    <span class="hljs-keyword">private</span> Work work;
 
-    public Work getWork() {
-        return work;
-    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Work <span class="hljs-title">getWork</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> work;
+    &#125;
 
-    public void setWork(Work work) {
-        this.work = work;
-    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setWork</span><span class="hljs-params">(Work work)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.work = work;
+    &#125;
 
-    public void eat(String food, Consumer&lt;String&gt; consumer) {
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">(String food, Consumer&lt;String&gt; consumer)</span> </span>&#123;
         consumer.accept(food);
-    }
+    &#125;
 
-    public void eat(String food, Supplier&lt;String&gt; supplier) {
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">(String food, Supplier&lt;String&gt; supplier)</span> </span>&#123;
         String s = supplier.get();
-        System.out.println(&quot;Supplier -&gt;&gt; &quot; + food + &quot;:&quot; + s);
-    }
+        System.out.println(<span class="hljs-string">"Supplier -&gt;&gt; "</span> + food + <span class="hljs-string">":"</span> + s);
+    &#125;
 
-    public void eat(String food, Predicate&lt;String&gt; predicate) {
-        if (predicate.test(&quot;admin&quot;)) {
-            System.out.println(&quot;Predicate -&gt;&gt; admin eat &quot; + food);
-        }
-    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">(String food, Predicate&lt;String&gt; predicate)</span> </span>&#123;
+        <span class="hljs-keyword">if</span> (predicate.test(<span class="hljs-string">"admin"</span>)) &#123;
+            System.out.println(<span class="hljs-string">"Predicate -&gt;&gt; admin eat "</span> + food);
+        &#125;
+    &#125;
 
-    public void work(Integer month,Function&lt;Work, Integer&gt; function) {
-        Integer amount1 = function.compose(w-&gt; {
-            Work ww = new Work();
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">work</span><span class="hljs-params">(Integer month,Function&lt;Work, Integer&gt; function)</span> </span>&#123;
+        Integer amount1 = function.compose(w-&gt; &#123;
+            Work ww = <span class="hljs-keyword">new</span> Work();
             ww.setSalary(((Work)w).getSalary()*month);
-            return ww;
-        }).apply(this.getWork());
-        System.out.println(&quot;Function compose -&gt;&gt; amount:&quot;+ amount1);
-        Integer amount2 = function.andThen(salary -&gt; salary * month).apply(this.getWork());
-        System.out.println(&quot;Function andThen -&gt;&gt; amount:&quot;+ amount2);
-    }
+            <span class="hljs-keyword">return</span> ww;
+        &#125;).apply(<span class="hljs-keyword">this</span>.getWork());
+        System.out.println(<span class="hljs-string">"Function compose -&gt;&gt; amount:"</span>+ amount1);
+        Integer amount2 = function.andThen(salary -&gt; salary * month).apply(<span class="hljs-keyword">this</span>.getWork());
+        System.out.println(<span class="hljs-string">"Function andThen -&gt;&gt; amount:"</span>+ amount2);
+    &#125;
 
-    public static void main(String[] args) {
-        User user = new User();
-        user.eat(&quot;banana&quot;, (Consumer&lt;String&gt;)s -&gt; System.out.println(&quot;Consumer -&gt;&gt; food is : &quot; + s));
-        user.eat(&quot;banana&quot;, (Predicate&lt;String&gt;)s -&gt; s.equals(&quot;admin&quot;));
-        user.eat(&quot;apple&quot;, () -&gt; &quot;sdf&quot;);
-        Work work = new Work();
-        work.setSalary(100);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        User user = <span class="hljs-keyword">new</span> User();
+        user.eat(<span class="hljs-string">"banana"</span>, (Consumer&lt;String&gt;)s -&gt; System.out.println(<span class="hljs-string">"Consumer -&gt;&gt; food is : "</span> + s));
+        user.eat(<span class="hljs-string">"banana"</span>, (Predicate&lt;String&gt;)s -&gt; s.equals(<span class="hljs-string">"admin"</span>));
+        user.eat(<span class="hljs-string">"apple"</span>, () -&gt; <span class="hljs-string">"sdf"</span>);
+        Work work = <span class="hljs-keyword">new</span> Work();
+        work.setSalary(<span class="hljs-number">100</span>);
         user.setWork(work);
-        user.work(8, s -&gt; {
+        user.work(<span class="hljs-number">8</span>, s -&gt; &#123;
             Integer salary = s.getSalary();
-            //奖金
-            Integer bons = 100000;
-            return salary + bons;
-        });
-        UnaryOperator&lt;Integer&gt; increment = x -&gt; x + 1;
-        System.out.println(&quot;UnaryOperator -&gt;&gt; &quot; + increment.apply(2));
+            <span class="hljs-comment">//奖金</span>
+            Integer bons = <span class="hljs-number">100000</span>;
+            <span class="hljs-keyword">return</span> salary + bons;
+        &#125;);
+        UnaryOperator&lt;Integer&gt; increment = x -&gt; x + <span class="hljs-number">1</span>;
+        System.out.println(<span class="hljs-string">"UnaryOperator -&gt;&gt; "</span> + increment.apply(<span class="hljs-number">2</span>));
         BinaryOperator&lt;Integer&gt; add = (x, y) -&gt; x + y;
-        System.out.println(&quot;BinaryOperator -&gt;&gt; &quot; + add.apply(2, 3));
+        System.out.println(<span class="hljs-string">"BinaryOperator -&gt;&gt; "</span> + add.apply(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>));
 
         BinaryOperator&lt;Integer&gt; min = BinaryOperator.minBy((o1, o2) -&gt; o1 - o2);
-        System.out.println(&quot;BinaryOperator -&gt;&gt; &quot; + min.apply(2, 3));
-    }
-}
+        System.out.println(<span class="hljs-string">"BinaryOperator -&gt;&gt; "</span> + min.apply(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>));
+    &#125;
+&#125;
 
-public class Work {
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Work</span> </span>&#123;
 
-    private Integer salary;
+    <span class="hljs-keyword">private</span> Integer salary;
 
-    public Integer getSalary() {
-        return salary;
-    }
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Integer <span class="hljs-title">getSalary</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> salary;
+    &#125;
 
-    public void setSalary(Integer salary) {
-        this.salary = salary;
-    }
-}</code></pre>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setSalary</span><span class="hljs-params">(Integer salary)</span> </span>&#123;
+        <span class="hljs-keyword">this</span>.salary = salary;
+    &#125;
+&#125;</code></pre>
+
 <p><strong>示例输出</strong></p>
-<pre><code class="text">Consumer -&gt;&gt; food is : banana
+<pre><code class="hljs text">Consumer -&gt;&gt; food is : banana
 Predicate -&gt;&gt; admin eat banana
 Supplier -&gt;&gt; apple:sdf
 Function compose -&gt;&gt; amount:100800
@@ -369,28 +394,32 @@ Function andThen -&gt;&gt; amount:800800
 UnaryOperator -&gt;&gt; 3
 BinaryOperator -&gt;&gt; 5
 BinaryOperator -&gt;&gt; 2</code></pre>
+
 <h3 id="自定义函数式接口"><a href="#自定义函数式接口" class="headerlink" title="自定义函数式接口"></a>自定义函数式接口</h3><p>自定义函数式接口只需要在接口中添加<code>@FunctionalInterface</code>注解，并为这个接口提供至少一个公共方法即可。下面示例代码将自定义个将map转为list的函数式接口：</p>
-<pre><code class="java">import java.util.List;
-import java.util.Map;
+<pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.List;
+<span class="hljs-keyword">import</span> java.util.Map;
 
-@FunctionalInterface
-public interface ListToMapFunction&lt;K,V&gt; {
+<span class="hljs-meta">@FunctionalInterface</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">ListToMapFunction</span>&lt;<span class="hljs-title">K</span>,<span class="hljs-title">V</span>&gt; </span>&#123;
 
-    public Map&lt;K,V&gt; apply(List&lt;V&gt; list);
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;K,V&gt; <span class="hljs-title">apply</span><span class="hljs-params">(List&lt;V&gt; list)</span></span>;
 
-}</code></pre>
+&#125;</code></pre>
+
 <h2 id="方法引用"><a href="#方法引用" class="headerlink" title="方法引用"></a>方法引用</h2><p>首先列举一下java8中使用stream将list转为map的代码：</p>
-<pre><code class="java">public static void main(String[] args) {
-        List&lt;User&gt; users = new ArrayList&lt;&gt;();
-        users.add(new User(1));
-        users.add(new User(2));
-        users.add(new User(3));
-        users.add(new User(4));
-        users.add(new User(5));
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        List&lt;User&gt; users = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+        users.add(<span class="hljs-keyword">new</span> User(<span class="hljs-number">1</span>));
+        users.add(<span class="hljs-keyword">new</span> User(<span class="hljs-number">2</span>));
+        users.add(<span class="hljs-keyword">new</span> User(<span class="hljs-number">3</span>));
+        users.add(<span class="hljs-keyword">new</span> User(<span class="hljs-number">4</span>));
+        users.add(<span class="hljs-keyword">new</span> User(<span class="hljs-number">5</span>));
         users.stream().collect(Collectors.toMap(u-&gt;u.getId(),u-&gt;u));
-    }</code></pre>
+    &#125;</code></pre>
+
 <p>在java8中我们可以直接通过方法应用来简写<code>Lambda</code>表达式中已经存在的方法，修改为：</p>
-<pre><code class="java">users.stream().collect(Collectors.toMap(User::getId,u-&gt;u));</code></pre>
+<pre><code class="hljs java">users.stream().collect(Collectors.toMap(User::getId,u-&gt;u));</code></pre>
+
 <p>其中<code>User::getId</code>就是方法引用，方法引用的操作符是双冒号<code>::</code>。</p>
 <p><strong>方法引用</strong>是用来直接访问类或者实例的已经存在的方法或者构造方法。方法引用提供了一种引用而不执行方法的方式，它需要由兼容的函数式接口构成的目标类型上下文。计算时，方法引用会创建函数式接口的一个实例。当Lambda表达式中只是执行一个方法调用时，不用Lambda表达式，直接通过方法引用的形式可读性更高一些。方法引用是一种更简洁易懂的Lambda表达式。</p>
 <p>方法引用有四种写法：</p>
@@ -437,28 +466,27 @@ public interface ListToMapFunction&lt;K,V&gt; {
 <li><code>orElseGet</code>:为空，调动get回调函数</li>
 </ul>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/Java/">Java</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/tools/">tools</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -467,9 +495,9 @@ public interface ListToMapFunction&lt;K,V&gt; {
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">Java多线程学习笔记</span>
+                      <a href="/2019/08/26/Java/tools/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E6%80%BB%E7%BB%93/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java多线程编程总结</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -480,7 +508,7 @@ public interface ListToMapFunction&lt;K,V&gt; {
                       <a href="/2019/07/14/Java/%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6/rocketmq%E5%9F%BA%E7%A1%80%E5%AE%9E%E8%B7%B5/">
                         <span class="hidden-mobile">rocketmq基础实践</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -488,16 +516,15 @@ public interface ListToMapFunction&lt;K,V&gt; {
               
             </div>
 
-              
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -513,8 +540,8 @@ public interface ListToMapFunction&lt;K,V&gt; {
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -549,9 +576,10 @@ public interface ListToMapFunction&lt;K,V&gt; {
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -563,9 +591,7 @@ public interface ListToMapFunction&lt;K,V&gt; {
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -574,34 +600,12 @@ public interface ListToMapFunction&lt;K,V&gt; {
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -611,16 +615,13 @@ public interface ListToMapFunction&lt;K,V&gt; {
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -636,19 +637,7 @@ public interface ListToMapFunction&lt;K,V&gt; {
 
 
 
-
-
 <!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -701,17 +690,25 @@ public interface ListToMapFunction&lt;K,V&gt; {
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
+
+
+
+
 
 
 

@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,24 +19,31 @@
   <meta name="keywords" content="">
   <title>SpringBoot加载配置文件 - 硒恩园</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -62,65 +69,73 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/Java/">爪哇</a>
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/2020/04/12/study/2020_study/">2020目标</a>
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -138,7 +153,7 @@
          style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -146,37 +161,42 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期一, 十月 22日 2018, 10:40 晚上
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2018-10-22 22:40">
+                    星期一, 十月 22日 2018, 10:40 晚上
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
-                    1.8k 字
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.9k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      8 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    29
+                     分钟
                   </span>
                 
 
                 
-              </p>
+              </div>
             
           </div>
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -193,10 +213,10 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <h1 id="SpringBoot加载配置文件"><a href="#SpringBoot加载配置文件" class="headerlink" title="SpringBoot加载配置文件"></a>SpringBoot加载配置文件</h1><blockquote>
 <p>读过SpringBoot源码的同学应该都知道它会在启动过程中根据spring.factories加载监听器，而其中有一个名叫<code>ConfigFileApplicationListener</code>的监听器，它的作用为加载配置信息，即application.xml、application.yml。</p>
 </blockquote>
@@ -254,111 +274,118 @@
 </tr>
 </tbody></table>
 <h2 id="配置文件加载"><a href="#配置文件加载" class="headerlink" title="配置文件加载"></a>配置文件加载</h2><h3 id="监听器入口"><a href="#监听器入口" class="headerlink" title="监听器入口"></a>监听器入口</h3><p>阅读SpringBoot启动源码时，我们都知道监听器真实生效的方法是<code>onApplicationEvent</code>，<code>ConfigFileApplicationListener</code>中的<code>onApplicationEvent</code>的源码如下：</p>
-<pre><code class="java">public void onApplicationEvent(ApplicationEvent event) {
-        if (event instanceof ApplicationEnvironmentPreparedEvent) {
-            onApplicationEnvironmentPreparedEvent(
-                    (ApplicationEnvironmentPreparedEvent) event);
-        }
-        if (event instanceof ApplicationPreparedEvent) {
-            onApplicationPreparedEvent(event);
-        }
-    }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">onApplicationEvent</span><span class="hljs-params">(ApplicationEvent event)</span> </span>&#123;
+		<span class="hljs-keyword">if</span> (event <span class="hljs-keyword">instanceof</span> ApplicationEnvironmentPreparedEvent) &#123;
+			onApplicationEnvironmentPreparedEvent(
+					(ApplicationEnvironmentPreparedEvent) event);
+		&#125;
+		<span class="hljs-keyword">if</span> (event <span class="hljs-keyword">instanceof</span> ApplicationPreparedEvent) &#123;
+			onApplicationPreparedEvent(event);
+		&#125;
+	&#125;</code></pre>
+
 <p>通过<code>onApplicationEnvironmentPreparedEvent</code>=&gt;<code>postProcessEnvironment</code>方法</p>
-<pre><code class="java">public void postProcessEnvironment(ConfigurableEnvironment environment,
-            SpringApplication application) {
-        //将配置文件属性源添加到指定的环境
-        addPropertySources(environment, application.getResourceLoader());
-        //设置spring.beaninfo.ignore变量
-        configureIgnoreBeanInfo(environment);
-        //把环境绑定到SpringApplication。
-        bindToSpringApplication(environment, application);
-    }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">postProcessEnvironment</span><span class="hljs-params">(ConfigurableEnvironment environment,</span></span>
+<span class="hljs-function"><span class="hljs-params">			SpringApplication application)</span> </span>&#123;
+    	<span class="hljs-comment">//将配置文件属性源添加到指定的环境</span>
+		addPropertySources(environment, application.getResourceLoader());
+    	<span class="hljs-comment">//设置spring.beaninfo.ignore变量</span>
+		configureIgnoreBeanInfo(environment);
+    	<span class="hljs-comment">//把环境绑定到SpringApplication。</span>
+		bindToSpringApplication(environment, application);
+	&#125;</code></pre>
+
 <p>addPropertySources源码如下：</p>
-<pre><code class="java">protected void addPropertySources(ConfigurableEnvironment environment,
-            ResourceLoader resourceLoader) {
-        RandomValuePropertySource.addToEnvironment(environment);
-        new Loader(environment, resourceLoader).load();
-    }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addPropertySources</span><span class="hljs-params">(ConfigurableEnvironment environment,</span></span>
+<span class="hljs-function"><span class="hljs-params">			ResourceLoader resourceLoader)</span> </span>&#123;
+		RandomValuePropertySource.addToEnvironment(environment);
+		<span class="hljs-keyword">new</span> Loader(environment, resourceLoader).load();
+	&#125;</code></pre>
+
 <p>通过上述代码，可以看出配置文件的接在就在<code>load</code>方法中。</p>
 <h3 id="文件加载"><a href="#文件加载" class="headerlink" title="文件加载"></a>文件加载</h3><p>load方法源码：</p>
-<pre><code class="java">public void load() {
-            this.propertiesLoader = new PropertySourcesLoader();
-            this.activatedProfiles = false;
-            this.profiles = Collections.asLifoQueue(new LinkedList&lt;Profile&gt;());
-            this.processedProfiles = new LinkedList&lt;Profile&gt;();
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">load</span><span class="hljs-params">()</span> </span>&#123;
+			<span class="hljs-keyword">this</span>.propertiesLoader = <span class="hljs-keyword">new</span> PropertySourcesLoader();
+			<span class="hljs-keyword">this</span>.activatedProfiles = <span class="hljs-keyword">false</span>;
+			<span class="hljs-keyword">this</span>.profiles = Collections.asLifoQueue(<span class="hljs-keyword">new</span> LinkedList&lt;Profile&gt;());
+			<span class="hljs-keyword">this</span>.processedProfiles = <span class="hljs-keyword">new</span> LinkedList&lt;Profile&gt;();
 
-            // Pre-existing active profiles set via Environment.setActiveProfiles()
-            // are additional profiles and config files are allowed to add more if
-            // they want to, so don&#39;t call addActiveProfiles() here.
-            Set&lt;Profile&gt; initialActiveProfiles = initializeActiveProfiles();
-            this.profiles.addAll(getUnprocessedActiveProfiles(initialActiveProfiles));
-            if (this.profiles.isEmpty()) {
-                for (String defaultProfileName : this.environment.getDefaultProfiles()) {
-                    Profile defaultProfile = new Profile(defaultProfileName, true);
-                    if (!this.profiles.contains(defaultProfile)) {
-                        this.profiles.add(defaultProfile);
-                    }
-                }
-            }
+			<span class="hljs-comment">// Pre-existing active profiles set via Environment.setActiveProfiles()</span>
+			<span class="hljs-comment">// are additional profiles and config files are allowed to add more if</span>
+			<span class="hljs-comment">// they want to, so don't call addActiveProfiles() here.</span>
+			Set&lt;Profile&gt; initialActiveProfiles = initializeActiveProfiles();
+			<span class="hljs-keyword">this</span>.profiles.addAll(getUnprocessedActiveProfiles(initialActiveProfiles));
+			<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.profiles.isEmpty()) &#123;
+				<span class="hljs-keyword">for</span> (String defaultProfileName : <span class="hljs-keyword">this</span>.environment.getDefaultProfiles()) &#123;
+					Profile defaultProfile = <span class="hljs-keyword">new</span> Profile(defaultProfileName, <span class="hljs-keyword">true</span>);
+					<span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.profiles.contains(defaultProfile)) &#123;
+						<span class="hljs-keyword">this</span>.profiles.add(defaultProfile);
+					&#125;
+				&#125;
+			&#125;
 
-            // The default profile for these purposes is represented as null. We add it
-            // last so that it is first out of the queue (active profiles will then
-            // override any settings in the defaults when the list is reversed later).
-            //翻译：下面一行代码的目的是将默认配置文件被表示为null。将null添加到最后，以便它首先从队列中取出（主动概要文件将在稍后颠倒列表时覆盖缺省情况下的任何设置）。
-            this.profiles.add(null);
+			<span class="hljs-comment">// The default profile for these purposes is represented as null. We add it</span>
+			<span class="hljs-comment">// last so that it is first out of the queue (active profiles will then</span>
+			<span class="hljs-comment">// override any settings in the defaults when the list is reversed later).</span>
+    		<span class="hljs-comment">//翻译：下面一行代码的目的是将默认配置文件被表示为null。将null添加到最后，以便它首先从队列中取出（主动概要文件将在稍后颠倒列表时覆盖缺省情况下的任何设置）。</span>
+			<span class="hljs-keyword">this</span>.profiles.add(<span class="hljs-keyword">null</span>);
 
-            while (!this.profiles.isEmpty()) {
-                Profile profile = this.profiles.poll();
-                 //查找配置文件
-                for (String location : getSearchLocations()) {
-                    if (!location.endsWith(&quot;/&quot;)) {
-                        // location is a filename already, so don&#39;t search for more
-                        // filenames
-                        load(location, null, profile);
-                    }
-                    else {
-                        for (String name : getSearchNames()) {
-                            load(location, name, profile);
-                        }
-                    }
-                }
-                this.processedProfiles.add(profile);
-            }
+			<span class="hljs-keyword">while</span> (!<span class="hljs-keyword">this</span>.profiles.isEmpty()) &#123;
+				Profile profile = <span class="hljs-keyword">this</span>.profiles.poll();
+                 <span class="hljs-comment">//查找配置文件</span>
+				<span class="hljs-keyword">for</span> (String location : getSearchLocations()) &#123;
+					<span class="hljs-keyword">if</span> (!location.endsWith(<span class="hljs-string">"/"</span>)) &#123;
+						<span class="hljs-comment">// location is a filename already, so don't search for more</span>
+						<span class="hljs-comment">// filenames</span>
+						load(location, <span class="hljs-keyword">null</span>, profile);
+					&#125;
+					<span class="hljs-keyword">else</span> &#123;
+						<span class="hljs-keyword">for</span> (String name : getSearchNames()) &#123;
+							load(location, name, profile);
+						&#125;
+					&#125;
+				&#125;
+				<span class="hljs-keyword">this</span>.processedProfiles.add(profile);
+			&#125;
 
-            addConfigurationProperties(this.propertiesLoader.getPropertySources());
-        }</code></pre>
+			addConfigurationProperties(<span class="hljs-keyword">this</span>.propertiesLoader.getPropertySources());
+		&#125;</code></pre>
+
 <h4 id="查找配置文件路径"><a href="#查找配置文件路径" class="headerlink" title="查找配置文件路径"></a>查找配置文件路径</h4><p>值得注意的是<code>getSearchLocations</code>方法，其源码如下：</p>
-<pre><code>private Set&lt;String&gt; getSearchLocations() {
-            Set&lt;String&gt; locations = new LinkedHashSet&lt;String&gt;();
-            // User-configured settings take precedence, so we do them first
-            // 判断当前环境中是否有spring.config.location属性，如果有的话，则加载spring.config.location指定的配置文件
-            if (this.environment.containsProperty(CONFIG_LOCATION_PROPERTY)) {
-                for (String path : asResolvedSet(
-                        this.environment.getProperty(CONFIG_LOCATION_PROPERTY), null)) {
-                    if (!path.contains(&quot;$&quot;)) {
-                        path = StringUtils.cleanPath(path);
-                        if (!ResourceUtils.isUrl(path)) {
-                            path = ResourceUtils.FILE_URL_PREFIX + path;
-                        }
-                    }
-                    locations.add(path);
-                }
-            }
-            //添加默认的配置文件，按照类中定义的顺序加载文件：
-            //其顺序为：classpath:/,classpath:/config/,file:./,file:./config/
-            locations.addAll(
-                    asResolvedSet(ConfigFileApplicationListener.this.searchLocations,
-                            DEFAULT_SEARCH_LOCATIONS));
-            return locations;
-        }</code></pre><p>DEFAULT_SEARCH_LOCATIONS为文件默认加载顺序，其值为classpath:/,classpath:/config/,file:./,file:./config/，然后springboot会按照这几个位置的由后到前的顺序去加载。</p>
+<pre><code class="hljs plain">private Set&lt;String&gt; getSearchLocations() &#123;
+			Set&lt;String&gt; locations &#x3D; new LinkedHashSet&lt;String&gt;();
+			&#x2F;&#x2F; User-configured settings take precedence, so we do them first
+			&#x2F;&#x2F; 判断当前环境中是否有spring.config.location属性，如果有的话，则加载spring.config.location指定的配置文件
+			if (this.environment.containsProperty(CONFIG_LOCATION_PROPERTY)) &#123;
+				for (String path : asResolvedSet(
+						this.environment.getProperty(CONFIG_LOCATION_PROPERTY), null)) &#123;
+					if (!path.contains(&quot;$&quot;)) &#123;
+						path &#x3D; StringUtils.cleanPath(path);
+						if (!ResourceUtils.isUrl(path)) &#123;
+							path &#x3D; ResourceUtils.FILE_URL_PREFIX + path;
+						&#125;
+					&#125;
+					locations.add(path);
+				&#125;
+			&#125;
+			&#x2F;&#x2F;添加默认的配置文件，按照类中定义的顺序加载文件：
+			&#x2F;&#x2F;其顺序为：classpath:&#x2F;,classpath:&#x2F;config&#x2F;,file:.&#x2F;,file:.&#x2F;config&#x2F;
+			locations.addAll(
+					asResolvedSet(ConfigFileApplicationListener.this.searchLocations,
+							DEFAULT_SEARCH_LOCATIONS));
+			return locations;
+		&#125;</code></pre>
+
+<p>DEFAULT_SEARCH_LOCATIONS为文件默认加载顺序，其值为classpath:/,classpath:/config/,file:./,file:./config/，然后springboot会按照这几个位置的由后到前的顺序去加载。</p>
 <p>通过查看<code>asResolvedSet</code>的源码：</p>
-<pre><code class="java">private Set&lt;String&gt; asResolvedSet(String value, String fallback) {
-            List&lt;String&gt; list = Arrays.asList(StringUtils.trimArrayElements(
-                    StringUtils.commaDelimitedListToStringArray(value != null
-                            ? this.environment.resolvePlaceholders(value) : fallback)));
-            Collections.reverse(list);
-            return new LinkedHashSet&lt;String&gt;(list);
-        }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> Set&lt;String&gt; <span class="hljs-title">asResolvedSet</span><span class="hljs-params">(String value, String fallback)</span> </span>&#123;
+			List&lt;String&gt; list = Arrays.asList(StringUtils.trimArrayElements(
+					StringUtils.commaDelimitedListToStringArray(value != <span class="hljs-keyword">null</span>
+							? <span class="hljs-keyword">this</span>.environment.resolvePlaceholders(value) : fallback)));
+			Collections.reverse(list);
+			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> LinkedHashSet&lt;String&gt;(list);
+		&#125;</code></pre>
+
 <p>不难看出，这里对list进行了<code>Collections.reverse</code>(反转处理)。</p>
 <p>即配置文件真正的加载顺序为：</p>
 <ul>
@@ -369,155 +396,163 @@
 <li>spring.config.location</li>
 </ul>
 <h4 id="正式加载配置文件"><a href="#正式加载配置文件" class="headerlink" title="正式加载配置文件"></a>正式加载配置文件</h4><p><code>load(String location, String name, Profile profile)</code>方法源码：</p>
-<pre><code class="java">private void load(String location, String name, Profile profile) {
-            String group = &quot;profile=&quot; + (profile == null ? &quot;&quot; : profile);
-            if (!StringUtils.hasText(name)) {
-                // Try to load directly from the location
-                loadIntoGroup(group, location, profile);
-            }
-            else {
-                // Search for a file with the given name
-                for (String ext : this.propertiesLoader.getAllFileExtensions()) {
-                    if (profile != null) {
-                        // Try the profile-specific file
-                        loadIntoGroup(group, location + name + &quot;-&quot; + profile + &quot;.&quot; + ext,
-                                null);
-                        for (Profile processedProfile : this.processedProfiles) {
-                            if (processedProfile != null) {
-                                loadIntoGroup(group, location + name + &quot;-&quot;
-                                        + processedProfile + &quot;.&quot; + ext, profile);
-                            }
-                        }
-                        // Sometimes people put &quot;spring.profiles: dev&quot; in
-                        // application-dev.yml (gh-340). Arguably we should try and error
-                        // out on that, but we can be kind and load it anyway.
-                        loadIntoGroup(group, location + name + &quot;-&quot; + profile + &quot;.&quot; + ext,
-                                profile);
-                    }
-                    // Also try the profile-specific section (if any) of the normal file
-                    loadIntoGroup(group, location + name + &quot;.&quot; + ext, profile);
-                }
-            }
-        }
-</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">load</span><span class="hljs-params">(String location, String name, Profile profile)</span> </span>&#123;
+			String group = <span class="hljs-string">"profile="</span> + (profile == <span class="hljs-keyword">null</span> ? <span class="hljs-string">""</span> : profile);
+			<span class="hljs-keyword">if</span> (!StringUtils.hasText(name)) &#123;
+				<span class="hljs-comment">// Try to load directly from the location</span>
+				loadIntoGroup(group, location, profile);
+			&#125;
+			<span class="hljs-keyword">else</span> &#123;
+				<span class="hljs-comment">// Search for a file with the given name</span>
+				<span class="hljs-keyword">for</span> (String ext : <span class="hljs-keyword">this</span>.propertiesLoader.getAllFileExtensions()) &#123;
+					<span class="hljs-keyword">if</span> (profile != <span class="hljs-keyword">null</span>) &#123;
+						<span class="hljs-comment">// Try the profile-specific file</span>
+						loadIntoGroup(group, location + name + <span class="hljs-string">"-"</span> + profile + <span class="hljs-string">"."</span> + ext,
+								<span class="hljs-keyword">null</span>);
+						<span class="hljs-keyword">for</span> (Profile processedProfile : <span class="hljs-keyword">this</span>.processedProfiles) &#123;
+							<span class="hljs-keyword">if</span> (processedProfile != <span class="hljs-keyword">null</span>) &#123;
+								loadIntoGroup(group, location + name + <span class="hljs-string">"-"</span>
+										+ processedProfile + <span class="hljs-string">"."</span> + ext, profile);
+							&#125;
+						&#125;
+						<span class="hljs-comment">// Sometimes people put "spring.profiles: dev" in</span>
+						<span class="hljs-comment">// application-dev.yml (gh-340). Arguably we should try and error</span>
+						<span class="hljs-comment">// out on that, but we can be kind and load it anyway.</span>
+						loadIntoGroup(group, location + name + <span class="hljs-string">"-"</span> + profile + <span class="hljs-string">"."</span> + ext,
+								profile);
+					&#125;
+					<span class="hljs-comment">// Also try the profile-specific section (if any) of the normal file</span>
+					loadIntoGroup(group, location + name + <span class="hljs-string">"."</span> + ext, profile);
+				&#125;
+			&#125;
+		&#125;</code></pre>
+
 <p>在Load方法中，首先会通过<code>getAllFileExtensions</code>方法去组装所有可加载文件的扩展名，然后在通过<code>loadIntoGroup</code>方法加载配置文件，而我们跟读到<code>loadIntoGroup</code>中会发现其只执行了 <code>doLoadIntoGroup</code>方法， <code>doLoadIntoGroup</code>源码如下：</p>
-<pre><code class="java">private PropertySource&lt;?&gt; doLoadIntoGroup(String identifier, String location,
-                Profile profile) throws IOException {
-            Resource resource = this.resourceLoader.getResource(location);
-            PropertySource&lt;?&gt; propertySource = null;
-            StringBuilder msg = new StringBuilder();
-            if (resource != null &amp;&amp; resource.exists()) {
-                String name = &quot;applicationConfig: [&quot; + location + &quot;]&quot;;
-                String group = &quot;applicationConfig: [&quot; + identifier + &quot;]&quot;;
-                propertySource = this.propertiesLoader.load(resource, group, name,
-                        (profile == null ? null : profile.getName()));
-                if (propertySource != null) {
-                    msg.append(&quot;Loaded &quot;);
-                    handleProfileProperties(propertySource);
-                }
-                else {
-                    msg.append(&quot;Skipped (empty) &quot;);
-                }
-            }
-            else {
-                msg.append(&quot;Skipped &quot;);
-            }
-            msg.append(&quot;config file &quot;);
-            msg.append(getResourceDescription(location, resource));
-            if (profile != null) {
-                msg.append(&quot; for profile &quot;).append(profile);
-            }
-            if (resource == null || !resource.exists()) {
-                msg.append(&quot; resource not found&quot;);
-                this.logger.trace(msg);
-            }
-            else {
-                this.logger.debug(msg);
-            }
-            return propertySource;
-        }</code></pre>
+<pre><code class="hljs java"><span class="hljs-keyword">private</span> PropertySource&lt;?&gt; doLoadIntoGroup(String identifier, String location,
+				Profile profile) <span class="hljs-keyword">throws</span> IOException &#123;
+			Resource resource = <span class="hljs-keyword">this</span>.resourceLoader.getResource(location);
+			PropertySource&lt;?&gt; propertySource = <span class="hljs-keyword">null</span>;
+			StringBuilder msg = <span class="hljs-keyword">new</span> StringBuilder();
+			<span class="hljs-keyword">if</span> (resource != <span class="hljs-keyword">null</span> &amp;&amp; resource.exists()) &#123;
+				String name = <span class="hljs-string">"applicationConfig: ["</span> + location + <span class="hljs-string">"]"</span>;
+				String group = <span class="hljs-string">"applicationConfig: ["</span> + identifier + <span class="hljs-string">"]"</span>;
+				propertySource = <span class="hljs-keyword">this</span>.propertiesLoader.load(resource, group, name,
+						(profile == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : profile.getName()));
+				<span class="hljs-keyword">if</span> (propertySource != <span class="hljs-keyword">null</span>) &#123;
+					msg.append(<span class="hljs-string">"Loaded "</span>);
+					handleProfileProperties(propertySource);
+				&#125;
+				<span class="hljs-keyword">else</span> &#123;
+					msg.append(<span class="hljs-string">"Skipped (empty) "</span>);
+				&#125;
+			&#125;
+			<span class="hljs-keyword">else</span> &#123;
+				msg.append(<span class="hljs-string">"Skipped "</span>);
+			&#125;
+			msg.append(<span class="hljs-string">"config file "</span>);
+			msg.append(getResourceDescription(location, resource));
+			<span class="hljs-keyword">if</span> (profile != <span class="hljs-keyword">null</span>) &#123;
+				msg.append(<span class="hljs-string">" for profile "</span>).append(profile);
+			&#125;
+			<span class="hljs-keyword">if</span> (resource == <span class="hljs-keyword">null</span> || !resource.exists()) &#123;
+				msg.append(<span class="hljs-string">" resource not found"</span>);
+				<span class="hljs-keyword">this</span>.logger.trace(msg);
+			&#125;
+			<span class="hljs-keyword">else</span> &#123;
+				<span class="hljs-keyword">this</span>.logger.debug(msg);
+			&#125;
+			<span class="hljs-keyword">return</span> propertySource;
+		&#125;</code></pre>
+
 <p>上诉源码中有一段核心的方法</p>
-<pre><code class="java">propertySource = this.propertiesLoader.load(resource, group, name,
-                        (profile == null ? null : profile.getName()));
-                if (propertySource != null) {
-                    msg.append(&quot;Loaded &quot;);
-                    handleProfileProperties(propertySource);
-                }</code></pre>
+<pre><code class="hljs java">propertySource = <span class="hljs-keyword">this</span>.propertiesLoader.load(resource, group, name,
+						(profile == <span class="hljs-keyword">null</span> ? <span class="hljs-keyword">null</span> : profile.getName()));
+				<span class="hljs-keyword">if</span> (propertySource != <span class="hljs-keyword">null</span>) &#123;
+					msg.append(<span class="hljs-string">"Loaded "</span>);
+					handleProfileProperties(propertySource);
+				&#125;</code></pre>
+
 <p>如果propertySource存在，则调用handleProfileProperties方法。</p>
 <p>handleProfileProperties源码：</p>
-<pre><code class="java">private void handleProfileProperties(PropertySource&lt;?&gt; propertySource) {
-            SpringProfiles springProfiles = bindSpringProfiles(propertySource);
-            maybeActivateProfiles(springProfiles.getActiveProfiles());
-            addProfiles(springProfiles.getIncludeProfiles());
-        }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleProfileProperties</span><span class="hljs-params">(PropertySource&lt;?&gt; propertySource)</span> </span>&#123;
+			SpringProfiles springProfiles = bindSpringProfiles(propertySource);
+			maybeActivateProfiles(springProfiles.getActiveProfiles());
+			addProfiles(springProfiles.getIncludeProfiles());
+		&#125;</code></pre>
+
 <p>bindSpringProfiles源码：</p>
-<pre><code class="java">private SpringProfiles bindSpringProfiles(PropertySource&lt;?&gt; propertySource) {
-            MutablePropertySources propertySources = new MutablePropertySources();
-            propertySources.addFirst(propertySource);
-            return bindSpringProfiles(propertySources);
-        }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> SpringProfiles <span class="hljs-title">bindSpringProfiles</span><span class="hljs-params">(PropertySource&lt;?&gt; propertySource)</span> </span>&#123;
+			MutablePropertySources propertySources = <span class="hljs-keyword">new</span> MutablePropertySources();
+			propertySources.addFirst(propertySource);
+			<span class="hljs-keyword">return</span> bindSpringProfiles(propertySources);
+		&#125;</code></pre>
+
 <p>bindSpringProfiles源码：</p>
-<pre><code class="java">private SpringProfiles bindSpringProfiles(PropertySources propertySources) {
-            SpringProfiles springProfiles = new SpringProfiles();
-            RelaxedDataBinder dataBinder = new RelaxedDataBinder(springProfiles,
-                    &quot;spring.profiles&quot;);
-            dataBinder.bind(new PropertySourcesPropertyValues(propertySources, false));
-            springProfiles.setActive(resolvePlaceholders(springProfiles.getActive()));
-            springProfiles.setInclude(resolvePlaceholders(springProfiles.getInclude()));
-            return springProfiles;
-        }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> SpringProfiles <span class="hljs-title">bindSpringProfiles</span><span class="hljs-params">(PropertySources propertySources)</span> </span>&#123;
+			SpringProfiles springProfiles = <span class="hljs-keyword">new</span> SpringProfiles();
+			RelaxedDataBinder dataBinder = <span class="hljs-keyword">new</span> RelaxedDataBinder(springProfiles,
+					<span class="hljs-string">"spring.profiles"</span>);
+			dataBinder.bind(<span class="hljs-keyword">new</span> PropertySourcesPropertyValues(propertySources, <span class="hljs-keyword">false</span>));
+			springProfiles.setActive(resolvePlaceholders(springProfiles.getActive()));
+			springProfiles.setInclude(resolvePlaceholders(springProfiles.getInclude()));
+			<span class="hljs-keyword">return</span> springProfiles;
+		&#125;</code></pre>
+
 <p>通过这样一步一步的跟读，我们能发现配置文件的装载主要是通过<code>new PropertySourcesPropertyValues</code>来完成。</p>
 <p>查看<code>PropertySourcesPropertyValues</code>的构造方法可以发现，它在装载值时调用了这样一个方法：</p>
-<pre><code class="java">private void processPropertySource(PropertySource&lt;?&gt; source,
-            PropertySourcesPropertyResolver resolver) {
-        if (source instanceof CompositePropertySource) {
-            //加载复杂的属性
-            processCompositePropertySource((CompositePropertySource) source, resolver);
-        }
-        else if (source instanceof EnumerablePropertySource) {
-            //加载枚举类型
-            processEnumerablePropertySource((EnumerablePropertySource&lt;?&gt;) source,
-                    resolver, this.includes);
-        }
-        else {
-            //加载非枚举类型，即简单类型
-            processNonEnumerablePropertySource(source, resolver);
-        }
-    }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">processPropertySource</span><span class="hljs-params">(PropertySource&lt;?&gt; source,</span></span>
+<span class="hljs-function"><span class="hljs-params">			PropertySourcesPropertyResolver resolver)</span> </span>&#123;
+		<span class="hljs-keyword">if</span> (source <span class="hljs-keyword">instanceof</span> CompositePropertySource) &#123;
+            <span class="hljs-comment">//加载复杂的属性</span>
+			processCompositePropertySource((CompositePropertySource) source, resolver);
+		&#125;
+		<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (source <span class="hljs-keyword">instanceof</span> EnumerablePropertySource) &#123;
+            <span class="hljs-comment">//加载枚举类型</span>
+			processEnumerablePropertySource((EnumerablePropertySource&lt;?&gt;) source,
+					resolver, <span class="hljs-keyword">this</span>.includes);
+		&#125;
+		<span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-comment">//加载非枚举类型，即简单类型</span>
+			processNonEnumerablePropertySource(source, resolver);
+		&#125;
+	&#125;</code></pre>
+
 <h4 id="配置文件键值对加载方法"><a href="#配置文件键值对加载方法" class="headerlink" title="配置文件键值对加载方法"></a>配置文件键值对加载方法</h4><blockquote>
 <p>此处以<code>yml</code>文件加载为例</p>
 </blockquote>
 <p>配置文件键值对加载方法，org.springframework.beans.factory.config.YamlProcessor#process(MatchCallback callback, Yaml yaml, Resource resource) </p>
 <p>在该方法中通过<code>yaml.loadAll(reader)</code>去加载文件的属性，然后在下方<code>process(asMap(object), callback)</code>通过<code>callback</code>进行键值对组装。</p>
 <p>关键代码如下：</p>
-<pre><code class="java">try {
-    for (Object object : yaml.loadAll(reader)) {
-        if (object != null &amp;&amp; process(asMap(object), callback)) {
+<pre><code class="hljs java"><span class="hljs-keyword">try</span> &#123;
+    <span class="hljs-keyword">for</span> (Object object : yaml.loadAll(reader)) &#123;
+        <span class="hljs-keyword">if</span> (object != <span class="hljs-keyword">null</span> &amp;&amp; process(asMap(object), callback)) &#123;
             count++;
-            if (this.resolutionMethod == ResolutionMethod.FIRST_FOUND) {
-                break;
-            }
-        }
-    }
-    if (logger.isDebugEnabled()) {
-        logger.debug(&quot;Loaded &quot; + count + &quot; document&quot; + (count &gt; 1 ? &quot;s&quot; : &quot;&quot;) +
-                     &quot; from YAML resource: &quot; + resource);
-    }
-}
-finally {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.resolutionMethod == ResolutionMethod.FIRST_FOUND) &#123;
+                <span class="hljs-keyword">break</span>;
+            &#125;
+        &#125;
+    &#125;
+    <span class="hljs-keyword">if</span> (logger.isDebugEnabled()) &#123;
+        logger.debug(<span class="hljs-string">"Loaded "</span> + count + <span class="hljs-string">" document"</span> + (count &gt; <span class="hljs-number">1</span> ? <span class="hljs-string">"s"</span> : <span class="hljs-string">""</span>) +
+                     <span class="hljs-string">" from YAML resource: "</span> + resource);
+    &#125;
+&#125;
+<span class="hljs-keyword">finally</span> &#123;
     reader.close();
-}</code></pre>
+&#125;</code></pre>
+
 <p>该代码中的callback为org.springframework.boot.env.YamlPropertySourceLoader#process()中new的一个，源码如下：</p>
-<pre><code class="java">public Map&lt;String, Object&gt; process() {
-            final Map&lt;String, Object&gt; result = new LinkedHashMap&lt;String, Object&gt;();
-            process(new MatchCallback() {
-                @Override
-                public void process(Properties properties, Map&lt;String, Object&gt; map) {
-                    result.putAll(getFlattenedMap(map));
-                }
-            });
-            return result;
-        }</code></pre>
+<pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Map&lt;String, Object&gt; <span class="hljs-title">process</span><span class="hljs-params">()</span> </span>&#123;
+			<span class="hljs-keyword">final</span> Map&lt;String, Object&gt; result = <span class="hljs-keyword">new</span> LinkedHashMap&lt;String, Object&gt;();
+			process(<span class="hljs-keyword">new</span> MatchCallback() &#123;
+				<span class="hljs-meta">@Override</span>
+				<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">process</span><span class="hljs-params">(Properties properties, Map&lt;String, Object&gt; map)</span> </span>&#123;
+					result.putAll(getFlattenedMap(map));
+				&#125;
+			&#125;);
+			<span class="hljs-keyword">return</span> result;
+		&#125;</code></pre>
+
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>配置文件的加载主要分为两个步骤：</p>
 <ol>
 <li>查找配置文件</li>
@@ -533,31 +568,38 @@ finally {
 </ul>
 <p>spring.config.location为在启动SpringBoot时，为其指定的配置文件路径，</p>
 <p>设置方式为：</p>
-<pre><code>java -jar demo.jar --Dspring.config.location=application.yml</code></pre>
-            </div>
+<pre><code class="hljs plain">java -jar demo.jar --Dspring.config.location&#x3D;application.yml</code></pre>
+
+
+
+
+
+
+
+
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/Java/">Java</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/spring/">spring</a>
                     
                       <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
                     
-                  </span>
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -566,9 +608,9 @@ finally {
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2018/10/22/Java/spring/SpringBoot%E5%90%AF%E5%8A%A8%E8%BF%87%E7%A8%8B%E6%BA%90%E7%A0%81%E5%88%86%E6%9E%90/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">SpringBoot启动过程源码分析</span>
+                      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SpringBoot本地化配置</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -576,10 +618,10 @@ finally {
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/">
-                        <span class="hidden-mobile">SpringAOP原理</span>
+                      <a href="/2018/10/22/Java/spring/SpringBoot%E4%BB%8B%E7%BB%8D/">
+                        <span class="hidden-mobile">SpringBoot介绍</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -587,16 +629,15 @@ finally {
               
             </div>
 
-              
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -612,8 +653,8 @@ finally {
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -648,9 +689,10 @@ finally {
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -662,9 +704,7 @@ finally {
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -673,34 +713,12 @@ finally {
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -710,16 +728,13 @@ finally {
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -735,19 +750,7 @@ finally {
 
 
 
-
-
 <!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -800,17 +803,25 @@ finally {
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
+
+
+
+
 
 
 

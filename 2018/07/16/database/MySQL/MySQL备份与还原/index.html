@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,24 +19,31 @@
   <meta name="keywords" content="">
   <title>MySQL备份与还原 - 硒恩园</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -62,65 +69,73 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/Java/">爪哇</a>
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/2020/04/12/study/2020_study/">2020目标</a>
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -138,7 +153,7 @@
          style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -146,37 +161,42 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期一, 七月 16日 2018, 10:52 上午
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2018-07-16 10:52">
+                    星期一, 七月 16日 2018, 10:52 上午
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     3.5k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      13 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    43
+                     分钟
                   </span>
                 
 
                 
-              </p>
+              </div>
             
           </div>
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -193,10 +213,10 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <h1 id="MySQL备份与还原"><a href="#MySQL备份与还原" class="headerlink" title="MySQL备份与还原"></a>MySQL备份与还原</h1><h2 id="逻辑备份"><a href="#逻辑备份" class="headerlink" title="逻辑备份"></a>逻辑备份</h2><blockquote>
 <p>逻辑备份为通过对数据库的操作导出数据文件，常用的逻辑备份有两种，一种是将数据转换为全量的INSERT语句，另一种是将数据以特定的分隔符进行隔后记录在文本文件中。</p>
 </blockquote>
@@ -205,23 +225,28 @@
 <ul>
 <li>导出整个数据库与所有数据</li>
 </ul>
-<pre><code class="sql">mysqldump -u username -p dbname &gt; dbname.sql    </code></pre>
+<pre><code class="hljs sql">mysqldump -u username -p dbname &gt; dbname.sql</code></pre>
+
 <ul>
 <li>导出数据库结构</li>
 </ul>
-<pre><code class="sql"> mysqldump -u username -p -d dbname &gt; dbname.sql    </code></pre>
+<pre><code class="hljs sql">mysqldump -u username -p -d dbname &gt; dbname.sql</code></pre>
+
 <ul>
 <li>导出数据库中的某张表的数据</li>
 </ul>
-<pre><code class="sql">mysqldump -u username -p dbname tablename &gt; tablename.sql    </code></pre>
+<pre><code class="hljs sql">mysqldump -u username -p dbname tablename &gt; tablename.sql</code></pre>
+
 <ul>
 <li>导出数据库中某张表的表结构（不含数据）</li>
 </ul>
-<pre><code class="sql">mysqldump -u username -p -d dbname tablename &gt; tablename.sql   </code></pre>
+<pre><code class="hljs sql">mysqldump -u username -p -d dbname tablename &gt; tablename.sql</code></pre>
+
 <ul>
 <li>按照指定条件导出数据</li>
 </ul>
-<pre><code class="sql">mysqldump -u username -p -h主机 数据库  a --where &quot;条件语句&quot; --no-建表&gt; tablename.sql</code></pre>
+<pre><code class="hljs sql">mysqldump -u username -p -h主机 数据库  a <span class="hljs-comment">--where "条件语句" --no-建表&gt; tablename.sql</span></code></pre>
+
 <p>mysqldump参数详解：</p>
 <p>–databases：备份多个数据库，选项后跟多个库名。备份文件中会包含USE db_name</p>
 <p>–no-create-info：不生成建表语句</p>
@@ -246,7 +271,8 @@
 </blockquote>
 <p>在MySQL中，它为我们提供了一种SELECT语法(select …into outfile from …)，让用户可以通过Query查询语句将某些特定数据以指定格式输出到文本文件中，同时也提供了使用的工具和相关的命令，比如source命令，可以方便地将这写备份文件导入到数据中。</p>
 <p>语法结构如下：</p>
-<pre><code class="sql">SELECT column into outfile filename from table</code></pre>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">column</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">outfile</span> filename <span class="hljs-keyword">from</span> <span class="hljs-keyword">table</span></code></pre>
+
 <p>在执行备份语句时需要注意以下几个参数：</p>
 <ul>
 <li>FIELDS ESCAPEDBY[‘name’]：实现字符转义功能，将Query语句要转义的字符进行转义操作。</li>
@@ -256,46 +282,59 @@
 </ul>
 <p>示例：</p>
 <p>现有一张学生数据表，其中num代表学号，class_id代表班级id</p>
-<pre><code>id                                    name num     class_id
-ad4cca53d9c111e8a0df000c2928fdc8    学生3    2013003    2
-ad4cca5ed9c111e8a0df000c2928fdc8    学生4    2013004    2
-ad4cca69d9c111e8a0df000c2928fdc8    学生5    2013005    2
-ad4cca71d9c111e8a0df000c2928fdc8    学生6    2013006    2
-ad4cca78d9c111e8a0df000c2928fdc8    学生7    2013007    2
-ad4cca80d9c111e8a0df000c2928fdc8    学生8    2013008    2
-ad4cca88d9c111e8a0df000c2928fdc8    学生9    2013009    2
-ad4cca90d9c111e8a0df000c2928fdc8    学生10    2013010    2
-ad4cca98d9c111e8a0df000c2928fdc8    学生11    2013011    3
-ad4ccaa0d9c111e8a0df000c2928fdc8    学生12    2013012    3
-ad4ccaa8d9c111e8a0df000c2928fdc8    学生13    2013013    3
-ad4ccaafd9c111e8a0df000c2928fdc8    学生14    2013014    3
-ad4ccab6d9c111e8a0df000c2928fdc8    学生15    2013015    3
-ad4ccabed9c111e8a0df000c2928fdc8    学生16    2013016    4
-ad4ccac4d9c111e8a0df000c2928fdc8    学生17    2013017    4
-ad4ccacbd9c111e8a0df000c2928fdc8    学生18    2013018    4
-ad4ccad1d9c111e8a0df000c2928fdc8    学生19    2013019    4
-ad4ccad8d9c111e8a0df000c2928fdc8    学生20    2013020    4</code></pre><p>现在需要备份所有班级id为2的学生数据</p>
-<pre><code class="sql">select * into outfile &#39;/home/temp/test.txt&#39; fields terminated by &#39;,&#39; optionally enclosed by &#39;&quot;&#39; lines terminated by &#39;;&#39; from student where class_id = 2;</code></pre>
+<pre><code class="hljs plain">id									name num     class_id
+ad4cca53d9c111e8a0df000c2928fdc8	学生3	2013003	2
+ad4cca5ed9c111e8a0df000c2928fdc8	学生4	2013004	2
+ad4cca69d9c111e8a0df000c2928fdc8	学生5	2013005	2
+ad4cca71d9c111e8a0df000c2928fdc8	学生6	2013006	2
+ad4cca78d9c111e8a0df000c2928fdc8	学生7	2013007	2
+ad4cca80d9c111e8a0df000c2928fdc8	学生8	2013008	2
+ad4cca88d9c111e8a0df000c2928fdc8	学生9	2013009	2
+ad4cca90d9c111e8a0df000c2928fdc8	学生10	2013010	2
+ad4cca98d9c111e8a0df000c2928fdc8	学生11	2013011	3
+ad4ccaa0d9c111e8a0df000c2928fdc8	学生12	2013012	3
+ad4ccaa8d9c111e8a0df000c2928fdc8	学生13	2013013	3
+ad4ccaafd9c111e8a0df000c2928fdc8	学生14	2013014	3
+ad4ccab6d9c111e8a0df000c2928fdc8	学生15	2013015	3
+ad4ccabed9c111e8a0df000c2928fdc8	学生16	2013016	4
+ad4ccac4d9c111e8a0df000c2928fdc8	学生17	2013017	4
+ad4ccacbd9c111e8a0df000c2928fdc8	学生18	2013018	4
+ad4ccad1d9c111e8a0df000c2928fdc8	学生19	2013019	4
+ad4ccad8d9c111e8a0df000c2928fdc8	学生20	2013020	4</code></pre>
+
+<p>现在需要备份所有班级id为2的学生数据</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">into</span> <span class="hljs-keyword">outfile</span> <span class="hljs-string">'/home/temp/test.txt'</span> <span class="hljs-keyword">fields</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">','</span> <span class="hljs-keyword">optionally</span> <span class="hljs-keyword">enclosed</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'"'</span> <span class="hljs-keyword">lines</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">';'</span> <span class="hljs-keyword">from</span> student <span class="hljs-keyword">where</span> class_id = <span class="hljs-number">2</span>;</code></pre>
+
 <p>备份结果如下：</p>
-<pre><code>&quot;2&quot;,&quot;test&quot;,0,&quot;2&quot;;&quot;ad4cca53d9c111e8a0df000c2928fdc8&quot;,&quot;学生3&quot;,2013003,&quot;2&quot;;&quot;ad4cca5ed9c111e8a0df000c2928fdc8&quot;,&quot;学生4&quot;,2013004,&quot;2&quot;;&quot;ad4cca69d9c111e8a0df000c2928fdc8&quot;,&quot;学生5&quot;,2013005,&quot;2&quot;;&quot;ad4cca71d9c111e8a0df000c2928fdc8&quot;,&quot;学生6&quot;,2013006,&quot;2&quot;;&quot;ad4cca78d9c111e8a0df000c2928fdc8&quot;,&quot;学生7&quot;,2013007,&quot;2&quot;;&quot;ad4cca80d9c111e8a0df000c2928fdc8&quot;,&quot;学生8&quot;,2013008,&quot;2&quot;;&quot;ad4cca88d9c111e8a0df000c2928fdc8&quot;,&quot;学生9&quot;,2013009,&quot;2&quot;;&quot;ad4cca90d9c111e8a0df000c2928fdc8&quot;,&quot;学生10&quot;,2013010,&quot;2&quot;;</code></pre><h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><p>在执行SELECT…INTO OUTFILE FROM…备份命令时，第一次使用可能会提下一面的字符：</p>
-<pre><code>The MySQL server is running with the --secure-file-priv option so it cannot execute this statement</code></pre><p>这是因为MySQL中的secure-file-priv参数默认为NULL，该函数的含义为：</p>
+<pre><code class="hljs plain">&quot;2&quot;,&quot;test&quot;,0,&quot;2&quot;;&quot;ad4cca53d9c111e8a0df000c2928fdc8&quot;,&quot;学生3&quot;,2013003,&quot;2&quot;;&quot;ad4cca5ed9c111e8a0df000c2928fdc8&quot;,&quot;学生4&quot;,2013004,&quot;2&quot;;&quot;ad4cca69d9c111e8a0df000c2928fdc8&quot;,&quot;学生5&quot;,2013005,&quot;2&quot;;&quot;ad4cca71d9c111e8a0df000c2928fdc8&quot;,&quot;学生6&quot;,2013006,&quot;2&quot;;&quot;ad4cca78d9c111e8a0df000c2928fdc8&quot;,&quot;学生7&quot;,2013007,&quot;2&quot;;&quot;ad4cca80d9c111e8a0df000c2928fdc8&quot;,&quot;学生8&quot;,2013008,&quot;2&quot;;&quot;ad4cca88d9c111e8a0df000c2928fdc8&quot;,&quot;学生9&quot;,2013009,&quot;2&quot;;&quot;ad4cca90d9c111e8a0df000c2928fdc8&quot;,&quot;学生10&quot;,2013010,&quot;2&quot;;</code></pre>
+
+<h4 id="错误分析"><a href="#错误分析" class="headerlink" title="错误分析"></a>错误分析</h4><p>在执行SELECT…INTO OUTFILE FROM…备份命令时，第一次使用可能会提下一面的字符：</p>
+<pre><code class="hljs plain">The MySQL server is running with the --secure-file-priv option so it cannot execute this statement</code></pre>
+
+<p>这是因为MySQL中的secure-file-priv参数默认为NULL，该函数的含义为：</p>
 <ul>
 <li>为NULL时：表示不允许mysql进行导入导出操作。</li>
 <li>为一个具体路径时，如/home/temp：表示mysql只能在指定目录中进行导入导出操作。</li>
 <li>为空字符串时：表示mysql可以在任意目录执行导入导出操作。</li>
 </ul>
 <p>当然我们可以在mysql中查询secure-file-priv的值，查询命令为：</p>
-<pre><code>show global variables like &#39;%secure_file_priv%&#39;;</code></pre><p>另外，修改secure-file-priv值得方法为，在mysql的配置文件中[mysqld]下添加一行：</p>
-<pre><code>[mysql]
-secure_file_priv=&#39;&#39;</code></pre><h3 id="逻辑备份恢复"><a href="#逻辑备份恢复" class="headerlink" title="逻辑备份恢复"></a>逻辑备份恢复</h3><p>对于INSERT语句形式的备份文件的恢复最简单，直接使用source命令：</p>
-<pre><code>source ./home/temp.sql</code></pre><p>对于纯文本的备份文件，需要使用LOAD DATA INFILE命令来进行，由于纯文本备份是针对单个表进行的，所以恢复同样的也只能针对单个表进行恢复。</p>
+<pre><code class="hljs plain">show global variables like &#39;%secure_file_priv%&#39;;</code></pre>
+
+<p>另外，修改secure-file-priv值得方法为，在mysql的配置文件中[mysqld]下添加一行：</p>
+<pre><code class="hljs plain">[mysql]
+secure_file_priv&#x3D;&#39;&#39;</code></pre>
+
+<h3 id="逻辑备份恢复"><a href="#逻辑备份恢复" class="headerlink" title="逻辑备份恢复"></a>逻辑备份恢复</h3><p>对于INSERT语句形式的备份文件的恢复最简单，直接使用source命令：</p>
+<pre><code class="hljs plain">source .&#x2F;home&#x2F;temp.sql</code></pre>
+
+<p>对于纯文本的备份文件，需要使用LOAD DATA INFILE命令来进行，由于纯文本备份是针对单个表进行的，所以恢复同样的也只能针对单个表进行恢复。</p>
 <p>LOAD DATA INFILE命令可以较快地将一个文本文件中的数据读取到数据表中的命令。它是SELECT … INTO OUTFILE FROM…的补充，主要将其备份的文件导入到数据库中。</p>
-<pre><code>LOAD DATA [LOW_PRIORITY | CONCURRENT] [LOCAL] INFILE &#39;FILENAME&#39;
+<pre><code class="hljs plain">LOAD DATA [LOW_PRIORITY | CONCURRENT] [LOCAL] INFILE &#39;FILENAME&#39;
     [REPLACE | IGNORE]
     INTO TABLE tbl_name
     [PARTITION (partition_name,...)]
     [CHARACTER SET charset_name]
-    [{FIELDS | COLUMNS}
+    [&#123;FIELDS | COLUMNS&#125;
         [TERMINATED BY &#39;string&#39;]
         [[OPTIONALLY] ENCLOSED BY &#39;char&#39;]
         [ESCAPED BY &#39;char&#39;]
@@ -304,9 +343,11 @@ secure_file_priv=&#39;&#39;</code></pre><h3 id="逻辑备份恢复"><a href="#�
         [STARTING BY &#39;string&#39;]
         [TERMINATED BY &#39;string&#39;]
     ]
-    [IGNORE number {LINES | ROWS}]
+    [IGNORE number &#123;LINES | ROWS&#125;]
     [(col_name_or_user_var,...)]
-    [SET col_name = expr,...]</code></pre><p>参数解释：</p>
+    [SET col_name &#x3D; expr,...]</code></pre>
+
+<p>参数解释：</p>
 <ul>
 <li>FILENAME：备份文件地址。</li>
 <li>LOW_PRIORITY：锁表，如果有客户端执行查询操作，则会被阻塞。</li>
@@ -323,7 +364,8 @@ secure_file_priv=&#39;&#39;</code></pre><h3 id="逻辑备份恢复"><a href="#�
 <li>LINES TERMINATED BY：根据行分隔符进行解析。</li>
 </ul>
 <p>示例，针对上面的备份进行恢复:</p>
-<pre><code class="sql">load data infile &#39;/home/temp/test2.txt&#39; ignore into table student fields terminated by &#39;,&#39; enclosed by &#39;&quot;&#39; lines terminated by &#39;;&#39;;</code></pre>
+<pre><code class="hljs sql"><span class="hljs-keyword">load</span> <span class="hljs-keyword">data</span> <span class="hljs-keyword">infile</span> <span class="hljs-string">'/home/temp/test2.txt'</span> <span class="hljs-keyword">ignore</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">table</span> student <span class="hljs-keyword">fields</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">','</span> <span class="hljs-keyword">enclosed</span> <span class="hljs-keyword">by</span> <span class="hljs-string">'"'</span> <span class="hljs-keyword">lines</span> <span class="hljs-keyword">terminated</span> <span class="hljs-keyword">by</span> <span class="hljs-string">';'</span>;</code></pre>
+
 <h3 id="逻辑备份总结"><a href="#逻辑备份总结" class="headerlink" title="逻辑备份总结"></a>逻辑备份总结</h3><p>逻辑备份需要手动进行操作，或者书写相应的服务器脚本进行操作，并且逻辑备份不能备份数据的每一个时刻的数据，同样的逻辑备份不能快速恢复，或者说当数据量过大时，使用命令进行恢复的速度会十分缓慢。</p>
 <p>当然逻辑备份也不是一无是处，其优点如下：</p>
 <ul>
@@ -336,20 +378,26 @@ secure_file_priv=&#39;&#39;</code></pre><h3 id="逻辑备份恢复"><a href="#�
 <p>对于MySQL而言，除了全量备份，还有一个根据二进制日志进行增量备份的方式，这也是MySQL常用的一种备份方式。</p>
 </blockquote>
 <h3 id="binlog日志"><a href="#binlog日志" class="headerlink" title="binlog日志"></a>binlog日志</h3><p>首先需要在配置文件中开启binlog，开启方式为在MySQL配置文件中设置log文件地址：</p>
-<pre><code>log-bin=文件路径</code></pre><p>还有一些其他与binlog相关的配置为：</p>
-<pre><code>binlog_format   = ROW #binlog日志格式，默认为STATEMENT
-log-bin = 文件路径  # binlog日志文件
-expire_logs_days= 7   #binlog过期清理时间
-max_binlog_size = 100m   #binlog每个日志文件大小
-binlog_cache_size   = 4m #binlog缓存大小
-max_binlog_cache_size   = 512m #最大binlog缓存大小</code></pre><p>你也可以使用命令查询binlog状态，查询结果为ON则代表binlog已开启。</p>
-<pre><code>mysql&gt; show variables like &#39;log_bin&#39;;
+<pre><code class="hljs plain">log-bin&#x3D;文件路径</code></pre>
+
+<p>还有一些其他与binlog相关的配置为：</p>
+<pre><code class="hljs plain">binlog_format   &#x3D; ROW #binlog日志格式，默认为STATEMENT
+log-bin &#x3D; 文件路径  # binlog日志文件
+expire_logs_days&#x3D; 7   #binlog过期清理时间
+max_binlog_size &#x3D; 100m   #binlog每个日志文件大小
+binlog_cache_size   &#x3D; 4m #binlog缓存大小
+max_binlog_cache_size   &#x3D; 512m #最大binlog缓存大小</code></pre>
+
+<p>你也可以使用命令查询binlog状态，查询结果为ON则代表binlog已开启。</p>
+<pre><code class="hljs plain">mysql&gt; show variables like &#39;log_bin&#39;;
 +---------------+-------+
 | Variable_name | Value |
 +---------------+-------+
 | log_bin       | ON    |
 +---------------+-------+
-1 row in set (0.00 sec)</code></pre><p>对于binlog而言，主要有以下几个命名可以对日志文件进行操作。</p>
+1 row in set (0.00 sec)</code></pre>
+
+<p>对于binlog而言，主要有以下几个命名可以对日志文件进行操作。</p>
 <ul>
 <li>reset master：清空日志文件，重新记录日志</li>
 <li>reset salve：删除master.info、relay-log.info文件，开始一个全新的日志文件</li>
@@ -358,13 +406,19 @@ max_binlog_cache_size   = 512m #最大binlog缓存大小</code></pre><p>你也�
 <li>show binlog events：查看日志文件中的事件信息，默认显示第一个二进制文件中的事件</li>
 </ul>
 <p>显示指定文件的事件信息</p>
-<pre><code>show binlog events in &#39;文件名&#39;</code></pre><p>使用from可指定从某一行开始</p>
+<pre><code class="hljs plain">show binlog events in &#39;文件名&#39;</code></pre>
+
+<p>使用from可指定从某一行开始</p>
 <p>使用limit可设置查询的事件数量</p>
-<pre><code> show binlog events in &#39;文件名&#39; from 2 limit 2,5</code></pre><ul>
+<pre><code class="hljs plain">show binlog events in &#39;文件名&#39; from 2 limit 2,5</code></pre>
+
+<ul>
 <li>purge binary logs：删除二进制文件</li>
 </ul>
-<pre><code>purge binary logs to &#39;文件名&#39; #删除指定文件之前的所有文件
-purge binary logs before &#39;事件&#39; #删除指定事件之前的所有文件</code></pre><p>MySQL的二进制日志文件格式包含行模式、语句模式、混合模式。</p>
+<pre><code class="hljs plain">purge binary logs to &#39;文件名&#39; #删除指定文件之前的所有文件
+purge binary logs before &#39;事件&#39; #删除指定事件之前的所有文件</code></pre>
+
+<p>MySQL的二进制日志文件格式包含行模式、语句模式、混合模式。</p>
 <ul>
 <li>行模式：基于行的日志中事件信息记录每行的变化信息。</li>
 <li>语句模式：基于语句的日志中事件信息包含执行的语句。</li>
@@ -379,53 +433,57 @@ purge binary logs before &#39;事件&#39; #删除指定事件之前的所有文�
 <li>-r：重定向到指定文件</li>
 <li>–read-from-remote-server：从远程服务器读取binlog日志文件，此时需要一些参数，-h、-p、-u等。</li>
 </ul>
-<pre><code>[root@localhost binlog]# mysqlbinlog -v logs.000001
+<pre><code class="hljs plain">[root@localhost binlog]# mysqlbinlog -v logs.000001
 ...省略部分输出内容
 
 # at 350
 #181027  9:45:37 server id 1  end_log_pos 399 CRC32 0x53e0e255  Delete_rows: table id 109 flags: STMT_END_F
 BINLOG &#39;
 AWzUWxMBAAAAOwAAAF4BAAAAAG0AAAAAAAEABHRlc3QAB3N0dWRlbnQABA8PAw8GYACHAGAAAN6E
-TRU=
-AWzUWyABAAAAMQAAAI8BAAAAAG0AAAAAAAEAAgAE//ABMgR0ZXN0AAAAAAEyVeLgUw==
-&#39;/*!*/;
-### DELETE FROM `test`.`student`
+TRU&#x3D;
+AWzUWyABAAAAMQAAAI8BAAAAAG0AAAAAAAEAAgAE&#x2F;&#x2F;ABMgR0ZXN0AAAAAAEyVeLgUw&#x3D;&#x3D;
+&#39;&#x2F;*!*&#x2F;;
+### DELETE FROM &#96;test&#96;.&#96;student&#96;
 ### WHERE
-###   @1=&#39;2&#39;
-###   @2=&#39;test&#39;
-###   @3=0
-###   @4=&#39;2&#39;
+###   @1&#x3D;&#39;2&#39;
+###   @2&#x3D;&#39;test&#39;
+###   @3&#x3D;0
+###   @4&#x3D;&#39;2&#39;
 # at 399
-#181027  9:45:37 server id 1  end_log_pos 430 CRC32 0xd9e0d019  Xid = 30
-COMMIT/*!*/;
-SET @@SESSION.GTID_NEXT= &#39;AUTOMATIC&#39; /* added by mysqlbinlog */ /*!*/;
+#181027  9:45:37 server id 1  end_log_pos 430 CRC32 0xd9e0d019  Xid &#x3D; 30
+COMMIT&#x2F;*!*&#x2F;;
+SET @@SESSION.GTID_NEXT&#x3D; &#39;AUTOMATIC&#39; &#x2F;* added by mysqlbinlog *&#x2F; &#x2F;*!*&#x2F;;
 DELIMITER ;
 # End of log file
-/*!50003 SET COMPLETION_TYPE=@OLD_COMPLETION_TYPE*/;
-/*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE=0*/;</code></pre><h3 id="基于日志恢复"><a href="#基于日志恢复" class="headerlink" title="基于日志恢复"></a>基于日志恢复</h3><p>首先查看binlog日志文件，从中找出被删除的记录。在上面一个示例中，清晰可见该日志记录一个数据库的删除记录。在日志文件中有一句<code>at 350</code>，该标记的意思为该日志的事件开始位置，另外在末尾有一个<code>at 399</code>，该标记表示该条日志的事件结束位置。如果我们想恢复这条记录，需要先将数据库恢复到位置350之前，如果这是最后一个日志，那么恢复操作就完成了。但是大多数情况下，该条日志后肯定是存在日志的。所以此时需要在恢复到位置350之前后，跳过该日志，继续恢复后面的日志信息。当然，由于日志文件中，清晰的存储了该行数据的所以信息，所以你也可以根据这条日志，手动在数据库中插入。另外也可以根据事件发生的时间来进行恢复，使用时间恢复的话可以免除寻找时间位置的过程，但前提是你的清晰记得操作时间。</p>
+&#x2F;*!50003 SET COMPLETION_TYPE&#x3D;@OLD_COMPLETION_TYPE*&#x2F;;
+&#x2F;*!50530 SET @@SESSION.PSEUDO_SLAVE_MODE&#x3D;0*&#x2F;;</code></pre>
+
+<h3 id="基于日志恢复"><a href="#基于日志恢复" class="headerlink" title="基于日志恢复"></a>基于日志恢复</h3><p>首先查看binlog日志文件，从中找出被删除的记录。在上面一个示例中，清晰可见该日志记录一个数据库的删除记录。在日志文件中有一句<code>at 350</code>，该标记的意思为该日志的事件开始位置，另外在末尾有一个<code>at 399</code>，该标记表示该条日志的事件结束位置。如果我们想恢复这条记录，需要先将数据库恢复到位置350之前，如果这是最后一个日志，那么恢复操作就完成了。但是大多数情况下，该条日志后肯定是存在日志的。所以此时需要在恢复到位置350之前后，跳过该日志，继续恢复后面的日志信息。当然，由于日志文件中，清晰的存储了该行数据的所以信息，所以你也可以根据这条日志，手动在数据库中插入。另外也可以根据事件发生的时间来进行恢复，使用时间恢复的话可以免除寻找时间位置的过程，但前提是你的清晰记得操作时间。</p>
 <p>恢复数据库到指定位置命令：</p>
-<pre><code>mysqlbinlog --stop-position=350 logs.000001 |mysql -uroot -p
-mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>恢复数据库到指定日期命令：</p>
-<pre><code>[root@localhost /]# mysqlbinlog --stop-datetime=&quot;2017-09-28 04:00:00&quot; logs.000001 | mysql -u root -p
-[root@localhost /]# mysqlbinlog --start-datetime=&quot;2017-09-28 40:00:00&quot; logs.000001 | mysql -u root -p</code></pre>
-            </div>
+<pre><code class="hljs plain">mysqlbinlog --stop-position&#x3D;350 logs.000001 |mysql -uroot -p
+mysqlbinlog --start-position&#x3D;399 logs.000001 |mysql -uroot -p</code></pre>
+
+<p>恢复数据库到指定日期命令：</p>
+<pre><code class="hljs plain">[root@localhost &#x2F;]# mysqlbinlog --stop-datetime&#x3D;&quot;2017-09-28 04:00:00&quot; logs.000001 | mysql -u root -p
+[root@localhost &#x2F;]# mysqlbinlog --start-datetime&#x3D;&quot;2017-09-28 40:00:00&quot; logs.000001 | mysql -u root -p</code></pre>
+
+
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-                      &nbsp;
                     
                       <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -434,9 +492,9 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/">
-                        <i class="fa fa-chevron-left"></i>
-                        <span class="hidden-mobile">PostgreSQL安装</span>
+                      <a href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Redis安装</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -444,10 +502,10 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2018/07/16/database/MySQL/MySQL%E5%AE%89%E8%A3%85/">
-                        <span class="hidden-mobile">MySQL安装</span>
+                      <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/">
+                        <span class="hidden-mobile">PostgreSQL安装</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -455,16 +513,15 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
               
             </div>
 
-              
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -480,8 +537,8 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -516,9 +573,10 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -530,9 +588,7 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -541,34 +597,12 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -578,16 +612,13 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -603,19 +634,7 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
 
 
 
-
-
 <!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -668,17 +687,25 @@ mysqlbinlog --start-position=399 logs.000001 |mysql -uroot -p </code></pre><p>�
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
+
+
+
+
 
 
 

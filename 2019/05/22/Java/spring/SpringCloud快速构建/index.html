@@ -8,7 +8,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -19,24 +19,31 @@
   <meta name="keywords" content="">
   <title>SpringCloud快速构建 - 硒恩园</title>
 
-  <link  rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/mdbootstrap/4.13.0/css/mdb.min.css" />
-<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/3.0.1/github-markdown.min.css" />
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
 
 
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
 
-  <link  rel="stylesheet" href="/lib/prettify/atelier-forest-light.min.css" />
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
 
 <link  rel="stylesheet" href="/css/main.css" />
 
-
-  <link defer rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
 <!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
 
 
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -62,65 +69,73 @@
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/">首页</a>
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/archives/">归档</a>
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/Java/">爪哇</a>
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/2020/04/12/study/2020_study/">2020目标</a>
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/categories/">分类</a>
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/tags/">标签</a>
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/about/">关于</a>
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
           </li>
         
           
           
           
-          
           <li class="nav-item">
-            <a class="nav-link" href="/links/">友链</a>
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
           </li>
         
         
@@ -138,7 +153,7 @@
          style="background: url('/img/banner2.png') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
-        <div class="mask rgba-black-light flex-center">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="container text-center white-text fadeInUp">
             <span class="h2" id="subtitle">
               
@@ -146,37 +161,42 @@
 
             
               
-                <p class="mt-3 post-meta">
-                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>
-                  星期三, 五月 22日 2019, 9:55 上午
-                </p>
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2019-05-22 09:55">
+                    星期三, 五月 22日 2019, 9:55 上午
+                  </time>
+                </div>
               
 
-              <p class="mt-1">
+              <div class="mt-1">
                 
                   
-                  <span class="post-meta">
-                    <i class="far fa-chart-bar"></i>
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
                     2.5k 字
                   </span>
                 
 
                 
                   
-                  <span class="post-meta">
-                      <i class="far fa-clock"></i>
-                      10 分钟
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    32
+                     分钟
                   </span>
                 
 
                 
-              </p>
+              </div>
             
           </div>
 
           
             <div class="scroll-down-bar">
-              <i class="fas fa-angle-down scroll-down-arrow"></i>
+              <i class="iconfont icon-arrowdown"></i>
             </div>
           
         </div>
@@ -193,10 +213,10 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="container nopadding-md" id="board-ctn">
-        <div class="py-5 z-depth-3" id="board">
+        <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
-            <div class="markdown-body">
+            <article class="markdown-body">
               <h1 id="SpringCloud快速构建"><a href="#SpringCloud快速构建" class="headerlink" title="SpringCloud快速构建"></a>SpringCloud快速构建</h1><blockquote>
 <p>SpringCloud是2014年底Spring团队基于SpringBoot开发的，推出的Java领域微服务架构完整解决方案。主要包括服务注册于发现、配置中心、全链路监控、API网关、熔断器等选型中立的开源组件。</p>
 </blockquote>
@@ -262,61 +282,67 @@
 </tbody></table>
 <h2 id="Eureka"><a href="#Eureka" class="headerlink" title="Eureka"></a>Eureka</h2><p>Eureka是Netflix开源的一款提供服务注册和发现的产品，它提供了完整的Service Registry和Service Discovery实现。也是springcloud体系中最重要最核心的组件之一。</p>
 <p>添加依赖：</p>
-<pre><code class="xml">&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-eureka-server&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;</code></pre>
-<p>在启动类中添加<code>@EnableEurekaServer</code>注解：</p>
-<pre><code class="java">@SpringBootApplication
-@EnableEurekaServer
-public class SpringCloudEurekaApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(SpringCloudEurekaApplication.class, args);
-    }
-}</code></pre>
-<p>编写对应的配置文件：</p>
-<pre><code class="yaml">spring:
-    application:
-        name: spring-cloud-eureka
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-eureka-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre>
 
-server:
-    port: 8000
-eureka:
-    client:
-        register-with-eureka: false
-        fetch-registry: false
-    serviceUrl:
-        defaultZone: http://localhost:${server.port}/eureka/</code></pre>
+<p>在启动类中添加<code>@EnableEurekaServer</code>注解：</p>
+<pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableEurekaServer</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpringCloudEurekaApplication</span> </span>&#123;
+	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+		SpringApplication.run(SpringCloudEurekaApplication<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">args</span>)</span>;
+	&#125;
+&#125;</code></pre>
+
+<p>编写对应的配置文件：</p>
+<pre><code class="hljs yaml"><span class="hljs-attr">spring:</span>
+	<span class="hljs-attr">application:</span>
+		<span class="hljs-attr">name:</span> <span class="hljs-string">spring-cloud-eureka</span>
+
+<span class="hljs-attr">server:</span>
+	<span class="hljs-attr">port:</span> <span class="hljs-number">8000</span>
+<span class="hljs-attr">eureka:</span>
+	<span class="hljs-attr">client:</span>
+		<span class="hljs-attr">register-with-eureka:</span> <span class="hljs-literal">false</span>
+		<span class="hljs-attr">fetch-registry:</span> <span class="hljs-literal">false</span>
+	<span class="hljs-attr">serviceUrl:</span>
+		<span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:$&#123;server.port&#125;/eureka/</span></code></pre>
+
 <h2 id="Feign"><a href="#Feign" class="headerlink" title="Feign"></a>Feign</h2><p>Spring Cloud Feign是一套基于Netflix Feign实现的声明式服务调用客户端。它使得编写Web服务客户端变得更加简单。我们只需要通过创建接口并用注解来配置它既可完成对Web服务接口的绑定。它具备可插拔的注解支持，包括Feign注解、JAX-RS注解。它也支持可插拔的编码器和解码器。Spring Cloud Feign还扩展了对Spring MVC注解的支持，同时还整合了Ribbon和Eureka来提供均衡负载的HTTP客户端实现。</p>
 <p>引入依赖：</p>
-<pre><code class="xml">&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-cloud-starter-feign&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-feign<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
 <p>在启动类中添加<code>@EnableFeignClients</code>注解</p>
-<pre><code class="java">@EnableFeignClients
-@EnableDiscoveryClient
-@SpringBootApplication
-public class Application {
+<pre><code class="hljs java"><span class="hljs-meta">@EnableFeignClients</span>
+<span class="hljs-meta">@EnableDiscoveryClient</span>
+<span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Application</span> </span>&#123;
 
-    public static void main(String[] args) {
-        new SpringApplicationBuilder(Application.class).web(true).run(args);
-    }
-}</code></pre>
+	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+		<span class="hljs-keyword">new</span> SpringApplicationBuilder(Application<span class="hljs-class">.<span class="hljs-keyword">class</span>).<span class="hljs-title">web</span>(<span class="hljs-title">true</span>).<span class="hljs-title">run</span>(<span class="hljs-title">args</span>)</span>;
+	&#125;
+&#125;</code></pre>
+
 <p>创建一个Feign的客户端接口定义。使用<code>@FeignClient</code>注解来指定这个接口所要调用的服务名称，接口中定义的各个函数使用Spring MVC的注解就可以来绑定服务提供方的REST接口，比如下面就是绑定<code>eureka-client</code>服务的<code>/dc</code>接口的例子：</p>
-<pre><code class="java">@FeignClient(&quot;eureka-client&quot;)
-public interface DcClient {
+<pre><code class="hljs java"><span class="hljs-meta">@FeignClient</span>(<span class="hljs-string">"eureka-client"</span>)
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">DcClient</span> </span>&#123;
 
-    @GetMapping(&quot;/dc&quot;)
-    String consumer();
+    <span class="hljs-meta">@GetMapping</span>(<span class="hljs-string">"/dc"</span>)
+    <span class="hljs-function">String <span class="hljs-title">consumer</span><span class="hljs-params">()</span></span>;
 
-}</code></pre>
+&#125;</code></pre>
+
 <p><code>@FeignClient</code>注解：</p>
 <ul>
 <li><p>name：指定FeignClient的名称，如果项目使用了Ribbon，name属性会作为微服务的名称，用于服务发现</p>
@@ -336,78 +362,82 @@ public interface DcClient {
 </ul>
 <h2 id="Hystix"><a href="#Hystix" class="headerlink" title="Hystix"></a>Hystix</h2><p><code>Hystix</code>是一个供分布式系统使用，提供延迟和容错功能，保证复杂的分布系统在面临不可避免的失败时，仍能有其弹性。</p>
 <p>添加依赖：</p>
-<pre><code class="xml">&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;
-&lt;/dependency&gt;
-&lt;dependency&gt;
-  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-  &lt;artifactId&gt;spring-cloud-starter-hystrix-dashboard&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-hystrix<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-hystrix-dashboard<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
 <p>启动类上增加Hystrix的注解：</p>
-<pre><code class="java">@SpringBootApplication
-@EnableDiscoveryClient
-@EnableCircuitBreaker
-public class HystrixRibbonApp {
-    public static void main(String[] args) {
-        SpringApplication.run(HystrixRibbonApp.class, args);
-    }
+<pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableDiscoveryClient</span>
+<span class="hljs-meta">@EnableCircuitBreaker</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HystrixRibbonApp</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        SpringApplication.run(HystrixRibbonApp<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">args</span>)</span>;
+    &#125;
+    
+    <span class="hljs-meta">@Bean</span>
+    <span class="hljs-meta">@LoadBalanced</span>
+    <span class="hljs-function">RestTemplate <span class="hljs-title">restTemplate</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> RestTemplate();
+    &#125;
+&#125;</code></pre>
 
-    @Bean
-    @LoadBalanced
-    RestTemplate restTemplate() {
-        return new RestTemplate();
-    }
-}</code></pre>
 <p>修改代码逻辑，在需要熔断的方法上增加@HystrixCommand注解，当调用有问题的时候就会使用fallbackMethod参数指定的方法进行服务降级：</p>
-<pre><code class="java">@RestController
-public class HelloController {
-    @Autowired
+<pre><code class="hljs java"><span class="hljs-meta">@RestController</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloController</span> </span>&#123;
+    <span class="hljs-meta">@Autowired</span>
     HystrixRibbonService helloService;
-
-    @RequestMapping(&quot;/hi&quot;)
-    public String hello(){
-        return helloService.helloService(&quot;姓名&quot;);
-    }
-}
-@Service
-public class HystrixRibbonService {
-    private static final String SERVICE_NAME = &quot;EUREKACLIENT&quot;;
-
-    @Autowired
+    
+    <span class="hljs-meta">@RequestMapping</span>(<span class="hljs-string">"/hi"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">()</span></span>&#123;
+        <span class="hljs-keyword">return</span> helloService.helloService(<span class="hljs-string">"姓名"</span>);
+    &#125;
+&#125;
+<span class="hljs-meta">@Service</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HystrixRibbonService</span> </span>&#123;
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String SERVICE_NAME = <span class="hljs-string">"EUREKACLIENT"</span>;
+    
+    <span class="hljs-meta">@Autowired</span>
     RestTemplate restTemplate;
+    
+    <span class="hljs-meta">@Autowired</span>
+    <span class="hljs-keyword">private</span> LoadBalancerClient loadBalancerClient;
 
-    @Autowired
-    private LoadBalancerClient loadBalancerClient;
+    <span class="hljs-meta">@HystrixCommand</span>(fallbackMethod = <span class="hljs-string">"helloServiceFallBack"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">helloService</span><span class="hljs-params">(String name)</span> </span>&#123;
+        ServiceInstance serviceInstance = <span class="hljs-keyword">this</span>.loadBalancerClient.choose(SERVICE_NAME);
+        System.out.println(<span class="hljs-string">"服务主机："</span> + serviceInstance.getHost());
+        System.out.println(<span class="hljs-string">"服务端口："</span> + serviceInstance.getPort());
+        
+        <span class="hljs-comment">//  通过服务名来访问</span>
+        <span class="hljs-keyword">return</span> restTemplate.getForObject(<span class="hljs-string">"http://"</span> + SERVICE_NAME + <span class="hljs-string">"/hello?name="</span>+name,String<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>;
+    &#125;
 
-    @HystrixCommand(fallbackMethod = &quot;helloServiceFallBack&quot;)
-    public String helloService(String name) {
-        ServiceInstance serviceInstance = this.loadBalancerClient.choose(SERVICE_NAME);
-        System.out.println(&quot;服务主机：&quot; + serviceInstance.getHost());
-        System.out.println(&quot;服务端口：&quot; + serviceInstance.getPort());
+    <span class="hljs-meta">@SuppressWarnings</span>(<span class="hljs-string">"unused"</span>)
+    <span class="hljs-function"><span class="hljs-keyword">private</span> String <span class="hljs-title">helloServiceFallBack</span><span class="hljs-params">(String name)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"这个是失败的信息！"</span>;
+    &#125;
+&#125;</code></pre>
 
-        //  通过服务名来访问
-        return restTemplate.getForObject(&quot;http://&quot; + SERVICE_NAME + &quot;/hello?name=&quot;+name,String.class);
-    }
-
-    @SuppressWarnings(&quot;unused&quot;)
-    private String helloServiceFallBack(String name) {
-        return &quot;这个是失败的信息！&quot;;
-    }
-}</code></pre>
 <p>在<code>Feign</code>中同样可以使用<code>Hystix</code>，在<code>Feign</code>中指定<code>fallback</code>，示例如下：</p>
-<pre><code class="java">@FeignClient(value=&quot;EUREKACLIENT&quot;, fallback = HystrixFeignServiceFallback.class)
-public interface HystrixFeignService {
-    @RequestMapping(value = &quot;/hello&quot;,method = RequestMethod.GET) 
-    String sayHiUseFeign(@RequestParam(value = &quot;name&quot;) String name);
-}
-@Component
-public class HystrixFeignServiceFallback implements HystrixFeignService{
-    @Override
-    public String sayHiUseFeign(String name) {
-        return &quot;feign调用错误！&quot;;
-    }
-}</code></pre>
+<pre><code class="hljs java"><span class="hljs-meta">@FeignClient</span>(value=<span class="hljs-string">"EUREKACLIENT"</span>, fallback = HystrixFeignServiceFallback<span class="hljs-class">.<span class="hljs-keyword">class</span>)</span>
+<span class="hljs-class"><span class="hljs-title">public</span> <span class="hljs-title">interface</span> <span class="hljs-title">HystrixFeignService</span> </span>&#123;
+    <span class="hljs-meta">@RequestMapping</span>(value = <span class="hljs-string">"/hello"</span>,method = RequestMethod.GET) 
+    <span class="hljs-function">String <span class="hljs-title">sayHiUseFeign</span><span class="hljs-params">(@RequestParam(value = <span class="hljs-string">"name"</span>)</span> String name)</span>;
+&#125;
+<span class="hljs-meta">@Component</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HystrixFeignServiceFallback</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">HystrixFeignService</span></span>&#123;
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">sayHiUseFeign</span><span class="hljs-params">(String name)</span> </span>&#123;
+        <span class="hljs-keyword">return</span> <span class="hljs-string">"feign调用错误！"</span>;
+    &#125;
+&#125;</code></pre>
+
 <h2 id="Zuul"><a href="#Zuul" class="headerlink" title="Zuul"></a>Zuul</h2><p>在说Zuul之前，应先理解API Gateway(API网关)的概念，API网关即给用户规定一个统一的入口，接收到用户请求后，网关在内部会分发到各个对应的服务服务上。API网关的好处：</p>
 <ul>
 <li>简化客户端调用复杂度</li>
@@ -417,54 +447,59 @@ public class HystrixFeignServiceFallback implements HystrixFeignService{
 </ul>
 <p>Spring Cloud Zuul路由是微服务架构的不可或缺的一部分，提供动态路由，监控，弹性，安全等的边缘服务。Zuul是Netflix出品的一个基于JVM路由和服务端的负载均衡器。</p>
 <p>引用依赖：</p>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-zuul&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-zuul<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
 <p>配置文件:</p>
-<pre><code class="yaml">spring:
-    application:
-        name: gateway-service-zuul
-server:
-    port: 8888
+<pre><code class="hljs yaml"><span class="hljs-attr">spring:</span>
+	<span class="hljs-attr">application:</span>
+		<span class="hljs-attr">name:</span> <span class="hljs-string">gateway-service-zuul</span>
+<span class="hljs-attr">server:</span>
+	<span class="hljs-attr">port:</span> <span class="hljs-number">8888</span>
 
-#这里的配置表示，访问/goo/** 直接重定向到http://www.google.com
-zuul:
-    routes:
-        baidu:
-            path: /goo/**
-            url: http://www.google.com</code></pre>
+<span class="hljs-comment">#这里的配置表示，访问/goo/** 直接重定向到http://www.google.com</span>
+<span class="hljs-attr">zuul:</span>
+	<span class="hljs-attr">routes:</span>
+		<span class="hljs-attr">baidu:</span>
+			<span class="hljs-attr">path:</span> <span class="hljs-string">/goo/**</span>
+			<span class="hljs-attr">url:</span> <span class="hljs-string">http://www.google.com</span></code></pre>
+
 <p>启动类：</p>
-<pre><code class="java">@SpringBootApplication
-@EnableZuulProxy
-public class GatewayServiceZuulApplication {
+<pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableZuulProxy</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GatewayServiceZuulApplication</span> </span>&#123;
 
-    public static void main(String[] args) {
-        SpringApplication.run(GatewayServiceZuulApplication.class, args);
-    }
-}</code></pre>
+	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+		SpringApplication.run(GatewayServiceZuulApplication<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">args</span>)</span>;
+	&#125;
+&#125;</code></pre>
+
 <h3 id="网关服务化"><a href="#网关服务化" class="headerlink" title="网关服务化"></a>网关服务化</h3><p>添加eureka依赖：</p>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
 <p>配置文件：</p>
-<pre><code class="yaml">spring:
-    application:
-        name: gateway-service-zuul
-server:
-    port: 8888
+<pre><code class="hljs yaml"><span class="hljs-attr">spring:</span>
+	<span class="hljs-attr">application:</span>
+		<span class="hljs-attr">name:</span> <span class="hljs-string">gateway-service-zuul</span>
+<span class="hljs-attr">server:</span>
+	<span class="hljs-attr">port:</span> <span class="hljs-number">8888</span>
 
-zuul:
-    routes:
-        server-a:        
-            path: /goo/**
-            serviceId: server-a
+<span class="hljs-attr">zuul:</span>
+	<span class="hljs-attr">routes:</span>
+		<span class="hljs-attr">server-a:</span>		
+			<span class="hljs-attr">path:</span> <span class="hljs-string">/goo/**</span>
+			<span class="hljs-attr">serviceId:</span> <span class="hljs-string">server-a</span>
 
-eureka:
-    client:
-        serviceUrl:
-            defaultZone: http://localhost:8000/eureka/</code></pre>
+<span class="hljs-attr">eureka:</span>
+	<span class="hljs-attr">client:</span>
+		<span class="hljs-attr">serviceUrl:</span>
+			<span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://localhost:8000/eureka/</span></code></pre>
+
 <p>其中<code>server-a</code>为<code>eureka</code>中的服务。</p>
 <h2 id="Sleuth"><a href="#Sleuth" class="headerlink" title="Sleuth"></a>Sleuth</h2><p>Sleuth是Spring Cloud的组成部分之一，为SpringCloud应用实现了一种分布式追踪解决方案，其兼容了Zipkin, HTrace和log-based追踪</p>
 <p>几个基本术语：</p>
@@ -483,83 +518,86 @@ eureka:
 <p>每个服务向zipkin报告计时数据，zipkin会根据调用关系通过Zipkin UI生成依赖关系图，显示了多少跟踪请求通过每个服务，该系统让开发者可通过一个 Web 前端轻松的收集和分析数据，例如用户每次请求服务的处理时间等，可方便的监测系统中存在的瓶颈。</p>
 <p>Zipkin提供了可插拔数据存储方式：In-Memory、MySql、Cassandra以及Elasticsearch。接下来的测试为方便直接采用In-Memory方式进行存储，生产推荐Elasticsearch。</p>
 <p>首先在项目中添加依赖</p>
-<pre><code class="xml">&lt;dependencies&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-        &lt;artifactId&gt;spring-cloud-starter-eureka&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;io.zipkin.java&lt;/groupId&gt;
-        &lt;artifactId&gt;zipkin-server&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-    &lt;dependency&gt;
-        &lt;groupId&gt;io.zipkin.java&lt;/groupId&gt;
-        &lt;artifactId&gt;zipkin-autoconfigure-ui&lt;/artifactId&gt;
-    &lt;/dependency&gt;
-&lt;/dependencies&gt;</code></pre>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.zipkin.java<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>zipkin-server<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.zipkin.java<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>zipkin-autoconfigure-ui<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span></code></pre>
+
 <p>编写对应的启动类，使用了<code>@EnableZipkinServer</code>注解，启用Zipkin服务。</p>
-<pre><code class="java">@SpringBootApplication
-@EnableEurekaClient
-@EnableZipkinServer
-public class ZipkinApplication {
-    public static void main(String[] args) {
-        SpringApplication.run(ZipkinApplication.class, args);
-    }
-}</code></pre>
+<pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span>
+<span class="hljs-meta">@EnableEurekaClient</span>
+<span class="hljs-meta">@EnableZipkinServer</span>
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ZipkinApplication</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        SpringApplication.run(ZipkinApplication<span class="hljs-class">.<span class="hljs-keyword">class</span>, <span class="hljs-title">args</span>)</span>;
+    &#125;
+&#125;</code></pre>
+
 <p>修改配置文件</p>
-<pre><code class="yaml">eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://127.0.0.1:8761/eureka/
-server:
-  port: 9000
-spring:
-  application:
-    name: zipkin-server</code></pre>
+<pre><code class="hljs yaml"><span class="hljs-attr">eureka:</span>
+  <span class="hljs-attr">client:</span>
+    <span class="hljs-attr">serviceUrl:</span>
+      <span class="hljs-attr">defaultZone:</span> <span class="hljs-string">http://127.0.0.1:8761/eureka/</span>
+<span class="hljs-attr">server:</span>
+  <span class="hljs-attr">port:</span> <span class="hljs-number">9000</span>
+<span class="hljs-attr">spring:</span>
+  <span class="hljs-attr">application:</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">zipkin-server</span></code></pre>
+
 <p>配置完成后依次启动示例项目：<code>spring-cloud-eureka</code>、<code>zipkin-server</code>项目。刚问地址:<code>http://localhost:9000/zipkin/</code>可以看到Zipkin后台页面</p>
 <p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/tracing3.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="客户端添加zipkin支持"><a href="#客户端添加zipkin支持" class="headerlink" title="客户端添加zipkin支持"></a>客户端添加zipkin支持</h3><p>在项目中添加如下依赖：</p>
-<pre><code class="xml">&lt;dependency&gt;
-    &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
-    &lt;artifactId&gt;spring-cloud-starter-zipkin&lt;/artifactId&gt;
-&lt;/dependency&gt;</code></pre>
+<pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-zipkin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
 <p>配置文件中添加如下代码：</p>
-<pre><code class="yaml">spring:
-  zipkin:
-    base-url: http://localhost:9000
-  sleuth:
-    sampler:
-      percentage: 1.0</code></pre>
+<pre><code class="hljs yaml"><span class="hljs-attr">spring:</span>
+  <span class="hljs-attr">zipkin:</span>
+    <span class="hljs-attr">base-url:</span> <span class="hljs-string">http://localhost:9000</span>
+  <span class="hljs-attr">sleuth:</span>
+    <span class="hljs-attr">sampler:</span>
+      <span class="hljs-attr">percentage:</span> <span class="hljs-number">1.0</span></code></pre>
+
 <p>spring.zipkin.base-url指定了Zipkin服务器的地址，spring.sleuth.sampler.percentage将采样比例设置为1.0，也就是全部都需要。</p>
 <p>Spring应用在监测到Java依赖包中有sleuth和zipkin后，会自动在RestTemplate的调用过程中向HTTP请求注入追踪信息，并向Zipkin Server发送这些信息。</p>
 
-            </div>
+            </article>
             <hr>
             <div>
-              <p>
+              <div class="post-metas mb-3">
                 
-                  <span>
-                <i class="iconfont icon-inbox"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
                       <a class="hover-with-bg" href="/categories/Java/">Java</a>
-                      &nbsp;
                     
                       <a class="hover-with-bg" href="/categories/Java/Spring/">Spring</a>
-                      &nbsp;
                     
-                  </span>&nbsp;&nbsp;
+                  </div>
                 
                 
-                  <span>
-                <i class="iconfont icon-tag"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/SpringCloud/">SpringCloud</a>
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
                     
                       <a class="hover-with-bg" href="/tags/%E7%BD%91%E5%85%B3/">网关</a>
                     
-                  </span>
+                      <a class="hover-with-bg" href="/tags/SpringCloud/">SpringCloud</a>
+                    
+                  </div>
                 
-              </p>
+              </div>
               
                 <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
               
@@ -569,7 +607,7 @@ spring:
                     
                     
                       <a href="/2019/05/23/Java/tools/SpringBoot2.0%E6%95%B4%E5%90%88Activiti6.0%E9%97%AE%E9%A2%98%E6%A2%B3%E7%90%86/">
-                        <i class="fa fa-chevron-left"></i>
+                        <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">SpringBoot2.0整合Activiti6.0问题梳理</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
@@ -581,7 +619,7 @@ spring:
                       <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/">
                         <span class="hidden-mobile">GitLab CI/CD 介绍和使用</span>
                         <span class="visible-mobile">下一篇</span>
-                        <i class="fa fa-chevron-right"></i>
+                        <i class="iconfont icon-arrowright"></i>
                       </a>
                     
                   </div>
@@ -589,16 +627,15 @@ spring:
               
             </div>
 
-              
+            
           </div>
         </div>
       </div>
     </div>
     
       <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc-start"></div>
-<div id="toc">
-  <p class="h5"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
   <div id="tocbot"></div>
 </div>
 
@@ -614,8 +651,8 @@ spring:
   </main>
 
   
-    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
-      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
     </a>
   
 
@@ -650,9 +687,10 @@ spring:
   <footer class="mt-5">
   <div class="text-center py-3">
     <div>
-      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
       <i class="iconfont icon-love"></i>
-      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
     </div>
     
 
@@ -664,9 +702,7 @@ spring:
 
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
-<script  src="https://cdn.staticfile.org/popper.js/1.16.1/umd/popper.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
-<script  src="https://cdn.staticfile.org/mdbootstrap/4.13.0/js/mdb.min.js" ></script>
 <script  src="/js/main.js" ></script>
 
 
@@ -675,34 +711,12 @@ spring:
 
 
   
-  <script  src="https://cdn.staticfile.org/tocbot/4.10.0/tocbot.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
   <script>
     $(document).ready(function () {
-      var navHeight = $('#navbar').height();
-      var toc = $('#toc');
       var boardCtn = $('#board-ctn');
       var boardTop = boardCtn.offset().top;
-      var tocLimMax = 2 * boardTop + boardCtn.height();
 
-      $(window).scroll(function () {
-        var tocLimMin = $('#toc-start').offset().top - navHeight;
-        var scroH = document.body.scrollTop + document.documentElement.scrollTop;
-
-        if (tocLimMin <= scroH && scroH <= tocLimMax) {
-          toc.css({
-            'display': 'block',
-            'position': 'fixed',
-            'top': navHeight,
-          });
-        } else if (scroH <= tocLimMin) {
-          toc.css({
-            'position': '',
-            'top': '',
-          });
-        } else if (scroH > tocLimMax) {
-          toc.css('display', 'none');
-        }
-      });
       tocbot.init({
         tocSelector: '#tocbot',
         contentSelector: '.post-content',
@@ -712,16 +726,13 @@ spring:
         listClass: 'tocbot-list',
         isCollapsedClass: 'tocbot-is-collapsed',
         collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
         scrollSmooth: true,
         headingsOffset: -boardTop
       });
       if ($('.toc-list-item').length > 0) {
-        $('#toc > p').css('visibility', 'visible');
+        $('#toc').css('visibility', 'visible');
       }
-      var offset = boardCtn.css('margin-right')
-      $('#toc-ctn').css({
-        'right': offset
-      })
     });
   </script>
 
@@ -737,19 +748,7 @@ spring:
 
 
 
-
-
 <!-- Plugins -->
-
-
-
-  <script  src="https://cdn.staticfile.org/prettify/188.0.0/prettify.min.js" ></script>
-  <script>
-    $(document).ready(function () {
-      $('pre').addClass('prettyprint  linenums');
-      prettyPrint();
-    })
-  </script>
 
 
 
@@ -802,17 +801,25 @@ spring:
 
 
 
-  <script defer src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
   <script>
-    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
       function () {
-        var element = document.createElement("a");
-        $(element).attr("data-fancybox", "images");
-        $(element).attr("href", $(this).attr("src"));
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
         $(this).wrap(element);
       }
     );
   </script>
+
+
+
+
+
+
 
 
 
