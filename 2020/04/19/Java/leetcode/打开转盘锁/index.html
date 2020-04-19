@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>SpringBoot介绍 - 硒恩园</title>
+  <title>打开转盘锁 - 硒恩园</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -163,8 +163,8 @@
               
                 <div class="mt-3 post-meta">
                   <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-                  <time datetime="2018-10-22 22:40">
-                    星期一, 十月 22日 2018, 10:40 晚上
+                  <time datetime="2020-04-19 11:44">
+                    星期日, 四月 19日 2020, 11:44 中午
                   </time>
                 </div>
               
@@ -174,7 +174,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    976 字
+                    788 字
                   </span>
                 
 
@@ -184,7 +184,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     
-                    10
+                    12
                      分钟
                   </span>
                 
@@ -217,50 +217,113 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <h1 id="SpringBoot介绍"><a href="#SpringBoot介绍" class="headerlink" title="SpringBoot介绍"></a>SpringBoot介绍</h1><blockquote>
-<p>Spring框架为我们提供了多种解决方案，但在使用它的时候总免不了进行导包、配置等操作。于是在2012年10月，有人提出了新需求，要求在Spring框架中支持无容器Web应用程序体系结构，即无不需要将项目打包后放置在中间件中，直接通过main方法引导的Spring容器内配置Web容器服务。 于是，2014年4月,SpringBoot正式发布。</p>
+              <h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>你有一个带有四个圆形拨轮的转盘锁。每个拨轮都有10个数字： ‘0’, ‘1’, ‘2’, ‘3’, ‘4’, ‘5’, ‘6’, ‘7’, ‘8’, ‘9’ 。每个拨轮可以自由旋转：例如把 ‘9’ 变为  ‘0’，’0’ 变为 ‘9’ 。每次旋转都只能旋转一个拨轮的一位数字。</p>
+<p>锁的初始数字为 ‘0000’ ，一个代表四个拨轮的数字的字符串。</p>
+<p>列表 deadends 包含了一组死亡数字，一旦拨轮的数字和列表里的任何一个元素相同，这个锁将会被永久锁定，无法再被旋转。</p>
+<p>字符串 target 代表可以解锁的数字，你需要给出最小的旋转次数，如果无论如何不能解锁，返回 -1。</p>
+<p>示例 1:</p>
+<pre><code class="hljs plain">输入：deadends &#x3D; [&quot;0201&quot;,&quot;0101&quot;,&quot;0102&quot;,&quot;1212&quot;,&quot;2002&quot;], target &#x3D; &quot;0202&quot;
+输出：6
+解释：
+可能的移动序列为 &quot;0000&quot; -&gt; &quot;1000&quot; -&gt; &quot;1100&quot; -&gt; &quot;1200&quot; -&gt; &quot;1201&quot; -&gt; &quot;1202&quot; -&gt; &quot;0202&quot;。
+注意 &quot;0000&quot; -&gt; &quot;0001&quot; -&gt; &quot;0002&quot; -&gt; &quot;0102&quot; -&gt; &quot;0202&quot; 这样的序列是不能解锁的，
+因为当拨动到 &quot;0102&quot; 时这个锁就会被锁定。</code></pre>
+
+<p>示例 2:</p>
+<pre><code class="hljs plain">输入: deadends &#x3D; [&quot;8888&quot;], target &#x3D; &quot;0009&quot;
+输出：1
+解释：
+把最后一位反向旋转一次即可 &quot;0000&quot; -&gt; &quot;0009&quot;。</code></pre>
+
+<p>示例 3:</p>
+<pre><code class="hljs plain">输入: deadends &#x3D; [&quot;8887&quot;,&quot;8889&quot;,&quot;8878&quot;,&quot;8898&quot;,&quot;8788&quot;,&quot;8988&quot;,&quot;7888&quot;,&quot;9888&quot;], target &#x3D; &quot;8888&quot;
+输出：-1
+解释：
+无法旋转到目标数字且不被锁定。</code></pre>
+
+<p>示例 4:</p>
+<pre><code class="hljs plain">输入: deadends &#x3D; [&quot;0000&quot;], target &#x3D; &quot;8888&quot;
+输出：-1</code></pre>
+<p>提示：</p>
+<p>1.死亡列表 deadends 的长度范围为 [1, 500]。<br>2.目标数字 target 不会在 deadends 之中。<br>3.每个 deadends 和 target 中的字符串的数字会在 10,000 个可能的情况 ‘0000’ 到 ‘9999’ 中产生。</p>
+<h2 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h2><blockquote>
+<p>基于广度搜索实现</p>
 </blockquote>
-<h2 id="SpringBoot四大特性"><a href="#SpringBoot四大特性" class="headerlink" title="SpringBoot四大特性"></a>SpringBoot四大特性</h2><p>在Spring官网这样说到：</p>
-<p>SpringBoot可以轻松创建一个独立的、基于昌平级别的Spring应用程序，我们可以不依赖服务器中间件，直接运行程序。我们的目标是：</p>
+<pre><code class="hljs java"><span class="hljs-keyword">package</span> com.jarome.leetcode;
+
+<span class="hljs-keyword">import</span> java.util.Arrays;
+<span class="hljs-keyword">import</span> java.util.HashSet;
+<span class="hljs-keyword">import</span> java.util.LinkedList;
+<span class="hljs-keyword">import</span> java.util.Queue;
+<span class="hljs-keyword">import</span> java.util.Set;
+
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SolutionCenterLock</span> </span>&#123;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;
+        String[] deadends = &#123;<span class="hljs-string">"0201"</span>, <span class="hljs-string">"0101"</span>, <span class="hljs-string">"0102"</span>, <span class="hljs-string">"1212"</span>, <span class="hljs-string">"2002"</span>&#125;;
+        <span class="hljs-comment">// String[] deadends = &#123;"0000"&#125;;</span>
+        String target = <span class="hljs-string">"0202"</span>;
+        SolutionCenterLock sc = <span class="hljs-keyword">new</span> SolutionCenterLock();
+        <span class="hljs-keyword">int</span> res = sc.openLock(deadends, target);
+        System.out.println(res);
+    &#125;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">openLock</span><span class="hljs-params">(String[] deadends, String target)</span> </span>&#123;
+        Set&lt;String&gt; deadendSet = <span class="hljs-keyword">new</span> HashSet&lt;String&gt;(Arrays.asList(deadends));
+        String baseRec = <span class="hljs-string">"0000"</span>;
+        Queue&lt;String&gt; queue = <span class="hljs-keyword">new</span> LinkedList&lt;String&gt;();
+        queue.offer(baseRec);
+        Set&lt;String&gt; temp = <span class="hljs-keyword">new</span> HashSet&lt;String&gt;();
+        temp.add(baseRec);
+        <span class="hljs-keyword">int</span> num = -<span class="hljs-number">1</span>;
+        <span class="hljs-keyword">while</span> (!queue.isEmpty()) &#123;
+            <span class="hljs-comment">// 记录当前队列大小</span>
+            <span class="hljs-keyword">int</span> thisQueueSize = queue.size();
+            num++;
+            <span class="hljs-comment">// 处理这一行的数据</span>
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> row = <span class="hljs-number">0</span>; row &lt; thisQueueSize; row++) &#123;
+                String thisRec = queue.poll();
+                <span class="hljs-keyword">if</span> (deadendSet.contains(thisRec)) &#123;
+                    <span class="hljs-comment">// 阻断，跳过</span>
+                    <span class="hljs-keyword">continue</span>;
+                &#125;
+                <span class="hljs-keyword">if</span> (target.equals(thisRec)) &#123;
+                    <span class="hljs-keyword">return</span> num;
+                &#125;
+                <span class="hljs-comment">// 8种可能 4个数字 加1 减1</span>
+                <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">4</span>; i++) &#123;
+                    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">2</span>; j++) &#123;
+                        <span class="hljs-keyword">int</span> ji = Integer.parseInt(String.valueOf(thisRec.charAt(i)));
+                        <span class="hljs-keyword">if</span> (j == <span class="hljs-number">0</span>) &#123;
+                            ji++;
+                        &#125; <span class="hljs-keyword">else</span> &#123;
+                            ji--;
+                        &#125;
+                        <span class="hljs-keyword">if</span> (ji &gt; <span class="hljs-number">9</span>) &#123;
+                            ji = <span class="hljs-number">0</span>;
+                        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (ji &lt; <span class="hljs-number">0</span>) &#123;
+                            ji = <span class="hljs-number">9</span>;
+                        &#125;
+                        String newRec = thisRec.substring(<span class="hljs-number">0</span>, i) + ji + thisRec.substring(i + <span class="hljs-number">1</span>);
+                        <span class="hljs-comment">// 该点已经操作过了。不进行操作</span>
+                        <span class="hljs-keyword">if</span> (!temp.contains(newRec)) &#123;
+                            temp.add(newRec);
+                            queue.offer(newRec);
+                        &#125;
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+        <span class="hljs-keyword">return</span> -<span class="hljs-number">1</span>;
+    &#125;
+
+&#125;</code></pre>
+
+<p>执行情况：</p>
 <ul>
-<li>为所有Spring开发提供一个从根本上更快，且随处可得的入门体验。</li>
-<li>开箱即用，但通过不采用默认设置可以快速摆脱这种方式。</li>
-<li>提供一系列大型项目常用的非功能性特征，比如：内嵌服务器，安全，指标，健康检测，外部化配置。</li>
-<li>绝对没有代码生成，也不需要XML配置。</li>
+<li>执行用时: 223 ms</li>
+<li>内存消耗: 47.2 MB</li>
 </ul>
-<p>在我看来SpringBoot其实并不是一个新的框架，它更像是一个总指挥，能够按照我的需求去引入框架，比如，我需要使用SpringMVC，对于SpringBoot而言，我只需要引入一个spring-boot-starter-web，它就会默认去帮我把SpringMVC，tomcat等等都引入到我的工程里。</p>
-<p>SpringBoot主要提供了四个特性，也正是这四个特性才能改变开发Spring引用程序的方式：</p>
-<ul>
-<li>SpringBoot Starter：它将常用的依赖分组进行了整合，将其合并到一个依赖中，这样可以一次性添加所有的依赖到项目中，注意，这里一般指的是Maven或Gradle。</li>
-<li>自动配置：SpringBoot的自动配置特性利用了Spring4对条件华配置的支持，合理地推测应用所需的Bean并自动化配置他们。</li>
-<li>命令行接口（Command-line interface,即<code>CLI</code>）：SpringBoot的CLI发挥了Groovy编程语言的优势，并结合自动配置进一步简化Spring应用的开发。</li>
-<li>Actuator：它为SprigBoot应用添加了一定的管理特性。</li>
-</ul>
-<h2 id="SpringBoot优缺点"><a href="#SpringBoot优缺点" class="headerlink" title="SpringBoot优缺点"></a>SpringBoot优缺点</h2><h3 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h3><p>SpringBoot的优点其实可以看做是基于上文四点衍生出来的。</p>
-<ul>
-<li>简化依赖，避免了我们手动去配置Maven/Gradle依赖，仅一个starter就能够搞定。</li>
-<li>利用starter可以达到自动化配置的效果。</li>
-<li>去除了大量的XML配置文件，采用全注解的方式。</li>
-<li>舍弃外部的服务器中间件，可以利用其内嵌的tomcat/jetty直接运行。</li>
-<li>使用CLI可以快速构建SpringBoot程序</li>
-<li>拥有SpringCloud微服务解决方案</li>
-</ul>
-<p>在SpringBoot1.0正式发布之后，2014年年底，Spring团队基于SpringBoot推出SpringCloud，提供一套完整的微服务解决方案。</p>
-<h3 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h3><ul>
-<li>升级难，不能友好的兼容老版本的SpringFramework项目。对于某些项目可能会存在升级的情况，即将老的框架升级为新框架，但如果你想升级使用SpringBoot，我想这应该是一个非常困难的过程。</li>
-<li>配置服务器服务麻烦。</li>
-<li>增量更新文件麻烦，因为是jar，如果遇见需要更新包类的一个js、html等文件，则需要先解压后再替换，最后再压缩。</li>
-</ul>
-<h2 id="SpringBoot2-0"><a href="#SpringBoot2-0" class="headerlink" title="SpringBoot2.0"></a>SpringBoot2.0</h2><p>SpringBoot2.0是2018年3月发布的版本，该版本基于Spring Framework5.0，与SpringFramework5.0对应的是，SpringBoot2.0同样支持的最低版本为Java8，同时也支持Java9。</p>
-<p><strong>SpringBoot2.0新特性：</strong></p>
-<ul>
-<li>修改默认数据库连接池，从tomcat改为HikariCP。</li>
-<li>优化NOSQL（Redis等）集成方式。</li>
-<li>升级内嵌容器（Tomcat、Jetty）。</li>
-<li>适配Spring5.0的WebFlux。</li>
-<li>增加Quartz自动配置，增加Starter。</li>
-</ul>
-<p>当然，对于Spring2.0的新特性远不止于此。本文主要列举了几个较为明显且常见的。</p>
 
             </article>
             <hr>
@@ -270,7 +333,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                      <a class="hover-with-bg" href="/categories/leetcode/">leetcode</a>
                     
                   </div>
                 
@@ -278,9 +341,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/spring/">spring</a>
-                    
-                      <a class="hover-with-bg" href="/tags/springboot/">springboot</a>
+                      <a class="hover-with-bg" href="/tags/study/">study</a>
                     
                   </div>
                 
@@ -293,18 +354,12 @@
                   <div class="post-prev col-6">
                     
                     
-                      <a href="/2018/10/22/Java/spring/SpringBoot%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">SpringBoot加载配置文件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </div>
                   <div class="post-next col-6">
                     
                     
-                      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">
-                        <span class="hidden-mobile">SpringBoot本地化配置</span>
+                      <a href="/2020/04/19/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F/">
+                        <span class="hidden-mobile">设计模式-工厂模式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -444,7 +499,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "SpringBoot介绍&nbsp;",
+        "打开转盘锁&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
