@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>设计模式-建造者模式 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-04-21 11:04">
+                    星期二, 四月 21日 2020, 11:04 上午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.3k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    15
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+            <article class="markdown-body">
+              <blockquote>
+<p>造者模式(Builder Pattern)：将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。 </p>
+</blockquote>
+<p>建造者模式是一步一步创建一个复杂的对象，它允许用户只通过指定复杂对象的类型和内容就可以构建它们，用户不需要知道内部的具体构建细节。建造者模式属于对象创建型模式。根据中文翻译的不同，建造者模式又可以称为生成器模式。 </p>
+<h2 id="建造者模式结构"><a href="#建造者模式结构" class="headerlink" title="建造者模式结构"></a>建造者模式结构</h2><p>建造者模式包含如下角色：</p>
+<ul>
+<li>Builder：抽象建造者</li>
+<li>ConcreteBuilder：具体建造者</li>
+<li>Director：指挥者</li>
+<li>Product：产品角色</li>
+</ul>
+<p><img src="http://design-patterns.readthedocs.io/zh_CN/latest/_images/Builder.jpg" srcset="/img/loading.gif" alt="建造者模式"></p>
+<h2 id="建造者模式优点"><a href="#建造者模式优点" class="headerlink" title="建造者模式优点"></a>建造者模式优点</h2><ul>
+<li>在建造者模式中， <strong>客户端不必知道产品内部组成的细节，将产品本身与产品的创建过程解耦，使得相同的创建过程可以创建不同的产品对象。</strong></li>
+<li>每一个具体建造者都相对独立，而与其他的具体建造者无关，因此可以很方便地替换具体建造者或增加新的具体建造者， <strong>用户使用不同的具体建造者即可得到不同的产品对象</strong> 。</li>
+<li><strong>可以更加精细地控制产品的创建过程</strong> 。将复杂产品的创建步骤分解在不同的方法中，使得创建过程更加清晰，也更方便使用程序来控制创建过程。</li>
+<li><strong>增加新的具体建造者无须修改原有类库的代码，指挥者类针对抽象建造者类编程，系统扩展方便，符合“开闭原则”。</strong></li>
+</ul>
+<h2 id="建造者模式缺点"><a href="#建造者模式缺点" class="headerlink" title="建造者模式缺点"></a>建造者模式缺点</h2><ul>
+<li>建造者模式所创建的产品一般具有较多的共同点，其组成部分相似，如果产品之间的差异性很大，则不适合使用建造者模式，因此其使用范围受到一定的限制。</li>
+<li>如果产品的内部变化复杂，可能会导致需要定义很多具体建造者类来实现这种变化，导致系统变得很庞大。</li>
+</ul>
+<h2 id="建造者模式示例"><a href="#建造者模式示例" class="headerlink" title="建造者模式示例"></a>建造者模式示例</h2><p>产品角色：Role </p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Role</span> </span>&#123;
+    <span class="hljs-keyword">private</span> String head;
+    <span class="hljs-keyword">private</span> String face;
+    <span class="hljs-keyword">private</span> String body;
+    <span class="hljs-comment">/**生命值*/</span>
+    <span class="hljs-keyword">private</span> Double hp;
+    <span class="hljs-comment">/**能量值*/</span>
+    <span class="hljs-keyword">private</span> Double sp;
+    <span class="hljs-comment">/**魔法值*/</span>
+    <span class="hljs-keyword">private</span> Double mp;
+	<span class="hljs-comment">//省略get、set方法</span>
+&#125;</code></pre>
+
+<p>抽象建造者：</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Builder</span> </span>&#123;
+    <span class="hljs-keyword">protected</span> Role role = <span class="hljs-keyword">new</span> Role();
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildHead</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildFace</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildBody</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildHp</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildSp</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildMp</span><span class="hljs-params">()</span></span>;
+
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Role <span class="hljs-title">getResult</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> role;
+    &#125;
+&#125;</code></pre>
+
+<p>普通角色建造者：</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CommonRoleBuilder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Builder</span> </span>&#123;
+    <span class="hljs-keyword">private</span> Role role = <span class="hljs-keyword">new</span> Role();
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildHead</span><span class="hljs-params">()</span> </span>&#123;
+        role.setBody(<span class="hljs-string">"common head"</span>);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildFace</span><span class="hljs-params">()</span> </span>&#123;
+        role.setFace(<span class="hljs-string">"common face"</span>);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildBody</span><span class="hljs-params">()</span> </span>&#123;
+        role.setBody(<span class="hljs-string">"common body"</span>);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildHp</span><span class="hljs-params">()</span> </span>&#123;
+        role.setHp(<span class="hljs-number">100</span>d);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildSp</span><span class="hljs-params">()</span> </span>&#123;
+        role.setSp(<span class="hljs-number">100</span>d);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildMp</span><span class="hljs-params">()</span> </span>&#123;
+        role.setMp(<span class="hljs-number">100</span>d);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Role <span class="hljs-title">getResult</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> role;
+    &#125;
+&#125;</code></pre>
+
+<p>超级角色建造者</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SuperRoleBuilder</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Builder</span> </span>&#123;
+    <span class="hljs-keyword">private</span> Role role = <span class="hljs-keyword">new</span> Role();
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildHead</span><span class="hljs-params">()</span> </span>&#123;
+        role.setBody(<span class="hljs-string">"suoer head"</span>);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildFace</span><span class="hljs-params">()</span> </span>&#123;
+        role.setFace(<span class="hljs-string">"super face"</span>);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildBody</span><span class="hljs-params">()</span> </span>&#123;
+        role.setBody(<span class="hljs-string">"super body"</span>);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildHp</span><span class="hljs-params">()</span> </span>&#123;
+        role.setHp(<span class="hljs-number">120</span>d);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildSp</span><span class="hljs-params">()</span> </span>&#123;
+        role.setSp(<span class="hljs-number">120</span>d);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">buildMp</span><span class="hljs-params">()</span> </span>&#123;
+        role.setMp(<span class="hljs-number">120</span>d);
+    &#125;
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Role <span class="hljs-title">getResult</span><span class="hljs-params">()</span> </span>&#123;
+        <span class="hljs-keyword">return</span> role;
+    &#125;
+&#125;</code></pre>
+
+<p>指挥者：</p>
+<pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Director</span> </span>&#123;
+    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">construct</span><span class="hljs-params">(Builder builder)</span></span>&#123;
+        builder.buildBody();
+        builder.buildHead();
+        builder.buildFace();
+        builder.buildHp();
+        builder.buildMp();
+        builder.buildSp();
+    &#125;
+&#125;</code></pre>
+
+<h2 id="适用环境"><a href="#适用环境" class="headerlink" title="适用环境"></a>适用环境</h2><ul>
+<li>需要生成的产品对象有复杂的内部结构，这些产品对象通常包含多个成员属性。 </li>
+<li>需要生成的产品对象的属性相互依赖，需要指定其生成顺序。 </li>
+<li>对象的创建过程独立于创建该对象的类。在建造者模式中引入了指挥者类，将创建过程封装在指挥者类中，而不在建造者类中。 </li>
+<li>隔离复杂对象的创建和使用，并使得相同的创建过程可以创建不同的产品。 </li>
+</ul>
+<h2 id="建造者模式与工厂模式"><a href="#建造者模式与工厂模式" class="headerlink" title="建造者模式与工厂模式"></a>建造者模式与工厂模式</h2><p>不难看出，建造者模式与工厂模式极为类似，建造者模式仅仅只比工厂模式多了一个“导演类”的角色。在建造者模式的类图中，假如把这个导演类看做是最终调用的客户端，那么图中剩余的部分就可以看作是一个简单工厂模式了。 </p>
+<p>与工厂模式相比，建造者模式一般用来创建更为复杂的对象，因为对象的创建过程更为复杂，因此将对象的创建过程独立出来组成一个新的类——导演类。也就是说，工厂模式是将对象的全部创建过程封装在工厂类中，由工厂类向客户端提供最终的产品；而建造者模式中，建造者类一般只提供产品类中各个组件的建造，而将具体建造过程交付给导演类。由导演类负责将各个组件按照特定的规则组建为产品，然后将组建好的产品交付给客户端。</p>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/21/Java/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">设计模式-单例模式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/19/Java/leetcode/%E6%89%93%E5%BC%80%E8%BD%AC%E7%9B%98%E9%94%81/">
+                        <span class="hidden-mobile">打开转盘锁</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "设计模式-建造者模式&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
