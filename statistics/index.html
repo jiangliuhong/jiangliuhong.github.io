@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>我的统计 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-archive-fill"></i>
+              爪哇</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/statistics/">
+              <i class="iconfont icon-tongji"></i>
+              统计</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+<div class="mt-5 markdown-body">
+    <style>
+    .center-align-title{
+        text-align: center;
+        font-size: 1.5rem;
+    }
+</style>
+<style type="text/css">
+    #posts-chart,
+    #categories-chart,
+    #tags-chart {
+        width: 100%;
+        height: 300px;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    }
+</style>
+
+<div id="postCharts" class="post-charts">
+   <div class="title center-align center-align-title" data-aos="zoom-in-up">
+        文章统计图
+    </div>
+    <div class="row">
+        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+            <div id="posts-chart"></div>
+        </div>
+        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+            <div id="categories-chart"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+            <div id="tags-chart"></div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/js/echarts/echarts.min.js"></script>
+<script>
+    let postsChart = echarts.init(document.getElementById('posts-chart'));
+    let categoriesChart = echarts.init(document.getElementById('categories-chart'));
+    let tagsChart = echarts.init(document.getElementById('tags-chart'));
+
+    
+
+    let postsOption = {
+        title: {
+            text: '文章发布统计图',
+            top: -5,
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'axis'
+        },
+        xAxis: {
+            type: 'category',
+            data: ["2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04"]
+        },
+        yAxis: {
+            type: 'value',
+        },
+        series: [
+            {
+                name: '文章篇数',
+                type: 'line',
+                color: ['#6772e5'],
+                data: [0,4,0,2,4,0,0,0,0,0,0,3,18],
+                markPoint: {
+                    symbolSize: 45,
+                    color: ['#fa755a','#3ecf8e','#82d3f4'],
+                    data: [{
+                        type: 'max',
+                        itemStyle: {color: ['#3ecf8e']},
+                        name: '最大值'
+                    }, {
+                        type: 'min',
+                        itemStyle: {color: ['#fa755a']},
+                        name: '最小值'
+                    }]
+                },
+                markLine: {
+                    itemStyle: {color: ['#ab47bc']},
+                    data: [
+                        {type: 'average', name: 'average'}
+                    ]
+                }
+            }
+        ]
+    };
+
+    
+
+    let categoriesOption = {
+        title: {
+            text: '文章分类统计图',
+            top: -4,
+            x: 'center'
+        },
+        tooltip: {
+            trigger: 'item',
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+        },
+        series: [
+            {
+                name: '分类',
+                type: 'pie',
+                radius: '50%',
+                color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
+                data: [{"name":"数据库","value":9},{"name":"随笔","value":11},{"name":"study","value":1},{"name":"服务器","value":1},{"name":"leetcode","value":6},{"name":"Java","value":20},{"name":"Spring","value":7},{"name":"消息中间件","value":2},{"name":"设计模式","value":7},{"name":"elastic","value":1},{"name":"postgresql","value":2},{"name":"Redis","value":1},{"name":"MySQL","value":3}],
+                itemStyle: {
+                    emphasis: {
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                }
+            }
+        ]
+    };
+
+    
+    
+
+    let tagsOption = {
+        title: {
+            text: 'TOP10 标签统计图',
+            top: -5,
+            x: 'center'
+        },
+        tooltip: {},
+        xAxis: [
+            {
+                type: 'category',
+                axisLabel:{
+                    interval:0,
+                    rotate:40
+                },
+                data: ["Spring","设计模式","Java","study","tools","SpringBoot","gitlab","Java多线程","nodejs","网关"]
+            }
+        ],
+        yAxis: [
+            {
+                type: 'value'
+            }
+        ],
+        series: [
+            {
+                name: 'TOP10标签统计',
+                type: 'bar',
+                color: ['#82d3f4'],
+                barWidth : 18,
+                data: [11,7,7,7,4,4,3,3,2,2],
+                markPoint: {
+                    symbolSize: 45,
+                    data: [{
+                        type: 'max',
+                        itemStyle: {color: ['#3ecf8e']},
+                        name: '最大值'
+                    }, {
+                        type: 'min',
+                        itemStyle: {color: ['#fa755a']},
+                        name: '最小值'
+                    }],
+                },
+                markLine: {
+                    itemStyle: {color: ['#ab47bc']},
+                    data: [
+                        {type: 'average', name: '平均值'}
+                    ]
+                }
+            }
+        ]
+    };
+
+    // render the charts
+    postsChart.setOption(postsOption);
+    categoriesChart.setOption(categoriesOption);
+    tagsChart.setOption(tagsOption);
+</script>
+
+
+<style>
+.row .col.l6 {
+    width: 50%;
+    margin-left: auto;
+    left: auto;
+    right: auto;
+}
+.row .col {
+    float: left;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0 .75rem;
+    min-height: 1px;
+}
+.my-skills{
+    padding: 3.8rem 1.5rem 0.8rem 1.5rem;
+}
+.skills-row{
+    display: block !important;
+}
+.my-skills .skillbar {
+    position: relative;
+    display: block;
+    max-width: 360px;
+    margin: 15px auto;
+    background: #eee;
+    height: 30px;
+    border-radius: 35px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -webkit-transition: 0.4s linear;
+    -moz-transition: 0.4s linear;
+    -o-transition: 0.4s linear;
+    transition: 0.4s linear;
+    -webkit-transition-property: width, background-color;
+    -moz-transition-property: width, background-color;
+    -o-transition-property: width, background-color;
+    transition-property: width, background-color;
+}
+
+.skillbar .skillbar-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 110px;
+    font-size: 0.9rem;
+    color: #ffffff;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+}
+
+.skillbar .skillbar-title span {
+    display: block;
+    background: rgba(0, 0, 0, 0.15);
+    padding: 0 20px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+}
+
+.skillbar .skillbar-bar {
+    height: 30px;
+    width: 0;
+    border-radius: 35px;
+    -moz-border-radius: 35px;
+    -webkit-border-radius: 35px;
+}
+
+.skillbar .skill-bar-percent {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 12px;
+    height: 30px;
+    line-height: 30px;
+    color: #ffffff;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.my-skills .other-skills {
+    margin-top: 2rem;
+}
+.other-skills .sub-title {
+    font-size: 1.5rem;
+}
+
+.other-skills .tag-chips {
+    max-width: 600px;
+}
+
+.other-skills .chip {
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+
+.other-skills .chip:hover {
+    color: #fff;
+    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    border: 1px solid #4cbf30;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, .25);
+    text-decoration: none;
+}
+.chip-container .tag-chips {
+    margin: 1rem auto 0.5rem;
+    max-width: 850px;
+    text-align: center;
+}
+.other-skills .chip {
+    background-color: #fff;
+    border: 1px solid #eee;
+}
+.chip-container .chip {
+    margin: 10px 10px;
+    padding: 19px 14px;
+    display: inline-flex;
+    line-height: 0;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, .12);
+    z-index: 0;
+}
+.chip-container .chip-default {
+    color: #34495e;
+}
+.tag-chips a{
+    text-decoration: none !important;
+}
+</style>
+<div class="my-skills">
+    <div class="title center-align center-align-title" data-aos="zoom-in-up">
+        <i class="fas fa-wrench"></i>&nbsp;&nbsp;我的技能
+    </div>
+    <div class="row skills-row">
+        
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 85%">
+                    <span>Java</span>
+                </div>
+                <div class="skill-bar-percent">85%</div>
+            </div>
+        </div>
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 80%">
+                    <span>JavaScript</span>
+                </div>
+                <div class="skill-bar-percent">80%</div>
+            </div>
+        </div>
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 80%">
+                    <span>HTML5</span>
+                </div>
+                <div class="skill-bar-percent">80%</div>
+            </div>
+        </div>
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 40%">
+                    <span>CSS</span>
+                </div>
+                <div class="skill-bar-percent">40%</div>
+            </div>
+        </div>
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #4CAF50 0%, #81C784 100%); width: 85%">
+                    <span>SQL</span>
+                </div>
+                <div class="skill-bar-percent">85%</div>
+            </div>
+        </div>
+        
+        
+        <div class="col s12 m6 l6" data-aos="fade-up">
+            <div class="skillbar">
+                <div class="skillbar-title"
+                     style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 75%">
+                    <span>程序设计</span>
+                </div>
+                <div class="skill-bar-percent">75%</div>
+            </div>
+        </div>
+        
+        
+    </div>
+
+    
+
+    
+    <div class="other-skills chip-container" data-aos="zoom-in-up">
+        <div class="sub-title center-align center-align-title"><i class="fa fa-book"></i>&nbsp;&nbsp;其他技能</div>
+        <div class="tag-chips center-align">
+            
+            
+            
+            
+            
+            
+            <a href="/tags/gitlab/">
+                <span class="chip center-align waves-effect waves-light chip-default">gitlab</span>
+            </a>
+            
+            
+            
+            <a href="/tags/githubpage/">
+                <span class="chip center-align waves-effect waves-light chip-default">githubpage</span>
+            </a>
+            
+            
+            
+            <a href="/tags/nodejs/">
+                <span class="chip center-align waves-effect waves-light chip-default">nodejs</span>
+            </a>
+            
+            
+            
+            <a href="/tags/study/">
+                <span class="chip center-align waves-effect waves-light chip-default">study</span>
+            </a>
+            
+            
+            
+            <a href="/tags/nginx/">
+                <span class="chip center-align waves-effect waves-light chip-default">nginx</span>
+            </a>
+            
+            
+            
+            <a href="/tags/%E7%BD%91%E5%85%B3/">
+                <span class="chip center-align waves-effect waves-light chip-default">网关</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Spring/">
+                <span class="chip center-align waves-effect waves-light chip-default">Spring</span>
+            </a>
+            
+            
+            
+            <a href="/tags/SpringBoot/">
+                <span class="chip center-align waves-effect waves-light chip-default">SpringBoot</span>
+            </a>
+            
+            
+            
+            <a href="/tags/Java%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+                <span class="chip center-align waves-effect waves-light chip-default">Java多线程</span>
+            </a>
+            
+            
+            
+            <a href="/tags/tools/">
+                <span class="chip center-align waves-effect waves-light chip-default">tools</span>
+            </a>
+            
+            
+            
+            <a href="/tags/rocketmq/">
+                <span class="chip center-align waves-effect waves-light chip-default">rocketmq</span>
+            </a>
+            
+            
+            
+            
+            
+            <a href="/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">
+                <span class="chip center-align waves-effect waves-light chip-default">设计模式</span>
+            </a>
+            
+            
+            
+            <a href="/tags/elasticsearch/">
+                <span class="chip center-align waves-effect waves-light chip-default">elasticsearch</span>
+            </a>
+            
+            
+            
+            <a href="/tags/SpringCloud/">
+                <span class="chip center-align waves-effect waves-light chip-default">SpringCloud</span>
+            </a>
+            
+            
+        </div>
+    </div>
+    
+
+</div>
+</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    
+
+    
+
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "我的统计&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
