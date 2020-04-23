@@ -273,24 +273,30 @@ Zuul
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="GitLab CI/CD 介绍和使用">
+        <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="GitLab持续集成环境搭建">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/">GitLab CI/CD 介绍和使用</a>
+      <a class="index-header" href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">GitLab持续集成环境搭建</a>
 
-      <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" class="index-excerpt">
+      <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="index-excerpt">
         
         
           
         
-        <div>GitLab CI/CD 介绍和使用一、持续集成介绍
-持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试)来验证，从而尽快地发现集成错误。许多团队发现这个过程可以大大减少集成的问题，让团队能够更快的开发内聚的软件。—— Martin Fowler
+        <div>GitLab持续集成环境搭建
+随着微服务的兴起，部署服务越来越繁琐，当然业内也有对应的持续集成方案，目前在企业中使用较为广泛的持续集成方案应是gitlab持续集成、持续部署（gitlab CI/CD）
 
-1 概念
-持续集成(</div>
+安装GitLab与GitLab-Runner
+为了简化安装，本文使用docker进行操作
+
+GitLab安装：
+首先拉去镜像：
+$ docker pull gitlab/gitlab-ce
+
+拉取</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -372,30 +378,24 @@ ERROR: Preparation failed: Cannot connect to the Docker daemon at unix</div>
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="GitLab持续集成环境搭建">
+        <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="GitLab CI/CD 介绍和使用">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/">GitLab持续集成环境搭建</a>
+      <a class="index-header" href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/">GitLab CI/CD 介绍和使用</a>
 
-      <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="index-excerpt">
+      <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" class="index-excerpt">
         
         
           
         
-        <div>GitLab持续集成环境搭建
-随着微服务的兴起，部署服务越来越繁琐，当然业内也有对应的持续集成方案，目前在企业中使用较为广泛的持续集成方案应是gitlab持续集成、持续部署（gitlab CI/CD）
+        <div>GitLab CI/CD 介绍和使用一、持续集成介绍
+持续集成是一种软件开发实践，即团队开发成员经常集成他们的工作，通常每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试)来验证，从而尽快地发现集成错误。许多团队发现这个过程可以大大减少集成的问题，让团队能够更快的开发内聚的软件。—— Martin Fowler
 
-安装GitLab与GitLab-Runner
-为了简化安装，本文使用docker进行操作
-
-GitLab安装：
-首先拉去镜像：
-$ docker pull gitlab/gitlab-ce
-
-拉取</div>
+1 概念
+持续集成(</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -582,56 +582,6 @@ SpringBoot四大特</div>
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" target="_self">
-          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springboot.jpg" srcset="/img/loading.gif" alt="SpringBoot本地化配置">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">SpringBoot本地化配置</a>
-
-      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" class="index-excerpt">
-        
-        
-          
-        
-        <div>SpringBoot本地化配置前提概要相信做过Spring项目的同学应该对下面一行代码比较熟悉：
-&lt;bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"&gt;
-        &lt;property name="systemPropertiesModeName" value=</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2018-10-22
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Java/">Java</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Spring/">Spring</a>
-            
-              <a href="/tags/SpringBoot/">SpringBoot</a>
-            
-          </div>
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2018/10/22/Java/spring/SpringBoot%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" target="_self">
           <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springboot.jpg" srcset="/img/loading.gif" alt="SpringBoot加载配置文件">
         </a>
@@ -683,21 +633,75 @@ SpringBoot四大特</div>
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2018/10/18/Java/spring/SpringFramework%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/" target="_self">
-          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="SpringFramework历史版本">
+        <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/springboot.jpg" srcset="/img/loading.gif" alt="SpringBoot本地化配置">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2018/10/18/Java/spring/SpringFramework%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/">SpringFramework历史版本</a>
+      <a class="index-header" href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/">SpringBoot本地化配置</a>
 
-      <a href="/2018/10/18/Java/spring/SpringFramework%E5%8E%86%E5%8F%B2%E7%89%88%E6%9C%AC/" class="index-excerpt">
+      <a href="/2018/10/22/Java/spring/SpringBoot%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%85%8D%E7%BD%AE/" class="index-excerpt">
         
         
           
         
-        <div>SpringFramework历史版本
-对于Spring而言，迄今已有14年历史了，版本也到达了5.0，作为JavaWEB开发领域的常青树，现在Spirng已不再简单是一个框架了，在Spring的项目中主要有：SpringFramework(也就是我们常说的Spring，主要有IOC、AOP等)、SpringBoot、SpringCloud、SpringData、SpringIO等等。详情请见官网</div>
+        <div>SpringBoot本地化配置前提概要相信做过Spring项目的同学应该对下面一行代码比较熟悉：
+&lt;bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"&gt;
+        &lt;property name="systemPropertiesModeName" value=</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-10-22
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Java/">Java</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Spring/">Spring</a>
+            
+              <a href="/tags/SpringBoot/">SpringBoot</a>
+            
+          </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/" target="_self">
+          <img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/spring/spring.png" srcset="/img/loading.gif" alt="SpringAOP原理">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/">SpringAOP原理</a>
+
+      <a href="/2018/10/18/Java/spring/SpringAOP%E5%8E%9F%E7%90%86/" class="index-excerpt">
+        
+        
+          
+        
+        <div>SpringAOP原理代理在熟悉AOP之前我们应该了解一个概念：代理。
+代理又分静态代理与动态代理。顾名思义，静态代理的代理关系在编译时就确定了 ，而动态代理的代理关系是在编译期确定的。 
+动态代理是Java语言中非常经典的一种设计模式，也是所有设计模式中最难理解的一种。
+常见的动态代理为JDK原生动态代理和CGLIB动态代理。 
+静态代理
+ 静态代理实现很简单，但此类代理仅适用于代理类较少的情况</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -901,34 +905,55 @@ SpringBoot四大特</div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>
-.xml";
-    var inputArea = document.querySelector("#local-search-input");
-    inputArea.onclick = function () {
-      getSearchFile(path);
-      this.onclick = null
-    }
-  </script>
-
-
-
-
-
-
-
-
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
 
 
 

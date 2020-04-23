@@ -197,28 +197,46 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL备份与还原">
+        <a href="/2018/07/16/database/postgresql/postgresql%E4%BD%BF%E7%94%A8/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="postgresql使用">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">MySQL备份与还原</a>
+      <a class="index-header" href="/2018/07/16/database/postgresql/postgresql%E4%BD%BF%E7%94%A8/">postgresql使用</a>
 
-      <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/" class="index-excerpt">
+      <a href="/2018/07/16/database/postgresql/postgresql%E4%BD%BF%E7%94%A8/" class="index-excerpt">
         
         
           
         
-        <div>MySQL备份与还原逻辑备份
-逻辑备份为通过对数据库的操作导出数据文件，常用的逻辑备份有两种，一种是将数据转换为全量的INSERT语句，另一种是将数据以特定的分隔符进行隔后记录在文本文件中。
+        <div>postgresql使用数据类型、常用系统函数、database、模式、序列、分页、
+数据类型数值类型
 
-全量INSERT语句备份在MySQL数据库中，一般通过MySQL数据库自带的工具mysqldump来生成INSERT语句的逻辑备份文件。
-mysqldump常用的集中方法为：
 
-导出整个数据库与所有数据
+关键字
+存储空间
+描述
+范围
 
-</div>
+
+
+smallint
+2 字节
+小范围整数
+-32768 到 +32767
+
+
+integer
+4字节
+常用的整数
+-2147483648 到 +2147483647
+
+
+bigint
+8 字节
+大范围的整数
+-9223372036854775808 到 92</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -233,7 +251,7 @@ mysqldump常用的集中方法为：
             
               <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
             
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/postgresql/">postgresql</a>
             
           </div>
         
@@ -331,25 +349,26 @@ yum install https:&#x2F;&#x2F;download.postgresql.org&#x2F;pub&#x2F;repos&#x2F;y
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="数据库基础">
+        <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SQL CRUD语句">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/">数据库基础</a>
+      <a class="index-header" href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">SQL CRUD语句</a>
 
-      <a href="/2018/07/16/database/%E6%95%B0%E6%8D%AE%E5%BA%93%E5%9F%BA%E7%A1%80/" class="index-excerpt">
+      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" class="index-excerpt">
         
         
           
         
-        <div>数据库基础ACID，NULL，MVCC，约束、概念模型、第三范式、连接
-ACIDACID即数据库的四大特性：
+        <div>SQL CRUD语句
+下文以MySQL为例进行说明。CRUD即增加(Create)、查询(Retrieve)、更新(Update)、删除(Delete)四个单词的首字母缩写。
 
-原子性（Atomicity）：指事务是一个不可再分割的工作单位，事务中的操作要么都发生，要么都不发生。
-一致性（Consistency）：指在事务开始之前和事务结束以后，数据库的完整性约束没有被破坏。这是说数据库事务不能破坏关系数据的完整性以及业务逻辑上的一致性。
-隔离性（Isolati</div>
+准备首先准备在MySQL数据库中创建两张表：学生表（student）、班级表(class)，建表语句如下：
+create table class(
+id varchar(32) not null,
+name varchar</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -366,6 +385,13 @@ ACIDACID即数据库的四大特性：
             
           </div>
         
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SQL/">SQL</a>
+            
+          </div>
         
       </div>
     </div>
@@ -604,6 +630,56 @@ ACIDACID即数据库的四大特性：
 
 
 
+
+  
+  
+    <script type="text/javascript">
+      //定义获取词语下标
+      var a_idx = 0;
+      jQuery(document).ready(function ($) {
+        //点击body时触发事件
+        $("body").click(function (e) {
+          //需要显示的词语
+          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
+          //设置词语给span标签
+          var $i = $("<span/>").text(a[a_idx]);
+          //下标等于原来下标+1  余 词语总数
+          a_idx = (a_idx + 1) % a.length;
+          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
+          //获取x和y的指针坐标
+          var x = e.pageX, y = e.pageY;
+          //在鼠标的指针的位置给$i定义的span标签添加css样式
+          $i.css({
+            "z-index": 999,
+            "top": y - 20,
+            "left": x,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": rand_color()
+          });
+          // 随机颜色
+          function rand_color() {
+            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
+          }
+          //在body添加这个标签
+          $("body").append($i);
+          //animate() 方法执行 CSS 属性集的自定义动画。
+          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
+          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
+          $i.animate({
+            //将原来的位置向上移动180
+            "top": y - 180,
+            "opacity": 0
+            //1500动画的速度
+          }, 1500, function () {
+            //时间到了自动删除
+            $i.remove();
+          });
+        });
+      })
+      ;
+    </script>
+  
 
 
 
