@@ -200,12 +200,6 @@
       
       <p class="h5">2019</p>
     
-    <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">GitLab持续集成环境搭建</span>
-      <span style="float: right;">03-26</span>
-    </a>
-  
-    
     <a href="/2019/03/26/normal/gitlabci%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">gitlabci项目集成</span>
       <span style="float: right;">03-26</span>
@@ -214,6 +208,12 @@
     
     <a href="/2019/03/26/normal/GitLabCI_CD%E4%BB%8B%E7%BB%8D%E5%92%8C%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">GitLab CI/CD 介绍和使用</span>
+      <span style="float: right;">03-26</span>
+    </a>
+  
+    
+    <a href="/2019/03/26/normal/gitlabci%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">GitLab持续集成环境搭建</span>
       <span style="float: right;">03-26</span>
     </a>
   
@@ -349,6 +349,8 @@
       placement: "right",
       visible: "hover",
       
+      icon: "❡"
+      
     };
     var el = "h1,h2,h3,h4,h5,h6".split(",");
     var res = [];
@@ -377,56 +379,6 @@
 
 
 
-
-  
-  
-    <script type="text/javascript">
-      //定义获取词语下标
-      var a_idx = 0;
-      jQuery(document).ready(function ($) {
-        //点击body时触发事件
-        $("body").click(function (e) {
-          //需要显示的词语
-          var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正", "法治", "爱国", "敬业", "诚信", "友善");
-          //设置词语给span标签
-          var $i = $("<span/>").text(a[a_idx]);
-          //下标等于原来下标+1  余 词语总数
-          a_idx = (a_idx + 1) % a.length;
-          //获取鼠标指针的位置，分别相对于文档的左和右边缘。
-          //获取x和y的指针坐标
-          var x = e.pageX, y = e.pageY;
-          //在鼠标的指针的位置给$i定义的span标签添加css样式
-          $i.css({
-            "z-index": 999,
-            "top": y - 20,
-            "left": x,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": rand_color()
-          });
-          // 随机颜色
-          function rand_color() {
-            return "rgb(" + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + "," + ~~(255 * Math.random()) + ")"
-          }
-          //在body添加这个标签
-          $("body").append($i);
-          //animate() 方法执行 CSS 属性集的自定义动画。
-          //该方法通过CSS样式将元素从一个状态改变为另一个状态。CSS属性值是逐渐改变的，这样就可以创建动画效果。
-          //详情请看http://www.w3school.com.cn/jquery/effect_animate.asp
-          $i.animate({
-            //将原来的位置向上移动180
-            "top": y - 180,
-            "opacity": 0
-            //1500动画的速度
-          }, 1500, function () {
-            //时间到了自动删除
-            $i.remove();
-          });
-        });
-      })
-      ;
-    </script>
-  
 
 
 
