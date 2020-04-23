@@ -197,21 +197,28 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="PostgreSQL安装">
+        <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="MySQL备份与还原">
         </a>
       </div>
     
     <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/">PostgreSQL安装</a>
+      <a class="index-header" href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/">MySQL备份与还原</a>
 
-      <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/" class="index-excerpt">
+      <a href="/2018/07/16/database/MySQL/MySQL%E5%A4%87%E4%BB%BD%E4%B8%8E%E8%BF%98%E5%8E%9F/" class="index-excerpt">
         
         
           
         
-        <div>PostgreSQL安装Linux(CentOs)安装方法使用yum安装安装存储库RPM： 
-yum install https:&#x2F;&#x2F;download.postgresql.org&#x2F;pub&#x2F;repos&#x2F;yum&#x2F;10&#x2F;redhat&#x2F;rhel-7-x86_64&#x2F;pgdg-centos10-10-2.noarch.</div>
+        <div>MySQL备份与还原逻辑备份
+逻辑备份为通过对数据库的操作导出数据文件，常用的逻辑备份有两种，一种是将数据转换为全量的INSERT语句，另一种是将数据以特定的分隔符进行隔后记录在文本文件中。
+
+全量INSERT语句备份在MySQL数据库中，一般通过MySQL数据库自带的工具mysqldump来生成INSERT语句的逻辑备份文件。
+mysqldump常用的集中方法为：
+
+导出整个数据库与所有数据
+
+</div>
       </a>
 
       <div class="index-btm post-metas">
@@ -226,50 +233,7 @@ yum install https:&#x2F;&#x2F;download.postgresql.org&#x2F;pub&#x2F;repos&#x2F;y
             
               <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
             
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/postgresql/">postgresql</a>
-            
-          </div>
-        
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/" target="_self">
-          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="Redis安装">
-        </a>
-      </div>
-    
-    <div class="col-12 col-md-8 mx-auto index-info">
-      <a class="index-header" href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/">Redis安装</a>
-
-      <a href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/" class="index-excerpt">
-        
-        
-          
-        
-        <div>Redis安装开始安装[root@localhost home]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.10.tar.gz
-[root@localhost home]# mv redis-4.0.10 &#x2F;usr&#x2F;local&#x2F;
-[root@localhost home]</div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/">Redis</a>
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
             
           </div>
         
@@ -370,6 +334,143 @@ ACIDACID即数据库的四大特性：
             
           </div>
         
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="Redis安装">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/">Redis安装</a>
+
+      <a href="/2018/07/16/database/redis/redis%E5%AE%89%E8%A3%85/" class="index-excerpt">
+        
+        
+          
+        
+        <div>Redis安装开始安装[root@localhost home]# wget http:&#x2F;&#x2F;download.redis.io&#x2F;releases&#x2F;redis-4.0.10.tar.gz
+[root@localhost home]# mv redis-4.0.10 &#x2F;usr&#x2F;local&#x2F;
+[root@localhost home]</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/Redis/">Redis</a>
+            
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="PostgreSQL安装">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/">PostgreSQL安装</a>
+
+      <a href="/2018/07/16/database/postgresql/postgresql%E5%AE%89%E8%A3%85/" class="index-excerpt">
+        
+        
+          
+        
+        <div>PostgreSQL安装Linux(CentOs)安装方法使用yum安装安装存储库RPM： 
+yum install https:&#x2F;&#x2F;download.postgresql.org&#x2F;pub&#x2F;repos&#x2F;yum&#x2F;10&#x2F;redhat&#x2F;rhel-7-x86_64&#x2F;pgdg-centos10-10-2.noarch.</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/postgresql/">postgresql</a>
+            
+          </div>
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" target="_self">
+          <img src="/img/article/design.jpg" srcset="/img/loading.gif" alt="SQL CRUD语句">
+        </a>
+      </div>
+    
+    <div class="col-12 col-md-8 mx-auto index-info">
+      <a class="index-header" href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/">SQL CRUD语句</a>
+
+      <a href="/2018/07/16/database/SQL%20CRUD%E8%AF%AD%E5%8F%A5/" class="index-excerpt">
+        
+        
+          
+        
+        <div>SQL CRUD语句
+下文以MySQL为例进行说明。CRUD即增加(Create)、查询(Retrieve)、更新(Update)、删除(Delete)四个单词的首字母缩写。
+
+准备首先准备在MySQL数据库中创建两张表：学生表（student）、班级表(class)，建表语句如下：
+create table class(
+id varchar(32) not null,
+name varchar</div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>&nbsp;2018-07-16
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SQL/">SQL</a>
+            
+          </div>
         
       </div>
     </div>

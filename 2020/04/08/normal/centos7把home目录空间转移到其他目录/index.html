@@ -225,6 +225,10 @@
         <div class="py-5" id="board">
           <div class="post-content mx-auto" id="post">
             
+              <p class="note note-warning">
+                本文最后更新于：星期三, 四月 8日 2020, 10:12 晚上
+              </p>
+            
             <article class="markdown-body">
               <h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>1.重启电脑<br>以root用户直接登陆（这是为了解决/home目录被占用的情况，也可以使用其它方式终止/home被占用，不过这样最直接）<br>2.卸载/home<br>umount /home<br>​3.删除/home所在的lv逻辑卷<br>lvremove /dev/centos00/home<br>小提示：如果不知道你的/home目录的路径，可以使用lvscan命令查看逻辑卷都有哪些，例如我的查<br>5.扩展/root所在的lv，增加100G<br>lvextend -L +100G  /dev/centos00/root<br>​6.扩展/root文件系统<br>xfs_growfs  /dev/centos00/root<br>7.重新创建home lv<br>lvcreate -L 70G -n home centos00<br>home：代表新建lv的名字<br>centos00：代表vg卷组的名字<br>而创建好之后，访问它的路径应该是：/dev/centos00/home（这个是路径的名字）<br>​8.创建文件系统<br>mkfs.xfs  /dev/centos00/home<br>9.挂载<br>​mount  /dev/centos00/home  /home</p>
 <p>设置时间<br>timedatectl 命令<br>(1) 读取时间<br>timedatectl //等同于 timedatectl status<br>(2) 设置时间<br>timedatectl set-time “YYYY-MM-DD HH:MM:SS”<br>(3) 列出所有时区<br>timedatectl list-timezones<br>(4) 设置时区<br>timedatectl set-timezone Asia/Shanghai<br>(5) 是否NTP服务器同步<br>timedatectl set-ntp yes //yes或者no<br>(6) 将硬件时钟调整为与本地时钟一致<br>timedatectl set-local-rtc 1<br>hwclock –systohc –localtime //与上面命令效果一致</p>
