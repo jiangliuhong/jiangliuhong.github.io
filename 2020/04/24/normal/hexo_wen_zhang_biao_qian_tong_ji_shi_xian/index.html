@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>hexo文章标签统计实现 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-JAVA"></i>
+              爪哇</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/statistics/">
+              <i class="iconfont icon-tongji"></i>
+              统计</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2020-04-24 22:58">
+                    星期五, 四月 24日 2020, 10:58 晚上
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.4k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    25
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-warning">
+                本文最后更新于：星期六, 四月 25日 2020, 9:33 晚上
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="hexo文章标签统计实现"><a href="#hexo文章标签统计实现" class="headerlink" title="hexo文章标签统计实现"></a>hexo文章标签统计实现</h1><blockquote>
+<p>近日浏览公司大神<a href="https://blinkfox.github.io/" target="_blank" rel="noopener">闪烁之狐</a>的博客，发现他的关于页有着一个很漂亮的文章统计图，于是想给自己的博客也安排上。</p>
+</blockquote>
+<h2 id="效果预览"><a href="#效果预览" class="headerlink" title="效果预览"></a>效果预览</h2><p>先附上我的效果图：<a href="https://jiangliuhong.top/statistics/">https://jiangliuhong.top/statistics/</a></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/other/hexo_state.png" srcset="/img/loading.gif" alt="统计图"></p>
+<p>再附上大佬的效果图：<a href="https://blinkfox.github.io/about/" target="_blank" rel="noopener">https://blinkfox.github.io/about/</a></p>
+<p><img src="https://jlhblog.oss-cn-beijing.aliyuncs.com/blogimg/other/blink_state.png" srcset="/img/loading.gif" alt="统计图2"></p>
+<h2 id="实现思路"><a href="#实现思路" class="headerlink" title="实现思路"></a>实现思路</h2><h3 id="统计数据来源"><a href="#统计数据来源" class="headerlink" title="统计数据来源"></a>统计数据来源</h3><ul>
+<li>文章发布统计：利用<code>site.posts</code>获取文章信息</li>
+</ul>
+<pre><code class="hljs javascript">site.posts.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">post</span>) </span>&#123;
+    <span class="hljs-keyword">var</span> month = post.date.format(<span class="hljs-string">'YYYY-MM'</span>);
+    <span class="hljs-keyword">if</span> (monthMap.has(month)) &#123;
+        monthMap.set(month, monthMap.get(month) + <span class="hljs-number">1</span>);
+    &#125;
+&#125;);</code></pre>
+
+<ul>
+<li>文章分类统计：利用<code>site.categories</code>获取分类信息</li>
+</ul>
+<pre><code class="hljs javascript">site.categories.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">category</span>) </span>&#123;
+    categoryArr.push(&#123;<span class="hljs-string">'name'</span>: category.name, <span class="hljs-string">'value'</span>: category.length&#125;)
+&#125;);</code></pre>
+
+<ul>
+<li>标签统计：利用<code>site.tags</code>获取标签信息</li>
+</ul>
+<pre><code class="hljs javascript">site.tags.map(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">tag</span>) </span>&#123;
+    tagArr.push(&#123;<span class="hljs-string">'name'</span>: tag.name, <span class="hljs-string">'value'</span>: tag.length&#125;);
+&#125;);</code></pre>
+
+<h3 id="统计呈现方式"><a href="#统计呈现方式" class="headerlink" title="统计呈现方式"></a>统计呈现方式</h3><p>使用<a href="https://echarts.apache.org/examples/zh/index.html" target="_blank" rel="noopener">echarts</a>呈现，具体参见<a href="https://echarts.apache.org/examples/zh/index.html" target="_blank" rel="noopener">echarts</a>文档</p>
+<h3 id="新建layout"><a href="#新建layout" class="headerlink" title="新建layout"></a>新建layout</h3><p>在<code>layout</code>中新建<code>statistics</code>布局，然后在<code>source</code>目录新建<code>statistics/index.md</code>文件，在文件中指定<code>layout</code>。</p>
+<pre><code class="hljs plain">---
+title: 我的统计
+date: 20120-04-22 12:35:59
+layout: statistics
+---</code></pre>
+
+<h2 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h2><blockquote>
+<p>下面的实现访问为基于<a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="noopener">hexo-fluid</a>主题实现</p>
+</blockquote>
+<p>首先在<code>layout</code>目录下新建一个<code>statistics.ejs</code>文件，文件内容为：</p>
+<pre><code class="hljs plain">&lt;%
+page.layout &#x3D; &quot;statistics&quot;
+page.banner_img &#x3D; theme.statistics.banner_img
+page.banner_img_height &#x3D; theme.statistics.banner_img_height
+page.banner_mask_alpha &#x3D; theme.statistics.banner_mask_alpha
+%&gt;
+&lt;div class&#x3D;&quot;mt-5 markdown-body&quot;&gt;
+    &lt;%- partial(&#39;_widget&#x2F;mystatistics&#39;) %&gt;
+&lt;&#x2F;div&gt;</code></pre>
+
+<p>在<code>_widget</code>目录下创建一个<code>mystatistics.ejs</code>，文件内容为：</p>
+<blockquote>
+<p>需要注意的是，在下面源码中有这样一行<code>src=&quot;&lt;%- url_for(theme.my.libs.js.echarts) %&gt;&quot;</code>，这是指定了一个echarts.js文件地址，你可以前往官网<a href="https://echarts.apache.org/zh/download.html" target="_blank" rel="noopener">https://echarts.apache.org/zh/download.html</a>下载（同时也可以访问我的地址进行下载<a href="https://jiangliuhong.top/js/echarts/echarts.min.js">https://jiangliuhong.top/js/echarts/echarts.min.js</a>），然后把这个修改成你的地址即可。</p>
+</blockquote>
+<pre><code class="hljs plain">&lt;style type&#x3D;&quot;text&#x2F;css&quot;&gt;
+    #posts-chart,
+    #categories-chart,
+    #tags-chart &#123;
+        width: 100%;
+        height: 300px;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    &#125;
+&lt;&#x2F;style&gt;
+
+&lt;div id&#x3D;&quot;postCharts&quot; class&#x3D;&quot;post-charts&quot;&gt;
+   &lt;div class&#x3D;&quot;title center-align center-align-title&quot; data-aos&#x3D;&quot;zoom-in-up&quot;&gt;
+        文章统计图
+    &lt;&#x2F;div&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;chart col s12 m6 l4&quot; data-aos&#x3D;&quot;zoom-in-up&quot;&gt;
+            &lt;div id&#x3D;&quot;posts-chart&quot;&gt;&lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+        &lt;div class&#x3D;&quot;chart col s12 m6 l4&quot; data-aos&#x3D;&quot;zoom-in-up&quot;&gt;
+            &lt;div id&#x3D;&quot;categories-chart&quot;&gt;&lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+    &lt;div class&#x3D;&quot;row&quot;&gt;
+        &lt;div class&#x3D;&quot;chart col s12 m6 l4&quot; data-aos&#x3D;&quot;zoom-in-up&quot;&gt;
+            &lt;div id&#x3D;&quot;tags-chart&quot;&gt;&lt;&#x2F;div&gt;
+        &lt;&#x2F;div&gt;
+    &lt;&#x2F;div&gt;
+&lt;&#x2F;div&gt;
+
+&lt;script type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;&lt;%- url_for(theme.my.libs.js.echarts) %&gt;&quot;&gt;&lt;&#x2F;script&gt;
+&lt;script&gt;
+    let postsChart &#x3D; echarts.init(document.getElementById(&#39;posts-chart&#39;));
+    let categoriesChart &#x3D; echarts.init(document.getElementById(&#39;categories-chart&#39;));
+    let tagsChart &#x3D; echarts.init(document.getElementById(&#39;tags-chart&#39;));
+
+    &lt;%
+    &#x2F;* calculate postsOption data. *&#x2F;
+    var startDate &#x3D; moment().subtract(1, &#39;years&#39;).startOf(&#39;month&#39;);
+    var endDate &#x3D; moment().endOf(&#39;month&#39;);
+
+    var monthMap &#x3D; new Map();
+    var dayTime &#x3D; 3600 * 24 * 1000;
+    for (var time &#x3D; startDate; time &lt;&#x3D; endDate; time +&#x3D; dayTime) &#123;
+        var month &#x3D; moment(time).format(&#39;YYYY-MM&#39;);
+        if (!monthMap.has(month)) &#123;
+            monthMap.set(month, 0);
+        &#125;
+    &#125;
+
+    &#x2F;&#x2F; post and count map.
+    site.posts.forEach(function (post) &#123;
+        var month &#x3D; post.date.format(&#39;YYYY-MM&#39;);
+        if (monthMap.has(month)) &#123;
+            monthMap.set(month, monthMap.get(month) + 1);
+        &#125;
+    &#125;);
+
+    &#x2F;&#x2F; xAxis data and yAxis data.
+    var monthArr &#x3D; JSON.stringify([...monthMap.keys()]);
+    var monthValueArr &#x3D; JSON.stringify([...monthMap.values()]);
+    %&gt;
+
+    let postsOption &#x3D; &#123;
+        title: &#123;
+            text: &#39;文章发布统计图&#39;,
+            top: -5,
+            x: &#39;center&#39;
+        &#125;,
+        tooltip: &#123;
+            trigger: &#39;axis&#39;
+        &#125;,
+        xAxis: &#123;
+            type: &#39;category&#39;,
+            data: &lt;%- monthArr %&gt;
+        &#125;,
+        yAxis: &#123;
+            type: &#39;value&#39;,
+        &#125;,
+        series: [
+            &#123;
+                name: &#39;文章篇数&#39;,
+                type: &#39;line&#39;,
+                color: [&#39;#6772e5&#39;],
+                data: &lt;%- monthValueArr %&gt;,
+                markPoint: &#123;
+                    symbolSize: 45,
+                    color: [&#39;#fa755a&#39;,&#39;#3ecf8e&#39;,&#39;#82d3f4&#39;],
+                    data: [&#123;
+                        type: &#39;max&#39;,
+                        itemStyle: &#123;color: [&#39;#3ecf8e&#39;]&#125;,
+                        name: &#39;最大值&#39;
+                    &#125;, &#123;
+                        type: &#39;min&#39;,
+                        itemStyle: &#123;color: [&#39;#fa755a&#39;]&#125;,
+                        name: &#39;最小值&#39;
+                    &#125;]
+                &#125;,
+                markLine: &#123;
+                    itemStyle: &#123;color: [&#39;#ab47bc&#39;]&#125;,
+                    data: [
+                        &#123;type: &#39;average&#39;, name: &#39;&lt;%- __(&quot;average&quot;)  %&gt;&#39;&#125;
+                    ]
+                &#125;
+            &#125;
+        ]
+    &#125;;
+
+    &lt;%
+    &#x2F;* calculate categoriesOption data. *&#x2F;
+    var categoryArr &#x3D; [];
+    site.categories.map(function(category) &#123;
+        categoryArr.push(&#123;&#39;name&#39;: category.name, &#39;value&#39;: category.length&#125;)
+    &#125;);
+
+    var categoryArrJson &#x3D; JSON.stringify(categoryArr);
+    %&gt;
+
+    let categoriesOption &#x3D; &#123;
+        title: &#123;
+            text: &#39;文章分类统计图&#39;,
+            top: -4,
+            x: &#39;center&#39;
+        &#125;,
+        tooltip: &#123;
+            trigger: &#39;item&#39;,
+            formatter: &quot;&#123;a&#125; &lt;br&#x2F;&gt;&#123;b&#125; : &#123;c&#125; (&#123;d&#125;%)&quot;
+        &#125;,
+        series: [
+            &#123;
+                name: &#39;分类&#39;,
+                type: &#39;pie&#39;,
+                radius: &#39;50%&#39;,
+                color: [&#39;#6772e5&#39;, &#39;#ff9e0f&#39;, &#39;#fa755a&#39;, &#39;#3ecf8e&#39;, &#39;#82d3f4&#39;, &#39;#ab47bc&#39;, &#39;#525f7f&#39;, &#39;#f51c47&#39;, &#39;#26A69A&#39;],
+                data: &lt;%- categoryArrJson %&gt;,
+                itemStyle: &#123;
+                    emphasis: &#123;
+                        shadowBlur: 10,
+                        shadowOffsetX: 0,
+                        shadowColor: &#39;rgba(0, 0, 0, 0.5)&#39;
+                    &#125;
+                &#125;
+            &#125;
+        ]
+    &#125;;
+
+    
+    &lt;%
+    &#x2F;* calculate tagsOption data. *&#x2F;
+    &#x2F;&#x2F; get all tags name and count,then order by length desc.
+    var tagArr &#x3D; [];
+    site.tags.map(function(tag) &#123;
+        tagArr.push(&#123;&#39;name&#39;: tag.name, &#39;value&#39;: tag.length&#125;);
+    &#125;);
+    tagArr.sort((a, b) &#x3D;&gt; &#123;return b.value - a.value&#125;);
+
+    &#x2F;&#x2F; get Top 10 tags name and count.
+    var tagNameArr &#x3D; [];
+    var tagCountArr &#x3D; [];
+    for (var i &#x3D; 0, len &#x3D; Math.min(tagArr.length, 10); i &lt; len; i++) &#123;
+        tagNameArr.push(tagArr[i].name);
+        tagCountArr.push(tagArr[i].value);
+    &#125;
+
+    var tagNameArrJson &#x3D; JSON.stringify(tagNameArr);
+    var tagCountArrJson &#x3D; JSON.stringify(tagCountArr);
+
+    %&gt;
+
+    let tagsOption &#x3D; &#123;
+        title: &#123;
+            text: &#39;TOP10 标签统计图&#39;,
+            top: -5,
+            x: &#39;center&#39;
+        &#125;,
+        tooltip: &#123;&#125;,
+        xAxis: [
+            &#123;
+                type: &#39;category&#39;,
+                axisLabel:&#123;
+                    interval:0,
+                    rotate:40
+                &#125;,
+                data: &lt;%- tagNameArrJson %&gt;
+            &#125;
+        ],
+        yAxis: [
+            &#123;
+                type: &#39;value&#39;
+            &#125;
+        ],
+        series: [
+            &#123;
+                name: &#39;TOP10标签统计&#39;,
+                type: &#39;bar&#39;,
+                color: [&#39;#82d3f4&#39;],
+                barWidth : 18,
+                data: &lt;%- tagCountArrJson %&gt;,
+                markPoint: &#123;
+                    symbolSize: 45,
+                    data: [&#123;
+                        type: &#39;max&#39;,
+                        itemStyle: &#123;color: [&#39;#3ecf8e&#39;]&#125;,
+                        name: &#39;最大值&#39;
+                    &#125;, &#123;
+                        type: &#39;min&#39;,
+                        itemStyle: &#123;color: [&#39;#fa755a&#39;]&#125;,
+                        name: &#39;最小值&#39;
+                    &#125;],
+                &#125;,
+                markLine: &#123;
+                    itemStyle: &#123;color: [&#39;#ab47bc&#39;]&#125;,
+                    data: [
+                        &#123;type: &#39;average&#39;, name: &#39;平均值&#39;&#125;
+                    ]
+                &#125;
+            &#125;
+        ]
+    &#125;;
+
+    &#x2F;&#x2F; render the charts
+    postsChart.setOption(postsOption);
+    categoriesChart.setOption(categoriesOption);
+    tagsChart.setOption(tagsOption);
+&lt;&#x2F;script&gt;</code></pre>
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E9%9A%8F%E7%AC%94/">随笔</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2020/04/25/java/leetcode/test1/ni_bo_lan_shi/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">逆波兰式</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2020/04/24/java/leetcode/test1/mei_ri_wen_du/">
+                        <span class="hidden-mobile">每日温度</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    <div>
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("04/24/2020 00:00:00");
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+      }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+  <!-- 备案信息 -->
+  <div>
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
+       rel="nofollow noopener">蜀ICP备20011347号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=5827409"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>蜀ICP备20011347号-1</span>
+      </a>
+     
+  </div>
+
+
+    
+  </div>
+</footer>
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "hexo文章标签统计实现&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

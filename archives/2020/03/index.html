@@ -193,26 +193,26 @@
                 
 
 <div class="list-group">
-  <p class="h4">共计 57 篇文章</p>
+  <p class="h4">共计 59 篇文章</p>
   <hr>
   
     
       
       <p class="h5">2020</p>
     
-    <a href="/2020/03/26/normal/md%E6%A0%87%E9%A2%98%E8%87%AA%E5%8A%A8%E7%BC%96%E5%8F%B7/" class="list-group-item list-group-item-action">
+    <a href="/2020/03/26/normal/md_biao_ti_zi_dong_bian_hao/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">hexo中markdown文档自动编号</span>
       <span style="float: right;">03-26</span>
     </a>
   
     
-    <a href="/2020/03/25/Java/tools/java%E5%90%88%E5%B9%B6%E5%9B%BE%E7%89%87/" class="list-group-item list-group-item-action">
+    <a href="/2020/03/25/java/tools/java_he_bing_tu_pian/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">java合并图片</span>
       <span style="float: right;">03-25</span>
     </a>
   
     
-    <a href="/2020/03/24/normal/windows%E6%B7%BB%E5%8A%A0vscode%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95/" class="list-group-item list-group-item-action">
+    <a href="/2020/03/24/normal/windows_tian_jia_vscode_you_jian_cai_dan/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">windows添加vscode右键菜单</span>
       <span style="float: right;">03-24</span>
     </a>
@@ -271,7 +271,55 @@
       <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
         <span>Fluid</span></a>
     </div>
+    <div>
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("04/24/2020 00:00:00");
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+      }
+      setInterval("createtime()",250);
+      </script>
+    </div>
     
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
   <!-- 备案信息 -->
@@ -298,7 +346,6 @@
     
   </div>
 </footer>
-
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
@@ -315,6 +362,8 @@
   <script  src="/js/clipboard-use.js" ></script>
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

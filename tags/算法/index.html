@@ -193,56 +193,62 @@
                 
 
 <div class="list-group">
-<!--  <p class="h4">共计 8 篇文章</p>-->
+<!--  <p class="h4">共计 9 篇文章</p>-->
   <hr>
   
     
       
       <p class="h5">2020</p>
     
-    <a href="/2020/04/24/Java/leetcode/test1/%E6%AF%8F%E6%97%A5%E6%B8%A9%E5%BA%A6/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/25/java/leetcode/test1/ni_bo_lan_shi/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">逆波兰式</span>
+      <span style="float: right;">04-25</span>
+    </a>
+  
+    
+    <a href="/2020/04/24/java/leetcode/test1/mei_ri_wen_du/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">每日温度</span>
       <span style="float: right;">04-24</span>
     </a>
   
     
-    <a href="/2020/04/23/Java/leetcode/test1/%E7%AE%80%E5%8D%95%E6%A0%88%E7%BB%83%E4%B9%A0-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/23/java/leetcode/test1/jian_dan_zhan_lian_xi_you_xiao_de_gua_hao/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">简单栈练习-有效的括号</span>
       <span style="float: right;">04-23</span>
     </a>
   
     
-    <a href="/2020/04/22/Java/leetcode/test1/%E7%AE%80%E5%8D%95%E6%A0%88%E7%BB%83%E4%B9%A0-%E6%9C%80%E5%B0%8F%E6%A0%88/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/22/java/leetcode/test1/jian_dan_zhan_lian_xi_zui_xiao_zhan/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">简单栈练习-最小栈</span>
       <span style="float: right;">04-22</span>
     </a>
   
     
-    <a href="/2020/04/22/Java/leetcode/test1/%E5%AE%8C%E5%85%A8%E5%B9%B3%E6%96%B9%E6%95%B0/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/22/java/leetcode/test1/wan_quan_ping_fang_shu/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">完全平方数</span>
       <span style="float: right;">04-22</span>
     </a>
   
     
-    <a href="/2020/04/19/Java/leetcode/test1/%E6%89%93%E5%BC%80%E8%BD%AC%E7%9B%98%E9%94%81/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/19/java/leetcode/test1/da_kai_zhuan_pan_suo/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">打开转盘锁</span>
       <span style="float: right;">04-19</span>
     </a>
   
     
-    <a href="/2020/04/18/Java/leetcode/test1/%E5%B2%9B%E5%B1%BF%E6%95%B0%E9%87%8F/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/18/java/leetcode/test1/dao_yu_shu_liang/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">岛屿数量</span>
       <span style="float: right;">04-18</span>
     </a>
   
     
-    <a href="/2020/04/14/Java/leetcode/test1/%E8%AE%BE%E8%AE%A1%E5%BE%AA%E7%8E%AF%E9%98%9F%E5%88%97/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/14/java/leetcode/test1/she_ji_xun_huan_dui_lie/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">设计循环队列</span>
       <span style="float: right;">04-14</span>
     </a>
   
     
-    <a href="/2020/04/13/Java/leetcode/test1/%E8%AE%A1%E7%AE%97%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/" class="list-group-item list-group-item-action">
+    <a href="/2020/04/13/java/leetcode/test1/ji_suan_liang_shu_zhi_he/" class="list-group-item list-group-item-action">
       <span class="archive-post-title">计算两数之和</span>
       <span style="float: right;">04-13</span>
     </a>
@@ -301,7 +307,55 @@
       <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
         <span>Fluid</span></a>
     </div>
+    <div>
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("04/24/2020 00:00:00");
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+      }
+      setInterval("createtime()",250);
+      </script>
+    </div>
     
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
 
     
   <!-- 备案信息 -->
@@ -328,7 +382,6 @@
     
   </div>
 </footer>
-
 <!-- SCRIPTS -->
 <script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
 <script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
@@ -345,6 +398,8 @@
   <script  src="/js/clipboard-use.js" ></script>
 
 
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
 
 

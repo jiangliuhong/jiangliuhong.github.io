@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>SQL CRUD语句 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-JAVA"></i>
+              爪哇</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/statistics/">
+              <i class="iconfont icon-tongji"></i>
+              统计</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2018-07-16 10:52">
+                    星期一, 七月 16日 2018, 10:52 上午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    1.8k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    25
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-warning">
+                本文最后更新于：星期六, 四月 25日 2020, 9:33 晚上
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="SQL-CRUD语句"><a href="#SQL-CRUD语句" class="headerlink" title="SQL CRUD语句"></a>SQL CRUD语句</h1><blockquote>
+<p>下文以MySQL为例进行说明。<br><code>CRUD</code>即增加(Create)、查询(Retrieve)、更新(Update)、删除(Delete)四个单词的首字母缩写。</p>
+</blockquote>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>首先准备在MySQL数据库中创建两张表：学生表（student）、班级表(class)，建表语句如下：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">class</span>(
+<span class="hljs-keyword">id</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+<span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">45</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">comment</span> <span class="hljs-string">'班级名称'</span>,
+ PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-keyword">id</span>)
+)<span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8;
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> student (
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+  <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">45</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">comment</span> <span class="hljs-string">'学生姓名'</span>,
+  <span class="hljs-keyword">num</span> <span class="hljs-built_in">int</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span> <span class="hljs-keyword">comment</span> <span class="hljs-string">'学生学号'</span>,
+	class_id <span class="hljs-built_in">varchar</span>(<span class="hljs-number">32</span>) <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span> <span class="hljs-keyword">comment</span> <span class="hljs-string">'班级id'</span>,
+  PRIMARY <span class="hljs-keyword">KEY</span> (<span class="hljs-keyword">id</span>)
+) <span class="hljs-keyword">ENGINE</span>=<span class="hljs-keyword">InnoDB</span> <span class="hljs-keyword">DEFAULT</span> <span class="hljs-keyword">CHARSET</span>=utf8;</code></pre>
+
+<p>像表中插入一些测试数据，插入四个班级，往每个班级分别插入五名学生：</p>
+<pre><code class="hljs plain">INSERT INTO class VALUES (&#39;1&#39;,&#39;1班&#39;),(&#39;2&#39;,&#39;2班&#39;),(&#39;3&#39;,&#39;3班&#39;),(&#39;4&#39;,&#39;4班&#39;);
+
+INSERT INTO student VALUE
+(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生1&#39;,2013001,&#39;1&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生2&#39;,2013002,&#39;1&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生3&#39;,2013003,&#39;1&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生4&#39;,2013004,&#39;1&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生5&#39;,2013005,&#39;1&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生6&#39;,2013006,&#39;2&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生7&#39;,2013007,&#39;2&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生8&#39;,2013008,&#39;2&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生9&#39;,2013009,&#39;2&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生10&#39;,2013010,&#39;2&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生11&#39;,2013011,&#39;3&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生12&#39;,2013012,&#39;3&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生13&#39;,2013013,&#39;3&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生14&#39;,2013014,&#39;3&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生15&#39;,2013015,&#39;3&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生16&#39;,2013016,&#39;4&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生17&#39;,2013017,&#39;4&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生18&#39;,2013018,&#39;4&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生19&#39;,2013019,&#39;4&#39;)
+,(replace(UUID(),&#39;-&#39;,&#39;&#39;),&#39;学生20&#39;,2013020,&#39;4&#39;)</code></pre>
+
+<p>其中：</p>
+<p>UUID()为MySQL中的函数，作用为生成一个随机字符串</p>
+<p>replace为MySQL中的函数，作用为替换字符串中的’-‘字符</p>
+<h2 id="别名"><a href="#别名" class="headerlink" title="别名"></a>别名</h2><p>在使用SQL的过程中，我们可以为列名称和表名称指定别名（Alias）。</p>
+<p>别名在执行CRUD操作时有着很大的作用。</p>
+<p>指定别名的语法为在原名称后添加 AS XXX（别名），其中AS可以省略。</p>
+<p>对于上面的两张表，我们可以为class、student分别指定别名cla,stu。</p>
+<pre><code class="hljs plain">SELECT cla.id,lca.name FROM class as cla
+SELECT stu.id,stu,name,stu.num,stu.class_id FROM student stu</code></pre>
+
+<h2 id="增加-Create"><a href="#增加-Create" class="headerlink" title="增加(Create)"></a>增加(Create)</h2><p>增加数据只用INSERT INTO语句：</p>
+<pre><code class="hljs plain">INSERT INTO TABLE VALUE (value1,value2)</code></pre>
+
+<p>上面的语句是默认给表的所有字段插入值，VALUE后面的值的顺序与表字段顺序一直，其个数也必须与表字段个数一直。</p>
+<p>当然，我们也可指定要插入数据的列：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">TABLE</span> (column1,column2) <span class="hljs-keyword">VALUE</span> (value1,value2)</code></pre>
+
+<p>如果要一次插入多条数据（批量插入），可以在VALUE后添加多个代码块：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">TABLE</span> <span class="hljs-keyword">VALUE</span> (value1,value2),(value1,value2)</code></pre>
+
+<p>在执行批量插入时，应注意SQL的长度限制，批量插入的脚本不能超过数据库设置的SQL最大长度。</p>
+<p>在执行插入语句时还可以增加子查询语句，但语法要求是，子查询返回的字段要与INSERT的插入字段一致</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> table1;
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> table1 (column1,column2) <span class="hljs-keyword">SELECT</span> column1,column2 <span class="hljs-keyword">FROM</span> table2</code></pre>
+
+<h2 id="查询-Retrieve"><a href="#查询-Retrieve" class="headerlink" title="查询(Retrieve)"></a>查询(Retrieve)</h2><p>查询语句使用SELECT命令即可：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> column1,column2 <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">table</span></code></pre>
+
+<p>查询所有字段可使用*，不过一般不推荐这样操作</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">from</span> <span class="hljs-keyword">table</span></code></pre>
+
+<h3 id="子查询："><a href="#子查询：" class="headerlink" title="子查询："></a>子查询：</h3><p>SQL子查询也叫嵌套SELECT语句，一个SELECT语句的查询结果能够作为另一个语句的输入值。子查询能够出现的地方有：</p>
+<ul>
+<li>WHERE子句：左右外层SQL的条件</li>
+</ul>
+<p>查询1班、2班的所有学生：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> stu.name,stu.num <span class="hljs-keyword">FROM</span> student <span class="hljs-keyword">as</span> stu <span class="hljs-keyword">where</span> stu.class_id <span class="hljs-keyword">in</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">as</span> cla <span class="hljs-keyword">where</span> cla.name <span class="hljs-keyword">in</span> (<span class="hljs-string">'1班'</span>,<span class="hljs-string">'2班'</span>));</code></pre>
+
+<p>查询结果为:</p>
+<pre><code class="hljs tex">学生1	2013001
+学生2	2013002
+学生3	2013003
+学生4	2013004
+学生5	2013005
+学生6	2013006
+学生7	2013007
+学生8	2013008
+学生9	2013009
+学生10 2013010</code></pre>
+
+<ul>
+<li>FROM后：作为一个临时表</li>
+</ul>
+<p>从1班、2班所有学生中查询出学号在2013004到2014006之间的学生：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>,<span class="hljs-keyword">num</span>
+<span class="hljs-keyword">FROM</span> (<span class="hljs-keyword">SELECT</span> stu.name,stu.num <span class="hljs-keyword">FROM</span> student <span class="hljs-keyword">as</span> stu <span class="hljs-keyword">where</span> stu.class_id <span class="hljs-keyword">in</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">as</span> cla <span class="hljs-keyword">where</span> cla.name <span class="hljs-keyword">in</span> (<span class="hljs-string">'1班'</span>,<span class="hljs-string">'2班'</span>))) temp_talbe
+<span class="hljs-keyword">WHERE</span> <span class="hljs-keyword">num</span> <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">2013004</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2013006</span></code></pre>
+
+<p>查询结果为:</p>
+<pre><code class="hljs tex">学生4	2013004
+学生5	2013005
+学生6	2013006</code></pre>
+
+<ul>
+<li>COLUMN：COLUMN，即SELECT后面，作为一个字段值来返回，这里内层SQL只能返回一个字段</li>
+</ul>
+<p>根据学号查询学生的姓名、班级信息</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> stu.name,stu.num,(<span class="hljs-keyword">SELECT</span> cla.name <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">as</span> cla <span class="hljs-keyword">where</span> cla.id = stu.class_id) <span class="hljs-keyword">as</span> class_name <span class="hljs-keyword">FROM</span> student <span class="hljs-keyword">as</span> stu <span class="hljs-keyword">where</span> stu.num = <span class="hljs-number">2013004</span></code></pre>
+
+<p>查询结果为：</p>
+<pre><code class="hljs tex">学生4	2013004	1班</code></pre>
+
+<ul>
+<li>JOIN子句：作为一个临时表</li>
+</ul>
+<p>从1班、2班所有学生中查询出学号在201304到201406之间的学生：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> stu.name,stu.num
+<span class="hljs-keyword">FROM</span> student <span class="hljs-keyword">as</span> stu 
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> (<span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">id</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">as</span> cla <span class="hljs-keyword">where</span> cla.name <span class="hljs-keyword">in</span> (<span class="hljs-string">'1班'</span>,<span class="hljs-string">'2班'</span>)) <span class="hljs-keyword">as</span> cla
+<span class="hljs-keyword">ON</span> cla.id = stu.class_id
+<span class="hljs-keyword">WHERE</span> stu.num <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">2013004</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2013006</span></code></pre>
+
+<p>查询结果为：</p>
+<pre><code class="hljs plain">学生4	2013004
+学生5	2013005
+学生6	2013006</code></pre>
+
+<h2 id="更新-Update"><a href="#更新-Update" class="headerlink" title="更新(Update)"></a>更新(Update)</h2><p>更新表使用UPDATE语法，将已有的老数据更新为新数据。</p>
+<pre><code class="hljs plain">UPDATE table SET column1 &#x3D; value1 WHERE 条件</code></pre>
+
+<p>注意，如果不加WHERE条件，UPDATE语句会默认更新所有表，慎用。</p>
+<p>一次更新多个字段，在SET后面添加多个column：</p>
+<pre><code class="hljs plain">UPDATE table SET column1 &#x3D; value1,column1 &#x3D; value1 WHERE 条件</code></pre>
+
+<h3 id="联表更新"><a href="#联表更新" class="headerlink" title="联表更新"></a>联表更新</h3><p>联表更新，根据表一字段的值去设置表二字段的值。其实现方法由于数据库不同可能会有一定差异，下面以MySQL为例。</p>
+<p>例如：将学号在2013003到2013005之间的学生的class_id设置为二班的id。</p>
+<p>对于MySQL而言，联表更新主要的方式有二种：</p>
+<ul>
+<li>UPDATE table1,table2 set column1 = xxx where ….</li>
+</ul>
+<pre><code class="hljs sql"><span class="hljs-keyword">UPDATE</span> student stu,<span class="hljs-keyword">class</span> cla
+<span class="hljs-keyword">set</span> stu.class_id = cla.id
+<span class="hljs-keyword">where</span> stu.num <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">2013003</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2013005</span>
+<span class="hljs-keyword">AND</span> cla.name = <span class="hljs-string">'2班'</span>;</code></pre>
+
+<ul>
+<li>使用INNER JOIN（LEFT JOIN）进行更新：</li>
+</ul>
+<pre><code class="hljs sql"><span class="hljs-keyword">UPDATE</span> student stu
+<span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> <span class="hljs-keyword">class</span> cla <span class="hljs-keyword">ON</span> cla.name = <span class="hljs-string">'2班'</span>
+<span class="hljs-keyword">SET</span> stu.class_id = cla.id
+<span class="hljs-keyword">where</span> stu.num <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">2013003</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2013005</span></code></pre>
+
+<p>执行下面SQL验证结果：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">name</span>,<span class="hljs-keyword">num</span>,class_id <span class="hljs-keyword">FROM</span> student <span class="hljs-keyword">where</span> <span class="hljs-keyword">num</span> <span class="hljs-keyword">BETWEEN</span> <span class="hljs-number">2013003</span> <span class="hljs-keyword">AND</span> <span class="hljs-number">2013005</span>
+学生<span class="hljs-number">3</span>	<span class="hljs-number">2013003</span>	<span class="hljs-number">2</span>
+学生<span class="hljs-number">4</span>	<span class="hljs-number">2013004</span>	<span class="hljs-number">2</span>
+学生<span class="hljs-number">5</span>	<span class="hljs-number">2013005</span>	<span class="hljs-number">2</span></code></pre>
+
+<p>在进行UPDATE语句是也可以在其中加入子查询语句。</p>
+<h2 id="删除-Delete"><a href="#删除-Delete" class="headerlink" title="删除(Delete)"></a>删除(Delete)</h2><p>删除使用DELETE语法</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">table</span> <span class="hljs-keyword">WHERE</span> column1 = value1</code></pre>
+
+<p>DELETE语法与UPDATE语法一直，如果没有WHERE条件则会删除指定表的所有数据。</p>
+<h4 id="联表删除"><a href="#联表删除" class="headerlink" title="联表删除"></a>联表删除</h4><ul>
+<li>根据table2的条件删除table1的数据</li>
+</ul>
+<p>删除所有一班的学生：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> student <span class="hljs-keyword">FROM</span> student,<span class="hljs-keyword">class</span> <span class="hljs-keyword">WHERE</span> class.id = student.class_id <span class="hljs-keyword">and</span> class.name = <span class="hljs-string">'1班'</span></code></pre>
+
+<pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> student <span class="hljs-keyword">FROM</span> student <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">ON</span> class.id = student.class_id 
+<span class="hljs-keyword">where</span> class.name = <span class="hljs-string">'1班'</span></code></pre>
+
+
+<p>注意，此处的student,即表名，不能使用别名。</p>
+<ul>
+<li>同时删除两个表的记录</li>
+</ul>
+<p>删除一班，并删除一班下面的所有学生：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">DELETE</span> <span class="hljs-keyword">class</span>,student <span class="hljs-keyword">FROM</span> <span class="hljs-keyword">class</span> <span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> student <span class="hljs-keyword">ON</span>  class.id = student.class_id <span class="hljs-keyword">WHERE</span> class.name = <span class="hljs-string">'1班'</span></code></pre>
+
+
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/SQL/">SQL</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/07/16/java/design/mian_xiang_dui_xiang_she_ji_she_ji_yuan_ze/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">面向对象设计与设计原则</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/07/16/database/mysql/mysql_bei_fen_yu_huan_yuan/">
+                        <span class="hidden-mobile">MySQL备份与还原</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    <div>
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("04/24/2020 00:00:00");
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+      }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+  <!-- 备案信息 -->
+  <div>
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
+       rel="nofollow noopener">蜀ICP备20011347号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=5827409"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>蜀ICP备20011347号-1</span>
+      </a>
+     
+  </div>
+
+
+    
+  </div>
+</footer>
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "SQL CRUD语句&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

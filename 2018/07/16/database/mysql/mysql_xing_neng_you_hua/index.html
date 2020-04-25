@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/coding.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>MySQL性能优化 - 硒恩园</title>
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
+<link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/9.18.1/styles/idea.min.css" />
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_fmb4a04yx8h.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_ijqayz9ro8k.css">
+
+
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+  
+<link rel="stylesheet" href="/css/iconfont/iconfont.css">
+
+
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+
+<body>
+  <header style="height: 50vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>硒恩园</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">
+              <i class="iconfont icon-home-fill"></i>
+              首页</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">
+              <i class="iconfont icon-archive-fill"></i>
+              归档</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/Java/">
+              <i class="iconfont icon-JAVA"></i>
+              爪哇</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/2020/04/12/study/2020_study/">
+              <i class="iconfont icon-xuexiguanli-"></i>
+              2020</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">
+              <i class="iconfont icon-category-fill"></i>
+              分类</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">
+              <i class="iconfont icon-tags-fill"></i>
+              标签</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/statistics/">
+              <i class="iconfont icon-tongji"></i>
+              统计</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">
+              <i class="iconfont icon-user-fill"></i>
+              关于</a>
+          </li>
+        
+          
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/links/">
+              <i class="iconfont icon-link-fill"></i>
+              友链</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="view intro-2" id="background" parallax=true
+         style="background: url('/img/banner2.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              
+                <div class="mt-3 post-meta">
+                  <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+                  <time datetime="2018-07-16 10:52">
+                    星期一, 七月 16日 2018, 10:52 上午
+                  </time>
+                </div>
+              
+
+              <div class="mt-1">
+                
+                  
+                  <span class="post-meta mr-2">
+                    <i class="iconfont icon-chart"></i>
+                    2k 字
+                  </span>
+                
+
+                
+                  
+                  <span class="post-meta mr-2">
+                      <i class="iconfont icon-clock-fill"></i>
+                    
+                    
+                    21
+                     分钟
+                  </span>
+                
+
+                
+              </div>
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <div class="post-content mx-auto" id="post">
+            
+              <p class="note note-warning">
+                本文最后更新于：星期三, 四月 8日 2020, 10:12 晚上
+              </p>
+            
+            <article class="markdown-body">
+              <h1 id="MySQL性能优化"><a href="#MySQL性能优化" class="headerlink" title="MySQL性能优化"></a>MySQL性能优化</h1><h2 id="日志优化"><a href="#日志优化" class="headerlink" title="日志优化"></a>日志优化</h2><p>不论是MySQL数据库还是其它数据库，特别是支持事务的数据库而言，其日志需要记录数据服务器中的CURD操作，从而会消耗IO资源，从而影响到数据库性能，特别是操作频繁且数据量大的数据表。对于MySQL而言，其日志主要为二进制日志（BinLog）、错误日志（Error Log）、慢查询日志（Slow Query Log），下面将分别对MySQL的日志优化作出说明。</p>
+<h3 id="BinLog优化"><a href="#BinLog优化" class="headerlink" title="BinLog优化"></a>BinLog优化</h3><p>在实际生产环境中，为保护数据库数据的安全性，我们一般都将会打开BinLog日志进行增量备份。对于MySQL的BinLog日志备份，有三种模式，分别为：行模式、语句模式、混合模式。下面对三种模式分别进行说明：</p>
+<ul>
+<li>行模式：基于行的日志中事件信息记录每行的变化信息。记录没一行数据的修改细节，使用该模式，系统会产生大量的日志内容。</li>
+<li>语句模式：基于语句的日志中事件信息包含执行的语句。每一条修改数据的Query语句都会记录在日志文件中。该模式不需要记录每一行数据的变化，减少了日志内容，降低了IO开销，提高了数据库性能。但由于该模式只记录Query语句，如果Query语句中包含了一些特定的函数等功能，则会使得MySQL复制出现问题。</li>
+<li>混合模式：包含上两个模式的事件信息。在该模式下，MySQL会根据执行的每一条Query语句去动态决定该日志需要的日志模式。</li>
+</ul>
+<p>在使用MySQL的BinLog日志时，我们应按照事迹情况选择日志模式，比如减少对于特定函数、存储过程的使用，从而提高语句模式的使用率，尽量减少行模式的使用。</p>
+<p><strong>BinLog参数:</strong></p>
+<pre><code class="hljs sql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">variables</span> <span class="hljs-keyword">like</span> <span class="hljs-string">'%binlog%'</span>;</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>binlog_cache_size</td>
+<td>表示事务过程中容纳二进制日志SQL语句的缓存大小。默认值为32K，如果事务过多需要增加该配置大小。</td>
+</tr>
+<tr>
+<td>innodb_locks_unsafe_for_binlog</td>
+<td>innodb引擎特有的配置，设置是否启用间隙锁，默认为off，即开启间隙锁。</td>
+</tr>
+<tr>
+<td>max_binlog_cache_size</td>
+<td>日志最大缓存大小。使用形式文件存储来自事务的变化。该参数不宜太小。</td>
+</tr>
+<tr>
+<td>max_binlog_size</td>
+<td>binlog的最大值，一边设置为523m或1G，但一般不超过1G。</td>
+</tr>
+<tr>
+<td>sync_binlog</td>
+<td>事务同步设置，在binlog中该参数尤为重要，该配置如果为0，则MySQL会让文件系统自行决定什么时候同步到磁盘中，如果为n，则代表经过n此事务后，将事务同步到磁盘中，如果为1，则代表每次提交事务后头同步到磁盘中。该参数默认值为0，如果要修改该参数，需要注意两点，一是设置为1能保证最大限度保证数据安全，但性能开销大；二是设置为其他值，可以减少性能消耗，但数据安全性较低。</td>
+</tr>
+</tbody></table>
+<h3 id="慢查询日志"><a href="#慢查询日志" class="headerlink" title="慢查询日志"></a>慢查询日志</h3><p>在MySQL中可以做通过慢查询日志查看系统中效率较低的Query语句。</p>
+<p>查询慢日志相关的参数有：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>slow_query_log</td>
+<td>是否开启慢查询日志，1表示开启，0表示关闭</td>
+</tr>
+<tr>
+<td>slow-query-log-file</td>
+<td>MySQL数据库慢查询日志存储路径</td>
+</tr>
+<tr>
+<td>long_query_time</td>
+<td>慢查询时间，超过设置的时间，系统将该查询记录</td>
+</tr>
+<tr>
+<td>log_queries_not_using_indexes</td>
+<td>未使用索引的查询也被记录到慢查询日志中</td>
+</tr>
+<tr>
+<td>log_output</td>
+<td>日志存储方式</td>
+</tr>
+</tbody></table>
+<p>对于慢查询日志，我们可以设置一个时间，从而统计出系统中超过预期的SQL，从而对其进行优化。</p>
+<h2 id="Query-Cache优化"><a href="#Query-Cache优化" class="headerlink" title="Query Cache优化"></a>Query Cache优化</h2><p>Query Cache即对客户端请求的Query语句（Select语句）的结果进行一个缓存操作，将Query语句通过Hash计算得到hash值，将该值作为KEY，查询结果（Result Set）作为VALUE存储在内存中，对于下一个Query语句，MySQL会先进行Hash运行，然后从内存中寻找对应的Query Cache，如果有直接返回，没有则执行语句，并将其加入到Query Cache中，对于频繁执行的Query语句，MySQL直接从Query Cache中获取结果集，从而较少IO开销。</p>
+<p>虽然Query Cache能将查询结果缓存以减少下次查询的等待时间，但查询语句不是一成不变，查询的表中的数据同样也会产生变化。下面就细数一下Query Cache的几个缺点：</p>
+<ul>
+<li>Query Cache缓存失效：对于Query Cache缓存的原理是将Query语句查询结果集缓存，如果表的数据变化，MySQL则会清除该Query语句对应的Query Cache缓存。对于变更和查询较为频繁的表，Query Cache 每次进行的Hash运算，每次进行的结果集缓存操作都是对服务器的一大消耗（数据量过大的情况下）。</li>
+<li>Query Cache缓存内存浪费：Query Cache缓存的是一个Query语句的结果集（Result Set），注意此处不是数据表而是结果集，也就是一张表对应有100个不同Query语句，则就会产生100个Query Cache，即同一条记录被多次缓存。从而使得服务器资源消耗大。当然也可限制Query Cache缓存的大小，不过这样的话缓存效率可能较低。</li>
+</ul>
+<p>虽然Query Cache具有一些负面影响，但因为其优点，在某些情景下，这些负面影响并不影响我们使用它。当然在使用Query Cache时应注意不要过度依赖Query Cache，我们理应做到扬长避短，充分发挥其优势。</p>
+<p>对于上述两个缺点，主要为表数据的变化，Query语句的不同而导致的缓存数据较多。所以我们可以将Query Cache适用的场景做以下归纳：</p>
+<ul>
+<li>适用于数据变化不频繁的表。</li>
+<li>结果集不是太大的表，如果太大，可限制缓存大小。</li>
+</ul>
+<p>SQL启动与关闭Query Cache缓存：</p>
+<ul>
+<li>SQL_NO_CACHE：强制不使用Query Cache，示例，SELECT SQL_NO_CACHE * from…</li>
+<li>SQL_CACHE：强制使用Query Cache，示例，SELECT SQL_CACHE * from…</li>
+</ul>
+<p><strong>Query Cachede系统变量</strong></p>
+<p>查询SQL为：</p>
+<pre><code class="hljs plain">show variables like &#39;%query_cache%&#39;;</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>query_cache_limit</td>
+<td>存放单条Query Cahe的最大结果集内存大小，默认为1M</td>
+</tr>
+<tr>
+<td>query_cache_min_res_unit</td>
+<td>每个Query Cache的最小结果集内存大小，默认为4k</td>
+</tr>
+<tr>
+<td>query_cache_size</td>
+<td>系统中用于Query Cache的内存大小</td>
+</tr>
+<tr>
+<td>query_cache_type</td>
+<td>Query Cache开启状态</td>
+</tr>
+<tr>
+<td>query_cache_wlock_invalidate</td>
+<td>针对MyISAM存储引擎，设置当有WRITE LOCK在某个Table上时，读请求是要等WRITE LOCK释放资源后再查询还是允许直接从Query Cache中读取结果，默认为FALSE（可以直接从Query Cache中取得结果）</td>
+</tr>
+</tbody></table>
+<p>对于Query Cache不仅限于上述的五点配置，还有一些状态变量，使用下面的查询语句可查看其它变量：</p>
+<pre><code class="hljs sql"><span class="hljs-keyword">show</span> <span class="hljs-keyword">status</span> <span class="hljs-keyword">like</span> <span class="hljs-string">'Qcache'</span>;</code></pre>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Qcache_free_blocks</td>
+<td>Query Cache中目前还有多少剩余的blocks。如果该值显示较大，则说明Query Cache中的内存碎片过多了，可能须要寻找合适的机会进行整理</td>
+</tr>
+<tr>
+<td>Qcache_free_memory</td>
+<td>Query Cache中目前剩余的内存大小。通过这个参数可以较为准确地观察出当前系统中的Query Cache内存大小是否足够，是须要增加还是过多了</td>
+</tr>
+<tr>
+<td>Qcache_hits</td>
+<td>多少次命中。通过这个参数可以查看到Query Cache的基本效果</td>
+</tr>
+<tr>
+<td>Qcache_inserts</td>
+<td>多少次未命中然后插入。通过“Qcache_hits”和“Qcache_inserts”两个参数可以算出Query Cache的命中率</td>
+</tr>
+<tr>
+<td>Qcache_lowmem_prunes</td>
+<td>该数值表示有多少query因内存不足而被清楚的Query Cache</td>
+</tr>
+<tr>
+<td>Qcache_not_cached</td>
+<td>表示query_cache_type的设置或者不能被cache的query的数量</td>
+</tr>
+<tr>
+<td>Qcache_queries_in_cache</td>
+<td>当前Query Cache中的数量</td>
+</tr>
+<tr>
+<td>Qcache_total_blocks</td>
+<td>当前Query Cache中被block的数量</td>
+</tr>
+</tbody></table>
+
+            </article>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                      <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext row">
+                  <div class="post-prev col-6">
+                    
+                    
+                      <a href="/2018/07/16/database/postgresql/postgresql_an_zhuang/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">PostgreSQL安装</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </div>
+                  <div class="post-next col-6">
+                    
+                    
+                      <a href="/2018/07/16/database/postgresql/postgresql_shi_yong/">
+                        <span class="hidden-mobile">postgresql使用</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </div>
+                </div>
+              
+            </div>
+
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+  </main>
+
+  
+    <a id="scroll-top-button" href="#" role="button">
+      <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  
+
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <div>
+      <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
+      <i class="iconfont icon-love"></i>
+      <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener">
+        <span>Fluid</span></a>
+    </div>
+    <div>
+      <span id="timeDate">载入天数...</span>
+      <span id="times">载入时分秒...</span>
+      <script>
+      var now = new Date();
+      function createtime(){
+          var grt= new Date("04/24/2020 00:00:00");
+          now.setTime(now.getTime()+250);
+          days = (now - grt ) / 1000 / 60 / 60 / 24;
+          dnum = Math.floor(days);
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+          hnum = Math.floor(hours);
+          if(String(hnum).length ==1 ){
+              hnum = "0" + hnum;
+          }
+          minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+          mnum = Math.floor(minutes);
+          if(String(mnum).length ==1 ){
+                    mnum = "0" + mnum;
+          }
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+          snum = Math.round(seconds);
+          if(String(snum).length ==1 ){
+                    snum = "0" + snum;
+          }
+          document.getElementById("timeDate").innerHTML = "本站安全运行&nbsp"+dnum+"&nbsp天";
+          document.getElementById("times").innerHTML = hnum + "&nbsp小时&nbsp" + mnum + "&nbsp分&nbsp" + snum + "&nbsp秒";
+      }
+      setInterval("createtime()",250);
+      </script>
+    </div>
+    
+  <div>
+    
+      <!-- 不蒜子统计PV -->
+      
+      <span id="busuanzi_container_site_pv" style="display: none">
+      总访问量 <span id="busuanzi_value_site_pv"></span> 次
+    </span>
+    
+    
+      <!-- 不蒜子统计UV -->
+      
+      <span id="busuanzi_container_site_uv" style="display: none">
+      总访客数 <span id="busuanzi_value_site_uv"></span> 人
+    </span>
+    
+  </div>
+
+
+    
+  <!-- 备案信息 -->
+  <div>
+    <a href="http://beian.miit.gov.cn/" target="_blank" class="beian-icp"
+       rel="nofollow noopener">蜀ICP备20011347号</a>
+    
+      <a
+        href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=5827409"
+        rel="nofollow noopener"
+        class="beian-police"
+        target="_blank"
+      >
+        <span class="beian-police-sep">&nbsp;|&nbsp;</span>
+        
+          <img src="/img/police_beian.png" srcset="/img/loading.gif" alt="police-icon" />
+        
+        <span>蜀ICP备20011347号-1</span>
+      </a>
+     
+  </div>
+
+
+    
+  </div>
+</footer>
+<!-- SCRIPTS -->
+<script  src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js" ></script>
+<script  src="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+<script  src="/js/main.js" ></script>
+
+
+  <script  src="/js/lazyload.js" ></script>
+
+
+
+  
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '.post-content',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
+
+
+
+
+  <script defer src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js" ></script>
+  <script  src="/js/clipboard-use.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+<!-- Plugins -->
+
+
+
+  <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "MySQL性能优化&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "hover",
+      
+      icon: "❡"
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
